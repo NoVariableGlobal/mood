@@ -25,6 +25,11 @@
 *.la
 *.a
 *.lib
+*.pdb
+*.iobj
+*.ipdb
+*.ilk
+*.log
 
 # Executables
 *.exe
@@ -34,3 +39,4 @@
 .vs/
 .vscode/
 .idea/
+.temp/

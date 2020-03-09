@@ -75,12 +75,21 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\</OutDir>
+    <EnableClangTidyCodeAnalysis>true</EnableClangTidyCodeAnalysis>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <TargetName>$(ProjectName)_d</TargetName>
+    <IntDir>$(SolutionDir).temp\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\</OutDir>
+    <EnableClangTidyCodeAnalysis>true</EnableClangTidyCodeAnalysis>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <IntDir>$(SolutionDir).temp\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -104,10 +113,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\fmod\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\ogre-1.12.5\build\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\ogre-1.12.5\OgreMain\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\jsoncpp-master\build\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\jsoncpp-master\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\Src\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>OgreMain_d.lib;jsoncpp.lib;fmod64_vc.lib;Engine_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\ogre-1.12.5\build\lib\$(Configuration);$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\jsoncpp-master\build\src\lib_json\$(Configuration);$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\fmod;$(SolutionDir)deps\global-engine\P3\ProyectoBase\bin</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -138,12 +150,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\fmod\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\ogre-1.12.5\build\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\ogre-1.12.5\OgreMain\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\jsoncpp-master\build\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\jsoncpp-master\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\Src\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>OgreMain.lib;jsoncpp.lib;fmod64_vc.lib;Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\ogre-1.12.5\build\lib\$(Configuration);$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\jsoncpp-master\build\src\lib_json\$(Configuration);$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\fmod;$(SolutionDir)deps\global-engine\P3\ProyectoBase\bin</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
