@@ -1,4 +1,4 @@
-#include <OgreContext.h>
+#include <OgreSDLContext.h>
 #include <OgreRoot.h> // como no lo tenemos metido en nuestro proyecto es mejor poner <> que ""
 
 #ifdef _DEBUG
@@ -8,7 +8,7 @@ int main()
 int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE prevInstance, LPSTR lmCmdLine, int nCmdShow)
 #endif
 {
-	OgreContext app;
+	OgreSDLContext app;
 	app.initApp("Test");
 	app.renderLoop();
 
