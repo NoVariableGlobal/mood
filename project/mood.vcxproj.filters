@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="mood.cpp">
+    <ClCompile Include="..\src\mood.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
