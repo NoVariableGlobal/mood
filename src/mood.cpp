@@ -1,6 +1,7 @@
-#include <OgreSDLContext.h>
-#include <OgreRoot.h> // como no lo tenemos metido en nuestro proyecto es mejor poner <> que ""
+#include "Game.h"
 
+#include <iostream>
+#include <fstream>
 #ifdef _DEBUG
 int main()
 #else
@@ -8,9 +9,22 @@ int main()
 int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE prevInstance, LPSTR lmCmdLine, int nCmdShow)
 #endif
 {
-	OgreSDLContext app;
-	app.initApp("Test");
-	app.renderLoop();
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+    try {
+        std::fstream file;
+        file.open("hola.txt");
+
+        if (!file.is_open()) {
+            std::cout << "aiudaPP";
+        }
+
+        Game game;
+        if (game.init("MOOD"))
+            game.run();
+    }
+    catch (std::exception & e) {
+        std::cout << "ERROR: " << e.what();
+    }
 
 	return 0;
 }

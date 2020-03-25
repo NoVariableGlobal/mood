@@ -14,7 +14,6 @@
 # Compiled Dynamic libraries
 *.so
 *.dylib
-*.dll
 
 # Fortran module files
 *.mod
@@ -24,19 +23,24 @@
 *.lai
 *.la
 *.a
-*.lib
-*.pdb
-*.iobj
-*.ipdb
-*.ilk
-*.log
 
 # Executables
-*.exe
 *.out
 *.app
 
-.vs/
-.vscode/
 .idea/
-.temp/
+.vscode/
+.vs/
+*/**/build/
+inter/
+test/
+
+*/**/bin/*.exe
+*/**/bin/*.log
+*/**/bin/*.ilk
+*/**/bin/*.dll
+*/**/bin/*.iobj
+*/**/bin/*.ipdb
+*/**/bin/*.pdb
+
+P3/ProyectoBase/bin/TaharezLook.looknfeel
