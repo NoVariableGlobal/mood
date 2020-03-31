@@ -190,13 +190,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps\OTY\P3\ProyectoBase\Src\Engine;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\jsoncpp-master\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\ogre-1.12.5\OgreMain\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\ogre-1.12.5\Build\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\ogre-1.12.5\Components\RTShaderSystem\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\bullet3-2.89\src;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\ogre-1.12.5\PlugIns\STBICodec\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\fmod\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\SDL2-2.0.10\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\jsoncpp-master\include\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps\one-thousand-years\P3\ProyectoBase\Src\Engine;$(SolutionDir)deps\one-thousand-years\P3\ProyectoBase\lib\jsoncpp-master\include;$(SolutionDir)deps\one-thousand-years\P3\ProyectoBase\lib\ogre-1.12.5\OgreMain\include;$(SolutionDir)deps\one-thousand-years\P3\ProyectoBase\lib\ogre-1.12.5\Build\include;$(SolutionDir)deps\one-thousand-years\P3\ProyectoBase\lib\ogre-1.12.5\Components\RTShaderSystem\include;$(SolutionDir)deps\one-thousand-years\P3\ProyectoBase\lib\bullet3-2.89\src;$(SolutionDir)deps\one-thousand-years\P3\ProyectoBase\lib\ogre-1.12.5\PlugIns\STBICodec\include;$(SolutionDir)deps\one-thousand-years\P3\ProyectoBase\lib\fmod\include;$(SolutionDir)deps\one-thousand-years\P3\ProyectoBase\lib\SDL2-2.0.10\include;$(SolutionDir)deps\one-thousand-years\P3\ProyectoBase\lib\jsoncpp-master\include\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>Engine_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)deps\OTY\P3\ProyectoBase\libs</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)deps\one-thousand-years\P3\ProyectoBase\libs</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -227,7 +227,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps\OTY\P3\ProyectoBase\Src\Engine;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\jsoncpp-master\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\ogre-1.12.5\OgreMain\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\ogre-1.12.5\Build\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\ogre-1.12.5\Components\RTShaderSystem\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\bullet3-2.89\src;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\ogre-1.12.5\PlugIns\STBICodec\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\fmod\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\SDL2-2.0.10\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\jsoncpp-master\include\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps\one-thousand-years\P3\ProyectoBase\Src\Engine;$(SolutionDir)deps\one-thousand-years\P3\ProyectoBase\lib\jsoncpp-master\include;$(SolutionDir)deps\one-thousand-years\P3\ProyectoBase\lib\ogre-1.12.5\OgreMain\include;$(SolutionDir)deps\one-thousand-years\P3\ProyectoBase\lib\ogre-1.12.5\Build\include;$(SolutionDir)deps\one-thousand-years\P3\ProyectoBase\lib\ogre-1.12.5\Components\RTShaderSystem\include;$(SolutionDir)deps\one-thousand-years\P3\ProyectoBase\lib\bullet3-2.89\src;$(SolutionDir)deps\one-thousand-years\P3\ProyectoBase\lib\ogre-1.12.5\PlugIns\STBICodec\include;$(SolutionDir)deps\one-thousand-years\P3\ProyectoBase\lib\fmod\include;$(SolutionDir)deps\one-thousand-years\P3\ProyectoBase\lib\SDL2-2.0.10\include;$(SolutionDir)deps\one-thousand-years\P3\ProyectoBase\lib\jsoncpp-master\include\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -235,7 +235,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)deps\OTY\P3\ProyectoBase\libs</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)deps\one-thousand-years\P3\ProyectoBase\libs</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
