@@ -1,3 +1,3 @@
-[submodule "global-engine"]
-	path = deps/global-engine
+[submodule "deps/OTY"]
+	path = deps/OTY
 	url = https://github.com/NoVariableGlobal/global-engine
