@@ -1,3 +1,3 @@
-[submodule "deps/OTY"]
-	path = deps/OTY
+[submodule "deps/one-thousand-years"]
+	path = deps/one-thousand-years
 	url = https://github.com/NoVariableGlobal/global-engine
