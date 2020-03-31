@@ -19,7 +19,79 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\AutomaticEC.cpp" />
+    <ClCompile Include="..\src\AutomaticRifleC.cpp" />
+    <ClCompile Include="..\src\BulletC.cpp" />
+    <ClCompile Include="..\src\DestroyAfterSecsEC.cpp" />
+    <ClCompile Include="..\src\EnemyBehaviourEC.cpp" />
+    <ClCompile Include="..\src\GunC.cpp" />
+    <ClCompile Include="..\src\GunPowerUpC.cpp" />
+    <ClCompile Include="..\src\HandGunC.cpp" />
+    <ClCompile Include="..\src\ImmediatePowerUpEC.cpp" />
+    <ClCompile Include="..\src\IncreaseSpeedEC.cpp" />
+    <ClCompile Include="..\src\InfiniteAmmoEC.cpp" />
+    <ClCompile Include="..\src\InstakillEC.cpp" />
+    <ClCompile Include="..\src\InvulnerabilityShield.cpp" />
+    <ClCompile Include="..\src\LifeC.cpp" />
+    <ClCompile Include="..\src\MedkitEC.cpp" />
+    <ClCompile Include="..\src\MeleeEnemyBehaviourEC.cpp" />
     <ClCompile Include="..\src\mood.cpp" />
+    <ClCompile Include="..\src\NukeEC.cpp" />
+    <ClCompile Include="..\src\OnEPressPickUpIC.cpp" />
+    <ClCompile Include="..\src\OrientateToMouseIC.cpp" />
+    <ClCompile Include="..\src\PersistentPowerUpEC.cpp" />
+    <ClCompile Include="..\src\PlayerMovementIC.cpp" />
+    <ClCompile Include="..\src\PlayerShotIC.cpp" />
+    <ClCompile Include="..\src\PowerUpC.cpp" />
+    <ClCompile Include="..\src\PowerUpEC.cpp" />
+    <ClCompile Include="..\src\PowerUpTrackerC.cpp" />
+    <ClCompile Include="..\src\RangedEnemyBehaviourEC.cpp" />
+    <ClCompile Include="..\src\ShotgunC.cpp" />
+    <ClCompile Include="..\src\SniperBulletC.cpp" />
+    <ClCompile Include="..\src\SniperGunC.cpp" />
+    <ClCompile Include="..\src\SpawnerBulletsC.cpp" />
+    <ClCompile Include="..\src\SpawnerEC.cpp" />
+    <ClCompile Include="..\src\SpawnerEnemiesEC.cpp" />
+    <ClCompile Include="..\src\SpawnerFloorRandomEC.cpp" />
+    <ClCompile Include="..\src\TridimensionalObjectRC.cpp" />
+    <ClCompile Include="..\src\WeaponControllerIC.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\AutomaticEC.h" />
+    <ClInclude Include="..\src\AutomaticRifleC.h" />
+    <ClInclude Include="..\src\BulletC.h" />
+    <ClInclude Include="..\src\DestroyAfterSecsEC.h" />
+    <ClInclude Include="..\src\EnemyBehaviourEC.h" />
+    <ClInclude Include="..\src\GunC.h" />
+    <ClInclude Include="..\src\GunPowerUpC.h" />
+    <ClInclude Include="..\src\HandGunC.h" />
+    <ClInclude Include="..\src\ImmediatePowerUpEC.h" />
+    <ClInclude Include="..\src\IncreaseSpeedEC.h" />
+    <ClInclude Include="..\src\InfiniteAmmoEC.h" />
+    <ClInclude Include="..\src\InstakillEC.h" />
+    <ClInclude Include="..\src\InvulnerabilityShield.h" />
+    <ClInclude Include="..\src\LifeC.h" />
+    <ClInclude Include="..\src\MedkitEC.h" />
+    <ClInclude Include="..\src\MeleeEnemyBehaviourEC.h" />
+    <ClInclude Include="..\src\NukeEC.h" />
+    <ClInclude Include="..\src\OnEPressPickUpIC.h" />
+    <ClInclude Include="..\src\OrientateToMouseIC.h" />
+    <ClInclude Include="..\src\PersistentPowerUpEC.h" />
+    <ClInclude Include="..\src\PlayerMovementIC.h" />
+    <ClInclude Include="..\src\PlayerShotIC.h" />
+    <ClInclude Include="..\src\PowerUpC.h" />
+    <ClInclude Include="..\src\PowerUpEC.h" />
+    <ClInclude Include="..\src\PowerUpTrackerC.h" />
+    <ClInclude Include="..\src\RangedEnemyBehaviourEC.h" />
+    <ClInclude Include="..\src\ShotgunC.h" />
+    <ClInclude Include="..\src\SniperBulletC.h" />
+    <ClInclude Include="..\src\SniperGunC.h" />
+    <ClInclude Include="..\src\SpawnerBulletsC.h" />
+    <ClInclude Include="..\src\SpawnerEC.h" />
+    <ClInclude Include="..\src\SpawnerEnemiesEC.h" />
+    <ClInclude Include="..\src\SpawnerFloorRandomEC.h" />
+    <ClInclude Include="..\src\TridimensionalObjectRC.h" />
+    <ClInclude Include="..\src\WeaponControllerIC.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -118,13 +190,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\SDL2-2.0.10\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\bullet3-2.89\src;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\fmod\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\ogre-1.12.5\build\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\ogre-1.12.5\OgreMain\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\ogre-1.12.5\Components\RTShaderSystem\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\jsoncpp-master\build\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\jsoncpp-master\include\json;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\jsoncpp-master\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\Src\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps\OTY\P3\ProyectoBase\Src\Engine;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\jsoncpp-master\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\ogre-1.12.5\OgreMain\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\ogre-1.12.5\Build\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\ogre-1.12.5\Components\RTShaderSystem\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\bullet3-2.89\src;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\ogre-1.12.5\PlugIns\STBICodec\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\fmod\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\SDL2-2.0.10\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\jsoncpp-master\include\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;OgreMain_d.lib;jsoncpp.lib;BulletCollision_Debug.lib;BulletDynamics_Debug.lib;LinearMath_Debug.lib;Codec_STBI_d.lib;OgreRTShaderSystem_d.lib;Engine_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\SDL2-2.0.10\lib\$(Platform);$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\bullet3-2.89\build\lib\$(Configuration);$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\ogre-1.12.5\build\lib\$(Configuration);$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\jsoncpp-master\build\src\lib_json\$(Configuration);$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\fmod;$(SolutionDir)deps\global-engine\P3\ProyectoBase\bin\libs</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Engine_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)deps\OTY\P3\ProyectoBase\libs</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -155,15 +227,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\SDL2-2.0.10\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\bullet3-2.89\src;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\fmod\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\ogre-1.12.5\build\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\ogre-1.12.5\OgreMain\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\ogre-1.12.5\Components\RTShaderSystem\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\jsoncpp-master\build\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\jsoncpp-master\include\json;$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\jsoncpp-master\include;$(SolutionDir)deps\global-engine\P3\ProyectoBase\Src\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps\OTY\P3\ProyectoBase\Src\Engine;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\jsoncpp-master\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\ogre-1.12.5\OgreMain\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\ogre-1.12.5\Build\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\ogre-1.12.5\Components\RTShaderSystem\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\bullet3-2.89\src;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\ogre-1.12.5\PlugIns\STBICodec\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\fmod\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\SDL2-2.0.10\include;$(SolutionDir)deps\OTY\P3\ProyectoBase\lib\jsoncpp-master\include\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>BulletCollision.lib;BulletDynamics.lib;LinearMath.lib;OgreMain.lib;jsoncpp.lib;fmod64_vc.lib;SDL2.lib;SDL2main.lib;Codec_STBI.lib;OgreRTShaderSystem.lib;Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\SDL2-2.0.10\lib\$(Platform);$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\bullet3-2.89\build\lib\$(Configuration);$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\ogre-1.12.5\build\lib\$(Configuration);$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\jsoncpp-master\build\src\lib_json\$(Configuration);$(SolutionDir)deps\global-engine\P3\ProyectoBase\lib\fmod;$(SolutionDir)deps\global-engine\P3\ProyectoBase\\bin\libs</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)deps\OTY\P3\ProyectoBase\libs</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

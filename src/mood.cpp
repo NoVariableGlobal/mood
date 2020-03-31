@@ -14,10 +14,6 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE prevInstance, LPSTR lmCmdLine,
         std::fstream file;
         file.open("hola.txt");
 
-        if (!file.is_open()) {
-            std::cout << "aiudaPP";
-        }
-
         Game game;
         if (game.init("MOOD"))
             game.run();
