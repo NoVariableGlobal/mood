@@ -6,6 +6,7 @@ param (
     $MsBuildPath = "",
 
     [Alias("CMake")]
+    [ValidateScript( { Test-Path -LiteralPath $_ -PathType Leaf })]
     [string] $CMakePath,
     [switch] $Build,
     [switch] $Release,
