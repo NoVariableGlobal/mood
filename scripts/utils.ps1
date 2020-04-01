@@ -120,7 +120,7 @@ If ($Upgrade) {
 
         # Add submodule's changes to the git stage
         Push-Location $RootFolder
-        & git add .gitmodules
+        & git add "$RootFolder\deps\one-thousand-years"
         Pop-Location
     }
 
