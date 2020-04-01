@@ -41,7 +41,7 @@ function Find-ClangFormat {
             $ClangFormat = $PossibleClangFormat[0].Path
             Write-Host "ClangFormat not provided, using '" -ForegroundColor Blue -NoNewline
             Write-Host $ClangFormat                        -ForegroundColor Cyan -NoNewline
-            Write-Host "' instead."                        -ForegroundColor Blue
+            Write-Host "' from file detection instead."    -ForegroundColor Blue
             return $ClangFormat;
         }
     } Else {
@@ -55,14 +55,14 @@ function Assert-ClangFormatPath([string] $private:ClangFormat) {
     If (($ClangFormat -Eq "") -Or !(Test-Path -LiteralPath $ClangFormat -PathType Leaf)) {
         Write-Host "I was not able to find clang-format.exe, please check https://docs.microsoft.com/en-us/visualstudio/?view=vs-2019 for more information." -ForegroundColor Red
         Write-Host "  # Please specify the route to the clang-format.exe by doing " -ForegroundColor Yellow -NoNewline
-        Write-Host ".\build.ps1 `"Path\To\clang-format.exe`""                       -ForegroundColor Cyan   -NoNewline
+        Write-Host ".\scripts\format.ps1 `"Path\To\clang-format.exe`""              -ForegroundColor Cyan   -NoNewline
         Write-Host " or "                                                           -ForegroundColor Yellow -NoNewline
-        Write-Host ".\build.ps1 -ClangFormatPath `"Path\To\clang-format.exe`""      -ForegroundColor Cyan   -NoNewline
+        Write-Host ".\scripts\format.ps1 -ClangFormat `"Path\To\clang-format.exe`"" -ForegroundColor Cyan   -NoNewline
         Write-Host " to set the path."                                              -ForegroundColor Yellow
         Write-Host "  # Alternatively, do "                                         -ForegroundColor Yellow -NoNewline
-        Write-Host "`$Env:ClangFormatPath=`"Path\To\clang-format.exe`""             -ForegroundColor Cyan   -NoNewline
+        Write-Host "`$Env:ClangFormat=`"Path\To\clang-format.exe`""                 -ForegroundColor Cyan   -NoNewline
         Write-Host ", afterwards you will be able to execute "                      -ForegroundColor Yellow -NoNewline
-        Write-Host ".\build.ps1"                                                    -ForegroundColor Cyan   -NoNewline
+        Write-Host ".\scripts\format.ps1"                                           -ForegroundColor Cyan   -NoNewline
         Write-Host " normally."                                                     -ForegroundColor Yellow
         Exit 1
     }

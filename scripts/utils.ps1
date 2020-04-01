@@ -5,7 +5,6 @@ param(
     [switch] $Upgrade,
     [switch] $Format,
     [switch] $Build,
-    [string[]] $BuildArguments,
     [switch] $Release,
     [string[]] $ReleaseArguments
 )
@@ -176,7 +175,7 @@ If ($Build) {
 
     # Run the process
     $private:duration = Measure-Command {
-        & "$RootFolder\scripts\build.ps1" $BuildArguments
+        & "$RootFolder\scripts\build.ps1"
     }
 
     # Print information to the screen

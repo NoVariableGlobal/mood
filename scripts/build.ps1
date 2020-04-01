@@ -91,14 +91,14 @@ function Assert-MsBuildPath([string] $private:MsBuild) {
     If (($MsBuild -Eq "") -Or !(Test-Path -LiteralPath $MsBuild -PathType Leaf)) {
         Write-Host "I was not able to find MSBuild.exe, please check https://docs.microsoft.com/visualstudio/msbuild/msbuild?view=vs-2019 for more information." -ForegroundColor Red
         Write-Host "  # Please specify the route to the MSBuild.exe by doing " -ForegroundColor Yellow -NoNewline
-        Write-Host ".\build.ps1 `"Path\To\MSBuild.exe`""                       -ForegroundColor Cyan   -NoNewline
+        Write-Host ".\scripts\build.ps1 `"Path\To\MSBuild.exe`""               -ForegroundColor Cyan   -NoNewline
         Write-Host " or "                                                      -ForegroundColor Yellow -NoNewline
-        Write-Host ".\build.ps1 -MsBuild `"Path\To\MSBuild.exe`""              -ForegroundColor Cyan   -NoNewline
+        Write-Host ".\scripts\build.ps1 -MsBuild `"Path\To\MSBuild.exe`""      -ForegroundColor Cyan   -NoNewline
         Write-Host " to set the path."                                         -ForegroundColor Yellow
         Write-Host "  # Alternatively, do "                                    -ForegroundColor Yellow -NoNewline
         Write-Host "`$Env:MsBuild=`"Path\To\MSBuild.exe`""                     -ForegroundColor Cyan   -NoNewline
         Write-Host ", afterwards you will be able to execute "                 -ForegroundColor Yellow -NoNewline
-        Write-Host ".\build.ps1"                                               -ForegroundColor Cyan   -NoNewline
+        Write-Host ".\scripts\build.ps1"                                       -ForegroundColor Cyan   -NoNewline
         Write-Host " normally."                                                -ForegroundColor Yellow
         Exit 1
     }
@@ -150,12 +150,12 @@ function Assert-CMakePath([string] $private:CMake) {
     If (($CMake -Eq "") -Or !(Test-Path -LiteralPath $CMake -PathType Leaf)) {
         Write-Host "I was not able to find cmake.exe, please download the binary at https://cmake.org." -ForegroundColor Red
         Write-Host "  # Please specify the route to the cmake.exe by doing " -ForegroundColor Yellow -NoNewline
-        Write-Host ".\build.ps1 -CMake `"Path\To\cmake.exe`""                -ForegroundColor Cyan   -NoNewline
+        Write-Host ".\scripts\build.ps1 -CMake `"Path\To\cmake.exe`""        -ForegroundColor Cyan   -NoNewline
         Write-Host " to set the path."                                       -ForegroundColor Yellow
         Write-Host "  # Alternatively, do "                                  -ForegroundColor Yellow -NoNewline
         Write-Host "`$Env:CMake=`"Path\To\cmake.exe`""                       -ForegroundColor Cyan   -NoNewline
         Write-Host ", afterwards you will be able to execute "               -ForegroundColor Yellow -NoNewline
-        Write-Host ".\build.ps1"                                             -ForegroundColor Cyan   -NoNewline
+        Write-Host ".\scripts\build.ps1"                                     -ForegroundColor Cyan   -NoNewline
         Write-Host " normally."                                              -ForegroundColor Yellow
         Exit 1
     }
@@ -168,12 +168,11 @@ Assert-MsBuildPath($MsBuild)
 # Build a MSVC project given a path and optional arguments
 function Step-VisualStudioRaw([string] $Path, [switch] $ThrowOnError, [string[]] $Arguments) {
     # Run the process
-    $private:startTime = Get-Date
-    & $MsBuild $Path $Arguments
-    $private:exitTime = Get-Date
+    $private:duration = Measure-Command {
+        & $MsBuild $Path $Arguments
+    }
 
     # Print information to the screen
-    $private:duration = $exitTime - $startTime
     If ($LastExitCode -Eq 0) {
         Write-Host "# Finished building '" -ForegroundColor Green -NoNewLine
         Write-Host $Path                   -ForegroundColor Cyan  -NoNewLine
@@ -229,12 +228,11 @@ function Step-CMake([string] $Path, [string[]] $Arguments) {
     Write-Host "'."                               -ForegroundColor Blue
 
     New-Directory -Path "$Path\build"
-    $private:startTime = Get-Date
-    & $CMake -S $Path -B "$Path\build" $Arguments
-    $private:exitTime = Get-Date
+    $private:duration = Measure-Command {
+        & $CMake -S $Path -B "$Path\build" $Arguments
+    }
 
     # Print information to the screen
-    $private:duration = $exitTime - $startTime
     If ($LastExitCode -Eq 0) {
         Write-Host "# Finished generating '" -ForegroundColor Green -NoNewLine
         Write-Host $Path                     -ForegroundColor Cyan  -NoNewLine

@@ -27,9 +27,9 @@ function Find-7Zip {
     # Find from ProgramFiles:
     $local:ProgramFiles7Zip = Join-Path -Path $Env:ProgramFiles -ChildPath "7-Zip/7z.exe"
     If (Test-Path -Path $ProgramFiles7Zip) {
-        Write-Host "Using '"         -ForegroundColor Blue -NoNewline
-        Write-Host $ProgramFiles7Zip -ForegroundColor Cyan -NoNewline
-        Write-Host "'."              -ForegroundColor Blue
+        Write-Host "Using '"                -ForegroundColor Blue -NoNewline
+        Write-Host $ProgramFiles7Zip        -ForegroundColor Cyan -NoNewline
+        Write-Host "' from file detection." -ForegroundColor Blue
         return $ProgramFiles7Zip
     }
 
