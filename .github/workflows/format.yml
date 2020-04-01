@@ -1,4 +1,4 @@
-name: Style
+name: Format
 
 on:
   push:
@@ -7,10 +7,10 @@ on:
   pull_request:
 
 jobs:
-  style:
-    name: style
+  format:
+    name: format
     runs-on: windows-latest
     steps:
-      - name: Test Style
+      - name: Test Formatting
         run: pwsh -File ./scripts/format.ps1 -Test
         shell: pwsh
