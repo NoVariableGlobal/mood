@@ -17,15 +17,15 @@ jobs:
         id: cache-dependencies
         uses: actions/cache@v1
         with:
-          path: P3/ProyectoBase/lib
-          key: ${{ runner.os }}-${{ hashFiles('**/build.ps1') }}
+          path: deps
+          key: ${{ runner.os }}-${{ hashFiles('**/scripts/build.ps1') }}
       - name: Build Dependencies
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
-        run: pwsh -File .\build.ps1 -DependenciesOnly
+        run: pwsh -File ./scripts/build.ps1 -DependenciesOnly
         shell: pwsh
       - name: Build Project (Debug)
-        run: pwsh -File .\build.ps1 -ProjectOnly
+        run: pwsh -File ./scripts/build.ps1 -ProjectOnly
         shell: pwsh
       - name: Build Project (Release)
-        run: pwsh -File .\build.ps1 -ProjectOnly -Release
+        run: pwsh -File ./scripts/build.ps1 -ProjectOnly -Release
         shell: pwsh
