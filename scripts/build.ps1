@@ -91,14 +91,14 @@ function Assert-MsBuildPath([string] $private:MsBuild) {
     If (($MsBuild -Eq "") -Or !(Test-Path -LiteralPath $MsBuild -PathType Leaf)) {
         Write-Host "I was not able to find MSBuild.exe, please check https://docs.microsoft.com/visualstudio/msbuild/msbuild?view=vs-2019 for more information." -ForegroundColor Red
         Write-Host "  # Please specify the route to the MSBuild.exe by doing " -ForegroundColor Yellow -NoNewline
-        Write-Host ".\build.ps1 `"Path\To\MSBuild.exe`""                       -ForegroundColor Cyan   -NoNewline
+        Write-Host ".\scripts\build.ps1 `"Path\To\MSBuild.exe`""               -ForegroundColor Cyan   -NoNewline
         Write-Host " or "                                                      -ForegroundColor Yellow -NoNewline
-        Write-Host ".\build.ps1 -MsBuild `"Path\To\MSBuild.exe`""              -ForegroundColor Cyan   -NoNewline
+        Write-Host ".\scripts\build.ps1 -MsBuild `"Path\To\MSBuild.exe`""      -ForegroundColor Cyan   -NoNewline
         Write-Host " to set the path."                                         -ForegroundColor Yellow
         Write-Host "  # Alternatively, do "                                    -ForegroundColor Yellow -NoNewline
         Write-Host "`$Env:MsBuild=`"Path\To\MSBuild.exe`""                     -ForegroundColor Cyan   -NoNewline
         Write-Host ", afterwards you will be able to execute "                 -ForegroundColor Yellow -NoNewline
-        Write-Host ".\build.ps1"                                               -ForegroundColor Cyan   -NoNewline
+        Write-Host ".\scripts\build.ps1"                                       -ForegroundColor Cyan   -NoNewline
         Write-Host " normally."                                                -ForegroundColor Yellow
         Exit 1
     }
@@ -138,8 +138,7 @@ function Find-CMake {
             Write-Host "' instead."                    -ForegroundColor Blue
             return $CMake;
         }
-    }
-    Else {
+    } Else {
         $CMake = $CMakePath;
         return $CMake;
     }
@@ -150,12 +149,12 @@ function Assert-CMakePath([string] $private:CMake) {
     If (($CMake -Eq "") -Or !(Test-Path -LiteralPath $CMake -PathType Leaf)) {
         Write-Host "I was not able to find cmake.exe, please download the binary at https://cmake.org." -ForegroundColor Red
         Write-Host "  # Please specify the route to the cmake.exe by doing " -ForegroundColor Yellow -NoNewline
-        Write-Host ".\build.ps1 -CMake `"Path\To\cmake.exe`""                -ForegroundColor Cyan   -NoNewline
+        Write-Host ".\scripts\build.ps1 -CMake `"Path\To\cmake.exe`""        -ForegroundColor Cyan   -NoNewline
         Write-Host " to set the path."                                       -ForegroundColor Yellow
         Write-Host "  # Alternatively, do "                                  -ForegroundColor Yellow -NoNewline
         Write-Host "`$Env:CMake=`"Path\To\cmake.exe`""                       -ForegroundColor Cyan   -NoNewline
         Write-Host ", afterwards you will be able to execute "               -ForegroundColor Yellow -NoNewline
-        Write-Host ".\build.ps1"                                             -ForegroundColor Cyan   -NoNewline
+        Write-Host ".\scripts\build.ps1"                                     -ForegroundColor Cyan   -NoNewline
         Write-Host " normally."                                              -ForegroundColor Yellow
         Exit 1
     }
@@ -198,7 +197,7 @@ function Step-VisualStudioThirdPartyDebug([string] $Path) {
     Write-Host $Path              -ForegroundColor Cyan -NoNewline
     Write-Host "' as Debug."      -ForegroundColor Blue
 
-    Step-VisualStudioRaw -Path $Path -Arguments @("-t:build", "-p:Configuration=Debug;Platform=x64", "-m", "-maxCpuCount", "-noLogo", "-verbosity:minimal")
+    Step-VisualStudioRaw -Path $Path -Arguments @("-t:build", "-p:Configuration=Debug;Platform=x64;WarningLevel=0", "-m", "-maxCpuCount", "-noLogo", "-verbosity:minimal")
 }
 
 # Builds a third-party library as release, ignoring all warnings and verbosity
@@ -207,7 +206,7 @@ function Step-VisualStudioThirdPartyRelease([string] $Path) {
     Write-Host $Path              -ForegroundColor Cyan -NoNewline
     Write-Host "' as Release."    -ForegroundColor Blue
 
-    Step-VisualStudioRaw -Path $Path -Arguments @("-t:build", "-p:Configuration=Release;Platform=x64", "-m", "-maxCpuCount", "-noLogo", "-verbosity:minimal")
+    Step-VisualStudioRaw -Path $Path -Arguments @("-t:build", "-p:Configuration=Release;Platform=x64;WarningLevel=0", "-m", "-maxCpuCount", "-noLogo", "-verbosity:minimal")
 }
 
 # Builds the project library
@@ -241,8 +240,7 @@ function Step-CMake([string] $Path, [string[]] $Arguments) {
         Write-Host "'. Took: "               -ForegroundColor Green -NoNewLine
         Write-Host ("{0:g}" -f $duration)    -ForegroundColor Cyan  -NoNewLine
         Write-Host "."                       -ForegroundColor Green
-    }
-    Else {
+    } Else {
         Write-Host "# Errored when generating '"       -ForegroundColor Red  -NoNewLine
         Write-Host $Path                               -ForegroundColor Cyan -NoNewLine
         Write-Host "' with code $LastExitCode Took: " -ForegroundColor Red  -NoNewLine

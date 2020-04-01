@@ -38,28 +38,26 @@ MeleeEnemyBehaviourECFactory::MeleeEnemyBehaviourECFactory() = default;
 Component* MeleeEnemyBehaviourECFactory::create(Entity* _father,
                                                 Json::Value& _data,
                                                 Scene* scene) {
-        MeleeEnemyBehaviourEC* meleeEnemyBehaviour =
-            new MeleeEnemyBehaviourEC();
-        scene->getComponentsManager()->addEC(meleeEnemyBehaviour);
+    MeleeEnemyBehaviourEC* meleeEnemyBehaviour = new MeleeEnemyBehaviourEC();
+    scene->getComponentsManager()->addEC(meleeEnemyBehaviour);
 
-        meleeEnemyBehaviour->setFather(_father);
-        meleeEnemyBehaviour->setScene(scene);
+    meleeEnemyBehaviour->setFather(_father);
+    meleeEnemyBehaviour->setScene(scene);
 
-        if (!_data["speed"].isDouble())
-            throw std::exception("MeleeEnemyBehaviourEC: speed is not a float");
-        meleeEnemyBehaviour->setSpeed(_data["speed"].asFloat());
+    if (!_data["speed"].isDouble())
+        throw std::exception("MeleeEnemyBehaviourEC: speed is not a float");
+    meleeEnemyBehaviour->setSpeed(_data["speed"].asFloat());
 
-        if (!_data["attack"].isInt())
-            throw std::exception("MeleeEnemyBehaviourEC: attack is not an int");
-        meleeEnemyBehaviour->setAttack(_data["attack"].asInt());
+    if (!_data["attack"].isInt())
+        throw std::exception("MeleeEnemyBehaviourEC: attack is not an int");
+    meleeEnemyBehaviour->setAttack(_data["attack"].asInt());
 
-        if (!_data["attackCooldown"].isDouble())
-            throw std::exception(
-                "MeleeEnemyBehaviourEC: attackCooldown is not a float");
-        meleeEnemyBehaviour->setAttackCooldown(
-            _data["attackCooldown"].asFloat());
+    if (!_data["attackCooldown"].isDouble())
+        throw std::exception(
+            "MeleeEnemyBehaviourEC: attackCooldown is not a float");
+    meleeEnemyBehaviour->setAttackCooldown(_data["attackCooldown"].asFloat());
 
-        return meleeEnemyBehaviour;
+    return meleeEnemyBehaviour;
 };
 
 DEFINE_FACTORY(MeleeEnemyBehaviourEC);

@@ -6,12 +6,12 @@ DECLARE_FACTORY(BulletC);
 
 class BulletC : public Component {
   private:
-	// damage of the bullet
+    // damage of the bullet
     float damage;
 
- public:
+  public:
     BulletC();
-   ~BulletC();
+    ~BulletC();
     virtual void destroy();
 
     void setDamage(float _d);

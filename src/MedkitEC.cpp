@@ -23,9 +23,9 @@ Component* MedkitECFactory::create(Entity* _father, Json::Value& _data,
     medkitEC->setFather(_father);
     medkitEC->setScene(scene);
 
-        if (!_data["time"].isDouble())
-            throw std::exception("Medkit: time is not a double");
-        medkitEC->setDuration(_data["time"].asDouble());
+    if (!_data["time"].isDouble())
+        throw std::exception("Medkit: time is not a double");
+    medkitEC->setDuration(_data["time"].asDouble());
 
     medkitEC->setActive(true);
 

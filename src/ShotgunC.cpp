@@ -82,60 +82,60 @@ void ShotgunC::setNPellets(int n) { nPellets = n; }
 void ShotgunC::setDispersion(int n) { dispAngle = n; }
 
 // FACTORY INFRASTRUCTURE
-    ShotgunCFactory::ShotgunCFactory() = default;
+ShotgunCFactory::ShotgunCFactory() = default;
 
-    Component* ShotgunCFactory::create(Entity* _father, Json::Value& _data,
-                      Scene* _scene) {
+Component* ShotgunCFactory::create(Entity* _father, Json::Value& _data,
+                                   Scene* _scene) {
 
-        ShotgunC* shotgun = new ShotgunC();
+    ShotgunC* shotgun = new ShotgunC();
 
-        _scene->getComponentsManager()->addDC(shotgun);
-        shotgun->setFather(_father);
-        shotgun->setScene(_scene);
+    _scene->getComponentsManager()->addDC(shotgun);
+    shotgun->setFather(_father);
+    shotgun->setScene(_scene);
 
-        if (!_data["bulletTag"].isString())
-            throw std::exception("ShotgunC: bulletTag is not a string");
-        shotgun->setBulletTag(_data["bulletTag"].asString());
+    if (!_data["bulletTag"].isString())
+        throw std::exception("ShotgunC: bulletTag is not a string");
+    shotgun->setBulletTag(_data["bulletTag"].asString());
 
-        if (!_data["bulletchamberMax"].isInt())
-            throw std::exception("ShotgunC: bulletchamberMax is not an int");
-        shotgun->setbulletchamber(_data["bulletchamberMax"].asInt());
+    if (!_data["bulletchamberMax"].isInt())
+        throw std::exception("ShotgunC: bulletchamberMax is not an int");
+    shotgun->setbulletchamber(_data["bulletchamberMax"].asInt());
 
-        if (!_data["munition"].isInt())
-            throw std::exception("ShotgunC: munition is not an int");
-        shotgun->setmunition(_data["munition"].asInt());
+    if (!_data["munition"].isInt())
+        throw std::exception("ShotgunC: munition is not an int");
+    shotgun->setmunition(_data["munition"].asInt());
 
-        if (!_data["bulletDamage"].isDouble())
-            throw std::exception("ShotgunC: bulletDamage is not a double");
-        shotgun->setbulletdamage(_data["bulletDamage"].asDouble());
+    if (!_data["bulletDamage"].isDouble())
+        throw std::exception("ShotgunC: bulletDamage is not a double");
+    shotgun->setbulletdamage(_data["bulletDamage"].asDouble());
 
-        if (!_data["bulletSpeed"].isDouble())
-            throw std::exception("ShotgunC: bulletSpeed is not a double");
-        shotgun->setbulletspeed(_data["bulletSpeed"].asDouble());
+    if (!_data["bulletSpeed"].isDouble())
+        throw std::exception("ShotgunC: bulletSpeed is not a double");
+    shotgun->setbulletspeed(_data["bulletSpeed"].asDouble());
 
-        if (!_data["cadence"].isDouble())
-            throw std::exception("ShotgunC: cadence is not an int");
-        shotgun->setcadence(_data["cadence"].asFloat());
+    if (!_data["cadence"].isDouble())
+        throw std::exception("ShotgunC: cadence is not an int");
+    shotgun->setcadence(_data["cadence"].asFloat());
 
-        if (!_data["automatic"].isBool())
-            throw std::exception("ShotgunC: semiautomatic is not an bool");
-        shotgun->setautomatic(_data["automatic"].asBool());
+    if (!_data["automatic"].isBool())
+        throw std::exception("ShotgunC: semiautomatic is not an bool");
+    shotgun->setautomatic(_data["automatic"].asBool());
 
-        if (!_data["nPellets"].isDouble())
-            throw std::exception("ShotgunC: nPellets is not an int");
-        shotgun->setNPellets(_data["nPellets"].asFloat());
+    if (!_data["nPellets"].isDouble())
+        throw std::exception("ShotgunC: nPellets is not an int");
+    shotgun->setNPellets(_data["nPellets"].asFloat());
 
-        if (!_data["dispersion"].isDouble())
-            throw std::exception("ShotgunC: dispersion is not an int");
-        shotgun->setDispersion(_data["dispersion"].asFloat());
+    if (!_data["dispersion"].isDouble())
+        throw std::exception("ShotgunC: dispersion is not an int");
+    shotgun->setDispersion(_data["dispersion"].asFloat());
 
-        if (!_data["instakill"].isBool())
-            throw std::exception("ShotgunC: instakill is not an bool");
-        shotgun->setInstakill(_data["instakill"].asBool());
+    if (!_data["instakill"].isBool())
+        throw std::exception("ShotgunC: instakill is not an bool");
+    shotgun->setInstakill(_data["instakill"].asBool());
 
-        shotgun->setTransform(dynamic_cast<TransformComponent*>(
-            _father->getComponent("TransformComponent")));
+    shotgun->setTransform(dynamic_cast<TransformComponent*>(
+        _father->getComponent("TransformComponent")));
 
-        return shotgun;
-    };
+    return shotgun;
+};
 DEFINE_FACTORY(ShotgunC);

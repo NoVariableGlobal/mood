@@ -1,17 +1,17 @@
 #include "BulletC.h"
 #include "ComponentsManager.h"
-#include "FactoriesFactory.h"
-#include "Scene.h"
 #include "Entity.h"
-#include "TransformComponent.h"
+#include "FactoriesFactory.h"
 #include "OgreRoot.h"
 #include "RigidbodyPC.h"
+#include "Scene.h"
+#include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
 
+#include <json.h>
 #include <time.h>
 #include <utility>
 #include <value.h>
-#include <json.h>
 
 BulletC::BulletC() {}
 
@@ -31,16 +31,16 @@ void BulletC::dealCollision() { scene->deleteEntity(father); }
 // FACTORY INFRASTRUCTURE
 BulletCFactory::BulletCFactory() = default;
 
-    Component* BulletCFactory::create(Entity* _father, Json::Value& _data,
-                      Scene* _scene)  {
+Component* BulletCFactory::create(Entity* _father, Json::Value& _data,
+                                  Scene* _scene) {
 
-        BulletC* bullet = new BulletC();
-        _scene->getComponentsManager()->addDC(bullet);
+    BulletC* bullet = new BulletC();
+    _scene->getComponentsManager()->addDC(bullet);
 
-        bullet->setFather(_father);
-        bullet->setScene(_scene);
+    bullet->setFather(_father);
+    bullet->setScene(_scene);
 
-        return bullet;
-    };
+    return bullet;
+};
 
 DEFINE_FACTORY(BulletC);

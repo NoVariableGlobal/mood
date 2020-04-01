@@ -2,8 +2,8 @@
 
 #include "Component.h"
 
-#include <string>
 #include "Factory.h"
+#include <string>
 
 // FACTORY INFRASTRUCTURE DECLARATION
 DECLARE_FACTORY(SpawnerBulletsC);

@@ -1,13 +1,14 @@
 #pragma once
 
+#include "Factory.h"
 #include "PowerUpC.h"
 #include <string>
-#include "Factory.h"
 
 DECLARE_FACTORY(GunPowerUpC);
 
 class GunPowerUpC : public PowerUpC {
     std::string _gunId;
+
   public:
     virtual void destroy();
 

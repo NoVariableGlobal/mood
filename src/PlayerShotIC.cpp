@@ -15,7 +15,7 @@ PlayerShotIC::PlayerShotIC() {}
 PlayerShotIC::~PlayerShotIC() {}
 
 void PlayerShotIC::handleInput(const SDL_Event& _event) {
- bool automatic = (dynamic_cast<WeaponControllerIC*>(
+    bool automatic = (dynamic_cast<WeaponControllerIC*>(
                           father->getComponent("WeaponControllerIC")))
                          ->getCurrentGun()
                          ->getautomatic();
@@ -55,7 +55,7 @@ void PlayerShotIC::handleInput(const SDL_Event& _event) {
 PlayerShotICFactory::PlayerShotICFactory() = default;
 
 Component* PlayerShotICFactory::create(Entity* _father, Json::Value& _data,
-                                       Scene* scene)  {
+                                       Scene* scene) {
     PlayerShotIC* playerShot = new PlayerShotIC();
     scene->getComponentsManager()->addIC(playerShot);
 

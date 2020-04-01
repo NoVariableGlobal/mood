@@ -28,27 +28,26 @@ void IncreaseSpeedEC::setSpeedIncrement(double value) {
 // FACTORY INFRASTRUCTURE
 IncreaseSpeedECFactory::IncreaseSpeedECFactory() = default;
 
-    Component* IncreaseSpeedECFactory::create(Entity* _father, Json::Value& _data,
-                                        Scene* scene) {
-        IncreaseSpeedEC* increaseSpeedIC = new IncreaseSpeedEC();
-        scene->getComponentsManager()->addEC(increaseSpeedIC);
-        increaseSpeedIC->setFather(_father);
-        increaseSpeedIC->setScene(scene);
+Component* IncreaseSpeedECFactory::create(Entity* _father, Json::Value& _data,
+                                          Scene* scene) {
+    IncreaseSpeedEC* increaseSpeedIC = new IncreaseSpeedEC();
+    scene->getComponentsManager()->addEC(increaseSpeedIC);
+    increaseSpeedIC->setFather(_father);
+    increaseSpeedIC->setScene(scene);
 
-        if (!_data["time"].isDouble())
-            throw std::exception("IncreaseSpeed: time is not a double");
-        increaseSpeedIC->setDuration(_data["time"].asDouble());
-        if (!_data["timeEffect"].isDouble())
-            throw std::exception("IncreaseSpeed: timeEffect is not a double");
-        increaseSpeedIC->setDuration(_data["timeEffect"].asDouble());
-        if (!_data["speedIncrement"].isDouble())
-            throw std::exception(
-                "IncreaseSpeed: speedIncrement is not a double");
-        increaseSpeedIC->setSpeedIncrement(_data["speedIncrement"].asDouble());
+    if (!_data["time"].isDouble())
+        throw std::exception("IncreaseSpeed: time is not a double");
+    increaseSpeedIC->setDuration(_data["time"].asDouble());
+    if (!_data["timeEffect"].isDouble())
+        throw std::exception("IncreaseSpeed: timeEffect is not a double");
+    increaseSpeedIC->setDuration(_data["timeEffect"].asDouble());
+    if (!_data["speedIncrement"].isDouble())
+        throw std::exception("IncreaseSpeed: speedIncrement is not a double");
+    increaseSpeedIC->setSpeedIncrement(_data["speedIncrement"].asDouble());
 
-        increaseSpeedIC->setActive(true);
+    increaseSpeedIC->setActive(true);
 
-        return increaseSpeedIC;
-    }
+    return increaseSpeedIC;
+}
 
 DEFINE_FACTORY(IncreaseSpeedEC);

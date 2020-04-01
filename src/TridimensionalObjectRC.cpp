@@ -1,11 +1,11 @@
 #include "TridimensionalObjectRC.h"
 #include "ComponentsManager.h"
 #include "Entity.h"
+#include "FactoriesFactory.h"
 #include "OgreEntity.h"
 #include "OgreSDLContext.h"
 #include "OgreSceneManager.h"
 #include "Scene.h"
-#include "FactoriesFactory.h"
 #include "TransformComponent.h"
 #include <json.h>
 

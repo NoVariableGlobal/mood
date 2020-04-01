@@ -28,9 +28,8 @@ void OnEPressPickUpIC::setObjectName(std::string _name) { objectName = _name; }
 
 // FACTORY INFRASTRUCTURE
 OnEPressPickUpICFactory::OnEPressPickUpICFactory() = default;
-Component* OnEPressPickUpICFactory::create(Entity* _father,
-                                                   Json::Value& _data,
-                                                   Scene* scene) {
+Component* OnEPressPickUpICFactory::create(Entity* _father, Json::Value& _data,
+                                           Scene* scene) {
     // Create the component
     OnEPressPickUpIC* onEPressPickUpIC = new OnEPressPickUpIC();
     onEPressPickUpIC->setScene(scene);

@@ -1,5 +1,5 @@
 #pragma once
-#include "EnemyBehaviourEC.h" 
+#include "EnemyBehaviourEC.h"
 #include "Factory.h"
 
 // FACTORY INFRASTRUCTURE DECLARATION

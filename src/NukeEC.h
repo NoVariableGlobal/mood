@@ -1,6 +1,6 @@
 #pragma once
-#include "ImmediatePowerUpEC.h"
 #include "Factory.h"
+#include "ImmediatePowerUpEC.h"
 
 DECLARE_FACTORY(NukeEC);
 

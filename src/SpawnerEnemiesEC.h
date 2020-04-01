@@ -1,6 +1,6 @@
 #pragma once
-#include "SpawnerEC.h" 
 #include "Factory.h"
+#include "SpawnerEC.h"
 
 // FACTORY INFRASTRUCTURE DECLARATION
 DECLARE_FACTORY(SpawnerEnemiesEC);

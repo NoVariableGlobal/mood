@@ -1,7 +1,7 @@
 #pragma once
 
-#include "RenderComponent.h"
 #include "Factory.h"
+#include "RenderComponent.h"
 #include <string>
 
 // FACTORY INFRASTRUCTURE DECLARATION
