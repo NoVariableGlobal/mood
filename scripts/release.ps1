@@ -85,8 +85,7 @@ Try {
         Write-Host "'. Enjoy!"                                   -ForegroundColor Green
 
         Exit 0
-    }
-    Else {
+    } Else {
         throw "7-Zip returned an error, please read the logs above."
     }
 } Catch {

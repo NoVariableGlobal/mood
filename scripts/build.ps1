@@ -138,8 +138,7 @@ function Find-CMake {
             Write-Host "' instead."                    -ForegroundColor Blue
             return $CMake;
         }
-    }
-    Else {
+    } Else {
         $CMake = $CMakePath;
         return $CMake;
     }
@@ -168,11 +167,12 @@ Assert-MsBuildPath($MsBuild)
 # Build a MSVC project given a path and optional arguments
 function Step-VisualStudioRaw([string] $Path, [switch] $ThrowOnError, [string[]] $Arguments) {
     # Run the process
-    $private:duration = Measure-Command {
-        & $MsBuild $Path $Arguments
-    }
+    $private:startTime = Get-Date
+    & $MsBuild $Path $Arguments
+    $private:exitTime = Get-Date
 
     # Print information to the screen
+    $private:duration = $exitTime - $startTime
     If ($LastExitCode -Eq 0) {
         Write-Host "# Finished building '" -ForegroundColor Green -NoNewLine
         Write-Host $Path                   -ForegroundColor Cyan  -NoNewLine
@@ -197,7 +197,7 @@ function Step-VisualStudioThirdPartyDebug([string] $Path) {
     Write-Host $Path              -ForegroundColor Cyan -NoNewline
     Write-Host "' as Debug."      -ForegroundColor Blue
 
-    Step-VisualStudioRaw -Path $Path -Arguments @("-t:build", "-p:Configuration=Debug;Platform=x64", "-m", "-maxCpuCount", "-noLogo", "-verbosity:minimal")
+    Step-VisualStudioRaw -Path $Path -Arguments @("-t:build", "-p:Configuration=Debug;Platform=x64;WarningLevel=0", "-m", "-maxCpuCount", "-noLogo", "-verbosity:minimal")
 }
 
 # Builds a third-party library as release, ignoring all warnings and verbosity
@@ -206,7 +206,7 @@ function Step-VisualStudioThirdPartyRelease([string] $Path) {
     Write-Host $Path              -ForegroundColor Cyan -NoNewline
     Write-Host "' as Release."    -ForegroundColor Blue
 
-    Step-VisualStudioRaw -Path $Path -Arguments @("-t:build", "-p:Configuration=Release;Platform=x64", "-m", "-maxCpuCount", "-noLogo", "-verbosity:minimal")
+    Step-VisualStudioRaw -Path $Path -Arguments @("-t:build", "-p:Configuration=Release;Platform=x64;WarningLevel=0", "-m", "-maxCpuCount", "-noLogo", "-verbosity:minimal")
 }
 
 # Builds the project library
@@ -228,19 +228,19 @@ function Step-CMake([string] $Path, [string[]] $Arguments) {
     Write-Host "'."                               -ForegroundColor Blue
 
     New-Directory -Path "$Path\build"
-    $private:duration = Measure-Command {
-        & $CMake -S $Path -B "$Path\build" $Arguments
-    }
+    $private:startTime = Get-Date
+    & $CMake -S $Path -B "$Path\build" $Arguments
+    $private:exitTime = Get-Date
 
     # Print information to the screen
+    $private:duration = $exitTime - $startTime
     If ($LastExitCode -Eq 0) {
         Write-Host "# Finished generating '" -ForegroundColor Green -NoNewLine
         Write-Host $Path                     -ForegroundColor Cyan  -NoNewLine
         Write-Host "'. Took: "               -ForegroundColor Green -NoNewLine
         Write-Host ("{0:g}" -f $duration)    -ForegroundColor Cyan  -NoNewLine
         Write-Host "."                       -ForegroundColor Green
-    }
-    Else {
+    } Else {
         Write-Host "# Errored when generating '"       -ForegroundColor Red  -NoNewLine
         Write-Host $Path                               -ForegroundColor Cyan -NoNewLine
         Write-Host "' with code $LastExitCode Took: " -ForegroundColor Red  -NoNewLine

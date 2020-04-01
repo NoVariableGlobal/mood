@@ -73,8 +73,7 @@ If ($Init) {
         Write-Host "# Finished in "       -ForegroundColor Green -NoNewLine
         Write-Host ("{0:g}" -f $duration) -ForegroundColor Cyan  -NoNewLine
         Write-Host "."                    -ForegroundColor Green
-    }
-    Else {
+    } Else {
         Write-Host "# Errored with code $LastExitCode in " -ForegroundColor Red  -NoNewLine
         Write-Host ("{0:g}" -f $duration)                  -ForegroundColor Cyan -NoNewLine
         Write-Host "."                                     -ForegroundColor Red
@@ -100,8 +99,7 @@ If ($Update) {
         Write-Host "# Finished in "       -ForegroundColor Green -NoNewLine
         Write-Host ("{0:g}" -f $duration) -ForegroundColor Cyan  -NoNewLine
         Write-Host "."                    -ForegroundColor Green
-    }
-    Else {
+    } Else {
         Write-Host "# Errored with code $LastExitCode in " -ForegroundColor Red  -NoNewLine
         Write-Host ("{0:g}" -f $duration)                  -ForegroundColor Cyan -NoNewLine
         Write-Host "."                                     -ForegroundColor Red
@@ -133,8 +131,7 @@ If ($Upgrade) {
         Write-Host "# Finished in "       -ForegroundColor Green -NoNewLine
         Write-Host ("{0:g}" -f $duration) -ForegroundColor Cyan  -NoNewLine
         Write-Host "."                    -ForegroundColor Green
-    }
-    Else {
+    } Else {
         Write-Host "# Errored with code $LastExitCode in " -ForegroundColor Red  -NoNewLine
         Write-Host ("{0:g}" -f $duration)                  -ForegroundColor Cyan -NoNewLine
         Write-Host "."                                     -ForegroundColor Red
@@ -158,8 +155,7 @@ If ($Format) {
         Write-Host "# Finished in "       -ForegroundColor Green -NoNewLine
         Write-Host ("{0:g}" -f $duration) -ForegroundColor Cyan  -NoNewLine
         Write-Host "."                    -ForegroundColor Green
-    }
-    Else {
+    } Else {
         Write-Host "# Errored with code $LastExitCode in " -ForegroundColor Red  -NoNewLine
         Write-Host ("{0:g}" -f $duration)                  -ForegroundColor Cyan -NoNewLine
         Write-Host "."                                     -ForegroundColor Red
@@ -174,17 +170,17 @@ If ($Build) {
     Write-Host "... "       -ForegroundColor Blue
 
     # Run the process
-    $private:duration = Measure-Command {
-        & "$RootFolder\scripts\build.ps1"
-    }
+    $private:startTime = Get-Date
+    & "$RootFolder\scripts\build.ps1"
+    $private:exitTime = Get-Date
 
     # Print information to the screen
+    $private:duration = $exitTime - $startTime
     If ($LastExitCode -Eq 0) {
         Write-Host "# Finished in "       -ForegroundColor Green -NoNewLine
         Write-Host ("{0:g}" -f $duration) -ForegroundColor Cyan  -NoNewLine
         Write-Host "."                    -ForegroundColor Green
-    }
-    Else {
+    } Else {
         Write-Host "# Errored with code $LastExitCode in " -ForegroundColor Red  -NoNewLine
         Write-Host ("{0:g}" -f $duration)                  -ForegroundColor Cyan -NoNewLine
         Write-Host "."                                     -ForegroundColor Red
@@ -199,17 +195,17 @@ If ($Release) {
     Write-Host "... "       -ForegroundColor Blue
 
     # Run the process
-    $private:duration = Measure-Command {
-        & "$RootFolder\scripts\release.ps1" $ReleaseArguments
-    }
+    $private:startTime = Get-Date
+    & "$RootFolder\scripts\release.ps1" $ReleaseArguments
+    $private:exitTime = Get-Date
 
     # Print information to the screen
+    $private:duration = $exitTime - $startTime
     If ($LastExitCode -Eq 0) {
         Write-Host "# Finished in "       -ForegroundColor Green -NoNewLine
         Write-Host ("{0:g}" -f $duration) -ForegroundColor Cyan  -NoNewLine
         Write-Host "."                    -ForegroundColor Green
-    }
-    Else {
+    } Else {
         Write-Host "# Errored with code $LastExitCode in " -ForegroundColor Red  -NoNewLine
         Write-Host ("{0:g}" -f $duration)                  -ForegroundColor Cyan -NoNewLine
         Write-Host "."                                     -ForegroundColor Red
