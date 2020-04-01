@@ -3,6 +3,7 @@ param(
     [switch] $Init,
     [switch] $Update,
     [switch] $Upgrade,
+    [switch] $Format,
     [switch] $Build,
     [string[]] $BuildArguments,
     [switch] $Release,
@@ -40,6 +41,10 @@ If ($Interactive) {
 
     If (!$Upgrade.IsPresent) {
         $Upgrade = Read-Boolean -Message "Upgrade $EngineName to its latest commit"
+    }
+
+    If (!$Format.IsPresent) {
+        $Format = Read-Boolean -Message "Format all of $ProjectName's source files"
     }
 
     If (!$Build.IsPresent) {
@@ -135,6 +140,31 @@ If ($Upgrade) {
         Write-Host ("{0:g}" -f $duration)                  -ForegroundColor Cyan -NoNewLine
         Write-Host "."                                     -ForegroundColor Red
         Throw "Failed to upgrade the engine.";
+    }
+}
+
+If ($Format) {
+    # Prints information about the step being taken
+    Write-Host "Formatting " -ForegroundColor Blue -NoNewline
+    Write-Host $ProjectName  -ForegroundColor Cyan -NoNewline
+    Write-Host "... "        -ForegroundColor Blue
+
+    # Run the process
+    $private:duration = Measure-Command {
+        & "$RootFolder\scripts\format.ps1"
+    }
+
+    # Print information to the screen
+    If ($LastExitCode -Eq 0) {
+        Write-Host "# Finished in "       -ForegroundColor Green -NoNewLine
+        Write-Host ("{0:g}" -f $duration) -ForegroundColor Cyan  -NoNewLine
+        Write-Host "."                    -ForegroundColor Green
+    }
+    Else {
+        Write-Host "# Errored with code $LastExitCode in " -ForegroundColor Red  -NoNewLine
+        Write-Host ("{0:g}" -f $duration)                  -ForegroundColor Cyan -NoNewLine
+        Write-Host "."                                     -ForegroundColor Red
+        Throw "Failed to format the project.";
     }
 }
 
