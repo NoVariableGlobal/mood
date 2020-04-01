@@ -1,0 +1,16 @@
+name: Style
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  style:
+    name: style
+    runs-on: windows-latest
+    steps:
+      - name: Test Style
+        run: pwsh -File ./scripts/format.ps1 -Test
+        shell: pwsh
