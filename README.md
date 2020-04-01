@@ -26,8 +26,14 @@ To run the script, we will use an existing [PowerShell] window, you can open it 
 click anywhere in the project's folder, it will show you some extra options, including `Open PowerShell window here`.
 Alternatively, open a new window and `cd` to the project's folder.
 
-Once you have your [PowerShell] window in this project's folder, run the following command to set up all dependencies
-and compile the project:
+Once you have your [PowerShell] window in this project's folder, you can use our interactive utilities script to
+simplify the entire set-up:
+
+```ps1
+.\scripts\utils.ps1 -Interactive
+```
+
+Alternatively, you can run the following command to set up all dependencies and compile the project:
 
 ```ps1
 .\scripts\build.ps1
