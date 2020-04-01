@@ -228,7 +228,10 @@ function Step-CMake([string] $Path, [string[]] $Arguments) {
     Write-Host $Path                              -ForegroundColor Cyan -NoNewline
     Write-Host "'."                               -ForegroundColor Blue
 
+    Get-ChildItem (Split-Path (Split-Path (Split-Path $Path -Parent) -Parent) -Parent)
+    Get-ChildItem (Split-Path (Split-Path $Path -Parent) -Parent)
     Get-ChildItem (Split-Path $Path -Parent)
+    Get-ChildItem $Path
 
     New-Directory -Path "$Path\build"
     $private:startTime = Get-Date
