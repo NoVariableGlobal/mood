@@ -1,7 +1,7 @@
 #pragma once
+#include "Factory.h"
 #include "GunC.h"
 #include <string>
-#include "Factory.h"
 
 DECLARE_FACTORY(AutomaticRifleC);
 

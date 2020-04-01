@@ -63,52 +63,51 @@ bool AutomaticRifleC::shoot() {
 // FACTORY INFRASTRUCTURE
 AutomaticRifleCFactory::AutomaticRifleCFactory() = default;
 
-    Component* AutomaticRifleCFactory::create(Entity* _father, Json::Value& _data,
-                      Scene* _scene)  {
+Component* AutomaticRifleCFactory::create(Entity* _father, Json::Value& _data,
+                                          Scene* _scene) {
 
-        AutomaticRifleC* automaticRifle = new AutomaticRifleC();
+    AutomaticRifleC* automaticRifle = new AutomaticRifleC();
 
-        _scene->getComponentsManager()->addDC(automaticRifle);
-        automaticRifle->setFather(_father);
-        automaticRifle->setScene(_scene);
+    _scene->getComponentsManager()->addDC(automaticRifle);
+    automaticRifle->setFather(_father);
+    automaticRifle->setScene(_scene);
 
-        if (!_data["bulletTag"].isString())
-            throw std::exception("AutomaticRifleC: bulletTag is not a string");
-        automaticRifle->setBulletTag(_data["bulletTag"].asString());
+    if (!_data["bulletTag"].isString())
+        throw std::exception("AutomaticRifleC: bulletTag is not a string");
+    automaticRifle->setBulletTag(_data["bulletTag"].asString());
 
-        if (!_data["bulletchamberMax"].isInt())
-            throw std::exception(
-                "AutomaticRifleC: bulletchamberMax is not an int");
-        automaticRifle->setbulletchamber(_data["bulletchamberMax"].asInt());
+    if (!_data["bulletchamberMax"].isInt())
+        throw std::exception("AutomaticRifleC: bulletchamberMax is not an int");
+    automaticRifle->setbulletchamber(_data["bulletchamberMax"].asInt());
 
-        if (!_data["munition"].isInt())
-            throw std::exception("AutomaticRifleC: munition is not an int");
-        automaticRifle->setmunition(_data["munition"].asInt());
+    if (!_data["munition"].isInt())
+        throw std::exception("AutomaticRifleC: munition is not an int");
+    automaticRifle->setmunition(_data["munition"].asInt());
 
-        if (!_data["bulletDamage"].isDouble())
-            throw std::exception("ShotgunC: bulletDamage is not a double");
-        automaticRifle->setbulletdamage(_data["bulletDamage"].asDouble());
+    if (!_data["bulletDamage"].isDouble())
+        throw std::exception("ShotgunC: bulletDamage is not a double");
+    automaticRifle->setbulletdamage(_data["bulletDamage"].asDouble());
 
-        if (!_data["bulletSpeed"].isDouble())
-            throw std::exception("ShotgunC: bulletSpeed is not a double");
-        automaticRifle->setbulletspeed(_data["bulletSpeed"].asDouble());
+    if (!_data["bulletSpeed"].isDouble())
+        throw std::exception("ShotgunC: bulletSpeed is not a double");
+    automaticRifle->setbulletspeed(_data["bulletSpeed"].asDouble());
 
-        if (!_data["cadence"].isDouble())
-            throw std::exception("AutomaticRifleC: cadence is not an int");
-        automaticRifle->setcadence(_data["cadence"].asFloat());
+    if (!_data["cadence"].isDouble())
+        throw std::exception("AutomaticRifleC: cadence is not an int");
+    automaticRifle->setcadence(_data["cadence"].asFloat());
 
-        if (!_data["automatic"].isBool())
-            throw std::exception("AutomaticRifleC: automatic is not an bool");
-        automaticRifle->setautomatic(_data["automatic"].asBool());
+    if (!_data["automatic"].isBool())
+        throw std::exception("AutomaticRifleC: automatic is not an bool");
+    automaticRifle->setautomatic(_data["automatic"].asBool());
 
-        if (!_data["instakill"].isBool())
-            throw std::exception("AutomaticRifleC: instakill is not an bool");
-        automaticRifle->setInstakill(_data["instakill"].asBool());
+    if (!_data["instakill"].isBool())
+        throw std::exception("AutomaticRifleC: instakill is not an bool");
+    automaticRifle->setInstakill(_data["instakill"].asBool());
 
-        automaticRifle->setTransform(dynamic_cast<TransformComponent*>(
-            _father->getComponent("TransformComponent")));
+    automaticRifle->setTransform(dynamic_cast<TransformComponent*>(
+        _father->getComponent("TransformComponent")));
 
-        return automaticRifle;
-    };
+    return automaticRifle;
+};
 
 DEFINE_FACTORY(AutomaticRifleC);

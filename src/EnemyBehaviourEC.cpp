@@ -18,15 +18,11 @@
 #include <value.h>
 
 EnemyBehaviourEC::EnemyBehaviourEC()
-    : speed(0.0f), attack(0), attackCooldown(0.0f) 
-{
+    : speed(0.0f), attack(0), attackCooldown(0.0f) {
     directionToPlayer = new Ogre::Vector3();
 }
 
-EnemyBehaviourEC::~EnemyBehaviourEC() 
-{
-    delete directionToPlayer;
-}
+EnemyBehaviourEC::~EnemyBehaviourEC() { delete directionToPlayer; }
 
 void EnemyBehaviourEC::checkEvent() {
     TransformComponent* transform = dynamic_cast<TransformComponent*>(

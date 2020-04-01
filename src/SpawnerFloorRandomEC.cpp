@@ -15,15 +15,11 @@ void SpawnerFloorRandomEC::setFloorDimensions(Ogre::Vector4f _floorDimensions) {
     *floorDimensions = _floorDimensions;
 }
 
-SpawnerFloorRandomEC::SpawnerFloorRandomEC()
-{
+SpawnerFloorRandomEC::SpawnerFloorRandomEC() {
     floorDimensions = new Ogre::Vector4f();
 }
 
-SpawnerFloorRandomEC::~SpawnerFloorRandomEC()
-{
-    delete floorDimensions;
-}
+SpawnerFloorRandomEC::~SpawnerFloorRandomEC() { delete floorDimensions; }
 
 void SpawnerFloorRandomEC::checkEvent() {
     if (firstTime) {
@@ -41,11 +37,11 @@ void SpawnerFloorRandomEC::checkEvent() {
             static_cast<RigidbodyPC*>(newEntity->getComponent("RigidbodyPC"));
 
         float x = floorDimensions->x + static_cast<float>(rand()) /
-                                          static_cast<float>(RAND_MAX) *
-                                          floorDimensions->z;
+                                           static_cast<float>(RAND_MAX) *
+                                           floorDimensions->z;
         float z = floorDimensions->y + static_cast<float>(rand()) /
-                                          static_cast<float>(RAND_MAX) *
-                                          floorDimensions->w;
+                                           static_cast<float>(RAND_MAX) *
+                                           floorDimensions->w;
         spawnTransform->setPosition(Ogre::Vector3(x, 0, z));
         rigidbody->setPosition(Ogre::Vector3(x, 0, z));
     }
@@ -57,52 +53,51 @@ SpawnerFloorRandomECFactory::SpawnerFloorRandomECFactory() = default;
 Component* SpawnerFloorRandomECFactory::create(Entity* _father,
                                                Json::Value& _data,
                                                Scene* scene) {
- SpawnerFloorRandomEC* spawnerFloorRandomEC = new SpawnerFloorRandomEC();
-        scene->getComponentsManager()->addEC(spawnerFloorRandomEC);
+    SpawnerFloorRandomEC* spawnerFloorRandomEC = new SpawnerFloorRandomEC();
+    scene->getComponentsManager()->addEC(spawnerFloorRandomEC);
 
-        spawnerFloorRandomEC->setFather(_father);
-        spawnerFloorRandomEC->setScene(scene);
+    spawnerFloorRandomEC->setFather(_father);
+    spawnerFloorRandomEC->setScene(scene);
 
-        // X and Y are the starting position and Z and W are the maximum that
-        // position can be modified
-        if (!_data["floorDimensions[x,y,z,w]"].isArray())
-            throw std::exception("random[x,y,z,w]: position is not an array");
-        spawnerFloorRandomEC->setFloorDimensions(
-            Ogre::Vector4f(_data["floorDimensions[x,y,z,w]"][0].asFloat(),
-                           _data["floorDimensions[x,y,z,w]"][1].asFloat(),
-                           _data["floorDimensions[x,y,z,w]"][2].asFloat(),
-                           _data["floorDimensions[x,y,z,w]"][3].asFloat()));
+    // X and Y are the starting position and Z and W are the maximum that
+    // position can be modified
+    if (!_data["floorDimensions[x,y,z,w]"].isArray())
+        throw std::exception("random[x,y,z,w]: position is not an array");
+    spawnerFloorRandomEC->setFloorDimensions(
+        Ogre::Vector4f(_data["floorDimensions[x,y,z,w]"][0].asFloat(),
+                       _data["floorDimensions[x,y,z,w]"][1].asFloat(),
+                       _data["floorDimensions[x,y,z,w]"][2].asFloat(),
+                       _data["floorDimensions[x,y,z,w]"][3].asFloat()));
 
-        if (!_data["spawnCooldown"].isDouble())
-            throw std::exception("Spawner: spawnCooldown is not a double");
-        spawnerFloorRandomEC->setSpawnCooldown(
-            _data["spawnCooldown"].asDouble());
+    if (!_data["spawnCooldown"].isDouble())
+        throw std::exception("Spawner: spawnCooldown is not a double");
+    spawnerFloorRandomEC->setSpawnCooldown(_data["spawnCooldown"].asDouble());
 
-        if (!_data["spawnID"].isArray())
-            throw std::exception("Spawner: spawnID is not an array");
-        else if (!_data["spawnID"][0].isString())
-            throw std::exception("Spawner: spawnID is not an array of strings");
+    if (!_data["spawnID"].isArray())
+        throw std::exception("Spawner: spawnID is not an array");
+    else if (!_data["spawnID"][0].isString())
+        throw std::exception("Spawner: spawnID is not an array of strings");
 
-        if (!_data["spawnTag"].isString())
-            throw std::exception("Spawner: spawnTag is not a string");
-        std::string tag = _data["spawnTag"].asString();
+    if (!_data["spawnTag"].isString())
+        throw std::exception("Spawner: spawnTag is not a string");
+    std::string tag = _data["spawnTag"].asString();
 
-        if (!_data["spawnChances"].isArray())
-            throw std::exception("Spawner: spawnChances is not an array");
-        else if (!_data["spawnChances"][0].isDouble())
-            throw std::exception(
-                "Spawner: spawnChances is not an array of doubles");
+    if (!_data["spawnChances"].isArray())
+        throw std::exception("Spawner: spawnChances is not an array");
+    else if (!_data["spawnChances"][0].isDouble())
+        throw std::exception(
+            "Spawner: spawnChances is not an array of doubles");
 
-        for (int i = 0; i < _data["spawnID"].size(); ++i) {
-            if (!spawnerFloorRandomEC->addSpawn(
-                    _data["spawnID"][i].asString(),
-                    _data["spawnChances"][i].asDouble(), tag)) {
-                printf(("No se pudo aniadir " + _data["spawnID"][i].asString() +
-                        ": Ya se llego al 100% de probabilidad./n")
-                           .c_str());
-                break;
-            }
+    for (int i = 0; i < _data["spawnID"].size(); ++i) {
+        if (!spawnerFloorRandomEC->addSpawn(_data["spawnID"][i].asString(),
+                                            _data["spawnChances"][i].asDouble(),
+                                            tag)) {
+            printf(("No se pudo aniadir " + _data["spawnID"][i].asString() +
+                    ": Ya se llego al 100% de probabilidad./n")
+                       .c_str());
+            break;
         }
+    }
 
     spawnerFloorRandomEC->setActive(true);
 

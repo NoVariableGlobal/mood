@@ -97,54 +97,51 @@ void RangedEnemyBehaviourEC::shoot() {
 // FACTORY INFRASTRUCTURE
 RangedEnemyBehaviourECFactory::RangedEnemyBehaviourECFactory() = default;
 
-    Component* RangedEnemyBehaviourECFactory::create(Entity* _father,
-                                               Json::Value& _data,
-                      Scene* scene) {
-        RangedEnemyBehaviourEC* rangedEnemyBehaviour =
-            new RangedEnemyBehaviourEC();
-        scene->getComponentsManager()->addEC(rangedEnemyBehaviour);
+Component* RangedEnemyBehaviourECFactory::create(Entity* _father,
+                                                 Json::Value& _data,
+                                                 Scene* scene) {
+    RangedEnemyBehaviourEC* rangedEnemyBehaviour = new RangedEnemyBehaviourEC();
+    scene->getComponentsManager()->addEC(rangedEnemyBehaviour);
 
-        rangedEnemyBehaviour->setFather(_father);
-        rangedEnemyBehaviour->setScene(scene);
+    rangedEnemyBehaviour->setFather(_father);
+    rangedEnemyBehaviour->setScene(scene);
 
-        if (!_data["speed"].isDouble())
-            throw std::exception("MeleeEnemyBehaviourEC: speed is not a float");
-        rangedEnemyBehaviour->setSpeed(_data["speed"].asFloat());
+    if (!_data["speed"].isDouble())
+        throw std::exception("MeleeEnemyBehaviourEC: speed is not a float");
+    rangedEnemyBehaviour->setSpeed(_data["speed"].asFloat());
 
-        if (!_data["attack"].isInt())
-            throw std::exception(
-                "RangedMeleeEnemyBehaviourPC: attack is not an int");
-        rangedEnemyBehaviour->setAttack(_data["attack"].asInt());
+    if (!_data["attack"].isInt())
+        throw std::exception(
+            "RangedMeleeEnemyBehaviourPC: attack is not an int");
+    rangedEnemyBehaviour->setAttack(_data["attack"].asInt());
 
-        if (!_data["attackCooldown"].isDouble())
-            throw std::exception(
-                "RangedEnemyBehaviourEC: attackCooldown is not a float");
-        rangedEnemyBehaviour->setAttackCooldown(
-            _data["attackCooldown"].asFloat());
+    if (!_data["attackCooldown"].isDouble())
+        throw std::exception(
+            "RangedEnemyBehaviourEC: attackCooldown is not a float");
+    rangedEnemyBehaviour->setAttackCooldown(_data["attackCooldown"].asFloat());
 
-        if (!_data["weaponEquipped"].isString())
-            throw std::exception(
-                "RangedEnemyBehaviourEC: weaponEquipped is not a string");
-        rangedEnemyBehaviour->setWeaponEquipped(
-            _data["weaponEquipped"].asString());
+    if (!_data["weaponEquipped"].isString())
+        throw std::exception(
+            "RangedEnemyBehaviourEC: weaponEquipped is not a string");
+    rangedEnemyBehaviour->setWeaponEquipped(_data["weaponEquipped"].asString());
 
-        if (!_data["arcPellets"].isInt())
-            throw std::exception(
-                "RangedMeleeEnemyBehaviourPC: arcPellets is not an int");
-        rangedEnemyBehaviour->setArcPellets(_data["arcPellets"].asInt());
+    if (!_data["arcPellets"].isInt())
+        throw std::exception(
+            "RangedMeleeEnemyBehaviourPC: arcPellets is not an int");
+    rangedEnemyBehaviour->setArcPellets(_data["arcPellets"].asInt());
 
-        if (!_data["arcAngleDistance"].isInt())
-            throw std::exception(
-                "RangedMeleeEnemyBehaviourPC: arcAngleDistance is not an int");
-        rangedEnemyBehaviour->setArcAngleDistance(
-            _data["arcAngleDistance"].asInt());
+    if (!_data["arcAngleDistance"].isInt())
+        throw std::exception(
+            "RangedMeleeEnemyBehaviourPC: arcAngleDistance is not an int");
+    rangedEnemyBehaviour->setArcAngleDistance(
+        _data["arcAngleDistance"].asInt());
 
-        if (!_data["bulletSpeed"].isInt())
-            throw std::exception("RangedMeleeEnemyBehaviourPC: "
-                                 "bulletSpeed is not an int");
-        rangedEnemyBehaviour->setBulletSpeed(_data["bulletSpeed"].asInt());
+    if (!_data["bulletSpeed"].isInt())
+        throw std::exception("RangedMeleeEnemyBehaviourPC: "
+                             "bulletSpeed is not an int");
+    rangedEnemyBehaviour->setBulletSpeed(_data["bulletSpeed"].asInt());
 
-        return rangedEnemyBehaviour;
-    };
+    return rangedEnemyBehaviour;
+};
 
 DEFINE_FACTORY(RangedEnemyBehaviourEC);

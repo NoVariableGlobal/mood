@@ -27,25 +27,25 @@ std::string InfiniteAmmoEC::getName() { return "InfiniteAmmoEC"; }
 // FACTORY INFRASTRUCTURE
 InfiniteAmmoECFactory::InfiniteAmmoECFactory() = default;
 
-    Component* InfiniteAmmoECFactory::create(Entity* _father, Json::Value& _data,
-                      Scene* scene) {
-        InfiniteAmmoEC* infiniteAmmo = new InfiniteAmmoEC();
+Component* InfiniteAmmoECFactory::create(Entity* _father, Json::Value& _data,
+                                         Scene* scene) {
+    InfiniteAmmoEC* infiniteAmmo = new InfiniteAmmoEC();
 
-        infiniteAmmo->setFather(_father);
-        infiniteAmmo->setScene(scene);
-        scene->getComponentsManager()->addEC(infiniteAmmo);
+    infiniteAmmo->setFather(_father);
+    infiniteAmmo->setScene(scene);
+    scene->getComponentsManager()->addEC(infiniteAmmo);
 
-        if (!_data["time"].isDouble())
-            throw std::exception("InfiniteAmmo: time is not a double");
-        infiniteAmmo->setDuration(_data["time"].asDouble());
+    if (!_data["time"].isDouble())
+        throw std::exception("InfiniteAmmo: time is not a double");
+    infiniteAmmo->setDuration(_data["time"].asDouble());
 
-        if (!_data["timeEffect"].isDouble())
-            throw std::exception("Shield: timeEffect is not a double");
-        infiniteAmmo->setDuration(_data["timeEffect"].asDouble());
+    if (!_data["timeEffect"].isDouble())
+        throw std::exception("Shield: timeEffect is not a double");
+    infiniteAmmo->setDuration(_data["timeEffect"].asDouble());
 
-        infiniteAmmo->setActive(true);
+    infiniteAmmo->setActive(true);
 
-        return infiniteAmmo;
-    };
+    return infiniteAmmo;
+};
 
 DEFINE_FACTORY(InfiniteAmmoEC);

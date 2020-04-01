@@ -27,25 +27,25 @@ std::string InstakillEC::getName() { return "InstakillEC"; }
 // FACTORY INFRASTRUCTURE
 InstakillECFactory::InstakillECFactory() = default;
 
-    Component* InstakillECFactory::create(Entity* _father, Json::Value& _data,
-                      Scene* scene) {
-        InstakillEC* instakill = new InstakillEC();
+Component* InstakillECFactory::create(Entity* _father, Json::Value& _data,
+                                      Scene* scene) {
+    InstakillEC* instakill = new InstakillEC();
 
-        instakill->setFather(_father);
-        instakill->setScene(scene);
-        scene->getComponentsManager()->addEC(instakill);
+    instakill->setFather(_father);
+    instakill->setScene(scene);
+    scene->getComponentsManager()->addEC(instakill);
 
-        if (!_data["time"].isDouble())
-            throw std::exception("InstakillEC: time is not a double");
-        instakill->setDuration(_data["time"].asDouble());
+    if (!_data["time"].isDouble())
+        throw std::exception("InstakillEC: time is not a double");
+    instakill->setDuration(_data["time"].asDouble());
 
-        if (!_data["timeEffect"].isDouble())
-            throw std::exception("InstakillEC: timeEffect is not a double");
-        instakill->setDuration(_data["timeEffect"].asDouble());
+    if (!_data["timeEffect"].isDouble())
+        throw std::exception("InstakillEC: timeEffect is not a double");
+    instakill->setDuration(_data["timeEffect"].asDouble());
 
-        instakill->setActive(true);
+    instakill->setActive(true);
 
-        return instakill;
-    };
+    return instakill;
+};
 
 DEFINE_FACTORY(InstakillEC);

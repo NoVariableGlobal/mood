@@ -1,6 +1,6 @@
 #pragma once
-#include "SpawnerEC.h"
 #include "Factory.h"
+#include "SpawnerEC.h"
 
 namespace Ogre {
     typedef float Real;

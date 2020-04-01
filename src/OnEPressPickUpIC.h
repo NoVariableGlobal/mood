@@ -1,8 +1,8 @@
 #pragma once
 #include "InputComponent.h"
 
-#include <string>
 #include "Factory.h"
+#include <string>
 
 DECLARE_FACTORY(OnEPressPickUpIC);
 class RigidbodyPC;

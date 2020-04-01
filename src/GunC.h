@@ -9,7 +9,7 @@ class GunC : public Component {
     int _bulletchamber;       // Ammunition in chamber
     int _bulletchamberMax;    // Total ammunition in chamber
     int _munition;            // Total ammunition stored
-    int _munitionMax;     // Total ammunition stored
+    int _munitionMax;         // Total ammunition stored
     int _bulletDamage;        // Damage of a single bullet
     int _bulletSpeed;         // Speed of a single bullet
     float _cadence;           // Gun cadence

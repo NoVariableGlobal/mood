@@ -1,6 +1,6 @@
 #pragma once
-#include "PersistentPowerUpEC.h"
 #include "Factory.h"
+#include "PersistentPowerUpEC.h"
 
 DECLARE_FACTORY(InstakillEC);
 

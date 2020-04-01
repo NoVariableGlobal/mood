@@ -5,12 +5,12 @@
 #include "HandGunC.h"
 #include "Scene.h"
 #include "WeaponControllerIC.h"
-#include <json.h>
 #include <iostream>
+#include <json.h>
 
-void GunPowerUpC::destroy() { 
-	setActive(false);
-	scene->getComponentsManager()->eraseDC(this); 
+void GunPowerUpC::destroy() {
+    setActive(false);
+    scene->getComponentsManager()->eraseDC(this);
 }
 
 void GunPowerUpC::onPickUp() {
@@ -24,22 +24,20 @@ void GunPowerUpC::setGunId(const std::string& gunId) { _gunId = gunId; }
 // FACTORY INFRASTRUCTURE
 GunPowerUpCFactory::GunPowerUpCFactory() = default;
 
+Component* GunPowerUpCFactory::create(Entity* _father, Json::Value& _data,
+                                      Scene* _scene) {
 
-    Component* GunPowerUpCFactory::create(Entity* _father, Json::Value& _data,
-                      Scene* _scene) {
+    GunPowerUpC* gunPowerUpC = new GunPowerUpC();
 
+    if (!_data["gunId"].isString())
+        throw std::exception("GunPowerUpC: gunId is not a string");
+    gunPowerUpC->setGunId(_data["gunId"].asString());
 
-        GunPowerUpC* gunPowerUpC = new GunPowerUpC();
+    _scene->getComponentsManager()->addDC(gunPowerUpC);
+    gunPowerUpC->setFather(_father);
+    gunPowerUpC->setScene(_scene);
 
-        if (!_data["gunId"].isString())
-            throw std::exception("GunPowerUpC: gunId is not a string");
-        gunPowerUpC->setGunId(_data["gunId"].asString());
-
-        _scene->getComponentsManager()->addDC(gunPowerUpC);
-        gunPowerUpC->setFather(_father);
-        gunPowerUpC->setScene(_scene);
-
-        return gunPowerUpC;
-    };
+    return gunPowerUpC;
+};
 
 DEFINE_FACTORY(GunPowerUpC);
