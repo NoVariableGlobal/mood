@@ -228,6 +228,8 @@ function Step-CMake([string] $Path, [string[]] $Arguments) {
     Write-Host $Path                              -ForegroundColor Cyan -NoNewline
     Write-Host "'."                               -ForegroundColor Blue
 
+    & ls (Split-Path $PSScriptRoot -Parent)
+
     New-Directory -Path "$Path\build"
     $private:startTime = Get-Date
     & $CMake -S $Path -B "$Path\build" $Arguments
