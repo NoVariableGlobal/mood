@@ -4,13 +4,15 @@
 #include <string>
 
 DECLARE_FACTORY(RangedEnemyBehaviourEC);
+class GunC;
 class RangedEnemyBehaviourEC : public EnemyBehaviourEC {
 
   private:
+    // type of weapon equipped
     std::string weaponEquipped;
-    int arcPellets;
-    int arcAngleDistance;
-    int bulletSpeed;
+
+	// pointer to weapon equipped
+    GunC* gun = nullptr;
 
   public:
     RangedEnemyBehaviourEC();
@@ -19,16 +21,9 @@ class RangedEnemyBehaviourEC : public EnemyBehaviourEC {
 
     // getters and setters
     std::string getWeaponEquipped();
-    int getArcPellets();
-    int getArcAngleDistance();
-    int getBulletSpeed();
 
     void setWeaponEquipped(std::string _weaponEquipped);
-    void setArcPellets(int _arcPellets);
-    void setArcAngleDistance(int _arcAngleDistance);
-    void setBulletSpeed(int _bulletSpeed);
 
-    // shoot bullets in different ways depending on weapon equipped, arcPellets,
-    // arcAngleDistance and bulletSpeed
+    // shoot bullets in different ways depending on weaponEquipped
     void shoot();
 };

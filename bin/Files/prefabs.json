@@ -675,10 +675,20 @@
             "speed": 0.3,
             "attack": 10,
             "attackCooldown": 2,
-            "weaponEquipped": "handgun",
-            "arcPellets": 1,
-            "arcAngleDistance": 1,
-            "bulletSpeed": 50
+            "weaponEquipped": "HandGunC"
+          }
+        },
+        {
+          "type": "HandGunC",
+          "attributes": {
+            "bulletTag": "EnemyBullet",
+            "bulletchamberMax": 20,
+            "munition": 1000,
+            "bulletDamage": 15,
+            "bulletSpeed": 50,
+            "cadence": 1,
+            "automatic": false,
+            "instakill": false
           }
         }
       ]
@@ -728,10 +738,20 @@
             "speed": 0.3,
             "attack": 8,
             "attackCooldown": 0.5,
-            "weaponEquipped": "rifle",
-            "arcPellets": 1,
-            "arcAngleDistance": 1,
-            "bulletSpeed": 50
+            "weaponEquipped": "AutomaticRifleC"
+          }
+        },
+        {
+          "type": "AutomaticRifleC",
+          "attributes": {
+            "bulletTag": "EnemyBullet",
+            "bulletchamberMax": 30,
+            "munition": 90,
+            "bulletDamage": 13,
+            "bulletSpeed": 50,
+            "cadence": 0.1,
+            "automatic": true,
+            "instakill": false
           }
         }
       ]
@@ -781,10 +801,22 @@
             "speed": 0.3,
             "attack": 15,
             "attackCooldown": 3,
-            "weaponEquipped": "shotgun",
-            "arcPellets": 3,
-            "arcAngleDistance": 30,
-            "bulletSpeed": 50
+            "weaponEquipped": "ShotgunC"
+          }
+        },
+        {
+          "type": "ShotgunC",
+          "attributes": {
+            "bulletTag": "EnemyBullet",
+            "bulletchamberMax": 2,
+            "munition": 14,
+            "bulletDamage": 50,
+            "bulletSpeed": 50,
+            "cadence": 1,
+            "automatic": false,
+            "nPellets": 3,
+            "dispersion": 10,
+            "instakill": false
           }
         }
       ]
@@ -834,10 +866,19 @@
             "speed": 0.3,
             "attack": 20,
             "attackCooldown": 3,
-            "weaponEquipped": "sniper",
-            "arcPellets": 1,
-            "arcAngleDistance": 1,
-            "bulletSpeed": 100
+            "weaponEquipped": "SniperGunC"
+          }
+        },
+        {
+          "type": "SniperGunC",
+          "attributes": {
+            "bulletTag": "EnemyBullet",
+            "bulletchamberMax": 1,
+            "munition": 5,
+            "bulletDamage": 100,
+            "bulletSpeed": 100,
+            "cadence": 1,
+            "instakill": false
           }
         }
       ]
