@@ -71,7 +71,7 @@ Component* SpawnerEnemiesECFactory::create(Entity* _father, Json::Value& _data,
         throw std::exception(
             "Spawner: spawnChances is not an array of doubles");
 
-	if (!_data["EnemiesLimit"].isInt())
+    if (!_data["EnemiesLimit"].isInt())
         throw std::exception("Spawner: EnemiesLimit is not a int");
     spawnerEnemies->setEnemies(_data["EnemiesLimit"].asInt());
 
