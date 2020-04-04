@@ -11,6 +11,9 @@ class RangedEnemyBehaviourEC : public EnemyBehaviourEC {
     // type of weapon equipped
     std::string weaponEquipped;
 
+	// maximum distance to aggro player
+    float aggroDistance;
+
 	// pointer to weapon equipped
     GunC* gun = nullptr;
 
@@ -21,8 +24,10 @@ class RangedEnemyBehaviourEC : public EnemyBehaviourEC {
 
     // getters and setters
     std::string getWeaponEquipped();
+    float getAggroDistance();
 
     void setWeaponEquipped(std::string _weaponEquipped);
+    void setAggroDistance(float _aggroDistance);
 
     // shoot bullets in different ways depending on weaponEquipped
     void shoot();

@@ -41,6 +41,7 @@ class GunC : public Component {
     int getCalculatedDamage();
 
     // Getters
+    std::string getBulletType(); // Return the tag of my bullets
     std::string getBulletTag(); // Return the tag of my bullets
     int getbulletchamber(); // Return the remaining ammunition in the chamber
     int getmunition();      // Return the remaining ammo
@@ -54,6 +55,7 @@ class GunC : public Component {
     bool getInstakill();
 
     // Setters
+    void setBulletType(std::string _bulletType);
     void setBulletTag(std::string _bulletTag);
     void setbulletchamber(int bulletchamberMax);
     void setmunition(int munition);

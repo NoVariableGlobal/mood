@@ -33,8 +33,7 @@ bool AutomaticRifleC::shoot() {
 
     auto spawner = reinterpret_cast<SpawnerBulletsC*>(
         scene->getEntitybyId("GameManager")->getComponent("SpawnerBulletsC"));
-    Entity* newBullet =
-        spawner->getBullet("AutomaticRifleBullet", _myBulletTag);
+    Entity* newBullet = spawner->getBullet(_myBulletType, _myBulletTag);
 
     BulletC* bullet =
         dynamic_cast<BulletC*>(newBullet->getComponent("BulletC"));
@@ -103,6 +102,10 @@ Component* AutomaticRifleCFactory::create(Entity* _father, Json::Value& _data,
     if (!_data["instakill"].isBool())
         throw std::exception("AutomaticRifleC: instakill is not an bool");
     automaticRifle->setInstakill(_data["instakill"].asBool());
+
+	if (!_data["bulletType"].isString())
+        throw std::exception("ShotgunC: bulletType is not a string");
+    automaticRifle->setBulletType(_data["bulletType"].asString());
 
     automaticRifle->setTransform(dynamic_cast<TransformComponent*>(
         _father->getComponent("TransformComponent")));

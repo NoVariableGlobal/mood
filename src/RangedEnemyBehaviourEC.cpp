@@ -2,6 +2,7 @@
 #include "ComponentsManager.h"
 #include "EnemyBehaviourEC.h"
 #include "FactoriesFactory.h"
+#include "GunC.h"
 #include "OgreRoot.h"
 #include "PlayerMovementIC.h"
 #include "RigidbodyPC.h"
@@ -11,7 +12,7 @@
 #include "TridimensionalObjectRC.h"
 #include <Entity.h>
 #include <json.h>
-#include "GunC.h"
+#include <iostream>
 
 RangedEnemyBehaviourEC::RangedEnemyBehaviourEC() : EnemyBehaviourEC() {}
 
@@ -22,7 +23,10 @@ void RangedEnemyBehaviourEC::checkEvent() {
     if (active) {
         // attack every attackCooldown seconds
         if (timeToAttack()) {
-            shoot();
+            // if enemy is within range
+            if (getDistanceToPlayer().squaredLength() <= getAggroDistance()) {
+                shoot();
+            }
         }
     }
 }
@@ -31,8 +35,14 @@ std::string RangedEnemyBehaviourEC::getWeaponEquipped() {
     return weaponEquipped;
 }
 
+float RangedEnemyBehaviourEC::getAggroDistance() { return aggroDistance; }
+
 void RangedEnemyBehaviourEC::setWeaponEquipped(std::string _weaponEquipped) {
     weaponEquipped = _weaponEquipped;
+}
+
+void RangedEnemyBehaviourEC::setAggroDistance(float _aggroDistance) {
+    aggroDistance = _aggroDistance;
 }
 
 void RangedEnemyBehaviourEC::shoot() {
@@ -70,6 +80,11 @@ Component* RangedEnemyBehaviourECFactory::create(Entity* _father,
         throw std::exception(
             "RangedEnemyBehaviourEC: weaponEquipped is not a string");
     rangedEnemyBehaviour->setWeaponEquipped(_data["weaponEquipped"].asString());
+
+    if (!_data["aggroDistance"].asFloat())
+        throw std::exception(
+            "RangedEnemyBehaviourEC: aggroDistance is not a float");
+    rangedEnemyBehaviour->setAggroDistance(_data["aggroDistance"].asFloat());
 
     return rangedEnemyBehaviour;
 };

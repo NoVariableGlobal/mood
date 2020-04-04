@@ -145,7 +145,8 @@
             "bulletSpeed": 50,
             "cadence": 1,
             "automatic": false,
-            "instakill": false
+            "instakill": false,
+            "bulletType": "HandgunBullet"
           }
         },
         {
@@ -160,7 +161,8 @@
             "automatic": false,
             "nPellets": 3,
             "dispersion": 10,
-            "instakill": false
+            "instakill": false,
+            "bulletType": "ShotgunBullet"
           }
         },
         {
@@ -172,7 +174,8 @@
             "bulletDamage": 100,
             "bulletSpeed": 100,
             "cadence": 1,
-            "instakill": false
+            "instakill": false,
+            "bulletType": "SniperBullet"
           }
         },
 		    {
@@ -185,7 +188,8 @@
             "bulletSpeed": 50,
             "cadence": 0.1,
             "automatic": true,
-            "instakill": false
+            "instakill": false,
+            "bulletType": "AutomaticRifleBullet"
           }
         },
 		    {
