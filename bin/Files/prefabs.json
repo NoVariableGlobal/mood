@@ -922,6 +922,11 @@
           }
         },
         {
+          "type": "BulletHurtPlayerEC",
+          "attributes": {
+          }
+        },
+        {
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
@@ -968,6 +973,11 @@
           }
         },
         {
+          "type": "BulletHurtPlayerEC",
+          "attributes": {
+          }
+        },
+        {
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
@@ -1010,6 +1020,11 @@
         },
         {
           "type": "BulletC",
+          "attributes": {
+          }
+        },
+        {
+          "type": "BulletHurtPlayerEC",
           "attributes": {
           }
         },
@@ -1061,6 +1076,11 @@
         },
         {
           "type": "SniperBulletC",
+          "attributes": {
+          }
+        },
+        {
+          "type": "BulletHurtPlayerEC",
           "attributes": {
           }
         },
