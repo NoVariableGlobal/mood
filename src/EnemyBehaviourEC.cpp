@@ -44,7 +44,7 @@ void EnemyBehaviourEC::checkEvent() {
                       playerPosition.y - transform->getPosition().y,
                       playerPosition.z - transform->getPosition().z);
 
-	*directionToPlayer = distanceToPlayer->normalisedCopy();
+    *directionToPlayer = distanceToPlayer->normalisedCopy();
 
     // check collision with player
     collisionWithPlayer_ = rb->collidesWith("Player");

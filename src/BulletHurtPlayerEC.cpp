@@ -17,19 +17,19 @@ void BulletHurtPlayerEC::checkEvent() {
     RigidbodyPC* rb =
         dynamic_cast<RigidbodyPC*>(father->getComponent("RigidbodyPC"));
 
-	// if player collides with bullet
+    // if player collides with bullet
     if (rb->collidesWith("Player")) {
         // hurt player
         BulletC* bullet =
             dynamic_cast<BulletC*>(father->getComponent("BulletC"));
         int damage = bullet->getDamage();
-        LifeC* playerHealth =
-            dynamic_cast<LifeC*>(scene->getEntitybyId("Player")->getComponent("LifeC"));
+        LifeC* playerHealth = dynamic_cast<LifeC*>(
+            scene->getEntitybyId("Player")->getComponent("LifeC"));
         playerHealth->doDamage(damage);
 
         // destroy bullet
         bullet->dealCollision();
-	}
+    }
 }
 
 // FACTORY INFRASTRUCTURE

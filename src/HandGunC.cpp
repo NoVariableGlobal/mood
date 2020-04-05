@@ -102,7 +102,7 @@ Component* HandGunCFactory::create(Entity* _father, Json::Value& _data,
         throw std::exception("HandGunC: instakill is not an bool");
     hg->setInstakill(_data["instakill"].asBool());
 
-	if (!_data["bulletType"].isString())
+    if (!_data["bulletType"].isString())
         throw std::exception("ShotgunC: bulletType is not a string");
     hg->setBulletType(_data["bulletType"].asString());
 

@@ -94,7 +94,7 @@ Component* SniperGunCFactory::create(Entity* _father, Json::Value& _data,
         throw std::exception("SniperGunC: instakill is not an bool");
     sniper->setInstakill(_data["instakill"].asBool());
 
-	if (!_data["bulletType"].isString())
+    if (!_data["bulletType"].isString())
         throw std::exception("ShotgunC: bulletType is not a string");
     sniper->setBulletType(_data["bulletType"].asString());
 

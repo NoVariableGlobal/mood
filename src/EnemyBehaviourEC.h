@@ -25,7 +25,7 @@ class EnemyBehaviourEC : public EventComponent {
     // direction vector from enemy to player
     Ogre::Vector3* directionToPlayer;
 
-	// distance to player
+    // distance to player
     Ogre::Vector3* distanceToPlayer;
 
   public:

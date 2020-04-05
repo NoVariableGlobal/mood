@@ -43,7 +43,7 @@
         {
           "type": "SpawnerFloorRandomEC",
           "attributes": {
-			"floorDimensions[x,y,z,w]": [ -100, -100, 200, 200 ],
+            "floorDimensions[x,y,z,w]": [ -100, -100, 200, 200 ],
             "spawnCooldown": 5,
             "spawnID": [ "Medkit", "IncreaseSpeed", "InfiniteAmmo", "InvulnerabilityShield", "Nuke", "Instakill" ],
             "spawnTag": "PowerUp",
@@ -53,7 +53,7 @@
         {
           "type": "SpawnerFloorRandomEC",
           "attributes": {
-			"floorDimensions[x,y,z,w]": [ -100, -100, 200, 200 ],
+            "floorDimensions[x,y,z,w]": [ -100, -100, 200, 200 ],
             "spawnCooldown": 5,
             "spawnID": [ "AutomaticRifle", "Shotgun", "SniperGun" ],
             "spawnTag": "Gun",
@@ -77,7 +77,7 @@
           "type": "SpawnerEnemiesEC",
           "attributes": {
             "spawnCooldown": 2,
-            "spawnID": [ "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy"],
+            "spawnID": [ "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
             "spawnTag": "Enemy",
             "spawnChances": [ 25, 25, 25, 25 ]
           }
@@ -178,7 +178,7 @@
             "bulletType": "SniperBullet"
           }
         },
-		    {
+        {
           "type": "AutomaticRifleC",
           "attributes": {
             "bulletTag": "PlayerBullet",
@@ -192,10 +192,10 @@
             "bulletType": "AutomaticRifleBullet"
           }
         },
-		    {
-		      "type": "AutomaticEC",
+        {
+          "type": "AutomaticEC",
           "attributes": {}
-		    },
+        },
         {
           "type": "WeaponControllerIC",
           "attributes": {}
@@ -204,12 +204,12 @@
           "type": "OrientateToMouseIC",
           "attributes": {}
         },
-		{
-		  "type": "PowerUpTrackerC",
-		  "attributes": {}
-		}
+        {
+          "type": "PowerUpTrackerC",
+          "attributes": {}
+        }
       ]
-      },
+    },
     {
       "id": "Suelo",
       "components": [

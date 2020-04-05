@@ -42,7 +42,7 @@ class GunC : public Component {
 
     // Getters
     std::string getBulletType(); // Return the tag of my bullets
-    std::string getBulletTag(); // Return the tag of my bullets
+    std::string getBulletTag();  // Return the tag of my bullets
     int getbulletchamber(); // Return the remaining ammunition in the chamber
     int getmunition();      // Return the remaining ammo
     int getbulletdamage();  // Returns the damage of a single bullet

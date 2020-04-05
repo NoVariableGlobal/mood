@@ -11,8 +11,8 @@
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
 #include <Entity.h>
-#include <json.h>
 #include <iostream>
+#include <json.h>
 
 RangedEnemyBehaviourEC::RangedEnemyBehaviourEC() : EnemyBehaviourEC() {}
 
