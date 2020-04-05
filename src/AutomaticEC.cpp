@@ -51,6 +51,7 @@ Component* AutomaticECFactory::create(Entity* _father, Json::Value& _data,
     AutomaticEC* automatic = new AutomaticEC();
 
     automatic->setFather(_father);
+    automatic->setScene(scene);
     scene->getComponentsManager()->addEC(automatic);
 
     automatic->setActive(true);
