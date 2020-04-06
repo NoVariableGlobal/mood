@@ -32,6 +32,7 @@
 .vscode/
 .vs/
 .release/
+.temp/
 inter/
 test/
 
@@ -43,4 +44,4 @@ bin/*.iobj
 bin/*.ipdb
 bin/*.pdb
 
-P3/ProyectoBase/bin/TaharezLook.looknfeel
+*/**/TaharezLook.looknfeel
