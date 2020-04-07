@@ -94,7 +94,6 @@
     <ClInclude Include="..\src\SpawnerFloorRandomEC.h" />
     <ClInclude Include="..\src\TridimensionalObjectRC.h" />
     <ClInclude Include="..\src\WeaponControllerIC.h" />
-    <ClInclude Include="BulletHurtPlayerEC.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

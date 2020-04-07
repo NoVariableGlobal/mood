@@ -25,7 +25,7 @@ void BulletHurtPlayerEC::checkEvent() {
         int damage = bullet->getDamage();
         LifeC* playerHealth = dynamic_cast<LifeC*>(
             scene->getEntitybyId("Player")->getComponent("LifeC"));
-        playerHealth->doDamage(damage);
+        //playerHealth->doDamage(damage);
 
         // destroy bullet
         bullet->dealCollision();
