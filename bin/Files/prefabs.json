@@ -617,7 +617,7 @@
         {
           "type": "MeleeEnemyBehaviourEC",
           "attributes": {
-            "speed": 0.7,
+            "speed": 24,
             "attack": 10,
             "attackCooldown": 2
           }
@@ -672,7 +672,7 @@
         {
           "type": "RangedEnemyBehaviourEC",
           "attributes": {
-            "speed": 0.3,
+            "speed": 10,
             "attack": 10,
             "attackCooldown": 2,
             "weaponEquipped": "HandGunC",
@@ -737,7 +737,7 @@
         {
           "type": "RangedEnemyBehaviourEC",
           "attributes": {
-            "speed": 0.3,
+            "speed": 10,
             "attack": 8,
             "attackCooldown": 0.5,
             "weaponEquipped": "AutomaticRifleC",
@@ -802,7 +802,7 @@
         {
           "type": "RangedEnemyBehaviourEC",
           "attributes": {
-            "speed": 0.3,
+            "speed": 10,
             "attack": 15,
             "attackCooldown": 3,
             "weaponEquipped": "ShotgunC",
@@ -869,7 +869,7 @@
         {
           "type": "RangedEnemyBehaviourEC",
           "attributes": {
-            "speed": 0.3,
+            "speed": 10,
             "attack": 20,
             "attackCooldown": 3,
             "weaponEquipped": "SniperGunC",

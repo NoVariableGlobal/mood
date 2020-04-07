@@ -24,7 +24,7 @@ void RangedEnemyBehaviourEC::checkEvent() {
         // attack every attackCooldown seconds
         if (timeToAttack()) {
             // if enemy is within range
-            if (getDistanceToPlayer().squaredLength() <= getAggroDistance()) {
+            if (getWithinRange()) {
                 shoot();
             }
         }
@@ -35,14 +35,8 @@ std::string RangedEnemyBehaviourEC::getWeaponEquipped() {
     return weaponEquipped;
 }
 
-float RangedEnemyBehaviourEC::getAggroDistance() { return aggroDistance; }
-
 void RangedEnemyBehaviourEC::setWeaponEquipped(std::string _weaponEquipped) {
     weaponEquipped = _weaponEquipped;
-}
-
-void RangedEnemyBehaviourEC::setAggroDistance(float _aggroDistance) {
-    aggroDistance = _aggroDistance;
 }
 
 void RangedEnemyBehaviourEC::shoot() {
