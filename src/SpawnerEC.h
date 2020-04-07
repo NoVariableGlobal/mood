@@ -28,6 +28,7 @@ class SpawnerEC : public EventComponent {
     bool firstTime = true;
 
   public:
+    SpawnerEC();
     void setSpawnCooldown(float spawnCooldown) {
         _spawnCooldown = spawnCooldown;
     }

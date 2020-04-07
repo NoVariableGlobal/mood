@@ -6,6 +6,14 @@
 #include <time.h>
 #include <utility>
 #include <value.h>
+#include "RoundManagerEC.h"
+
+SpawnerEC::SpawnerEC() 
+{
+    dynamic_cast<RoundManagerEC*>(
+        scene->getEntitybyId("GameManager")->getComponent("RoundManager"))
+        ->registerOtherSpawner(this);
+}
 
 bool SpawnerEC::addSpawn(std::string id, float chance, std::string tag) {
     float totalChance = 0;

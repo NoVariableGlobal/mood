@@ -6,8 +6,14 @@
 #include "RigidbodyPC.h"
 #include "Scene.h"
 #include "TransformComponent.h"
-
+#include "RoundManagerEC.h"
 #include <json.h>
+
+SpawnerEnemiesEC::SpawnerEnemiesEC() {
+    dynamic_cast<RoundManagerEC*>(
+        scene->getEntitybyId("GameManager")->getComponent("RoundManager"))
+        ->registerEnemySpawner(this);
+}
 
 void SpawnerEnemiesEC::checkEvent() {
 

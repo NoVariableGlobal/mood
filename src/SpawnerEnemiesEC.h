@@ -12,6 +12,7 @@ class SpawnerEnemiesEC : public SpawnerEC {
     int enemies;
 
   public:
+    SpawnerEnemiesEC();
     virtual void checkEvent() override;
 
     void setTransform(TransformComponent* trans);

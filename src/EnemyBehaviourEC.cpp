@@ -10,6 +10,7 @@
 #include "Scene.h"
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
+#include "RoundManagerEC.h"
 
 #include <json.h>
 #include <math.h>
@@ -77,6 +78,11 @@ void EnemyBehaviourEC::checkEvent() {
 
         life->doDamage(bullet->getDamage());
         bullet->dealCollision();
+
+        if (!active) //if dead
+            dynamic_cast<RoundManagerEC*>(scene->getEntitybyId("GameManager")
+                                              ->getComponent("RoundManager"))
+                ->enemyDied();
     }
 }
 
