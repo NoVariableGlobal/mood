@@ -15,6 +15,9 @@ class RoundManagerEC : public EventComponent {
     int enemiesDead = 0;
     int minAddEnemies = 0;
     int maxAddEnemies = 0;
+    int timeBetweenRounds = 10;
+    float timer = 0;
+    bool roundEnd = false;
 
     std::vector<SpawnerEnemiesEC*> enemiesSpawners;
     std::vector<SpawnerEC*> otherSpawners;
