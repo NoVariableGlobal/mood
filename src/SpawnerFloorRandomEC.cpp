@@ -59,6 +59,8 @@ Component* SpawnerFloorRandomECFactory::create(Entity* _father,
     spawnerFloorRandomEC->setFather(_father);
     spawnerFloorRandomEC->setScene(scene);
 
+    spawnerFloorRandomEC->registerInRoundManager();
+
     // X and Y are the starting position and Z and W are the maximum that
     // position can be modified
     if (!_data["floorDimensions[x,y,z,w]"].isArray())

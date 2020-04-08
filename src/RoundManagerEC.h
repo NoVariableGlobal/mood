@@ -31,6 +31,8 @@ class RoundManagerEC : public EventComponent {
     void setMaxAddEnemies(int n);
     void setEnemiesInRound(int n);
 
+    void setTimeBetweenRounds(int n);
+
     void registerEnemySpawner(SpawnerEnemiesEC* spawn);
     void registerOtherSpawner(SpawnerEC* spawn);
 

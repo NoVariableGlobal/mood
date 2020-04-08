@@ -40,6 +40,17 @@
           "attributes": {
           }
         },
+
+        {
+          "type": "RoundManagerEC",
+          "attributes": {
+            "minAddEnemies": 3,
+            "maxAddEnemies": 6,
+            "enemiesInRound": 8,
+            "timeBetweenRounds": 10
+          }
+        },
+
         {
           "type": "SpawnerFloorRandomEC",
           "attributes": {
@@ -80,7 +91,7 @@
             "spawnID": [ "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy"],
             "spawnTag": "Enemy",
             "spawnChances": [ 25, 25, 25, 25 ],
-			"EnemiesLimit": 8
+			      "EnemiesLimit": 8
           }
         }
       ]

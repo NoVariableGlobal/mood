@@ -81,7 +81,7 @@ void EnemyBehaviourEC::checkEvent() {
 
         if (!active) //if dead
             dynamic_cast<RoundManagerEC*>(scene->getEntitybyId("GameManager")
-                                              ->getComponent("RoundManager"))
+                                              ->getComponent("RoundManagerEC"))
                 ->enemyDied();
     }
 }

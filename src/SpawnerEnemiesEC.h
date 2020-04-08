@@ -17,4 +17,5 @@ class SpawnerEnemiesEC : public SpawnerEC {
 
     void setTransform(TransformComponent* trans);
     void setEnemies(int _enemies);
+    virtual void registerInRoundManager();
 };

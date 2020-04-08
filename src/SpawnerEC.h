@@ -61,4 +61,6 @@ class SpawnerEC : public EventComponent {
     Entity* spawnPrefab();
 
     Spawn binarySearch(int first, int last, float value);
+
+    virtual void registerInRoundManager();
 };

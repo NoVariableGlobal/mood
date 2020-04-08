@@ -2,18 +2,13 @@
 #include "ComponentsManager.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
+#include "RoundManagerEC.h"
 #include "Scene.h"
 #include <time.h>
 #include <utility>
 #include <value.h>
-#include "RoundManagerEC.h"
 
-SpawnerEC::SpawnerEC() 
-{
-    dynamic_cast<RoundManagerEC*>(
-        scene->getEntitybyId("GameManager")->getComponent("RoundManager"))
-        ->registerOtherSpawner(this);
-}
+SpawnerEC::SpawnerEC() {}
 
 bool SpawnerEC::addSpawn(std::string id, float chance, std::string tag) {
     float totalChance = 0;
@@ -106,6 +101,12 @@ Spawn SpawnerEC::binarySearch(int first, int last, float value) {
     }
 
     return {"", 0, 0};
+}
+
+void SpawnerEC::registerInRoundManager() {
+    dynamic_cast<RoundManagerEC*>(
+        scene->getEntitybyId("GameManager")->getComponent("RoundManagerEC"))
+        ->registerOtherSpawner(this);
 }
 
 // FACTORY INFRASTRUCTURE
