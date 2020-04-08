@@ -25,6 +25,15 @@ class EnemyBehaviourEC : public EventComponent {
     // direction vector from enemy to player
     Ogre::Vector3* directionToPlayer;
 
+    // distance to player
+    Ogre::Vector3* distanceToPlayer;
+
+    // maximum distance to aggro player
+    float aggroDistance;
+
+    // player is within aggroDistance
+    bool withinRange;
+
   public:
     EnemyBehaviourEC();
     ~EnemyBehaviourEC();
@@ -38,6 +47,9 @@ class EnemyBehaviourEC : public EventComponent {
     float getAttackCooldown();
     float getLastTimeAttacked();
     Ogre::Vector3 getDirectionToPlayer();
+    Ogre::Vector3 getDistanceToPlayer();
+    float getAggroDistance();
+    bool getWithinRange();
 
     void setSpeed(float _speed);
     void setCollisionWithPlayer(bool _collisionWithPlayer);
@@ -45,4 +57,7 @@ class EnemyBehaviourEC : public EventComponent {
     void setAttackCooldown(float _attackCooldown);
     void setLastTimeAttacked(float _lastTimeAttacked);
     void setDirectionToPlayer(Ogre::Vector3 _directionToPlayer);
+    void setDistanceToPlayer(Ogre::Vector3 _distanceToPlayer);
+    void setAggroDistance(float _aggroDistance);
+    void setWithinRange(bool _withinRange);
 };

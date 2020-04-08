@@ -22,6 +22,7 @@
     <ClCompile Include="..\src\AutomaticEC.cpp" />
     <ClCompile Include="..\src\AutomaticRifleC.cpp" />
     <ClCompile Include="..\src\BulletC.cpp" />
+    <ClCompile Include="..\src\BulletHurtPlayerEC.cpp" />
     <ClCompile Include="..\src\DestroyAfterSecsEC.cpp" />
     <ClCompile Include="..\src\EnemyBehaviourEC.cpp" />
     <ClCompile Include="..\src\GunC.cpp" />
@@ -60,6 +61,7 @@
     <ClInclude Include="..\src\AutomaticEC.h" />
     <ClInclude Include="..\src\AutomaticRifleC.h" />
     <ClInclude Include="..\src\BulletC.h" />
+    <ClInclude Include="..\src\BulletHurtPlayerEC.h" />
     <ClInclude Include="..\src\DestroyAfterSecsEC.h" />
     <ClInclude Include="..\src\EnemyBehaviourEC.h" />
     <ClInclude Include="..\src\GunC.h" />

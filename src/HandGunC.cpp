@@ -32,7 +32,7 @@ bool HandGunC::shoot() {
 
     auto spawner = reinterpret_cast<SpawnerBulletsC*>(
         scene->getEntitybyId("GameManager")->getComponent("SpawnerBulletsC"));
-    Entity* newBullet = spawner->getBullet("HandgunBullet", _myBulletTag);
+    Entity* newBullet = spawner->getBullet(_myBulletType, _myBulletTag);
 
     BulletC* bullet =
         dynamic_cast<BulletC*>(newBullet->getComponent("BulletC"));
@@ -101,6 +101,10 @@ Component* HandGunCFactory::create(Entity* _father, Json::Value& _data,
     if (!_data["instakill"].isBool())
         throw std::exception("HandGunC: instakill is not an bool");
     hg->setInstakill(_data["instakill"].asBool());
+
+    if (!_data["bulletType"].isString())
+        throw std::exception("ShotgunC: bulletType is not a string");
+    hg->setBulletType(_data["bulletType"].asString());
 
     hg->setTransform(dynamic_cast<TransformComponent*>(
         _father->getComponent("TransformComponent")));

@@ -72,6 +72,7 @@ Component* OrientateToMouseICFactory::create(Entity* _father,
 
     // Set the component's father as the entity it was instanced for
     orientationIC->setFather(_father);
+    orientationIC->setScene(scene);
 
     return orientationIC;
 };

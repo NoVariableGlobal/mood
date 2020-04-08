@@ -617,7 +617,7 @@
         {
           "type": "MeleeEnemyBehaviourEC",
           "attributes": {
-            "speed": 0.7,
+            "speed": 24,
             "attack": 10,
             "attackCooldown": 2
           }
@@ -672,13 +672,25 @@
         {
           "type": "RangedEnemyBehaviourEC",
           "attributes": {
-            "speed": 0.3,
+            "speed": 10,
             "attack": 10,
             "attackCooldown": 2,
-            "weaponEquipped": "handgun",
-            "arcPellets": 1,
-            "arcAngleDistance": 1,
-            "bulletSpeed": 50
+            "weaponEquipped": "HandGunC",
+            "aggroDistance": 5000.0
+          }
+        },
+        {
+          "type": "HandGunC",
+          "attributes": {
+            "bulletTag": "EnemyBullet",
+            "bulletchamberMax": 20,
+            "munition": 1000,
+            "bulletDamage": 15,
+            "bulletSpeed": 50,
+            "cadence": 1,
+            "automatic": false,
+            "instakill": false,
+            "bulletType": "EnemyBullet_handgun"
           }
         }
       ]
@@ -725,13 +737,25 @@
         {
           "type": "RangedEnemyBehaviourEC",
           "attributes": {
-            "speed": 0.3,
+            "speed": 10,
             "attack": 8,
             "attackCooldown": 0.5,
-            "weaponEquipped": "rifle",
-            "arcPellets": 1,
-            "arcAngleDistance": 1,
-            "bulletSpeed": 50
+            "weaponEquipped": "AutomaticRifleC",
+            "aggroDistance": 10000.0
+          }
+        },
+        {
+          "type": "AutomaticRifleC",
+          "attributes": {
+            "bulletTag": "EnemyBullet",
+            "bulletchamberMax": 30,
+            "munition": 90,
+            "bulletDamage": 13,
+            "bulletSpeed": 50,
+            "cadence": 0.1,
+            "automatic": true,
+            "instakill": false,
+            "bulletType": "EnemyBullet_rifle"
           }
         }
       ]
@@ -778,13 +802,27 @@
         {
           "type": "RangedEnemyBehaviourEC",
           "attributes": {
-            "speed": 0.3,
+            "speed": 10,
             "attack": 15,
             "attackCooldown": 3,
-            "weaponEquipped": "shotgun",
-            "arcPellets": 3,
-            "arcAngleDistance": 30,
-            "bulletSpeed": 50
+            "weaponEquipped": "ShotgunC",
+            "aggroDistance": 1000.0
+          }
+        },
+        {
+          "type": "ShotgunC",
+          "attributes": {
+            "bulletTag": "EnemyBullet",
+            "bulletchamberMax": 2,
+            "munition": 14,
+            "bulletDamage": 50,
+            "bulletSpeed": 50,
+            "cadence": 1,
+            "automatic": false,
+            "nPellets": 3,
+            "dispersion": 10,
+            "instakill": false,
+            "bulletType": "EnemyBullet_shotgun"
           }
         }
       ]
@@ -831,13 +869,24 @@
         {
           "type": "RangedEnemyBehaviourEC",
           "attributes": {
-            "speed": 0.3,
+            "speed": 10,
             "attack": 20,
             "attackCooldown": 3,
-            "weaponEquipped": "sniper",
-            "arcPellets": 1,
-            "arcAngleDistance": 1,
-            "bulletSpeed": 100
+            "weaponEquipped": "SniperGunC",
+            "aggroDistance": 20000.0
+          }
+        },
+        {
+          "type": "SniperGunC",
+          "attributes": {
+            "bulletTag": "EnemyBullet",
+            "bulletchamberMax": 1,
+            "munition": 5,
+            "bulletDamage": 100,
+            "bulletSpeed": 100,
+            "cadence": 1,
+            "instakill": false,
+            "bulletType": "EnemyBullet_sniper"
           }
         }
       ]
@@ -865,6 +914,16 @@
           "type": "DestroyAfterSecsEC",
           "attributes": {
             "lifeTime": 2
+          }
+        },
+        {
+          "type": "BulletC",
+          "attributes": {
+          }
+        },
+        {
+          "type": "BulletHurtPlayerEC",
+          "attributes": {
           }
         },
         {
@@ -909,6 +968,16 @@
           }
         },
         {
+          "type": "BulletC",
+          "attributes": {
+          }
+        },
+        {
+          "type": "BulletHurtPlayerEC",
+          "attributes": {
+          }
+        },
+        {
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
@@ -947,6 +1016,16 @@
           "type": "DestroyAfterSecsEC",
           "attributes": {
             "lifeTime": 1
+          }
+        },
+        {
+          "type": "BulletC",
+          "attributes": {
+          }
+        },
+        {
+          "type": "BulletHurtPlayerEC",
+          "attributes": {
           }
         },
         {
@@ -991,6 +1070,21 @@
           }
         },
         {
+          "type": "BulletC",
+          "attributes": {
+          }
+        },
+        {
+          "type": "SniperBulletC",
+          "attributes": {
+          }
+        },
+        {
+          "type": "BulletHurtPlayerEC",
+          "attributes": {
+          }
+        },
+        {
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
@@ -1007,4 +1101,5 @@
       ]
     }
   ]
+
 }
