@@ -676,7 +676,7 @@
             "attack": 10,
             "attackCooldown": 2,
             "weaponEquipped": "HandGunC",
-            "aggroDistance": 20000.0
+            "aggroDistance": 15000.0
           }
         },
         {
@@ -741,7 +741,7 @@
             "attack": 8,
             "attackCooldown": 0.5,
             "weaponEquipped": "AutomaticRifleC",
-            "aggroDistance": 25000.0
+            "aggroDistance": 15000.0
           }
         },
         {
@@ -806,7 +806,7 @@
             "attack": 15,
             "attackCooldown": 3,
             "weaponEquipped": "ShotgunC",
-            "aggroDistance": 15000.0
+            "aggroDistance": 3000.0
           }
         },
         {
@@ -873,7 +873,7 @@
             "attack": 20,
             "attackCooldown": 3,
             "weaponEquipped": "SniperGunC",
-            "aggroDistance": 30000.0
+            "aggroDistance": 15000.0
           }
         },
         {
