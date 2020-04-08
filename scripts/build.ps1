@@ -253,7 +253,7 @@ function Step-CMake([string] $Path, [string[]] $Arguments) {
 $local:RootFolder = Split-Path $PSScriptRoot -Parent
 $local:BinaryDirectory = "$RootFolder\bin"
 $local:DependenciesRoot = "$RootFolder\deps"
-$local:EngineDependenciesRoot = "$DependenciesRoot\one-thousand-years\P3\ProyectoBase\lib"
+$local:EngineDependenciesRoot = "$DependenciesRoot\one-thousand-years\deps"
 
 # Copies one or more files from one place to the project's binary directory
 function Step-CopyToBinaryDirectory([string] $From, [string[]] $Paths) {
@@ -273,7 +273,7 @@ function Step-CopyToBinaryDirectory([string] $From, [string[]] $Paths) {
 Try {
     If (!$ProjectOnly.ToBool()) {
         # Build Bullet
-        $private:BulletFolder = "$EngineDependenciesRoot\bullet3-2.89"
+        $private:BulletFolder = "$EngineDependenciesRoot\bullet"
         Step-CMake $BulletFolder  @(
             "-DBUILD_BULLET2_DEMOS:BOOL=OFF",
             "-DBUILD_BULLET3:BOOL=ON",
@@ -294,13 +294,13 @@ Try {
         # $private:FModFolder = "$EngineDependenciesRoot\fmod"
 
         # Build JsonCPP
-        $private:JsonFolder = "$EngineDependenciesRoot\jsoncpp-master"
+        $private:JsonFolder = "$EngineDependenciesRoot\jsoncpp"
         Step-CMake $JsonFolder @()
         Step-VisualStudioThirdPartyDebug "$JsonFolder\build\JSONCPP.sln"
         Step-VisualStudioThirdPartyRelease "$JsonFolder\build\JSONCPP.sln"
 
         # Build Ogre
-        $private:OgreFolder = "$EngineDependenciesRoot\ogre-1.12.5"
+        $private:OgreFolder = "$EngineDependenciesRoot\ogre"
         Step-CMake $OgreFolder @("-DOGRE_BUILD_COMPONENT_OVERLAY:BOOL=OFF")
         Step-VisualStudioThirdPartyDebug "$OgreFolder\build\OGRE.sln"
         Step-VisualStudioThirdPartyRelease "$OgreFolder\build\OGRE.sln"
@@ -319,15 +319,15 @@ Try {
         )
 
         # Build SDL2
-        $private:Sdl2Folder = "$EngineDependenciesRoot\SDL2-2.0.10"
+        $private:Sdl2Folder = "$EngineDependenciesRoot\SDL2"
         Step-CopyToBinaryDirectory "SDL2" @(
             "$Sdl2Folder\lib\x64\SDL2.dll"
         )
 
         # Build engine
-        $private:EngineFolder = "$DependenciesRoot\one-thousand-years\P3\ProyectoBase"
-        Step-VisualStudioThirdPartyDebug "$EngineFolder\ProyectoBase.sln"
-        Step-VisualStudioThirdPartyRelease "$EngineFolder\ProyectoBase.sln"
+        $private:EngineFolder = "$DependenciesRoot\one-thousand-years"
+        Step-VisualStudioThirdPartyDebug "$EngineFolder\one-thousand-years.sln"
+        Step-VisualStudioThirdPartyRelease "$EngineFolder\one-thousand-years.sln"
     }
 
     If (!$DependenciesOnly.ToBool()) {

@@ -17,7 +17,7 @@ void SpawnerEnemiesEC::checkEvent() {
     }
 
     // Spawnea un enemigo cada cierto tiempo en la posicion del spawn
-    if (timeToSpawn()) {
+    if (enemies > 0 && timeToSpawn()) {
         Entity* newEntity = spawnPrefab();
 
         TransformComponent* spawnTransform = dynamic_cast<TransformComponent*>(
@@ -28,12 +28,15 @@ void SpawnerEnemiesEC::checkEvent() {
 
         rigid->setPosition(transform->getPosition());
         spawnTransform->setPosition(transform->getPosition());
+        enemies--;
     }
 }
 
 void SpawnerEnemiesEC::setTransform(TransformComponent* trans) {
     transform = trans;
 }
+
+void SpawnerEnemiesEC::setEnemies(int _enemies) { enemies = _enemies; }
 
 // FACTORY INFRASTRUCTURE
 SpawnerEnemiesECFactory::SpawnerEnemiesECFactory() = default;
@@ -67,6 +70,10 @@ Component* SpawnerEnemiesECFactory::create(Entity* _father, Json::Value& _data,
     else if (!_data["spawnChances"][0].isDouble())
         throw std::exception(
             "Spawner: spawnChances is not an array of doubles");
+
+    if (!_data["EnemiesLimit"].isInt())
+        throw std::exception("Spawner: EnemiesLimit is not a int");
+    spawnerEnemies->setEnemies(_data["EnemiesLimit"].asInt());
 
     for (int i = 0; i < _data["spawnID"].size(); ++i) {
         if (!spawnerEnemies->addSpawn(_data["spawnID"][i].asString(),
