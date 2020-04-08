@@ -18,7 +18,7 @@ void RoundManagerEC::checkEvent() {
             it->setActive(false);
 
         std::cout << "ROUND OVER" << "\n";
-
+        roundNumber++;
         timer = clock() / static_cast<float>(CLOCKS_PER_SEC);
     } else if (roundEnd) {
         float seconds = clock() / static_cast<float>(CLOCKS_PER_SEC);

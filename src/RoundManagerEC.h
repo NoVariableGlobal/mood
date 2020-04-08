@@ -16,6 +16,7 @@ class RoundManagerEC : public EventComponent {
     int minAddEnemies = 0;
     int maxAddEnemies = 0;
     int timeBetweenRounds = 10;
+    int roundNumber = 1;
     float timer = 0;
     bool roundEnd = false;
 
