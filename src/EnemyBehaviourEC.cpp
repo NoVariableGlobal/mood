@@ -7,6 +7,7 @@
 #include "LifeC.h"
 #include "OgreRoot.h"
 #include "RigidbodyPC.h"
+#include "RoundManagerEC.h"
 #include "Scene.h"
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
@@ -87,6 +88,11 @@ void EnemyBehaviourEC::checkEvent() {
 
         life->doDamage(bullet->getDamage());
         bullet->dealCollision();
+
+        if (!active) // if dead
+            dynamic_cast<RoundManagerEC*>(scene->getEntitybyId("GameManager")
+                                              ->getComponent("RoundManagerEC"))
+                ->enemyDied();
     }
 }
 

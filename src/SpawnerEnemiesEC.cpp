@@ -4,10 +4,12 @@
 #include "FactoriesFactory.h"
 #include "OgreVector3.h"
 #include "RigidbodyPC.h"
+#include "RoundManagerEC.h"
 #include "Scene.h"
 #include "TransformComponent.h"
-
 #include <json.h>
+
+SpawnerEnemiesEC::SpawnerEnemiesEC() {}
 
 void SpawnerEnemiesEC::checkEvent() {
 
@@ -38,6 +40,12 @@ void SpawnerEnemiesEC::setTransform(TransformComponent* trans) {
 
 void SpawnerEnemiesEC::setEnemies(int _enemies) { enemies = _enemies; }
 
+void SpawnerEnemiesEC::registerInRoundManager() {
+    dynamic_cast<RoundManagerEC*>(
+        scene->getEntitybyId("GameManager")->getComponent("RoundManagerEC"))
+        ->registerEnemySpawner(this);
+}
+
 // FACTORY INFRASTRUCTURE
 SpawnerEnemiesECFactory::SpawnerEnemiesECFactory() = default;
 
@@ -47,6 +55,7 @@ Component* SpawnerEnemiesECFactory::create(Entity* _father, Json::Value& _data,
 
     spawnerEnemies->setFather(_father);
     spawnerEnemies->setScene(scene);
+    spawnerEnemies->registerInRoundManager();
 
     spawnerEnemies->setTransform(dynamic_cast<TransformComponent*>(
         _father->getComponent("TransformComponent")));

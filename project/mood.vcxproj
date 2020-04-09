@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -47,6 +47,7 @@
     <ClCompile Include="..\src\PowerUpEC.cpp" />
     <ClCompile Include="..\src\PowerUpTrackerC.cpp" />
     <ClCompile Include="..\src\RangedEnemyBehaviourEC.cpp" />
+    <ClCompile Include="..\src\RounManagerEC.cpp" />
     <ClCompile Include="..\src\ShotgunC.cpp" />
     <ClCompile Include="..\src\SniperBulletC.cpp" />
     <ClCompile Include="..\src\SniperGunC.cpp" />
@@ -85,6 +86,7 @@
     <ClInclude Include="..\src\PowerUpEC.h" />
     <ClInclude Include="..\src\PowerUpTrackerC.h" />
     <ClInclude Include="..\src\RangedEnemyBehaviourEC.h" />
+    <ClInclude Include="..\src\RoundManagerEC.h" />
     <ClInclude Include="..\src\ShotgunC.h" />
     <ClInclude Include="..\src\SniperBulletC.h" />
     <ClInclude Include="..\src\SniperGunC.h" />
