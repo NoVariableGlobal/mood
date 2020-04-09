@@ -44,8 +44,7 @@ void EnemyBehaviourEC::destroy() {
             removeTransforms(dynamic_cast<EnemyBehaviourEC*>(comp));
         }
     }
-    setActive(false);
-    scene->getComponentsManager()->eraseEC(this);
+    EventComponent::destroy();
 }
 
 void EnemyBehaviourEC::removeTransforms(EnemyBehaviourEC* behaviour) {
@@ -157,30 +156,29 @@ bool EnemyBehaviourEC::timeToAttack() {
 
 Ogre::Vector3 EnemyBehaviourEC::separate() {
 
-    Ogre::Vector3 resultado = Ogre::Vector3(0, 0, 0);
-    int numAgentes = otherTransform.size();
-    for (int i = 0; i < numAgentes; i++) {
-        TransformComponent* agenteObjetivo = otherTransform[i];
+    Ogre::Vector3 result = Ogre::Vector3(0, 0, 0);
+    int numAgents = otherTransform.size();
+    for (int i = 0; i < numAgents; i++) {
+        TransformComponent* objective = otherTransform[i];
 
-        Ogre::Vector3 direccion =
+        Ogre::Vector3 myPos =
             dynamic_cast<TransformComponent*>(
                 this->father->getComponent("TransformComponent"))
-                ->getPosition() -
-            agenteObjetivo->getPosition();
+                ->getPosition();
 
-        float distancia = direccion.squaredLength();
+        Ogre::Vector3 direction = myPos - objective->getPosition();
 
-        if (distancia < separationRadius) {
-            if (distancia == 0.0f)
-                distancia = 0.5;
-            float fuerza = 1000 / distancia;
+        float distance = direction.squaredLength();
 
-            direccion = direccion.normalisedCopy();
-            resultado += fuerza * direccion;
+        if (distance < separationRadius) {
+            float force = 1000 / distance;
+
+            direction = direction.normalisedCopy();
+            result += force * direction;
         }
     }
 
-    return resultado;
+    return result;
 }
 
 bool EnemyBehaviourEC::getCollisionWithPlayer() { return collisionWithPlayer_; }

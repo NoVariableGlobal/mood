@@ -85,7 +85,8 @@ Component* RangedEnemyBehaviourECFactory::create(Entity* _father,
     if (!_data["separationRadius"].isInt())
         throw std::exception(
             "RangedEnemyBehaviourEC: separationRadius is not a int");
-    rangedEnemyBehaviour->setSeparationRadius(_data["separationRadius"].asInt());
+    rangedEnemyBehaviour->setSeparationRadius(
+        _data["separationRadius"].asInt());
 
     return rangedEnemyBehaviour;
 };

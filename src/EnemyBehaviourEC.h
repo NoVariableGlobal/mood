@@ -36,7 +36,7 @@ class EnemyBehaviourEC : public EventComponent {
     // player is within aggroDistance
     bool withinRange;
 
-    //other enemies transforms 
+    // other enemies transforms
     std::vector<TransformComponent*> otherTransform;
 
     // Separation Radius
