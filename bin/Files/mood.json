@@ -54,7 +54,7 @@
         {
           "type": "SpawnerFloorRandomEC",
           "attributes": {
-			"floorDimensions[x,y,z,w]": [ -100, -100, 200, 200 ],
+            "floorDimensions[x,y,z,w]": [ -100, -100, 200, 200 ],
             "spawnCooldown": 5,
             "spawnID": [ "Medkit", "IncreaseSpeed", "InfiniteAmmo", "InvulnerabilityShield", "Nuke", "Instakill" ],
             "spawnTag": "PowerUp",
@@ -64,7 +64,7 @@
         {
           "type": "SpawnerFloorRandomEC",
           "attributes": {
-			"floorDimensions[x,y,z,w]": [ -100, -100, 200, 200 ],
+            "floorDimensions[x,y,z,w]": [ -100, -100, 200, 200 ],
             "spawnCooldown": 5,
             "spawnID": [ "AutomaticRifle", "Shotgun", "SniperGun" ],
             "spawnTag": "Gun",
@@ -88,7 +88,7 @@
           "type": "SpawnerEnemiesEC",
           "attributes": {
             "spawnCooldown": 2,
-            "spawnID": [ "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy"],
+            "spawnID": [ "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
             "spawnTag": "Enemy",
             "spawnChances": [ 25, 25, 25, 25 ],
 			      "EnemiesLimit": 8
@@ -157,7 +157,8 @@
             "bulletSpeed": 50,
             "cadence": 1,
             "automatic": false,
-            "instakill": false
+            "instakill": false,
+            "bulletType": "HandgunBullet"
           }
         },
         {
@@ -172,7 +173,8 @@
             "automatic": false,
             "nPellets": 3,
             "dispersion": 10,
-            "instakill": false
+            "instakill": false,
+            "bulletType": "ShotgunBullet"
           }
         },
         {
@@ -184,10 +186,11 @@
             "bulletDamage": 100,
             "bulletSpeed": 100,
             "cadence": 1,
-            "instakill": false
+            "instakill": false,
+            "bulletType": "SniperBullet"
           }
         },
-		    {
+        {
           "type": "AutomaticRifleC",
           "attributes": {
             "bulletTag": "PlayerBullet",
@@ -197,13 +200,14 @@
             "bulletSpeed": 50,
             "cadence": 0.1,
             "automatic": true,
-            "instakill": false
+            "instakill": false,
+            "bulletType": "AutomaticRifleBullet"
           }
         },
-		    {
-		      "type": "AutomaticEC",
+        {
+          "type": "AutomaticEC",
           "attributes": {}
-		    },
+        },
         {
           "type": "WeaponControllerIC",
           "attributes": {}
@@ -212,12 +216,12 @@
           "type": "OrientateToMouseIC",
           "attributes": {}
         },
-		{
-		  "type": "PowerUpTrackerC",
-		  "attributes": {}
-		}
+        {
+          "type": "PowerUpTrackerC",
+          "attributes": {}
+        }
       ]
-      },
+    },
     {
       "id": "Suelo",
       "components": [

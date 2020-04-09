@@ -19,6 +19,8 @@ bool GunC::reload() {
         return false;
 }
 
+std::string GunC::getBulletType() { return _myBulletType; }
+
 std::string GunC::getBulletTag() { return _myBulletTag; }
 
 int GunC::getbulletchamber() { return _bulletchamber; }
@@ -32,6 +34,8 @@ int GunC::getbulletspeed() { return _bulletSpeed; }
 float GunC::getcadence() { return _cadence; }
 
 bool GunC::getautomatic() { return _automatic; }
+
+void GunC::setBulletType(std::string bulletType) { _myBulletType = bulletType; }
 
 void GunC::setBulletTag(std::string bulletTag) { _myBulletTag = bulletTag; }
 

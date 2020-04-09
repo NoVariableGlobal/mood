@@ -19,11 +19,16 @@
 #include <value.h>
 
 EnemyBehaviourEC::EnemyBehaviourEC()
-    : speed(0.0f), attack(0), attackCooldown(0.0f) {
+    : speed(0.0f), attack(0), attackCooldown(0.0f), aggroDistance(0.0f),
+      withinRange(false) {
     directionToPlayer = new Ogre::Vector3();
+    distanceToPlayer = new Ogre::Vector3();
 }
 
-EnemyBehaviourEC::~EnemyBehaviourEC() { delete directionToPlayer; }
+EnemyBehaviourEC::~EnemyBehaviourEC() {
+    delete directionToPlayer;
+    delete distanceToPlayer;
+}
 
 void EnemyBehaviourEC::checkEvent() {
     TransformComponent* transform = dynamic_cast<TransformComponent*>(
@@ -36,18 +41,23 @@ void EnemyBehaviourEC::checkEvent() {
         scene->getEntitybyId("Player")->getComponent("TransformComponent"));
     Ogre::Vector3 playerPosition = playerTransform->getPosition();
 
-    *directionToPlayer =
+    *distanceToPlayer =
         Ogre::Vector3(playerPosition.x - transform->getPosition().x,
                       playerPosition.y - transform->getPosition().y,
-                      playerPosition.z - transform->getPosition().z)
-            .normalisedCopy();
+                      playerPosition.z - transform->getPosition().z);
+
+    *directionToPlayer = distanceToPlayer->normalisedCopy();
 
     // check collision with player
     collisionWithPlayer_ = rb->collidesWith("Player");
 
-    // if not colliding with player enemy moves towards player
+    // check if player is within range
+    withinRange = getDistanceToPlayer().squaredLength() <= getAggroDistance();
+
+    // if not colliding with player and not within attack range enemy moves
+    // towards player
     Ogre::Vector3 velocity;
-    if (!collisionWithPlayer_) {
+    if (!collisionWithPlayer_ && !withinRange) {
         velocity = Ogre::Vector3(directionToPlayer->x * speed, 0.0f,
                                  directionToPlayer->z * speed);
 
@@ -115,6 +125,14 @@ Ogre::Vector3 EnemyBehaviourEC::getDirectionToPlayer() {
     return *directionToPlayer;
 }
 
+Ogre::Vector3 EnemyBehaviourEC::getDistanceToPlayer() {
+    return *distanceToPlayer;
+}
+
+float EnemyBehaviourEC::getAggroDistance() { return aggroDistance; }
+
+bool EnemyBehaviourEC::getWithinRange() { return withinRange; }
+
 void EnemyBehaviourEC::setSpeed(float _speed) { speed = _speed; }
 
 void EnemyBehaviourEC::setAttack(float _attack) { attack = _attack; }
@@ -129,4 +147,16 @@ void EnemyBehaviourEC::setLastTimeAttacked(float _lastTimeAttacked) {
 
 void EnemyBehaviourEC::setDirectionToPlayer(Ogre::Vector3 _directionToPlayer) {
     *directionToPlayer = _directionToPlayer;
+}
+
+void EnemyBehaviourEC::setDistanceToPlayer(Ogre::Vector3 _distanceToPlayer) {
+    *distanceToPlayer = _distanceToPlayer;
+}
+
+void EnemyBehaviourEC::setAggroDistance(float _aggroDistance) {
+    aggroDistance = _aggroDistance;
+}
+
+void EnemyBehaviourEC::setWithinRange(bool _withinRange) {
+    withinRange = _withinRange;
 }
