@@ -26,7 +26,10 @@ void MeleeEnemyBehaviourEC::checkEvent() {
                 // attack player
                 LifeC* playerHealth = dynamic_cast<LifeC*>(
                     scene->getEntitybyId("Player")->getComponent("LifeC"));
-                playerHealth->doDamage(getAttack());
+				// if player dies sleep method is called
+                if (playerHealth->doDamage(getAttack()))
+                    ;
+					// TO DO: call sleep()
             }
         }
     }

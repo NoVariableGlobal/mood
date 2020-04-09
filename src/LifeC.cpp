@@ -24,13 +24,14 @@ int LifeC::getTotalLife() { return totalLife; }
 
 void LifeC::setTotalLife(int _life) { totalLife = _life; }
 
-void LifeC::doDamage(float _damage) {
+bool LifeC::doDamage(float _damage) {
     if (!invulnerability)
         currentLife -= _damage;
 
     if (currentLife <= 0) {
-        scene->deleteEntity(father);
-    }
+        return true;
+    } else
+        return false;
 }
 
 void LifeC::heal(float _heal) {

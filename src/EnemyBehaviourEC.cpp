@@ -86,7 +86,10 @@ void EnemyBehaviourEC::checkEvent() {
             bullet = dynamic_cast<BulletC*>(
                 playerBullet->findComponent("SniperBulletC"));
 
-        life->doDamage(bullet->getDamage());
+		// enemy is destroyed if it dies
+        if(life->doDamage(bullet->getDamage()))
+            scene->deleteEntity(father);
+	
         bullet->dealCollision();
 
         if (!active) // if dead
