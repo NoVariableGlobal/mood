@@ -4,13 +4,12 @@
 #include "FactoriesFactory.h"
 #include "OgreVector3.h"
 #include "RigidbodyPC.h"
+#include "RoundManagerEC.h"
 #include "Scene.h"
 #include "TransformComponent.h"
-#include "RoundManagerEC.h"
 #include <json.h>
 
-SpawnerEnemiesEC::SpawnerEnemiesEC() {
-}
+SpawnerEnemiesEC::SpawnerEnemiesEC() {}
 
 void SpawnerEnemiesEC::checkEvent() {
 

@@ -17,7 +17,8 @@ void RoundManagerEC::checkEvent() {
         for (auto it : otherSpawners)
             it->setActive(false);
 
-        std::cout << "ROUND OVER" << "\n";
+        std::cout << "ROUND OVER"
+                  << "\n";
         roundNumber++;
         timer = clock() / static_cast<float>(CLOCKS_PER_SEC);
     } else if (roundEnd) {
@@ -31,7 +32,8 @@ void RoundManagerEC::checkEvent() {
 
             int i = 0, size = enemiesSpawners.size();
             int toAdd = enemiesInRound / size;
-            std::cout << "ROUND START" << "\n";
+            std::cout << "ROUND START"
+                      << "\n";
             std::cout << "NUMBER OF ENEMIES " << enemiesInRound << "\n";
             while (i < size - 1) {
                 enemiesSpawners[i]->setActive(true);
@@ -44,7 +46,7 @@ void RoundManagerEC::checkEvent() {
             for (auto it : otherSpawners)
                 it->setActive(true);
 
-            roundEnd = false; 
+            roundEnd = false;
             enemiesDead = 0;
         }
     }
@@ -66,8 +68,8 @@ void RoundManagerEC::registerOtherSpawner(SpawnerEC* spawn) {
     otherSpawners.push_back(spawn);
 }
 
-void RoundManagerEC::enemyDied() { 
-    enemiesDead++; 
+void RoundManagerEC::enemyDied() {
+    enemiesDead++;
     std::cout << "ENEMIES LEFT " << enemiesInRound - enemiesDead << "\n";
 }
 
