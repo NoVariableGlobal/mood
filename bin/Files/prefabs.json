@@ -619,7 +619,8 @@
           "attributes": {
             "speed": 24,
             "attack": 10,
-            "attackCooldown": 2
+            "attackCooldown": 2,
+            "separationRadius": 1000
           }
         },
         {
@@ -676,7 +677,8 @@
             "attack": 10,
             "attackCooldown": 2,
             "weaponEquipped": "HandGunC",
-            "aggroDistance": 5000.0
+            "aggroDistance": 5000.0,
+            "separationRadius": 1000
           }
         },
         {
@@ -741,7 +743,8 @@
             "attack": 8,
             "attackCooldown": 0.5,
             "weaponEquipped": "AutomaticRifleC",
-            "aggroDistance": 10000.0
+            "aggroDistance": 10000.0,
+            "separationRadius": 1000
           }
         },
         {
@@ -806,7 +809,8 @@
             "attack": 15,
             "attackCooldown": 3,
             "weaponEquipped": "ShotgunC",
-            "aggroDistance": 1000.0
+            "aggroDistance": 1000.0,
+            "separationRadius": 1000
           }
         },
         {
@@ -873,7 +877,8 @@
             "attack": 20,
             "attackCooldown": 3,
             "weaponEquipped": "SniperGunC",
-            "aggroDistance": 20000.0
+            "aggroDistance": 20000.0,
+            "separationRadius": 1000
           }
         },
         {

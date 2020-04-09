@@ -5,7 +5,9 @@
 #include "FactoriesFactory.h"
 #include "Factory.h"
 #include "LifeC.h"
+#include "MeleeEnemyBehaviourEC.h"
 #include "OgreRoot.h"
+#include "RangedEnemyBehaviourEC.h"
 #include "RigidbodyPC.h"
 #include "RoundManagerEC.h"
 #include "Scene.h"
@@ -28,6 +30,51 @@ EnemyBehaviourEC::EnemyBehaviourEC()
 EnemyBehaviourEC::~EnemyBehaviourEC() {
     delete directionToPlayer;
     delete distanceToPlayer;
+}
+
+void EnemyBehaviourEC::destroy() {
+    std::vector<Entity*> enemies = scene->getEntitiesbyTag("Enemy");
+
+    for (auto it : enemies) {
+        if (it != father) {
+            Component* comp = it->findComponent("MeleeEnemyBehaviourEC");
+            if (comp == nullptr)
+                comp = it->getComponent("RangedEnemyBehaviourEC");
+
+            removeTransforms(dynamic_cast<EnemyBehaviourEC*>(comp));
+        }
+    }
+    setActive(false);
+    scene->getComponentsManager()->eraseEC(this);
+}
+
+void EnemyBehaviourEC::removeTransforms(EnemyBehaviourEC* behaviour) {
+
+    behaviour->unRegisterInOtherTransforms(dynamic_cast<TransformComponent*>(
+        father->getComponent("TransformComponent")));
+}
+
+void EnemyBehaviourEC::registerInOtherEnemies() {
+    std::vector<Entity*> enemies = scene->getEntitiesbyTag("Enemy");
+
+    for (auto it : enemies) {
+
+        Component* comp = it->findComponent("MeleeEnemyBehaviourEC");
+        if (comp == nullptr)
+            comp = it->getComponent("RangedEnemyBehaviourEC");
+
+        addTransforms(dynamic_cast<EnemyBehaviourEC*>(comp),
+                      dynamic_cast<TransformComponent*>(
+                          it->getComponent("TransformComponent")));
+    }
+}
+
+void EnemyBehaviourEC::addTransforms(EnemyBehaviourEC* behaviour,
+                                     TransformComponent* other) {
+    behaviour->registerInOtherTransforms(dynamic_cast<TransformComponent*>(
+        father->getComponent("TransformComponent")));
+
+    otherTransform.push_back(other);
 }
 
 void EnemyBehaviourEC::checkEvent() {
@@ -64,7 +111,8 @@ void EnemyBehaviourEC::checkEvent() {
     } else {
         velocity = Ogre::Vector3(0.0f, 0.0f, 0.0f);
     }
-    rb->setLinearVelocity(velocity);
+
+    rb->setLinearVelocity(velocity * 0.3 + separate() * 0.7);
 
     // set orientation towards player
     float angleInRad =
@@ -105,6 +153,34 @@ bool EnemyBehaviourEC::timeToAttack() {
     }
 
     return false;
+}
+
+Ogre::Vector3 EnemyBehaviourEC::separate() {
+
+    Ogre::Vector3 resultado = Ogre::Vector3(0, 0, 0);
+    int numAgentes = otherTransform.size();
+    for (int i = 0; i < numAgentes; i++) {
+        TransformComponent* agenteObjetivo = otherTransform[i];
+
+        Ogre::Vector3 direccion =
+            dynamic_cast<TransformComponent*>(
+                this->father->getComponent("TransformComponent"))
+                ->getPosition() -
+            agenteObjetivo->getPosition();
+
+        float distancia = direccion.squaredLength();
+
+        if (distancia < separationRadius) {
+            if (distancia == 0.0f)
+                distancia = 0.5;
+            float fuerza = 1000 / distancia;
+
+            direccion = direccion.normalisedCopy();
+            resultado += fuerza * direccion;
+        }
+    }
+
+    return resultado;
 }
 
 bool EnemyBehaviourEC::getCollisionWithPlayer() { return collisionWithPlayer_; }
@@ -159,4 +235,25 @@ void EnemyBehaviourEC::setAggroDistance(float _aggroDistance) {
 
 void EnemyBehaviourEC::setWithinRange(bool _withinRange) {
     withinRange = _withinRange;
+}
+
+void EnemyBehaviourEC::setSeparationRadius(bool radius) {
+    separationRadius = radius;
+}
+
+void EnemyBehaviourEC::registerInOtherTransforms(TransformComponent* trans) {
+    otherTransform.push_back(trans);
+}
+
+void EnemyBehaviourEC::unRegisterInOtherTransforms(TransformComponent* trans) {
+    auto it = otherTransform.begin();
+    bool found = false;
+    while (it != otherTransform.end() && !found) {
+        if ((*it) == trans)
+            found = true;
+        else
+            it++;
+    }
+    if ((*it) == trans)
+        otherTransform.erase(it);
 }

@@ -56,6 +56,8 @@ Component* RangedEnemyBehaviourECFactory::create(Entity* _father,
     rangedEnemyBehaviour->setFather(_father);
     rangedEnemyBehaviour->setScene(scene);
 
+    rangedEnemyBehaviour->registerInOtherEnemies();
+
     if (!_data["speed"].isDouble())
         throw std::exception("MeleeEnemyBehaviourEC: speed is not a float");
     rangedEnemyBehaviour->setSpeed(_data["speed"].asFloat());
@@ -75,10 +77,15 @@ Component* RangedEnemyBehaviourECFactory::create(Entity* _father,
             "RangedEnemyBehaviourEC: weaponEquipped is not a string");
     rangedEnemyBehaviour->setWeaponEquipped(_data["weaponEquipped"].asString());
 
-    if (!_data["aggroDistance"].asFloat())
+    if (!_data["aggroDistance"].isDouble())
         throw std::exception(
             "RangedEnemyBehaviourEC: aggroDistance is not a float");
     rangedEnemyBehaviour->setAggroDistance(_data["aggroDistance"].asFloat());
+
+    if (!_data["separationRadius"].isInt())
+        throw std::exception(
+            "RangedEnemyBehaviourEC: separationRadius is not a int");
+    rangedEnemyBehaviour->setSeparationRadius(_data["separationRadius"].asInt());
 
     return rangedEnemyBehaviour;
 };
