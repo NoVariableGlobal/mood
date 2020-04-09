@@ -63,14 +63,14 @@ void EnemyBehaviourEC::registerInOtherEnemies() {
             comp = it->getComponent("RangedEnemyBehaviourEC");
 
         addTransforms(dynamic_cast<EnemyBehaviourEC*>(comp),
-                      dynamic_cast<TransformComponent*>(
+                      reinterpret_cast<TransformComponent*>(
                           it->getComponent("TransformComponent")));
     }
 }
 
 void EnemyBehaviourEC::addTransforms(EnemyBehaviourEC* behaviour,
                                      TransformComponent* other) {
-    behaviour->registerInOtherTransforms(dynamic_cast<TransformComponent*>(
+    behaviour->registerInOtherTransforms(reinterpret_cast<TransformComponent*>(
         father->getComponent("TransformComponent")));
 
     otherTransform.push_back(other);
@@ -162,7 +162,7 @@ Ogre::Vector3 EnemyBehaviourEC::separate() {
         TransformComponent* objective = otherTransform[i];
 
         Ogre::Vector3 myPos =
-            dynamic_cast<TransformComponent*>(
+            reinterpret_cast<TransformComponent*>(
                 this->father->getComponent("TransformComponent"))
                 ->getPosition();
 
