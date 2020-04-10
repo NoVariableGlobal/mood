@@ -5,7 +5,9 @@
 #include "FactoriesFactory.h"
 #include "Factory.h"
 #include "LifeC.h"
+#include "MeleeEnemyBehaviourEC.h"
 #include "OgreRoot.h"
+#include "RangedEnemyBehaviourEC.h"
 #include "RigidbodyPC.h"
 #include "RoundManagerEC.h"
 #include "Scene.h"
@@ -30,8 +32,53 @@ EnemyBehaviourEC::~EnemyBehaviourEC() {
     delete distanceToPlayer;
 }
 
+void EnemyBehaviourEC::destroy() {
+    std::vector<Entity*> enemies = scene->getEntitiesbyTag("Enemy");
+
+    for (auto it : enemies) {
+        if (it != father) {
+            Component* comp = it->findComponent("MeleeEnemyBehaviourEC");
+            if (comp == nullptr)
+                comp = it->getComponent("RangedEnemyBehaviourEC");
+
+            removeTransforms(dynamic_cast<EnemyBehaviourEC*>(comp));
+        }
+    }
+    EventComponent::destroy();
+}
+
+void EnemyBehaviourEC::removeTransforms(EnemyBehaviourEC* behaviour) {
+
+    behaviour->unRegisterInOtherTransforms(
+        reinterpret_cast<TransformComponent*>(
+            father->getComponent("TransformComponent")));
+}
+
+void EnemyBehaviourEC::registerInOtherEnemies() {
+    std::vector<Entity*> enemies = scene->getEntitiesbyTag("Enemy");
+
+    for (auto it : enemies) {
+
+        Component* comp = it->findComponent("MeleeEnemyBehaviourEC");
+        if (comp == nullptr)
+            comp = it->getComponent("RangedEnemyBehaviourEC");
+
+        addTransforms(dynamic_cast<EnemyBehaviourEC*>(comp),
+                      reinterpret_cast<TransformComponent*>(
+                          it->getComponent("TransformComponent")));
+    }
+}
+
+void EnemyBehaviourEC::addTransforms(EnemyBehaviourEC* behaviour,
+                                     TransformComponent* other) {
+    behaviour->registerInOtherTransforms(reinterpret_cast<TransformComponent*>(
+        father->getComponent("TransformComponent")));
+
+    otherTransform.push_back(other);
+}
+
 void EnemyBehaviourEC::checkEvent() {
-    TransformComponent* transform = dynamic_cast<TransformComponent*>(
+    TransformComponent* transform = reinterpret_cast<TransformComponent*>(
         father->getComponent("TransformComponent"));
     RigidbodyPC* rb =
         dynamic_cast<RigidbodyPC*>(father->getComponent("RigidbodyPC"));
@@ -64,7 +111,8 @@ void EnemyBehaviourEC::checkEvent() {
     } else {
         velocity = Ogre::Vector3(0.0f, 0.0f, 0.0f);
     }
-    rb->setLinearVelocity(velocity);
+
+    rb->setLinearVelocity(velocity * 0.3 + separate() * 0.7);
 
     // set orientation towards player
     float angleInRad =
@@ -105,6 +153,32 @@ bool EnemyBehaviourEC::timeToAttack() {
     }
 
     return false;
+}
+
+Ogre::Vector3 EnemyBehaviourEC::separate() {
+
+    Ogre::Vector3 result = Ogre::Vector3(0, 0, 0);
+    int numAgents = otherTransform.size();
+    for (int i = 0; i < numAgents; i++) {
+        TransformComponent* objective = otherTransform[i];
+
+        Ogre::Vector3 myPos = reinterpret_cast<TransformComponent*>(
+                                  father->getComponent("TransformComponent"))
+                                  ->getPosition();
+
+        Ogre::Vector3 direction = myPos - objective->getPosition();
+
+        float distance = direction.squaredLength();
+
+        if (distance < separationRadius) {
+            float force = 1000 / distance;
+
+            direction = direction.normalisedCopy();
+            result += force * direction;
+        }
+    }
+
+    return result;
 }
 
 bool EnemyBehaviourEC::getCollisionWithPlayer() { return collisionWithPlayer_; }
@@ -159,4 +233,25 @@ void EnemyBehaviourEC::setAggroDistance(float _aggroDistance) {
 
 void EnemyBehaviourEC::setWithinRange(bool _withinRange) {
     withinRange = _withinRange;
+}
+
+void EnemyBehaviourEC::setSeparationRadius(bool radius) {
+    separationRadius = radius;
+}
+
+void EnemyBehaviourEC::registerInOtherTransforms(TransformComponent* trans) {
+    otherTransform.push_back(trans);
+}
+
+void EnemyBehaviourEC::unRegisterInOtherTransforms(TransformComponent* trans) {
+    auto it = otherTransform.begin();
+    bool found = false;
+    while (it != otherTransform.end() && !found) {
+        if ((*it) == trans)
+            found = true;
+        else
+            it++;
+    }
+    if (found)
+        otherTransform.erase(it);
 }
