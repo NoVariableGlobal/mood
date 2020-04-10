@@ -164,7 +164,7 @@ Ogre::Vector3 EnemyBehaviourEC::separate() {
 
         Ogre::Vector3 myPos =
             reinterpret_cast<TransformComponent*>(
-                this->father->getComponent("TransformComponent"))
+                father->getComponent("TransformComponent"))
                 ->getPosition();
 
         Ogre::Vector3 direction = myPos - objective->getPosition();
