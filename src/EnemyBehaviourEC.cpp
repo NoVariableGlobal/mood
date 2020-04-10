@@ -49,8 +49,9 @@ void EnemyBehaviourEC::destroy() {
 
 void EnemyBehaviourEC::removeTransforms(EnemyBehaviourEC* behaviour) {
 
-    behaviour->unRegisterInOtherTransforms(dynamic_cast<TransformComponent*>(
-        father->getComponent("TransformComponent")));
+    behaviour->unRegisterInOtherTransforms(
+        reinterpret_cast<TransformComponent*>(
+            father->getComponent("TransformComponent")));
 }
 
 void EnemyBehaviourEC::registerInOtherEnemies() {
@@ -77,7 +78,7 @@ void EnemyBehaviourEC::addTransforms(EnemyBehaviourEC* behaviour,
 }
 
 void EnemyBehaviourEC::checkEvent() {
-    TransformComponent* transform = dynamic_cast<TransformComponent*>(
+    TransformComponent* transform = reinterpret_cast<TransformComponent*>(
         father->getComponent("TransformComponent"));
     RigidbodyPC* rb =
         dynamic_cast<RigidbodyPC*>(father->getComponent("RigidbodyPC"));
