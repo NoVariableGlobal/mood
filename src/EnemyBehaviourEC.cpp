@@ -252,6 +252,6 @@ void EnemyBehaviourEC::unRegisterInOtherTransforms(TransformComponent* trans) {
         else
             it++;
     }
-    if ((*it) == trans)
+    if (found)
         otherTransform.erase(it);
 }
