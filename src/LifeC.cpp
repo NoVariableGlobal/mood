@@ -28,10 +28,7 @@ bool LifeC::doDamage(float _damage) {
     if (!invulnerability)
         currentLife -= _damage;
 
-    if (currentLife <= 0) {
-        return true;
-    } else
-        return false;
+    return currentLife <= 0;
 }
 
 void LifeC::heal(float _heal) {
