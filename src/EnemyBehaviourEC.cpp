@@ -162,10 +162,9 @@ Ogre::Vector3 EnemyBehaviourEC::separate() {
     for (int i = 0; i < numAgents; i++) {
         TransformComponent* objective = otherTransform[i];
 
-        Ogre::Vector3 myPos =
-            reinterpret_cast<TransformComponent*>(
-                father->getComponent("TransformComponent"))
-                ->getPosition();
+        Ogre::Vector3 myPos = reinterpret_cast<TransformComponent*>(
+                                  father->getComponent("TransformComponent"))
+                                  ->getPosition();
 
         Ogre::Vector3 direction = myPos - objective->getPosition();
 
