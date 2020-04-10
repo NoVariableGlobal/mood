@@ -29,7 +29,7 @@ void MeleeEnemyBehaviourEC::checkEvent() {
                 // if player dies sleep method is called
                 if (playerHealth->doDamage(getAttack()))
                     ;
-                // TO DO: call sleep()
+                // TODO(MiriamLeis): call `sleep()` when funcionality is available
             }
         }
     }
