@@ -29,7 +29,7 @@ void BulletHurtPlayerEC::checkEvent() {
         // if player dies sleep method is called
         if (playerHealth->doDamage(damage))
             ;
-        // TO DO: call sleep()
+        // TODO(MiriamLeis): call `sleep()` when funcionality is available
 
         // destroy bullet
         bullet->dealCollision();
