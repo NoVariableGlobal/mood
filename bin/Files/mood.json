@@ -79,7 +79,7 @@
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 0, 0, 100 ],
+            "position": [ 0, 100, 100 ],
             "orientation": [ 0, 0, 0 ],
             "scale": [ 1, 1, 1 ]
           }
@@ -87,11 +87,11 @@
         {
           "type": "SpawnerEnemiesEC",
           "attributes": {
-            "spawnCooldown": 2,
+            "spawnCooldown": 1,
             "spawnID": [ "MeleeEnemy" ],
             "spawnTag": "Enemy",
             "spawnChances": [ 100 ],
-			      "EnemiesLimit": 8
+			      "EnemiesLimit": 1
           }
         }
       ]
