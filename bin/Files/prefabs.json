@@ -589,13 +589,13 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 90, 180, 90 ],
-            "scale": [ 10, 10, 10 ]
+            "scale": [ 50, 50, 50 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "mesh.mesh",
+            "mesh": "melee.mesh",
             "node": "nMeleeEnemy",
             "material": "MeleeMaterial"
           }
