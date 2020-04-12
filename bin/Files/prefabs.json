@@ -615,6 +615,17 @@
           }
         },
         {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Walk",
+                "loop": true
+              }
+            ]
+          }
+        },
+        {
           "type": "MeleeEnemyBehaviourEC",
           "attributes": {
             "speed": 24,

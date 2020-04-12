@@ -12,19 +12,19 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE prevInstance, LPSTR lmCmdLine,
 #endif
 {
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
-    try {
+    //try {
         srand(time(NULL));
         Game game;
         if (game.init("MOOD"))
             game.run();
-    } catch (std::exception& e) {
-        std::cout << "\n"
-                  << "================"
-                  << "\n"
-                  << "ERROR: " << e.what() << "\n"
-                  << "================"
-                  << "\n";
-    }
+    //} catch (std::exception& e) {
+    //    std::cout << "\n"
+    //              << "================"
+    //              << "\n"
+    //              << "ERROR: " << e.what() << "\n"
+    //              << "================"
+    //              << "\n";
+    //}
 
     return 0;
 }

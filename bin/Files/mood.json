@@ -117,17 +117,6 @@
           }
         },
         {
-          "type": "PlayerMovementIC",
-          "attributes": {
-            "speed": 35
-          }
-        },
-        {
-          "type": "PlayerShotIC",
-          "attributes": {
-          }
-        },
-        {
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
@@ -139,6 +128,36 @@
             "static": false,
             "friction": 0,
             "restitution": 0
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Dance",
+                "loop": true
+              },
+              {
+                "name": "RunBase",
+                "loop": true
+              },
+              {
+                "name": "RunTop",
+                "loop": true
+              }
+            ]
+          }
+        },
+        {
+          "type": "PlayerMovementIC",
+          "attributes": {
+            "speed": 35
+          }
+        },
+        {
+          "type": "PlayerShotIC",
+          "attributes": {
           }
         },
         {
