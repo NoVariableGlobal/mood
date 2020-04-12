@@ -10,6 +10,27 @@
 #include <iostream>
 #include <json.h>
 
+#include "TridimensionalObjectRC.h"
+#include <OgreSceneManager.h>
+#include <OgreSceneNode.h>
+#include <OgreMeshManager.h>
+#include <OgreSceneNode.h>
+#include <OgreEntity.h>
+#include <OgreSubEntity.h>
+#include <OgreTechnique.h>
+#include <OgrePass.h>
+#include <OgreTextureManager.h>
+#include <OgreRenderTexture.h>
+#include <OgreTexture.h>
+#include <OgreHardwarePixelBuffer.h>
+#include <OgreRenderTargetListener.h>
+#include <OgreSkeleton.h>
+#include <OgreSkeletonInstance.h>
+#include <OgreBone.h>
+#include <OgreKeyFrame.h>
+#include <OgreParticleIterator.h>
+#include <OgreParticleSystem.h>
+
 PlayerShotIC::PlayerShotIC() {}
 
 PlayerShotIC::~PlayerShotIC() {}
@@ -43,10 +64,16 @@ void PlayerShotIC::handleInput(const SDL_Event& _event) {
                  father->getComponent("WeaponControllerIC")))
                 ->getCurrentGun()
                 ->reload();
-        }
-    } else if (_event.type == SDL_KEYDOWN) {
-        if (_event.key.keysym.sym == SDLK_r) {
-            // reload
+
+            for (Entity* e : scene->getEntitiesbyTag("Enemy")) {
+            Ogre::AnimationState* anim =
+                dynamic_cast<TridimensionalObjectRC*>(
+                    e->getComponent("TridimensionalObjectRC"))
+                    ->getOgreEntity()
+                        ->getAnimationState("Walk");
+                anim->setWeight(1);
+                anim->setEnabled(true);
+            }
         }
     }
 }

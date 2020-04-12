@@ -8,9 +8,10 @@
 #include "PlayerMovementIC.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
-#include <json.h>
 
+#include <json.h>
 #include <iostream>
+
 MeleeEnemyBehaviourEC::MeleeEnemyBehaviourEC() : EnemyBehaviourEC() {}
 
 MeleeEnemyBehaviourEC::~MeleeEnemyBehaviourEC() {}
