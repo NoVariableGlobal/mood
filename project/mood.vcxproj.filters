@@ -117,9 +117,6 @@
     <ClCompile Include="..\src\SpawnerFloorRandomEC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\TridimensionalObjectRC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\WeaponControllerIC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -228,9 +225,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\SpawnerFloorRandomEC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\TridimensionalObjectRC.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\WeaponControllerIC.h">
