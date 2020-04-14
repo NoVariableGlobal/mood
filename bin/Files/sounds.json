@@ -1,9 +1,5 @@
 {
   "sounds": [
-    {
-      "id": "test",
-      "filename": "ahaha.wav",
-      "loop": false
-    }
+
   ]
 }
