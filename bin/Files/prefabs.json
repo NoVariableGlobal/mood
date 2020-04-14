@@ -588,14 +588,14 @@
           "type": "TransformComponent",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 180, 0 ],
-            "scale": [ 0.1, 0.1, 0.1 ]
+            "orientation": [ 90, 180, 0 ],
+            "scale": [ 5, 5, 5 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "gazer_mesh.mesh",
+            "mesh": "mesh.mesh",
             "node": "nMeleeEnemy",
             "material": "PinkColourMaterial"
           }
@@ -639,11 +639,11 @@
               },
               {
                 "name": "Attack",
-                "loop": true
+                "loop": false
               },
               {
                 "name": "Dead",
-                "loop": true
+                "loop": false
               }
             ]
           }
@@ -657,16 +657,16 @@
           "type": "TransformComponent",
           "attributes": {
             "position": [ 50, 0, 50 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.5, 0.5, 0.5 ]
+            "orientation": [ 0, 180, 0 ],
+            "scale": [ 0.1, 0.1, 0.1 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "penguin.mesh",
+            "mesh": "gazer_mesh.mesh",
             "node": "nMeleeEnemy",
-            "material": "PenguinMaterial"
+            "material": "BlueColourMaterial"
           }
         },
         {
@@ -687,6 +687,25 @@
             "static": false,
             "friction": 500,
             "restitution": 0
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Walk",
+                "loop": true
+              },
+              {
+                "name": "Attack",
+                "loop": false
+              },
+              {
+                "name": "Dead",
+                "loop": false
+              }
+            ]
           }
         },
         {
@@ -723,16 +742,16 @@
           "type": "TransformComponent",
           "attributes": {
             "position": [ 50, 0, 50 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.5, 0.5, 0.5 ]
+            "orientation": [ 0, 180, 0 ],
+            "scale": [ 0.1, 0.1, 0.1 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "penguin.mesh",
+            "mesh": "gazer_mesh.mesh",
             "node": "nMeleeEnemy",
-            "material": "PenguinMaterial"
+            "material": "BlueColourMaterial"
           }
         },
         {
@@ -753,6 +772,25 @@
             "static": false,
             "friction": 500,
             "restitution": 0
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Walk",
+                "loop": true
+              },
+              {
+                "name": "Attack",
+                "loop": false
+              },
+              {
+                "name": "Dead",
+                "loop": false
+              }
+            ]
           }
         },
         {
@@ -789,16 +827,16 @@
           "type": "TransformComponent",
           "attributes": {
             "position": [ 50, 0, 50 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.5, 0.5, 0.5 ]
+            "orientation": [ 0, 180, 0 ],
+            "scale": [ 0.1, 0.1, 0.1 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "penguin.mesh",
+            "mesh": "gazer_mesh.mesh",
             "node": "nMeleeEnemy",
-            "material": "PenguinMaterial"
+            "material": "BlueColourMaterial"
           }
         },
         {
@@ -819,6 +857,25 @@
             "static": false,
             "friction": 500,
             "restitution": 0
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Walk",
+                "loop": true
+              },
+              {
+                "name": "Attack",
+                "loop": false
+              },
+              {
+                "name": "Dead",
+                "loop": false
+              }
+            ]
           }
         },
         {
@@ -857,16 +914,16 @@
           "type": "TransformComponent",
           "attributes": {
             "position": [ 50, 0, 50 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.5, 0.5, 0.5 ]
+            "orientation": [ 0, 180, 0 ],
+            "scale": [ 0.1, 0.1, 0.1 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "penguin.mesh",
+            "mesh": "gazer_mesh.mesh",
             "node": "nMeleeEnemy",
-            "material": "PenguinMaterial"
+            "material": "BlueColourMaterial"
           }
         },
         {
@@ -887,6 +944,25 @@
             "static": false,
             "friction": 500,
             "restitution": 0
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Walk",
+                "loop": true
+              },
+              {
+                "name": "Attack",
+                "loop": false
+              },
+              {
+                "name": "Dead",
+                "loop": false
+              }
+            ]
           }
         },
         {
