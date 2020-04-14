@@ -171,6 +171,8 @@ Ogre::Vector3 EnemyBehaviourEC::separate() {
         float distance = direction.squaredLength();
 
         if (distance < separationRadius) {
+            if (distance < 0.1f)
+                distance = 0.5f;
             float force = 1000 / distance;
 
             direction = direction.normalisedCopy();
@@ -235,7 +237,7 @@ void EnemyBehaviourEC::setWithinRange(bool _withinRange) {
     withinRange = _withinRange;
 }
 
-void EnemyBehaviourEC::setSeparationRadius(bool radius) {
+void EnemyBehaviourEC::setSeparationRadius(int radius) {
     separationRadius = radius;
 }
 
