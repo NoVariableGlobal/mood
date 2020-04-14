@@ -589,15 +589,15 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 90, 180, 0 ],
-            "scale": [ 0.1, 0.1, 0.1 ]
+            "scale": [ 10, 10, 10 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "gazer_mesh.mesh",
+            "mesh": "mesh.mesh",
             "node": "nMeleeEnemy",
-            "material": "GazerMaterial"
+            "material": "PinkColourMaterial"
           }
         },
         {
@@ -635,6 +635,14 @@
             "animations":[
               {
                 "name": "Walk",
+                "loop": true
+              },
+              {
+                "name": "Attack",
+                "loop": true
+              },
+              {
+                "name": "Dead",
                 "loop": true
               }
             ]
