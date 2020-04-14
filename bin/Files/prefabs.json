@@ -589,15 +589,15 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 90, 180, 0 ],
-            "scale": [ 1, 1, 1 ]
+            "scale": [ 0.1, 0.1, 0.1 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "mesh.mesh",
+            "mesh": "gazer_mesh.mesh",
             "node": "nMeleeEnemy",
-            "material": "MeleeMaterial"
+            "material": "GazerMaterial"
           }
         },
         {
@@ -615,17 +615,6 @@
           }
         },
         {
-          "type": "AnimationLC",
-          "attributes": {
-            "animations":[
-              {
-                "name": "Walk",
-                "loop": true
-              }
-            ]
-          }
-        },
-        {
           "type": "MeleeEnemyBehaviourEC",
           "attributes": {
             "speed": 24,
@@ -638,6 +627,17 @@
           "type": "LifeC",
           "attributes": {
             "life": 100
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Walk",
+                "loop": true
+              }
+            ]
           }
         }
       ]
