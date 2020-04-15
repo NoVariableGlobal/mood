@@ -74,7 +74,7 @@ class EnemyBehaviourEC : public EventComponent {
     void setDistanceToPlayer(Ogre::Vector3 _distanceToPlayer);
     void setAggroDistance(float _aggroDistance);
     void setWithinRange(bool _withinRange);
-    void setSeparationRadius(bool radius);
+    void setSeparationRadius(int radius);
 
     void registerInOtherTransforms(TransformComponent* trans);
     void unRegisterInOtherTransforms(TransformComponent* trans);
