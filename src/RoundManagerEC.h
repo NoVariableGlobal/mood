@@ -37,5 +37,7 @@ class RoundManagerEC : public EventComponent {
     void registerEnemySpawner(SpawnerEnemiesEC* spawn);
     void registerOtherSpawner(SpawnerEC* spawn);
 
+    int getRoundNumber();
+
     void enemyDied();
 };

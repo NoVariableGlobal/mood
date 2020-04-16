@@ -47,6 +47,7 @@
     <ClCompile Include="..\src\PowerUpEC.cpp" />
     <ClCompile Include="..\src\PowerUpTrackerC.cpp" />
     <ClCompile Include="..\src\RangedEnemyBehaviourEC.cpp" />
+    <ClCompile Include="..\src\RankingManagerC.cpp" />
     <ClCompile Include="..\src\RounManagerEC.cpp" />
     <ClCompile Include="..\src\ShotgunC.cpp" />
     <ClCompile Include="..\src\SniperBulletC.cpp" />
@@ -86,6 +87,7 @@
     <ClInclude Include="..\src\PowerUpEC.h" />
     <ClInclude Include="..\src\PowerUpTrackerC.h" />
     <ClInclude Include="..\src\RangedEnemyBehaviourEC.h" />
+    <ClInclude Include="..\src\RankingManagerC.h" />
     <ClInclude Include="..\src\RoundManagerEC.h" />
     <ClInclude Include="..\src\ShotgunC.h" />
     <ClInclude Include="..\src\SniperBulletC.h" />
