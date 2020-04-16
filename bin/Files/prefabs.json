@@ -589,7 +589,7 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 90, 180, 0 ],
-            "scale": [ 5, 5, 5 ]
+            "scale": [ 2, 2, 2 ]
           }
         },
         {
@@ -656,9 +656,9 @@
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 50, 0, 50 ],
+            "position": [ 0, 0, 0 ],
             "orientation": [ 0, 180, 0 ],
-            "scale": [ 0.1, 0.1, 0.1 ]
+            "scale": [ 0.05, 0.05, 0.05 ]
           }
         },
         {
@@ -678,7 +678,7 @@
         {
           "type": "RigidbodyPC",
           "attributes": {
-            "position": [ 50, 0, 50 ],
+            "position": [ 0, 0, 0 ],
             "shape": [ 5, 5, 5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
@@ -741,9 +741,9 @@
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 50, 0, 50 ],
+            "position": [ 0, 0, 0 ],
             "orientation": [ 0, 180, 0 ],
-            "scale": [ 0.1, 0.1, 0.1 ]
+            "scale": [ 0.05, 0.05, 0.05 ]
           }
         },
         {
@@ -763,7 +763,7 @@
         {
           "type": "RigidbodyPC",
           "attributes": {
-            "position": [ 50, 0, 50 ],
+            "position": [ 0, 0, 0 ],
             "shape": [ 5, 5, 5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
@@ -826,9 +826,9 @@
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 50, 0, 50 ],
+            "position": [ 0, 0, 0 ],
             "orientation": [ 0, 180, 0 ],
-            "scale": [ 0.1, 0.1, 0.1 ]
+            "scale": [ 0.05, 0.05, 0.05 ]
           }
         },
         {
@@ -848,7 +848,7 @@
         {
           "type": "RigidbodyPC",
           "attributes": {
-            "position": [ 50, 0, 50 ],
+            "position": [ 0, 0, 0 ],
             "shape": [ 5, 5, 5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
@@ -913,9 +913,9 @@
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 50, 0, 50 ],
+            "position": [ 0, 0, 0 ],
             "orientation": [ 0, 180, 0 ],
-            "scale": [ 0.1, 0.1, 0.1 ]
+            "scale": [ 0.05, 0.05, 0.05 ]
           }
         },
         {
@@ -935,7 +935,7 @@
         {
           "type": "RigidbodyPC",
           "attributes": {
-            "position": [ 50, 0, 50 ],
+            "position": [ 0, 0, 0 ],
             "shape": [ 5, 5, 5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
