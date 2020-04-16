@@ -25,7 +25,11 @@ void BulletHurtPlayerEC::checkEvent() {
         int damage = bullet->getDamage();
         LifeC* playerHealth = dynamic_cast<LifeC*>(
             scene->getEntitybyId("Player")->getComponent("LifeC"));
-        // playerHealth->doDamage(damage);
+
+        // if player dies sleep method is called
+        if (playerHealth->doDamage(damage))
+            ;
+        // TODO(MiriamLeis): call `sleep()` when funcionality is available
 
         // destroy bullet
         bullet->dealCollision();

@@ -34,8 +34,9 @@ class LifeC : public Component {
     // set the total life
     void setTotalLife(int _life);
 
-    // subtract the damage to the life
-    void doDamage(float _damage);
+    // Subtract the damage to the life. Returns a `boolean` value defining
+    // whether or not `currentLife` reached 0.
+    bool doDamage(float _damage);
     // subtract the damage to the life
     void heal(float _heal);
     void setInvulnerability(bool _invulnerability);
