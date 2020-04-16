@@ -91,7 +91,7 @@
             "spawnID": [ "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
             "spawnTag": "Enemy",
             "spawnChances": [ 25, 25, 25, 25 ],
-			      "EnemiesLimit": 8
+            "EnemiesLimit": 8
           }
         }
       ]
@@ -239,6 +239,42 @@
             "mesh": "cube.mesh",
             "node": "nSuelo",
             "material": "GrassMaterial"
+          }
+        }
+      ]
+    },
+    {
+      "id": "Obstacle1",
+      "tag": "Obstacle",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 40, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 0.3, 0.3, 0.3 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "cube.mesh",
+            "node": "nSuelo",
+            "material": "RedColourMaterial"
+          }
+        },
+        {
+          "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ 40, 0, 0 ],
+            "shape": [ 15, 15, 15 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": false,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
           }
         }
       ]

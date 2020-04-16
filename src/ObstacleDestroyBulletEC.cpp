@@ -18,10 +18,10 @@ void ObstacleDestroyBulletEC::checkEvent() {
         dynamic_cast<RigidbodyPC*>(father->getComponent("RigidbodyPC"));
 
     // if obstacle collides with bullet
-    if (rb->collidesWith("Obstacle")) {
+    if (rb->collidesWithTag("Obstacle")) {
         BulletC* bullet =
             dynamic_cast<BulletC*>(father->getComponent("BulletC"));
-      
+
         // destroy bullet
         bullet->dealCollision();
     }
@@ -31,7 +31,8 @@ void ObstacleDestroyBulletEC::checkEvent() {
 ObstacleDestroyBulletECFactory::ObstacleDestroyBulletECFactory() = default;
 
 Component* ObstacleDestroyBulletECFactory::create(Entity* _father,
-                                             Json::Value& _data, Scene* scene) {
+                                                  Json::Value& _data,
+                                                  Scene* scene) {
     ObstacleDestroyBulletEC* obstacleDestroyBullet =
         new ObstacleDestroyBulletEC();
     scene->getComponentsManager()->addEC(obstacleDestroyBullet);
