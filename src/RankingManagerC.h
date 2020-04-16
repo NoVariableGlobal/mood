@@ -15,8 +15,6 @@ struct RankingPosition {
     std::string name;
 
     bool operator<(RankingPosition const& b) { return round > b.round; }
-
-
 };
 
 class RankingManagerC : public Component {

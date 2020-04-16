@@ -11,9 +11,7 @@
 
 RankingManagerC::RankingManagerC() { readRanking(); }
 
-RankingManagerC::~RankingManagerC() {
-    updateRanking();
-}
+RankingManagerC::~RankingManagerC() { updateRanking(); }
 
 void RankingManagerC::destroy() {
     setActive(false);
@@ -69,7 +67,7 @@ void RankingManagerC::updateRanking() {
 
             RankingPosition rank = ranking[i];
 
-            std::cout << i+1 << " ";
+            std::cout << i + 1 << " ";
             std::cout << rank.name << " ";
 
             if (rank.name == "-")
