@@ -86,11 +86,11 @@
         {
           "type": "SpawnerEnemiesEC",
           "attributes": {
-            "spawnCooldown": 5,
-            "spawnID": [ "MeleeEnemy", "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
+            "spawnCooldown": 1,
+            "spawnID": [ "MeleeEnemy" ],
             "spawnTag": "Enemy",
-            "spawnChances": [ 60, 10, 10, 10, 10 ],
-			      "EnemiesLimit": 10
+            "spawnChances": [ 100 ],
+			      "EnemiesLimit": 1
           }
         }
       ]

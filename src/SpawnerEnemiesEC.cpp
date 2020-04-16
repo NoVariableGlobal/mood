@@ -32,7 +32,7 @@ void SpawnerEnemiesEC::checkEvent() {
 
         AnimationLC* animations = dynamic_cast<AnimationLC*>(
             newEntity->getComponent("AnimationLC"));
-       animations->startAnimation("Dead");
+       animations->startAnimation("Walk");
 
         rigid->setPosition(transform->getPosition());
         spawnTransform->setPosition(transform->getPosition());

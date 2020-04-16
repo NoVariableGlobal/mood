@@ -595,7 +595,7 @@
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "mesh.mesh",
+            "mesh": "melee_zard.mesh",
             "node": "nMeleeEnemy",
             "material": "PinkColourMaterial"
           }
@@ -617,7 +617,7 @@
         {
           "type": "MeleeEnemyBehaviourEC",
           "attributes": {
-            "speed": 24,
+            "speed": 50,
             "attack": 10,
             "attackCooldown": 2,
             "separationRadius": 1000
