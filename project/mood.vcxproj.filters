@@ -129,6 +129,9 @@
     <ClCompile Include="..\src\BulletHurtPlayerEC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ObstacleDestroyBulletEC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\AutomaticEC.h">
@@ -240,6 +243,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\BulletHurtPlayerEC.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ObstacleDestroyBulletEC.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
