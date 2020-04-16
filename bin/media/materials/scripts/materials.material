@@ -16,6 +16,24 @@ material GrassMaterial
     }
 }
 
+material FondoMaterial
+{
+    technique 
+    {
+        pass 
+        { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
+            diffuse 0.11 0.31 0.11 1.00
+            
+            texture_unit 
+            {
+                texture fondo.jpg
+                colour_op add
+                tex_address_mode wrap
+            }
+        }
+    }
+}
+
 material PurpleColourMaterial
 {
     technique 
