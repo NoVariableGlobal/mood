@@ -48,6 +48,8 @@ Component* MeleeEnemyBehaviourECFactory::create(Entity* _father,
     meleeEnemyBehaviour->setFather(_father);
     meleeEnemyBehaviour->setScene(scene);
 
+    meleeEnemyBehaviour->registerInOtherEnemies();
+
     if (!_data["speed"].isDouble())
         throw std::exception("MeleeEnemyBehaviourEC: speed is not a float");
     meleeEnemyBehaviour->setSpeed(_data["speed"].asFloat());
@@ -60,6 +62,11 @@ Component* MeleeEnemyBehaviourECFactory::create(Entity* _father,
         throw std::exception(
             "MeleeEnemyBehaviourEC: attackCooldown is not a float");
     meleeEnemyBehaviour->setAttackCooldown(_data["attackCooldown"].asFloat());
+
+    if (!_data["separationRadius"].isInt())
+        throw std::exception(
+            "MeleeEnemyBehaviourEC: separationRadius is not a int");
+    meleeEnemyBehaviour->setSeparationRadius(_data["separationRadius"].asInt());
 
     return meleeEnemyBehaviour;
 };

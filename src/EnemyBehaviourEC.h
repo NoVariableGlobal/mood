@@ -1,5 +1,6 @@
 #pragma once
 #include "EventComponent.h"
+#include <vector>
 
 namespace Ogre {
     typedef float Real;
@@ -7,6 +8,7 @@ namespace Ogre {
     typedef Vector<3, Real> Vector3;
 } // namespace Ogre
 
+class TransformComponent;
 class EnemyBehaviourEC : public EventComponent {
   private:
     // speed at which enemy follows the player
@@ -34,11 +36,23 @@ class EnemyBehaviourEC : public EventComponent {
     // player is within aggroDistance
     bool withinRange;
 
+    // other enemies transforms
+    std::vector<TransformComponent*> otherTransform;
+
+    // Separation Radius
+    int separationRadius = 0;
+
   public:
     EnemyBehaviourEC();
     ~EnemyBehaviourEC();
+    virtual void destroy();
+    void removeTransforms(EnemyBehaviourEC* behaviour);
+    void registerInOtherEnemies();
+    void addTransforms(EnemyBehaviourEC* behaviour, TransformComponent* other);
+
     virtual void checkEvent();
     bool timeToAttack();
+    Ogre::Vector3 separate();
 
     // getters and setters
     float getSpeed();
@@ -60,4 +74,8 @@ class EnemyBehaviourEC : public EventComponent {
     void setDistanceToPlayer(Ogre::Vector3 _distanceToPlayer);
     void setAggroDistance(float _aggroDistance);
     void setWithinRange(bool _withinRange);
+    void setSeparationRadius(int radius);
+
+    void registerInOtherTransforms(TransformComponent* trans);
+    void unRegisterInOtherTransforms(TransformComponent* trans);
 };
