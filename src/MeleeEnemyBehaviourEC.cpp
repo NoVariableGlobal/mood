@@ -6,6 +6,7 @@
 #include "LifeC.h"
 #include "OgreRoot.h"
 #include "PlayerMovementIC.h"
+#include "RankingManagerC.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
 #include <json.h>
@@ -27,8 +28,13 @@ void MeleeEnemyBehaviourEC::checkEvent() {
                 LifeC* playerHealth = dynamic_cast<LifeC*>(
                     scene->getEntitybyId("Player")->getComponent("LifeC"));
                 // if player dies sleep method is called
-                if (playerHealth->doDamage(getAttack()))
-                    ;
+                if (playerHealth->doDamage(getAttack())) {
+
+                    reinterpret_cast<RankingManagerC*>(
+                        scene->getEntitybyId("GameManager")
+                            ->getComponent("RankingManagerC"))
+                        ->playerDied();
+                }
                 // TODO(MiriamLeis): call `sleep()` when funcionality is
                 // available
             }

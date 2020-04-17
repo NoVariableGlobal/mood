@@ -68,6 +68,8 @@ void RoundManagerEC::registerOtherSpawner(SpawnerEC* spawn) {
     otherSpawners.push_back(spawn);
 }
 
+int RoundManagerEC::getRoundNumber() { return roundNumber; }
+
 void RoundManagerEC::enemyDied() {
     enemiesDead++;
     std::cout << "ENEMIES LEFT " << enemiesInRound - enemiesDead << "\n";

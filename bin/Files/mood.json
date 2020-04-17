@@ -50,6 +50,12 @@
             "timeBetweenRounds": 10
           }
         },
+        {
+          "type": "RankingManagerC",
+          "attributes": {
+
+          }
+        },
 
         {
           "type": "SpawnerFloorRandomEC",
@@ -91,7 +97,7 @@
             "spawnID": [ "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
             "spawnTag": "Enemy",
             "spawnChances": [ 25, 25, 25, 25 ],
-			      "EnemiesLimit": 8
+            "EnemiesLimit": 8
           }
         }
       ]

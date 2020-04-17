@@ -5,6 +5,7 @@
 #include "FactoriesFactory.h"
 #include "LifeC.h"
 #include "OgreRoot.h"
+#include "RankingManagerC.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
 #include <json.h>
@@ -26,9 +27,14 @@ void BulletHurtPlayerEC::checkEvent() {
         LifeC* playerHealth = dynamic_cast<LifeC*>(
             scene->getEntitybyId("Player")->getComponent("LifeC"));
 
-        // if player dies sleep method is called
-        if (playerHealth->doDamage(damage))
-            ;
+        // if player dies sleep method is called and Ranking updates
+        if (playerHealth->doDamage(damage)) {
+
+            reinterpret_cast<RankingManagerC*>(
+                scene->getEntitybyId("GameManager")
+                    ->getComponent("RankingManagerC"))
+                ->playerDied();
+        }
         // TODO(MiriamLeis): call `sleep()` when funcionality is available
 
         // destroy bullet
