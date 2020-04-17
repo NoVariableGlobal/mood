@@ -16,8 +16,8 @@
           "attributes": {
             "node": "nCamera",
             "viewportColour": [ 0, 0, 0 ],
-            "offset": [ 0, 500, 25 ],
-            "lookAt": [ 0, -1, -0.05 ],
+            "offset": [ 0, 500, 165 ],
+            "lookAt": [ 0, -1, -0.3 ],
             "targetId": "none",
             "follow": [ false, false, false ]
           }
@@ -231,7 +231,7 @@
           "attributes": {
             "position": [ 0, -1, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 3, 0.0001, 3 ]
+            "scale": [ 8, 0.0001, 5 ]
           }
         },
         {
@@ -239,7 +239,7 @@
           "attributes": {
             "mesh": "cube.mesh",
             "node": "nSuelo",
-            "material": "GrassMaterial"
+            "material": "Suelo1"
           }
         }
       ]
@@ -273,21 +273,21 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.15, 0.05, 4 ]
+            "scale": [ 10, 10, 10 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
+            "mesh": "Untitled.009.mesh",
             "node": "nGunBullet",
-            "material": "RedColourMaterial"
+            "material": "none"
           }
         },
         {
           "type": "RigidbodyPC",
           "attributes": {
-            "position": [ 200, 0, 0 ],
+            "position": [ 145, 0, -130 ],
             "shape": [ 7.5, 2.5, 200 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
@@ -308,21 +308,21 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.15, 0.05, 4 ]
+            "scale": [ 10, 10, 10 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
+            "mesh": "Untitled.009.mesh",
             "node": "nGunBullet",
-            "material": "RedColourMaterial"
+            "material": "none"
           }
         },
         {
           "type": "RigidbodyPC",
           "attributes": {
-            "position": [ -200, 0, 0 ],
+            "position": [ -125, 0, -130 ],
             "shape": [ 7.5, 2.5, 200 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
@@ -343,21 +343,21 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 4, 0.05, 0.15 ]
+            "scale": [ 10, 10, 10 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
+            "mesh": "Untitled.009.mesh",
             "node": "nGunBullet",
-            "material": "RedColourMaterial"
+            "material": "none"
           }
         },
         {
           "type": "RigidbodyPC",
           "attributes": {
-            "position": [ 0, 0, 200 ],
+            "position": [ -125, 0, 105 ],
             "shape": [ 200, 2.5, 7.5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
@@ -378,21 +378,21 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 4, 0.05, 0.15 ]
+            "scale": [ 10, 10, 10 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
+            "mesh": "Untitled.009.mesh",
             "node": "nGunBullet",
-            "material": "RedColourMaterial"
+            "material": "none"
           }
         },
         {
           "type": "RigidbodyPC",
           "attributes": {
-            "position": [ 0, 0, -200 ],
+            "position": [ 145, 0, 105 ],
             "shape": [ 200, 2.5, 7.5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
