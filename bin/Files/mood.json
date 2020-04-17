@@ -78,7 +78,7 @@
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 0, 100, 100 ],
+            "position": [ 0, 10, 100 ],
             "orientation": [ 0, 0, 0 ],
             "scale": [ 1, 1, 1 ]
           }
@@ -86,7 +86,7 @@
         {
           "type": "SpawnerEnemiesEC",
           "attributes": {
-            "spawnCooldown": 10,
+            "spawnCooldown": 5,
             "spawnID": [ "MeleeEnemy", "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
             "spawnTag": "Enemy",
             "spawnChances": [ 60, 10, 10, 10, 10 ],
@@ -118,7 +118,7 @@
         {
           "type": "RigidbodyPC",
           "attributes": {
-            "position": [ 0, 0, 0 ],
+            "position": [ 0, 10, 0 ],
             "shape": [ 5, 10, 5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
