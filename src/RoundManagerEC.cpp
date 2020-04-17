@@ -4,6 +4,7 @@
 #include "RoundManagerEC.h"
 #include "Scene.h"
 #include "SpawnerEnemiesEC.h"
+
 #include <iostream>
 #include <time.h>
 #include <value.h>
@@ -12,15 +13,16 @@ void RoundManagerEC::checkEvent() {
     if (enemiesDead == enemiesInRound && !roundEnd) // Ronda Terminada
     {
         roundEnd = true;
-        for (auto it : enemiesSpawners)
-            it->setActive(false);
-        for (auto it : otherSpawners)
-            it->setActive(false);
+
+        deactivateSpawnerEnemies();
+        deactivateOtherSpawners();
 
         std::cout << "ROUND OVER"
                   << "\n";
+
         roundNumber++;
         timer = clock() / static_cast<float>(CLOCKS_PER_SEC);
+
     } else if (roundEnd) {
         float seconds = clock() / static_cast<float>(CLOCKS_PER_SEC);
         if (seconds - timer >= timeBetweenRounds) {
@@ -32,9 +34,11 @@ void RoundManagerEC::checkEvent() {
 
             int i = 0, size = enemiesSpawners.size();
             int toAdd = enemiesInRound / size;
+
             std::cout << "ROUND START"
                       << "\n";
             std::cout << "NUMBER OF ENEMIES " << enemiesInRound << "\n";
+
             while (i < size - 1) {
                 enemiesSpawners[i]->setActive(true);
                 enemiesSpawners[i]->setEnemies(toAdd);
@@ -50,6 +54,16 @@ void RoundManagerEC::checkEvent() {
             enemiesDead = 0;
         }
     }
+}
+
+void RoundManagerEC::deactivateSpawnerEnemies() {
+    for (auto it : enemiesSpawners)
+        it->setActive(false);
+}
+
+void RoundManagerEC::deactivateOtherSpawners() {
+    for (auto it : otherSpawners)
+        it->setActive(false);
 }
 
 void RoundManagerEC::setMinAddEnemies(int n) { minAddEnemies = n; }

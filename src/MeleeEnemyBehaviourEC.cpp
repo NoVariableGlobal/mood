@@ -5,10 +5,10 @@
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "LifeC.h"
-#include "OgreRoot.h"
 #include "PlayerMovementIC.h"
 #include "RankingManagerC.h"
 #include "RigidbodyPC.h"
+#include "DeadManagerEC.h"
 #include "Scene.h"
 
 #include <iostream>
@@ -35,8 +35,23 @@ void MeleeEnemyBehaviourEC::checkEvent() {
                 scene->getEntitybyId("Player")->getComponent("LifeC"));
 
             // if player dies sleep method is called
-            if (playerHealth->doDamage(getAttack()))
-                ;
+            if (playerHealth->doDamage(getAttack())) {
+                AnimationLC* animations = reinterpret_cast<AnimationLC*>(
+                    scene->getEntitybyId("Player")->getComponent(
+                        "AnimationLC"));
+
+                animations->stopAnimations();
+                animations->startAnimation("Dance");
+
+                reinterpret_cast<RigidbodyPC*>(
+                        scene->getEntitybyId("Player")->getComponent(
+                            "RigidbodyPC"))->setActive(false);
+
+                reinterpret_cast<DeadManagerEC*>(
+                    scene->getEntitybyId("GameManager")
+                        ->getComponent("DeadManagerEC"))
+                    ->setActive(true);
+            }
         }
     }
 }

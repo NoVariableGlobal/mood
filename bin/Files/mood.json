@@ -2,6 +2,7 @@
   "entities": [
     {
       "id": "Camera",
+      "persistent": true,
       "components": [
         {
           "type": "TransformComponent",
@@ -33,6 +34,7 @@
     },
     {
       "id": "GameManager",
+      "persistent": true,
       "components": [
         {
           "type": "SpawnerBulletsC",
@@ -51,11 +53,12 @@
         },
         {
           "type": "RankingManagerC",
-          "attributes": {
-
-          }
+          "attributes": {}
         },
-
+        {
+          "type": "DeadManagerEC",
+          "attributes": {}
+        },
         {
           "type": "SpawnerFloorRandomEC",
           "attributes": {
@@ -80,6 +83,7 @@
     },
     {
       "id": "GeneradorEnemigos",
+      "persistent": true,
       "components": [
         {
           "type": "TransformComponent",
@@ -104,6 +108,7 @@
     {
       "id": "Player",
       "tag": "Player",
+      "persistent": true,
       "components": [
         {
           "type": "TransformComponent",
@@ -141,7 +146,7 @@
             "animations":[
               {
                 "name": "Dance",
-                "loop": true
+                "loop": false
               },
               {
                 "name": "RunBase",

@@ -4,12 +4,11 @@
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "LifeC.h"
-#include "OgreRoot.h"
-#include "RankingManagerC.h"
 #include "RigidbodyPC.h"
 #include "SleepEC.h"
 #include "Scene.h"
 #include "AnimationLC.h"
+#include "DeadManagerEC.h"
 
 #include <json.h>
 
@@ -38,6 +37,13 @@ void BulletHurtPlayerEC::checkEvent() {
 
             animations->stopAnimations();
             animations->startAnimation("Dance");
+
+            reinterpret_cast<RigidbodyPC*>(
+                scene->getEntitybyId("Player")->getComponent("RigidbodyPC"))
+                ->setActive(false);
+
+            reinterpret_cast<DeadManagerEC*>(
+                scene->getEntitybyId("GameManager")->getComponent("DeadManagerEC"))->setActive(true);
         }
 
         // destroy bullet
