@@ -30,7 +30,7 @@ void BulletHurtPlayerEC::checkEvent() {
         // if player dies sleep method is called and Ranking updates
         if (playerHealth->doDamage(damage)) {
 
-            dynamic_cast<RankingManagerC*>(
+            reinterpret_cast<RankingManagerC*>(
                 scene->getEntitybyId("GameManager")
                     ->getComponent("RankingManagerC"))
                 ->playerDied();

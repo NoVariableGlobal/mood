@@ -36,6 +36,7 @@
 inter/
 test/
 
+bin/Files/ranking.txt
 bin/*.exe
 bin/*.log
 bin/*.ilk

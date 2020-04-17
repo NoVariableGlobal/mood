@@ -30,7 +30,7 @@ void MeleeEnemyBehaviourEC::checkEvent() {
                 // if player dies sleep method is called
                 if (playerHealth->doDamage(getAttack())) {
 
-                    dynamic_cast<RankingManagerC*>(
+                    reinterpret_cast<RankingManagerC*>(
                         scene->getEntitybyId("GameManager")
                             ->getComponent("RankingManagerC"))
                         ->playerDied();

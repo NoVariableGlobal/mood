@@ -49,6 +49,14 @@ void RankingManagerC::readRanking() {
         }
 
         std::cin.rdbuf(cinbuf);
+    } else {
+        for (int i = 0; i < 10; i++) {
+            RankingPosition rank;
+
+            rank.name = "-";
+            rank.round = 0;
+            ranking.push_back(rank);
+        }
     }
     myfile.close();
 }
@@ -86,9 +94,9 @@ void RankingManagerC::playerDied() {
     RankingPosition rank;
 
     rank.name = "name";
-    rank.round =
-        dynamic_cast<RoundManagerEC*>(father->getComponent("RoundManagerEC"))
-            ->getRoundNumber();
+    rank.round = reinterpret_cast<RoundManagerEC*>(
+                     father->getComponent("RoundManagerEC"))
+                     ->getRoundNumber();
 
     ranking.push_back(rank);
 
