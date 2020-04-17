@@ -52,6 +52,77 @@ material Suelo1
     }
 }
 
+material Water
+{
+    technique 
+    {
+        pass 
+        { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
+            diffuse 0.001 0.001 0.001 1
+            
+            texture_unit 
+            {
+                texture Water.jpg
+                colour_op add
+                tex_address_mode wrap
+            }
+        }
+    }
+}
+
+material Arena
+{
+    technique 
+    {
+        pass 
+        { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
+            diffuse 0.001 0.001 0.001 1
+            
+            texture_unit 
+            {
+                texture arena.jpg
+                colour_op add
+                tex_address_mode wrap
+            }
+        }
+    }
+}
+material Asfalto
+{
+    technique 
+    {
+        pass 
+        { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
+            diffuse 0.001 0.001 0.001 1
+            
+            texture_unit 
+            {
+                texture Asfalto.jpg
+                colour_op add
+                tex_address_mode wrap
+            }
+        }
+    }
+}
+
+material Acera
+{
+    technique 
+    {
+        pass 
+        { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
+            diffuse 0.01 0.01 0.01 1
+            
+            texture_unit 
+            {
+                texture acera.jpg
+                colour_op add
+                tex_address_mode wrap
+            }
+        }
+    }
+}
+
 material PurpleColourMaterial
 {
     technique 

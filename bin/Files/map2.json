@@ -16,8 +16,8 @@
           "attributes": {
             "node": "nCamera",
             "viewportColour": [ 0, 0, 0 ],
-            "offset": [ 0, 300, 0 ],
-            "lookAt": [ 0, -1, 0 ],
+            "offset": [ 0, 300, 70 ],
+            "lookAt": [ 0, -1, -0.3 ],
             "targetId": "Player",
             "follow": [ true, true, true ]
           }
@@ -223,6 +223,215 @@
       ]
     },
     {
+      "id": "Mar",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, -50, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Plane.003.mesh",
+            "node": "nSuelo",
+            "material": "Water"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Mar4",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, -50, -400 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Plane.003.mesh",
+            "node": "nSuelo",
+            "material": "Water"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Mar2",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 400, -50, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Plane.003.mesh",
+            "node": "nSuelo",
+            "material": "Water"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Mar5",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 400, -50, -400 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Plane.003.mesh",
+            "node": "nSuelo",
+            "material": "Water"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Mar3",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ -400, -50, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Plane.003.mesh",
+            "node": "nSuelo",
+            "material": "Water"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Mar6",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ -400, -50, -400 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Plane.003.mesh",
+            "node": "nSuelo",
+            "material": "Water"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Tierra",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ -800, -50, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Plane.003.mesh",
+            "node": "nSuelo",
+            "material": "Arena"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Tierra2",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 800, -50, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Plane.003.mesh",
+            "node": "nSuelo",
+            "material": "Arena"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Tierra3",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 800, -40, -550 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Plane.003.mesh",
+            "node": "nSuelo",
+            "material": "Arena"
+          }
+        }
+      ]
+    },{
+      "id": "Tierra4",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ -800, -40, -550 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Plane.003.mesh",
+            "node": "nSuelo",
+            "material": "Arena"
+          }
+        }
+      ]
+    },
+	{
       "id": "Suelo",
       "components": [
         {
@@ -230,15 +439,225 @@
           "attributes": {
             "position": [ 0, -1, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 3, 0.0001, 3 ]
+            "scale": [ 150, 1, 140 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
-            "node": "nSuelo",
-            "material": "GrassMaterial"
+            "mesh": "Suelo.mesh",
+            "node": "nGunBullet",
+            "material": "Asfalto"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Suelo2",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ -290, -1, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 150, 1, 140 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Suelo.mesh",
+            "node": "nGunBullet",
+            "material": "Asfalto"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Suelo3",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 300, -1, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 150, 1, 140 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Suelo.mesh",
+            "node": "nGunBullet",
+            "material": "Asfalto"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Suelo6",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 600, -1, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 150, 1, 140 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Suelo.mesh",
+            "node": "nGunBullet",
+            "material": "Asfalto"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Suelo4",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ -580, -1, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 150, 1, 140 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Suelo.mesh",
+            "node": "nGunBullet",
+            "material": "Asfalto"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Suelo5",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ -580, -1, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 150, 1, 140 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Suelo.mesh",
+            "node": "nGunBullet",
+            "material": "Asfalto"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Puente",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 10, 10, 20 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Puente.001.mesh",
+            "node": "nGunBullet",
+            "material": "none"
+          }
+        },
+        {
+          "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ -370, -35, 0 ],
+            "shape": [ 7.5, 2.5, 200 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
+          }
+        }
+      ]
+    },
+	{
+      "id": "Puente2",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 10, 10, 20 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Puente2.mesh",
+            "node": "nGunBullet",
+            "material": "none"
+          }
+        },
+        {
+          "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ 0, -35, 0 ],
+            "shape": [ 7.5, 2.5, 200 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
+          }
+        }
+      ]
+    },
+	{
+      "id": "Puente3",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 10, 10, 20 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Puente3.mesh",
+            "node": "nGunBullet",
+            "material": "none"
+          }
+        },
+        {
+          "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ 370, -35, 0 ],
+            "shape": [ 7.5, 2.5, 200 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
           }
         }
       ]

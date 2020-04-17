@@ -245,6 +245,48 @@
       ]
     },
 	{
+      "id": "Acera1",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 205, 0, -210 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 3, 0.09, 3]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "cube.mesh",
+            "node": "nSuelo",
+            "material": "Acera"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Jardin1",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 205, 0, -210 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 2.7, 0.1, 2.7]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "cube.mesh",
+            "node": "nSuelo",
+            "material": "GrassMaterial"
+          }
+        }
+      ]
+    },
+	{
       "id": "Fondo",
       "components": [
         {
