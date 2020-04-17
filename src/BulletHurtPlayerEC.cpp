@@ -6,7 +6,10 @@
 #include "LifeC.h"
 #include "OgreRoot.h"
 #include "RigidbodyPC.h"
+#include "SleepEC.h"
 #include "Scene.h"
+#include "AnimationLC.h"
+
 #include <json.h>
 
 BulletHurtPlayerEC::BulletHurtPlayerEC() {}
@@ -15,21 +18,26 @@ BulletHurtPlayerEC::~BulletHurtPlayerEC() {}
 
 void BulletHurtPlayerEC::checkEvent() {
     RigidbodyPC* rb =
-        dynamic_cast<RigidbodyPC*>(father->getComponent("RigidbodyPC"));
+        reinterpret_cast<RigidbodyPC*>(father->getComponent("RigidbodyPC"));
 
     // if player collides with bullet
     if (rb->collidesWith("Player")) {
         // hurt player
         BulletC* bullet =
-            dynamic_cast<BulletC*>(father->getComponent("BulletC"));
+            reinterpret_cast<BulletC*>(father->getComponent("BulletC"));
         int damage = bullet->getDamage();
 
-        LifeC* playerHealth = dynamic_cast<LifeC*>(
+        LifeC* playerHealth = reinterpret_cast<LifeC*>(
             scene->getEntitybyId("Player")->getComponent("LifeC"));
 
         // if player dies sleep method is called
-        if (playerHealth->doDamage(damage))
-            ;
+        if (playerHealth->doDamage(damage)) {
+            AnimationLC* animations = reinterpret_cast<AnimationLC*>(
+                scene->getEntitybyId("Player")->getComponent("AnimationLC"));
+
+            animations->stopAnimations();
+            animations->startAnimation("Dance");
+        }
 
         // destroy bullet
         bullet->dealCollision();

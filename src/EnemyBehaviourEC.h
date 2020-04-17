@@ -76,6 +76,7 @@ class EnemyBehaviourEC : public EventComponent {
 
     virtual void checkEvent();
     bool timeToAttack();
+    virtual void checkDamage();
     virtual void moveTowardsPlayer();
     Ogre::Vector3 separate();
 

@@ -91,6 +91,7 @@ void EnemyBehaviourEC::addTransforms(EnemyBehaviourEC* behaviour,
 
 void EnemyBehaviourEC::checkEvent() {
     if (!dead) {
+        rigidbody->setLinearVelocity(Ogre::Vector3(0, 0, 0));
 
         if (!attacking)
             moveTowardsPlayer();
@@ -99,31 +100,8 @@ void EnemyBehaviourEC::checkEvent() {
             animations->startAnimation("Walk");
         }
 
-        Entity* playerBullet = rigidbody->collidesWithTag("PlayerBullet");
-        if (playerBullet != nullptr) {
-            BulletC* bullet =
-                dynamic_cast<BulletC*>(playerBullet->findComponent("BulletC"));
-            if (bullet == nullptr)
-                bullet = dynamic_cast<BulletC*>(
-                    playerBullet->findComponent("SniperBulletC"));
+        checkDamage();
 
-            // enemy is destroyed if it dies
-            if (life->doDamage(bullet->getDamage())) {
-                dead = true;
-
-                rigidbody->setLinearVelocity(Ogre::Vector3(0, 0, 0));
-
-                animations->stopAnimations();
-                animations->startAnimation("Dead");
-
-                dynamic_cast<RoundManagerEC*>(
-                    scene->getEntitybyId("GameManager")
-                        ->getComponent("RoundManagerEC"))
-                    ->enemyDied();
-            }
-
-            bullet->dealCollision();
-        }
     } else {
         if (animations->animationFinished("Dead"))
             scene->deleteEntity(father);
@@ -139,6 +117,35 @@ bool EnemyBehaviourEC::timeToAttack() {
     }
 
     return false;
+}
+
+void EnemyBehaviourEC::checkDamage() {
+    Entity* playerBullet = rigidbody->collidesWithTag("PlayerBullet");
+    if (playerBullet != nullptr) {
+        BulletC* bullet =
+            dynamic_cast<BulletC*>(playerBullet->findComponent("BulletC"));
+        if (bullet == nullptr)
+            bullet = dynamic_cast<BulletC*>(
+                playerBullet->findComponent("SniperBulletC"));
+
+        // enemy is destroyed if it dies
+        if (life->doDamage(bullet->getDamage())) {
+            dead = true;
+
+            rigidbody->setLinearVelocity(Ogre::Vector3(0, 0, 0));
+
+            animations->stopAnimations();
+            animations->startAnimation("Dead");
+
+            rigidbody->setActive(false);
+
+            dynamic_cast<RoundManagerEC*>(scene->getEntitybyId("GameManager")
+                                              ->getComponent("RoundManagerEC"))
+                ->enemyDied();
+        }
+
+        bullet->dealCollision();
+    }
 }
 
 void EnemyBehaviourEC::moveTowardsPlayer() {
@@ -169,7 +176,7 @@ void EnemyBehaviourEC::moveTowardsPlayer() {
         velocity = Ogre::Vector3(0.0f, 0.0f, 0.0f);
     }
 
-    rigidbody->setLinearVelocity(velocity * 0.1 + separate() * 0.9);
+    rigidbody->setLinearVelocity(velocity * 0.2 + separate() * 0.8);
 
     // set orientation towards player
     float angleInRad =
