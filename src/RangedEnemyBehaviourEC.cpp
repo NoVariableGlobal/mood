@@ -10,6 +10,8 @@
 #include "SpawnerBulletsC.h"
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
+#include "AnimationLC.h"
+
 #include <Entity.h>
 #include <iostream>
 #include <json.h>
@@ -20,13 +22,16 @@ RangedEnemyBehaviourEC::~RangedEnemyBehaviourEC() {}
 
 void RangedEnemyBehaviourEC::checkEvent() {
     EnemyBehaviourEC::checkEvent();
-    if (active) {
+
+    if (!dead) {
         // attack every attackCooldown seconds
-        if (timeToAttack()) {
-            // if enemy is within range
-            if (getWithinRange()) {
-                shoot();
-            }
+        if (getWithinRange() && timeToAttack()) {
+            attacking = true;
+
+            animations->stopAnimations();
+            animations->startAnimation("Attack");
+
+            shoot();
         }
     }
 }
@@ -55,6 +60,8 @@ Component* RangedEnemyBehaviourECFactory::create(Entity* _father,
 
     rangedEnemyBehaviour->setFather(_father);
     rangedEnemyBehaviour->setScene(scene);
+
+    rangedEnemyBehaviour->registerComponents();
 
     rangedEnemyBehaviour->registerInOtherEnemies();
 

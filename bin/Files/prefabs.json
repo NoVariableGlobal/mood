@@ -615,15 +615,6 @@
           }
         },
         {
-          "type": "MeleeEnemyBehaviourEC",
-          "attributes": {
-            "speed": 50,
-            "attack": 10,
-            "attackCooldown": 2,
-            "separationRadius": 1000
-          }
-        },
-        {
           "type": "LifeC",
           "attributes": {
             "life": 100
@@ -646,6 +637,15 @@
                 "loop": false
               }
             ]
+          }
+        },
+        {
+          "type": "MeleeEnemyBehaviourEC",
+          "attributes": {
+            "speed": 50,
+            "attack": 10,
+            "attackCooldown": 2,
+            "separationRadius": 1000
           }
         }
       ]
@@ -730,6 +730,7 @@
             "cadence": 1,
             "automatic": false,
             "instakill": false,
+            "infiniteAmmo":  true,
             "bulletType": "EnemyBullet_handgun"
           }
         }
@@ -815,6 +816,7 @@
             "cadence": 0.1,
             "automatic": true,
             "instakill": false,
+            "infiniteAmmo": true,
             "bulletType": "EnemyBullet_rifle"
           }
         }
@@ -898,10 +900,11 @@
             "bulletDamage": 50,
             "bulletSpeed": 50,
             "cadence": 1,
-            "automatic": false,
             "nPellets": 3,
             "dispersion": 10,
+            "automatic": false,
             "instakill": false,
+            "infiniteAmmo": true,
             "bulletType": "EnemyBullet_shotgun"
           }
         }
@@ -986,6 +989,7 @@
             "bulletSpeed": 100,
             "cadence": 1,
             "instakill": false,
+            "infiniteAmmo": true,
             "bulletType": "EnemyBullet_sniper"
           }
         }

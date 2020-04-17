@@ -103,6 +103,9 @@ Component* AutomaticRifleCFactory::create(Entity* _father, Json::Value& _data,
         throw std::exception("AutomaticRifleC: instakill is not an bool");
     automaticRifle->setInstakill(_data["instakill"].asBool());
 
+    if (_data["infiniteAmmo"].isBool())
+        automaticRifle->setInfiniteAmmo(_data["infiniteAmmo"].asBool());
+
     if (!_data["bulletType"].isString())
         throw std::exception("ShotgunC: bulletType is not a string");
     automaticRifle->setBulletType(_data["bulletType"].asString());

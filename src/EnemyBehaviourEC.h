@@ -9,13 +9,18 @@ namespace Ogre {
 } // namespace Ogre
 
 class TransformComponent;
+class RigidbodyPC;
+class LifeC;
+class TridimensionalObjectRC;
+class AnimationLC;
+
 class EnemyBehaviourEC : public EventComponent {
   private:
     // speed at which enemy follows the player
     float speed;
 
     // true if enemy is colliding with player
-    bool collisionWithPlayer_ = false;
+    bool collisionWithPlayer = false;
 
     // amount of damage the enemy deals to the player
     int attack;
@@ -42,16 +47,36 @@ class EnemyBehaviourEC : public EventComponent {
     // Separation Radius
     int separationRadius = 0;
 
+    // Pointers to components
+    TransformComponent* transform = nullptr;
+    TransformComponent* playerTransform = nullptr;
+    RigidbodyPC* rigidbody = nullptr;
+    LifeC* life = nullptr;
+    TridimensionalObjectRC* mesh = nullptr;
+
+  protected:
+    // true if enemy is colliding with player
+    bool attacking = false;
+    // true if enemy is colliding with player
+    bool dead = false;
+
+    // Pointer to animation component
+    AnimationLC* animations = nullptr;
+
   public:
     EnemyBehaviourEC();
     ~EnemyBehaviourEC();
     virtual void destroy();
+
+    void registerComponents();
+
     void removeTransforms(EnemyBehaviourEC* behaviour);
     void registerInOtherEnemies();
     void addTransforms(EnemyBehaviourEC* behaviour, TransformComponent* other);
 
     virtual void checkEvent();
     bool timeToAttack();
+    virtual void moveTowardsPlayer();
     Ogre::Vector3 separate();
 
     // getters and setters

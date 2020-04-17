@@ -133,6 +133,9 @@ Component* ShotgunCFactory::create(Entity* _father, Json::Value& _data,
         throw std::exception("ShotgunC: instakill is not an bool");
     shotgun->setInstakill(_data["instakill"].asBool());
 
+    if (_data["infiniteAmmo"].isBool())
+        shotgun->setInfiniteAmmo(_data["infiniteAmmo"].asBool());
+
     if (!_data["bulletType"].isString())
         throw std::exception("ShotgunC: bulletType is not a string");
     shotgun->setBulletType(_data["bulletType"].asString());

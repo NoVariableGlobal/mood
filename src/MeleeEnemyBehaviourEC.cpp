@@ -1,4 +1,5 @@
 #include "MeleeEnemyBehaviourEC.h"
+#include "AnimationLC.h"
 #include "ComponentsManager.h"
 #include "EnemyBehaviourEC.h"
 #include "Entity.h"
@@ -9,8 +10,8 @@
 #include "RigidbodyPC.h"
 #include "Scene.h"
 
-#include <json.h>
 #include <iostream>
+#include <json.h>
 
 MeleeEnemyBehaviourEC::MeleeEnemyBehaviourEC() : EnemyBehaviourEC() {}
 
@@ -20,19 +21,22 @@ void MeleeEnemyBehaviourEC::checkEvent() {
     EnemyBehaviourEC::checkEvent();
 
     // attack every attackCooldown seconds
-    if (timeToAttack()) {
-        if (active) {
-            // if enemy is colliding with player
-            if (getCollisionWithPlayer()) {
-                // attack player
-                LifeC* playerHealth = dynamic_cast<LifeC*>(
-                    scene->getEntitybyId("Player")->getComponent("LifeC"));
-                // if player dies sleep method is called
-                if (playerHealth->doDamage(getAttack()))
-                    ;
-                // TODO(MiriamLeis): call `sleep()` when funcionality is
-                // available
-            }
+    if (!dead) {
+
+        // if enemy is colliding with player
+        if (getCollisionWithPlayer() && timeToAttack()) {
+            attacking = true;
+
+            animations->stopAnimations();
+            animations->startAnimation("Attack");
+
+            // attack player
+            LifeC* playerHealth = dynamic_cast<LifeC*>(
+                scene->getEntitybyId("Player")->getComponent("LifeC"));
+
+            // if player dies sleep method is called
+            if (playerHealth->doDamage(getAttack()))
+                ;
         }
     }
 }
@@ -48,6 +52,8 @@ Component* MeleeEnemyBehaviourECFactory::create(Entity* _father,
 
     meleeEnemyBehaviour->setFather(_father);
     meleeEnemyBehaviour->setScene(scene);
+
+    meleeEnemyBehaviour->registerComponents();
 
     meleeEnemyBehaviour->registerInOtherEnemies();
 
