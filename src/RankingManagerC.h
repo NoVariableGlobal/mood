@@ -2,9 +2,9 @@
 #include "EventComponent.h"
 #include "Factory.h"
 
+#include <iostream>
 #include <string>
 #include <vector>
-#include <iostream>
 
 DECLARE_FACTORY(RankingManagerC);
 
@@ -15,10 +15,10 @@ struct RankingPosition {
     int round;
     std::string name;
 
-
     bool operator<(RankingPosition const& b) { return round > b.round; }
 
-    friend std::ostream& operator<<(std::ostream& out, const RankingPosition& rank) {
+    friend std::ostream& operator<<(std::ostream& out,
+                                    const RankingPosition& rank) {
         out << rank.name << ' ' << rank.round << '\n';
         return out;
     }
