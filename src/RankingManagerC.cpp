@@ -5,7 +5,6 @@
 #include "RoundManagerEC.h"
 #include "Scene.h"
 #include "SpawnerEnemiesEC.h"
-#include <iostream>
 #include <time.h>
 #include <value.h>
 
@@ -28,22 +27,10 @@ void RankingManagerC::readRanking() {
         for (int i = 0; i < 10; i++) {
 
             RankingPosition rank;
-            int pru = 0;
-            std::cin >> pru;
+            int aux;
+            std::cin >> aux;
 
-            std::string name;
-            std::cin >> name;
-
-            rank.name = name;
-
-            if (name != "-") {
-
-                int round;
-                std::cin >> round;
-
-                rank.round = round;
-            } else
-                rank.round = 0;
+            std::cin >> rank;
 
             ranking.push_back(rank);
         }
@@ -76,12 +63,7 @@ void RankingManagerC::updateRanking() {
             RankingPosition rank = ranking[i];
 
             std::cout << i + 1 << " ";
-            std::cout << rank.name << " ";
-
-            if (rank.name == "-")
-                std::cout << "\n";
-            else
-                std::cout << rank.round << "\n";
+            std::cout << rank;
         }
 
         std::cout.rdbuf(coutbuf);
