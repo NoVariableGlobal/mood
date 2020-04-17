@@ -7,6 +7,7 @@
 #include "LifeC.h"
 #include "OgreRoot.h"
 #include "PlayerMovementIC.h"
+#include "RankingManagerC.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
 
@@ -22,7 +23,6 @@ void MeleeEnemyBehaviourEC::checkEvent() {
 
     // attack every attackCooldown seconds
     if (!dead) {
-
         // if enemy is colliding with player
         if (getCollisionWithPlayer() && timeToAttack()) {
             attacking = true;

@@ -49,6 +49,12 @@
             "timeBetweenRounds": 10
           }
         },
+        {
+          "type": "RankingManagerC",
+          "attributes": {
+
+          }
+        },
 
         {
           "type": "SpawnerFloorRandomEC",

@@ -5,6 +5,7 @@
 #include "FactoriesFactory.h"
 #include "LifeC.h"
 #include "OgreRoot.h"
+#include "RankingManagerC.h"
 #include "RigidbodyPC.h"
 #include "SleepEC.h"
 #include "Scene.h"
