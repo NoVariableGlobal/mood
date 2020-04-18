@@ -104,6 +104,8 @@ void EnemyBehaviourEC::checkEvent() {
 
         checkDamage();
 
+        rotateToPlayer();
+
     } else {
         if (animations->animationFinished("Dead"))
             scene->deleteEntity(father);
@@ -151,18 +153,8 @@ void EnemyBehaviourEC::checkDamage() {
 }
 
 void EnemyBehaviourEC::moveTowardsPlayer() {
-    // obtain player position
-    Ogre::Vector3 playerPosition = playerTransform->getPosition();
-
-    *distanceToPlayer =
-        Ogre::Vector3(playerPosition.x - transform->getPosition().x,
-                      playerPosition.y - transform->getPosition().y,
-                      playerPosition.z - transform->getPosition().z);
-
     *directionToPlayer = distanceToPlayer->normalisedCopy();
 
-    // if not colliding with player and not within attack range enemy moves
-    // towards player
     Ogre::Vector3 velocity;
     if (!collisionWithPlayer && !withinRange) {
         velocity = Ogre::Vector3(directionToPlayer->x * speed, 0.0f,
@@ -173,15 +165,6 @@ void EnemyBehaviourEC::moveTowardsPlayer() {
     }
 
     rigidbody->setLinearVelocity(velocity * 0.2 + separate() * 0.8);
-
-    // set orientation towards player
-    float angleInRad =
-        atan2(transform->getPosition().z - playerTransform->getPosition().z,
-              transform->getPosition().x - playerTransform->getPosition().x);
-    float angleInDeg = -angleInRad * 180 / M_PI;
-
-    // make the rotation
-    mesh->setRotation(Ogre::Vector3(0, angleInDeg + 90, 0));
 }
 
 Ogre::Vector3 EnemyBehaviourEC::separate() {
@@ -215,7 +198,14 @@ void EnemyBehaviourEC::updatePosibilityToAttackPlayer() {
     collisionWithPlayer = rigidbody->collidesWith("Player");
 
     // check if player is within range
-    withinRange = getDistanceToPlayer().squaredLength() <= getAggroDistance();
+    Ogre::Vector3 playerPosition = playerTransform->getPosition();
+
+    *distanceToPlayer =
+        Ogre::Vector3(playerPosition.x - transform->getPosition().x,
+                      playerPosition.y - transform->getPosition().y,
+                      playerPosition.z - transform->getPosition().z);
+
+    withinRange = (*distanceToPlayer).squaredLength() <= aggroDistance;
 }
 
 bool EnemyBehaviourEC::getCollisionWithPlayer() { return collisionWithPlayer; }

@@ -4,16 +4,15 @@
 #include "EnemyBehaviourEC.h"
 #include "FactoriesFactory.h"
 #include "GunC.h"
-#include "OgreRoot.h"
 #include "PlayerMovementIC.h"
 #include "RigidbodyPC.h"
-#include "Scene.h"
 #include "SpawnerBulletsC.h"
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
+#include "Scene.h"
+#include "OgreRoot.h"
 
 #include <Entity.h>
-#include <iostream>
 #include <json.h>
 
 RangedEnemyBehaviourEC::RangedEnemyBehaviourEC() : EnemyBehaviourEC() {}
@@ -34,6 +33,17 @@ void RangedEnemyBehaviourEC::checkEvent() {
             shoot();
         }
     }
+}
+
+void RangedEnemyBehaviourEC::rotateToPlayer() {
+    // set orientation towards player
+    float angleInRad =
+        atan2(transform->getPosition().z - playerTransform->getPosition().z,
+              transform->getPosition().x - playerTransform->getPosition().x);
+    float angleInDeg = -angleInRad * 180 / M_PI;
+
+    // make the rotation
+    mesh->setRotation(Ogre::Vector3(0, angleInDeg + 90, 0));
 }
 
 std::string RangedEnemyBehaviourEC::getWeaponEquipped() {

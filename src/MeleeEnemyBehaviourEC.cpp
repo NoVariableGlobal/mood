@@ -9,9 +9,11 @@
 #include "PlayerMovementIC.h"
 #include "RankingManagerC.h"
 #include "RigidbodyPC.h"
+#include "TransformComponent.h"
+#include "TridimensionalObjectRC.h"
 #include "Scene.h"
+#include "OgreRoot.h"
 
-#include <iostream>
 #include <json.h>
 
 MeleeEnemyBehaviourEC::MeleeEnemyBehaviourEC() : EnemyBehaviourEC() {}
@@ -54,6 +56,17 @@ void MeleeEnemyBehaviourEC::checkEvent() {
             }
         }
     }
+}
+
+void MeleeEnemyBehaviourEC::rotateToPlayer() {
+    // set orientation towards player
+    float angleInRad =
+        atan2(transform->getPosition().z - playerTransform->getPosition().z,
+              transform->getPosition().x - playerTransform->getPosition().x);
+    float angleInDeg = -angleInRad * 180 / M_PI;
+
+    // make the rotation
+    mesh->setRotation(Ogre::Vector3(0, 0, angleInDeg + 90));
 }
 
 // FACTORY INFRASTRUCTURE

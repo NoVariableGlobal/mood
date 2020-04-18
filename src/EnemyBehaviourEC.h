@@ -48,11 +48,8 @@ class EnemyBehaviourEC : public EventComponent {
     int separationRadius = 0;
 
     // Pointers to components
-    TransformComponent* transform = nullptr;
-    TransformComponent* playerTransform = nullptr;
     RigidbodyPC* rigidbody = nullptr;
     LifeC* life = nullptr;
-    TridimensionalObjectRC* mesh = nullptr;
 
   protected:
     // true if enemy is colliding with player
@@ -62,6 +59,9 @@ class EnemyBehaviourEC : public EventComponent {
 
     // Pointer to animation component
     AnimationLC* animations = nullptr;
+    TridimensionalObjectRC* mesh = nullptr;
+    TransformComponent* transform = nullptr;
+    TransformComponent* playerTransform = nullptr;
 
   public:
     EnemyBehaviourEC();
@@ -78,6 +78,7 @@ class EnemyBehaviourEC : public EventComponent {
     bool timeToAttack();
     virtual void checkDamage();
     virtual void moveTowardsPlayer();
+    virtual void rotateToPlayer() = 0;
     Ogre::Vector3 separate();
 
     void updatePosibilityToAttackPlayer();

@@ -9,5 +9,7 @@ class MeleeEnemyBehaviourEC : public EnemyBehaviourEC {
   public:
     MeleeEnemyBehaviourEC();
     ~MeleeEnemyBehaviourEC();
+
     virtual void checkEvent();
+    virtual void rotateToPlayer();
 };
