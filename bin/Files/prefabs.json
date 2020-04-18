@@ -633,7 +633,7 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 90, 180, 0 ],
-            "scale": [ 3, 3, 3 ]
+            "scale": [ 4, 4, 4 ]
           }
         },
         {
@@ -648,7 +648,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 100, 0 ],
-            "shape": [ 5, 5, 5 ],
+            "shape": [ 3, 3, 3 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": false,
@@ -686,7 +686,7 @@
         {
           "type": "MeleeEnemyBehaviourEC",
           "attributes": {
-            "speed": 50,
+            "speed": 100,
             "attack": 10,
             "attackCooldown": 1,
             "separationRadius": 1000
