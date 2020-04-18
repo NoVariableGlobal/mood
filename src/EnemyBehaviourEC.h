@@ -80,6 +80,8 @@ class EnemyBehaviourEC : public EventComponent {
     virtual void moveTowardsPlayer();
     Ogre::Vector3 separate();
 
+    void updatePosibilityToAttackPlayer();
+
     // getters and setters
     float getSpeed();
     bool getCollisionWithPlayer();

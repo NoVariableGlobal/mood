@@ -93,6 +93,8 @@ void EnemyBehaviourEC::checkEvent() {
     if (!dead) {
         rigidbody->setLinearVelocity(Ogre::Vector3(0, 0, 0));
 
+        updatePosibilityToAttackPlayer();
+
         if (!attacking)
             moveTowardsPlayer();
         else if (animations->animationFinished("Attack")) {
@@ -159,12 +161,6 @@ void EnemyBehaviourEC::moveTowardsPlayer() {
 
     *directionToPlayer = distanceToPlayer->normalisedCopy();
 
-    // check collision with player
-    collisionWithPlayer = rigidbody->collidesWith("Player");
-
-    // check if player is within range
-    withinRange = getDistanceToPlayer().squaredLength() <= getAggroDistance();
-
     // if not colliding with player and not within attack range enemy moves
     // towards player
     Ogre::Vector3 velocity;
@@ -212,6 +208,14 @@ Ogre::Vector3 EnemyBehaviourEC::separate() {
     }
 
     return result;
+}
+
+void EnemyBehaviourEC::updatePosibilityToAttackPlayer() {
+    // check collision with player
+    collisionWithPlayer = rigidbody->collidesWith("Player");
+
+    // check if player is within range
+    withinRange = getDistanceToPlayer().squaredLength() <= getAggroDistance();
 }
 
 bool EnemyBehaviourEC::getCollisionWithPlayer() { return collisionWithPlayer; }
