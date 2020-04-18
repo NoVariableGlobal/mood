@@ -174,14 +174,7 @@ void EnemyBehaviourEC::moveTowardsPlayer() {
 
     rigidbody->setLinearVelocity(velocity * 0.2 + separate() * 0.8);
 
-    // set orientation towards player
-    float angleInRad =
-        atan2(transform->getPosition().z - playerTransform->getPosition().z,
-              transform->getPosition().x - playerTransform->getPosition().x);
-    float angleInDeg = -angleInRad * 180 / M_PI;
-
-    // make the rotation
-    mesh->setRotation(Ogre::Vector3(0, angleInDeg + 90, 0));
+    rotateToPlayer();
 }
 
 Ogre::Vector3 EnemyBehaviourEC::separate() {

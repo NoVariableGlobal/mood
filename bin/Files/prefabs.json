@@ -709,7 +709,7 @@
           "type": "TridimensionalObjectRC",
           "attributes": {
             "mesh": "gazer_mesh.mesh",
-            "node": "nMeleeEnemy",
+            "node": "nRangedEnemy",
             "material": "BlueColourMaterial"
           }
         },
@@ -795,7 +795,7 @@
           "type": "TridimensionalObjectRC",
           "attributes": {
             "mesh": "gazer_mesh.mesh",
-            "node": "nMeleeEnemy",
+            "node": "nRangedEnemy",
             "material": "BlueColourMaterial"
           }
         },
@@ -881,7 +881,7 @@
           "type": "TridimensionalObjectRC",
           "attributes": {
             "mesh": "gazer_mesh.mesh",
-            "node": "nMeleeEnemy",
+            "node": "nRangedEnemy",
             "material": "BlueColourMaterial"
           }
         },
@@ -969,7 +969,7 @@
           "type": "TridimensionalObjectRC",
           "attributes": {
             "mesh": "gazer_mesh.mesh",
-            "node": "nMeleeEnemy",
+            "node": "nRangedEnemy",
             "material": "BlueColourMaterial"
           }
         },
