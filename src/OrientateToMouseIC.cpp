@@ -43,7 +43,8 @@ void OrientateToMouseIC::handleInput(const SDL_Event& _event) {
         yMouse = yWinSize;
 
     // Calculate angle between mouse and father
-    float angleInRad = atan2(yWinSize / 2.0f - yMouse, xWinSize / 2.0f - xMouse);
+    float angleInRad =
+        atan2(yWinSize / 2.0f - yMouse, xWinSize / 2.0f - xMouse);
     float angleInDeg = -angleInRad * 180 / M_PI;
 
     // Make the rotation
