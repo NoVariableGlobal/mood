@@ -30,6 +30,7 @@ param (
 )
 
 $ErrorActionPreference = "Stop"
+$EngineVersion = "1.0.0"
 
 If ($DependenciesOnly -And $ProjectOnly) {
     Write-Host "You cannot specify " -ForegroundColor Red  -NoNewline
