@@ -9,15 +9,15 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.05, 0.05, 0.05 ]
+            "scale": [ 0.08, 0.08, 0.08 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
-            "node": "nCube",
-            "material": "PurpleColourMaterial"
+            "mesh": "shield.mesh",
+            "node": "nShield",
+            "material": "OrangeColourMaterial"
           }
         },
         {
@@ -39,6 +39,17 @@
           "attributes": {
             "time": 2,
             "timeEffect": 5
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Idle",
+                "loop": true
+              }
+            ]
           }
         }
       ]
@@ -93,7 +104,7 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.01, 0.01, 0.01 ]
+            "scale": [ 0.008, 0.008, 0.008 ]
           }
         },
         {
