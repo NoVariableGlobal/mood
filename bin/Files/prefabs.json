@@ -644,7 +644,7 @@
           "attributes": {
             "speed": 50,
             "attack": 10,
-            "attackCooldown": 2,
+            "attackCooldown": 1,
             "separationRadius": 1000
           }
         }
