@@ -1,14 +1,14 @@
 #include "BulletHurtPlayerEC.h"
+#include "AnimationLC.h"
 #include "BulletC.h"
 #include "ComponentsManager.h"
+#include "DeadManagerEC.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "LifeC.h"
 #include "RigidbodyPC.h"
-#include "SleepEC.h"
 #include "Scene.h"
-#include "AnimationLC.h"
-#include "DeadManagerEC.h"
+#include "SleepEC.h"
 
 #include <json.h>
 
@@ -43,7 +43,9 @@ void BulletHurtPlayerEC::checkEvent() {
                 ->setActive(false);
 
             reinterpret_cast<DeadManagerEC*>(
-                scene->getEntitybyId("GameManager")->getComponent("DeadManagerEC"))->setActive(true);
+                scene->getEntitybyId("GameManager")
+                    ->getComponent("DeadManagerEC"))
+                ->setActive(true);
         }
 
         // destroy bullet

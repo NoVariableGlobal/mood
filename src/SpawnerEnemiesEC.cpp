@@ -1,4 +1,5 @@
 #include "SpawnerEnemiesEC.h"
+#include "AnimationLC.h"
 #include "ComponentsManager.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
@@ -7,7 +8,6 @@
 #include "RoundManagerEC.h"
 #include "Scene.h"
 #include "TransformComponent.h"
-#include "AnimationLC.h"
 
 #include <json.h>
 
@@ -30,9 +30,9 @@ void SpawnerEnemiesEC::checkEvent() {
         RigidbodyPC* rigid =
             dynamic_cast<RigidbodyPC*>(newEntity->getComponent("RigidbodyPC"));
 
-        AnimationLC* animations = dynamic_cast<AnimationLC*>(
-            newEntity->getComponent("AnimationLC"));
-       animations->startAnimation("Walk");
+        AnimationLC* animations =
+            dynamic_cast<AnimationLC*>(newEntity->getComponent("AnimationLC"));
+        animations->startAnimation("Walk");
 
         rigid->setPosition(transform->getPosition());
         spawnTransform->setPosition(transform->getPosition());
