@@ -93,15 +93,15 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.05, 0.05, 0.05 ]
+            "scale": [ 0.01, 0.01, 0.01 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
-            "node": "nCube",
-            "material": "BlueColourMaterial"
+            "mesh": "nuke.mesh",
+            "node": "nNuke",
+            "material": "OrangeColourMaterial"
           }
         },
         {
@@ -123,6 +123,17 @@
           "attributes": {
             "time": 20,
             "timeEffect": 1
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Idle",
+                "loop": true
+              }
+            ]
           }
         }
       ]
