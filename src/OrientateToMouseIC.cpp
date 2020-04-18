@@ -42,22 +42,15 @@ void OrientateToMouseIC::handleInput(const SDL_Event& _event) {
     if (yMouse > yWinSize)
         yMouse = yWinSize;
 
-    // Get father's position
-    TransformComponent* fatherTransform = dynamic_cast<TransformComponent*>(
-        father->getComponent("TransformComponent"));
-    Ogre::Vector3 fatherPos = fatherTransform->getPosition();
-    fatherPos.x += xWinSize / 2;
-    fatherPos.y += yWinSize / 2;
-
     // Calculate angle between mouse and father
-    float angleInRad = atan2(fatherPos.y - yMouse, fatherPos.x - xMouse);
+    float angleInRad = atan2(yWinSize / 2.0f - yMouse, xWinSize / 2.0f - xMouse);
     float angleInDeg = -angleInRad * 180 / M_PI;
 
     // Make the rotation
     TridimensionalObjectRC* fatherRender =
         dynamic_cast<TridimensionalObjectRC*>(
             father->getComponent("TridimensionalObjectRC"));
-    fatherRender->rotate(angleInDeg - 90, Ogre::Vector3(0, 1, 0));
+    fatherRender->setRotation(Ogre::Vector3(0, angleInDeg - 90, 0));
 }
 
 // FACTORY INFRASTRUCTURE
