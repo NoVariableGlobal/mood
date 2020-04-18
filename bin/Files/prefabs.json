@@ -200,15 +200,15 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.05, 0.05, 0.05 ]
+            "scale": [ 30, 30, 30 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
-            "node": "nCube",
-            "material": "PinkColourMaterial"
+            "mesh": "kill.mesh",
+            "node": "nKill",
+            "material": "OrangeColourMaterial"
           }
         },
         {
@@ -231,6 +231,17 @@
             "time": 20,
             "timeEffect": 5,
             "speedIncrement": 0.5
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Idle",
+                "loop": true
+              }
+            ]
           }
         }
       ]
