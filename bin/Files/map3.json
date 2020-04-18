@@ -54,7 +54,7 @@
         {
           "type": "SpawnerFloorRandomEC",
           "attributes": {
-            "floorDimensions[x,y,z,w]": [ -100, -100, 200, 200 ],
+            "floorDimensions[x,y,z,w]": [ -170, -170, 340, 340 ],
             "spawnCooldown": 5,
             "spawnID": [ "Medkit", "IncreaseSpeed", "InfiniteAmmo", "InvulnerabilityShield", "Nuke", "Instakill" ],
             "spawnTag": "PowerUp",
@@ -64,7 +64,7 @@
         {
           "type": "SpawnerFloorRandomEC",
           "attributes": {
-            "floorDimensions[x,y,z,w]": [ -100, -100, 200, 200 ],
+            "floorDimensions[x,y,z,w]": [ -170, -170, 340, 340 ],
             "spawnCooldown": 5,
             "spawnID": [ "AutomaticRifle", "Shotgun", "SniperGun" ],
             "spawnTag": "Gun",
@@ -79,7 +79,30 @@
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 0, 0, 100 ],
+            "position": [ 170, 0, 170 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 1, 1, 1 ]
+          }
+        },
+        {
+          "type": "SpawnerEnemiesEC",
+          "attributes": {
+            "spawnCooldown": 3,
+            "spawnID": [ "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
+            "spawnTag": "Enemy",
+            "spawnChances": [ 25, 25, 25, 25 ],
+			      "EnemiesLimit": 5
+          }
+        }
+      ]
+    },
+	{
+      "id": "GeneradorEnemigos2",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 170, 0, -170 ],
             "orientation": [ 0, 0, 0 ],
             "scale": [ 1, 1, 1 ]
           }
@@ -91,7 +114,53 @@
             "spawnID": [ "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
             "spawnTag": "Enemy",
             "spawnChances": [ 25, 25, 25, 25 ],
-			      "EnemiesLimit": 8
+			      "EnemiesLimit": 2
+          }
+        }
+      ]
+    },
+	{
+      "id": "GeneradorEnemigos3",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ -170, 0, -170 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 1, 1, 1 ]
+          }
+        },
+        {
+          "type": "SpawnerEnemiesEC",
+          "attributes": {
+            "spawnCooldown": 6,
+            "spawnID": [ "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
+            "spawnTag": "Enemy",
+            "spawnChances": [ 25, 25, 25, 25 ],
+			      "EnemiesLimit": 2
+          }
+        }
+      ]
+    },
+	{
+      "id": "GeneradorEnemigos4",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ -170, 0, 170 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 1, 1, 1 ]
+          }
+        },
+        {
+          "type": "SpawnerEnemiesEC",
+          "attributes": {
+            "spawnCooldown": 3,
+            "spawnID": [ "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
+            "spawnTag": "Enemy",
+            "spawnChances": [ 25, 25, 25, 25 ],
+			      "EnemiesLimit": 3
           }
         }
       ]
