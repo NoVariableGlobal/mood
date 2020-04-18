@@ -62,22 +62,22 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.05, 0.05, 0.05 ]
+            "scale": [ 15, 15, 15 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
-            "node": "nCube",
-            "material": "BlueColourMaterial"
+            "mesh": "medkit.mesh",
+            "node": "nMedkit",
+            "material": "OrangeColourMaterial"
           }
         },
         {
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 2.5, 2.5, 2.5 ],
+            "shape": [ 5, 5, 5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": true,
@@ -92,6 +92,17 @@
           "attributes": {
             "time": 20,
             "timeEffect": 1
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Idle",
+                "loop": true
+              }
+            ]
           }
         }
       ]
@@ -200,7 +211,7 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 30, 30, 30 ]
+            "scale": [ 35, 35, 35 ]
           }
         },
         {

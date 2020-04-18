@@ -42,8 +42,8 @@ void SpawnerFloorRandomEC::checkEvent() {
         float z = floorDimensions->y + static_cast<float>(rand()) /
                                            static_cast<float>(RAND_MAX) *
                                            floorDimensions->w;
-        spawnTransform->setPosition(Ogre::Vector3(x, 20, z));
-        rigidbody->setPosition(Ogre::Vector3(x, 20, z));
+        spawnTransform->setPosition(Ogre::Vector3(x, 10, z));
+        rigidbody->setPosition(Ogre::Vector3(x, 10, z));
 
         
         // DESCOMENTAR CUANDO ESTEN TODAS LAS ANIMACIONES 'IDLE'
