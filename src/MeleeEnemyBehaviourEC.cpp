@@ -1,6 +1,7 @@
 #include "MeleeEnemyBehaviourEC.h"
 #include "AnimationLC.h"
 #include "ComponentsManager.h"
+#include "DeadManagerEC.h"
 #include "EnemyBehaviourEC.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
@@ -8,7 +9,6 @@
 #include "PlayerMovementIC.h"
 #include "RankingManagerC.h"
 #include "RigidbodyPC.h"
-#include "DeadManagerEC.h"
 #include "Scene.h"
 
 #include <iostream>
@@ -44,8 +44,8 @@ void MeleeEnemyBehaviourEC::checkEvent() {
                 animations->startAnimation("Dance");
 
                 reinterpret_cast<RigidbodyPC*>(
-                        scene->getEntitybyId("Player")->getComponent(
-                            "RigidbodyPC"))->setActive(false);
+                    scene->getEntitybyId("Player")->getComponent("RigidbodyPC"))
+                    ->setActive(false);
 
                 reinterpret_cast<DeadManagerEC*>(
                     scene->getEntitybyId("GameManager")

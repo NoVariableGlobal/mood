@@ -181,7 +181,7 @@ void EnemyBehaviourEC::moveTowardsPlayer() {
     float angleInDeg = -angleInRad * 180 / M_PI;
 
     // make the rotation
-    mesh->rotate(angleInDeg - 90, Ogre::Vector3(0, 1, 0));
+    mesh->setRotation(Ogre::Vector3(0, angleInDeg + 90, 0));
 }
 
 Ogre::Vector3 EnemyBehaviourEC::separate() {

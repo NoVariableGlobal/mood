@@ -1,17 +1,17 @@
 #include "DeadManagerEC.h"
+#include "AnimationLC.h"
 #include "ComponentsManager.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "Factory.h"
-#include "Scene.h"
-#include "WeaponControllerIC.h"
-#include "AnimationLC.h"
 #include "RankingManagerC.h"
 #include "RoundManagerEC.h"
+#include "Scene.h"
+#include "WeaponControllerIC.h"
 
+#include <iostream>
 #include <json.h>
 #include <time.h>
-#include <iostream>
 
 DeadManagerEC::DeadManagerEC() {}
 
@@ -24,7 +24,7 @@ void DeadManagerEC::setActive(bool _active) {
             scene->getEntitybyId("Player")->getComponent("AnimationLC"));
 }
 
-void DeadManagerEC::checkEvent() { 
+void DeadManagerEC::checkEvent() {
     if (playerAnimations->animationFinished("Dance")) {
         reinterpret_cast<RankingManagerC*>(
             father->getComponent("RankingManagerC"))
@@ -48,7 +48,7 @@ void DeadManagerEC::checkEvent() {
 DeadManagerECFactory::DeadManagerECFactory() = default;
 
 Component* DeadManagerECFactory::create(Entity* _father, Json::Value& _data,
-                                      Scene* scene) {
+                                        Scene* scene) {
     DeadManagerEC* manager = new DeadManagerEC();
     scene->getComponentsManager()->addEC(manager);
 

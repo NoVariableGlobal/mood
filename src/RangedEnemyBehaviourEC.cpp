@@ -1,4 +1,5 @@
 #include "RangedEnemyBehaviourEC.h"
+#include "AnimationLC.h"
 #include "ComponentsManager.h"
 #include "EnemyBehaviourEC.h"
 #include "FactoriesFactory.h"
@@ -10,7 +11,6 @@
 #include "SpawnerBulletsC.h"
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
-#include "AnimationLC.h"
 
 #include <Entity.h>
 #include <iostream>

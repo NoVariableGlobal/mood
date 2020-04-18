@@ -19,7 +19,8 @@
             "viewportColour": [ 0, 0, 0 ],
             "offset": [ 0, 300, 0 ],
             "lookAt": [ 0, -1, 0 ],
-            "targetId": "none"
+            "targetId": "Player",
+            "follow": [ true, false, true ]
           }
         },
         {

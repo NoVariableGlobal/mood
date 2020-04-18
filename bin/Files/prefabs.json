@@ -843,7 +843,7 @@
           "attributes": {
             "speed": 10,
             "attack": 8,
-            "attackCooldown": 0.5,
+            "attackCooldown": 1.4,
             "weaponEquipped": "AutomaticRifleC",
             "aggroDistance": 10000.0,
             "separationRadius": 1000
