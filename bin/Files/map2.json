@@ -79,7 +79,7 @@
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 0, 0, 100 ],
+            "position": [ -200, 0, 100 ],
             "orientation": [ 0, 0, 0 ],
             "scale": [ 1, 1, 1 ]
           }
@@ -87,11 +87,57 @@
         {
           "type": "SpawnerEnemiesEC",
           "attributes": {
-            "spawnCooldown": 2,
+            "spawnCooldown": 2.5,
             "spawnID": [ "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
             "spawnTag": "Enemy",
             "spawnChances": [ 25, 25, 25, 25 ],
-			      "EnemiesLimit": 8
+			      "EnemiesLimit": 2
+          }
+        }
+      ]
+    },
+	{
+      "id": "GeneradorEnemigos2",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 200, 0, 100 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 1, 1, 1 ]
+          }
+        },
+        {
+          "type": "SpawnerEnemiesEC",
+          "attributes": {
+            "spawnCooldown": 4,
+            "spawnID": [ "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
+            "spawnTag": "Enemy",
+            "spawnChances": [ 25, 25, 25, 25 ],
+			      "EnemiesLimit": 3
+          }
+        }
+      ]
+    },
+	{
+      "id": "GeneradorEnemigos3",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 200, 0, -100 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 1, 1, 1 ]
+          }
+        },
+        {
+          "type": "SpawnerEnemiesEC",
+          "attributes": {
+            "spawnCooldown": 3,
+            "spawnID": [ "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
+            "spawnTag": "Enemy",
+            "spawnChances": [ 25, 25, 25, 25 ],
+			      "EnemiesLimit": 4
           }
         }
       ]
@@ -580,7 +626,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ -370, -35, 0 ],
-            "shape": [ 7.5, 2.5, 200 ],
+            "shape": [ 0, 0, 0 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": false,
@@ -615,7 +661,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, -35, 0 ],
-            "shape": [ 7.5, 2.5, 200 ],
+            "shape": [ 0, 0, 0 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": false,
@@ -650,7 +696,234 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 370, -35, 0 ],
-            "shape": [ 7.5, 2.5, 200 ],
+            "shape": [ 0, 0, 0 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": true,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
+          }
+        }
+      ]
+    },
+	{
+      "id": "Contenedor",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 0.1, 0.1, 0.1 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Container_00.mesh",
+            "node": "nGunBullet",
+            "material": "none"
+          }
+        },
+        {
+          "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ -450, 0, 0 ],
+            "shape": [ 35, 5, 130 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
+          }
+        }
+      ]
+    },
+	{
+      "id": "Contenedor2",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 0.1, 0.1, 0.1 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Container_00.mesh",
+            "node": "nGunBullet",
+            "material": "none"
+          }
+        },
+        {
+          "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ 600, 0, 0 ],
+            "shape": [ 35, 5, 130 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
+          }
+        }
+      ]
+    }
+	,
+	{
+      "id": "ColisionUp",
+      "components": [		
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 0, 0, 0 ]
+          }
+        },
+        { "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ -110, 0, -125 ],
+            "shape": [ 300, 10, 10 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
+          }
+        }
+      ]
+    },
+	{
+      "id": "ColisionUp2",
+      "components": [		
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 0, 0, 0 ]
+          }
+        },
+        { "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ 460, 0, -125 ],
+            "shape": [ 100, 10, 10 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
+          }
+        }
+      ]
+    },
+	{
+      "id": "ColisionDown",
+      "components": [		
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 0, 0, 0 ]
+          }
+        },
+        { "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ -110, 0, 125 ],
+            "shape": [ 300, 10, 10 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
+          }
+        }
+      ]
+    },
+	{
+      "id": "ColisionDown2",
+      "components": [		
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 0, 0, 0 ]
+          }
+        },
+        { "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ 460, 0, 125 ],
+            "shape": [ 100, 10, 10 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
+          }
+        }
+      ]
+    },
+	{
+      "id": "ColisionDown3",
+      "components": [		
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 0, 0, 0 ]
+          }
+        },
+        { "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ 270, 0, 153 ],
+            "shape": [ 95, 5, 10 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
+          }
+        }
+      ]
+    },
+	{
+      "id": "ColisionDown4",
+      "components": [		
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 0, 0, 0 ]
+          }
+        },
+        { "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ 270, 0, -153 ],
+            "shape": [ 95, 5, 10 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": false,
