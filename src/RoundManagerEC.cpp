@@ -27,7 +27,8 @@ void RoundManagerEC::checkEvent() {
         float seconds = clock() / static_cast<float>(CLOCKS_PER_SEC);
         if (seconds - timer >= timeBetweenRounds) {
 
-            // change scene
+            if (roundNumber % 5 == 0)
+                changeMap();
             int randNum =
                 rand() % (maxAddEnemies - minAddEnemies + 1) + minAddEnemies;
             enemiesInRound += randNum;
@@ -54,6 +55,26 @@ void RoundManagerEC::checkEvent() {
             enemiesDead = 0;
         }
     }
+}
+
+void RoundManagerEC::changeMap() {
+    int randNum = (rand() % 3) + 1;
+
+    if (lastMap == randNum) {
+        if (randNum == 4)
+            randNum--;
+        else
+            randNum++;
+    }
+
+    if (randNum == 1)
+        scene->changeScene("map1");
+    else if (randNum == 2)
+        scene->changeScene("map2");
+    else if (randNum == 3)
+        scene->changeScene("map3");
+    else if (randNum == 4)
+        scene->changeScene("map4");
 }
 
 void RoundManagerEC::deactivateSpawnerEnemies() {
@@ -99,6 +120,8 @@ Component* RoundManagerECFactory::create(Entity* _father, Json::Value& _data,
     roundManagerEC->setFather(_father);
     roundManagerEC->setScene(_scene);
     _scene->getComponentsManager()->addEC(roundManagerEC);
+
+    roundManagerEC->changeMap();
 
     if (!_data["minAddEnemies"].isInt())
         throw std::exception("RoundManagerEC: minAddEnemies is not an Int");

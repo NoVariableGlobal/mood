@@ -1,297 +1,7 @@
 {
   "entities": [
-    {
-      "id": "Camera",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 3, 3, 3 ]
-          }
-        },
-        {
-          "type": "CameraRC",
-          "attributes": {
-            "node": "nCamera",
-            "viewportColour": [ 0, 0, 0 ],
-            "offset": [ 0, 300, 70 ],
-            "lookAt": [ 0, -1, -0.3 ],
-            "targetId": "Player",
-            "follow": [ true, true, true ]
-          }
-        },
-        {
-          "type": "SpotLightRC",
-          "attributes": {
-            "node": "nSpotLight",
-            "colour": [ 0.5, 0.5, 0.5 ],
-            "direction": [ 0, -1, 0 ]
-          }
-        }
-      ]
-    },
-    {
-      "id": "GameManager",
-      "components": [
-        {
-          "type": "SpawnerBulletsC",
-          "attributes": {
-          }
-        },
 
-        {
-          "type": "RoundManagerEC",
-          "attributes": {
-            "minAddEnemies": 3,
-            "maxAddEnemies": 6,
-            "enemiesInRound": 8,
-            "timeBetweenRounds": 10
-          }
-        },
-
-        {
-          "type": "SpawnerFloorRandomEC",
-          "attributes": {
-            "floorDimensions[x,y,z,w]": [ -170, -170, 340, 340 ],
-            "spawnCooldown": 5,
-            "spawnID": [ "Medkit", "IncreaseSpeed", "InfiniteAmmo", "InvulnerabilityShield", "Nuke", "Instakill" ],
-            "spawnTag": "PowerUp",
-            "spawnChances": [ 30, 20, 15, 20, 5, 10 ]
-          }
-        },
-        {
-          "type": "SpawnerFloorRandomEC",
-          "attributes": {
-            "floorDimensions[x,y,z,w]": [ -170, -170, 340, 340 ],
-            "spawnCooldown": 5,
-            "spawnID": [ "AutomaticRifle", "Shotgun", "SniperGun" ],
-            "spawnTag": "Gun",
-            "spawnChances": [ 50, 25, 25 ]
-          }
-        }
-      ]
-    },
     {
-      "id": "GeneradorEnemigos",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ 170, 0, 170 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 1, 1, 1 ]
-          }
-        },
-        {
-          "type": "SpawnerEnemiesEC",
-          "attributes": {
-            "spawnCooldown": 3,
-            "spawnID": [ "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
-            "spawnTag": "Enemy",
-            "spawnChances": [ 25, 25, 25, 25 ],
-			      "EnemiesLimit": 5
-          }
-        }
-      ]
-    },
-	{
-      "id": "GeneradorEnemigos2",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ 170, 0, -170 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 1, 1, 1 ]
-          }
-        },
-        {
-          "type": "SpawnerEnemiesEC",
-          "attributes": {
-            "spawnCooldown": 2,
-            "spawnID": [ "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
-            "spawnTag": "Enemy",
-            "spawnChances": [ 25, 25, 25, 25 ],
-			      "EnemiesLimit": 2
-          }
-        }
-      ]
-    },
-	{
-      "id": "GeneradorEnemigos3",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ -170, 0, -170 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 1, 1, 1 ]
-          }
-        },
-        {
-          "type": "SpawnerEnemiesEC",
-          "attributes": {
-            "spawnCooldown": 6,
-            "spawnID": [ "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
-            "spawnTag": "Enemy",
-            "spawnChances": [ 25, 25, 25, 25 ],
-			      "EnemiesLimit": 2
-          }
-        }
-      ]
-    },
-	{
-      "id": "GeneradorEnemigos4",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ -170, 0, 170 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 1, 1, 1 ]
-          }
-        },
-        {
-          "type": "SpawnerEnemiesEC",
-          "attributes": {
-            "spawnCooldown": 3,
-            "spawnID": [ "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
-            "spawnTag": "Enemy",
-            "spawnChances": [ 25, 25, 25, 25 ],
-			      "EnemiesLimit": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": "Player",
-      "tag": "Player",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 3, 3, 3 ]
-          }
-        },
-        {
-          "type": "TridimensionalObjectRC",
-          "attributes": {
-            "mesh": "Sinbad.mesh",
-            "node": "nPlayer",
-            "material": "none"
-          }
-        },
-        {
-          "type": "PlayerMovementIC",
-          "attributes": {
-            "speed": 35
-          }
-        },
-        {
-          "type": "PlayerShotIC",
-          "attributes": {
-          }
-        },
-        {
-          "type": "RigidbodyPC",
-          "attributes": {
-            "position": [ 0, 0, 0 ],
-            "shape": [ 5, 10, 5 ],
-            "mass": 1,
-            "gravity": [ 0, 0, 0 ],
-            "trigger": false,
-            "kinematic": false,
-            "static": false,
-            "friction": 0,
-            "restitution": 0
-          }
-        },
-        {
-          "type": "LifeC",
-          "attributes": {
-            "life": 100
-          }
-        },
-        {
-          "type": "HandGunC",
-          "attributes": {
-            "bulletTag": "PlayerBullet",
-            "bulletchamberMax": 20,
-            "munition": 1000,
-            "bulletDamage": 15,
-            "bulletSpeed": 50,
-            "cadence": 1,
-            "automatic": false,
-            "instakill": false,
-            "bulletType": "HandgunBullet"
-          }
-        },
-        {
-          "type": "ShotgunC",
-          "attributes": {
-            "bulletTag": "PlayerBullet",
-            "bulletchamberMax": 2,
-            "munition": 14,
-            "bulletDamage": 50,
-            "bulletSpeed": 50,
-            "cadence": 1,
-            "automatic": false,
-            "nPellets": 3,
-            "dispersion": 10,
-            "instakill": false,
-            "bulletType": "ShotgunBullet"
-          }
-        },
-        {
-          "type": "SniperGunC",
-          "attributes": {
-            "bulletTag": "PlayerBullet",
-            "bulletchamberMax": 1,
-            "munition": 5,
-            "bulletDamage": 100,
-            "bulletSpeed": 100,
-            "cadence": 1,
-            "instakill": false,
-            "bulletType": "SniperBullet"
-          }
-        },
-        {
-          "type": "AutomaticRifleC",
-          "attributes": {
-            "bulletTag": "PlayerBullet",
-            "bulletchamberMax": 30,
-            "munition": 90,
-            "bulletDamage": 25,
-            "bulletSpeed": 50,
-            "cadence": 0.1,
-            "automatic": true,
-            "instakill": false,
-            "bulletType": "AutomaticRifleBullet"
-          }
-        },
-        {
-          "type": "AutomaticEC",
-          "attributes": {}
-        },
-        {
-          "type": "WeaponControllerIC",
-          "attributes": {}
-        },
-        {
-          "type": "OrientateToMouseIC",
-          "attributes": {}
-        },
-        {
-          "type": "PowerUpTrackerC",
-          "attributes": {}
-        }
-      ]
-    },
-	{
       "id": "Suelo",
       "components": [
         {
@@ -312,7 +22,7 @@
         }
       ]
     },
-	{
+    {
       "id": "Edificio Pricipal",
       "components": [
         {
@@ -347,7 +57,7 @@
         }
       ]
     },
-	{
+    {
       "id": "ColisionUp",
       "components": [
         {
@@ -374,7 +84,7 @@
         }
       ]
     },
-	{
+    {
       "id": "ColisionDown",
       "components": [
         {
@@ -401,7 +111,7 @@
         }
       ]
     },
-	{
+    {
       "id": "ColisionRight",
       "components": [
         {
@@ -428,7 +138,7 @@
         }
       ]
     },
-	{
+    {
       "id": "ColisionLeft",
       "components": [
         {
@@ -455,7 +165,7 @@
         }
       ]
     },
-	{
+    {
       "id": "Edificio Secundario1",
       "components": [
         {
@@ -490,7 +200,7 @@
         }
       ]
     },
-	{
+    {
       "id": "Edificio Secundario2",
       "components": [
         {
@@ -525,7 +235,7 @@
         }
       ]
     },
-	{
+    {
       "id": "Edificio Secundario3",
       "components": [
         {
@@ -560,7 +270,7 @@
         }
       ]
     },
-	{
+    {
       "id": "Edificio Secundario4",
       "components": [
         {

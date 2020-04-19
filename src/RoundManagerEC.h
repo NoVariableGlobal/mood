@@ -20,6 +20,8 @@ class RoundManagerEC : public EventComponent {
     float timer = 0;
     bool roundEnd = false;
 
+    int lastMap = 1;
+
     std::vector<SpawnerEnemiesEC*> enemiesSpawners;
     std::vector<SpawnerEC*> otherSpawners;
 
@@ -28,6 +30,8 @@ class RoundManagerEC : public EventComponent {
     ~RoundManagerEC() = default;
 
     virtual void checkEvent();
+
+    void changeMap();
 
     void deactivateSpawnerEnemies();
     void deactivateOtherSpawners();

@@ -1,8 +1,28 @@
-{"scenes":
-	[
+{
+	"scenes": [
 		{
 			"name": "MOOD",
 			"file": "mood.json"
+		},
+
+		{
+			"name": "map1",
+			"file": "map1.json"
+		},
+
+		{
+			"name": "map2",
+			"file": "map2.json"
+		},
+
+		{
+			"name": "map3",
+			"file": "map3.json"
+		},
+
+		{
+			"name": "map4",
+			"file": "map4.json"
 		},
 		{
 			"name": "DeadMenu",
