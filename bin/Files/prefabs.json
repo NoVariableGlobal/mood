@@ -491,14 +491,14 @@
           "type": "TransformComponent",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.1, 0.1, 0.1 ]
+            "orientation": [ 0, -45, 0 ],
+            "scale": [ 1, 1, 1 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
+            "mesh": "Shotgun.mesh",
             "node": "nGunBullet",
             "material": "BrownColourMaterial"
           }
@@ -527,6 +527,17 @@
           "type": "OnEPressPickUpIC",
           "attributes": {
             "objectName": "GunPowerUpC"
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Idle",
+                "loop": true
+              }
+            ]
           }
         }
       ]
