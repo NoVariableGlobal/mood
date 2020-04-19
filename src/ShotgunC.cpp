@@ -20,39 +20,40 @@ void ShotgunC::onPreShoot() {
     auto spawner = reinterpret_cast<SpawnerBulletsC*>(
         scene->getEntitybyId("GameManager")->getComponent("SpawnerBulletsC"));
 
-    Entity* newBullet = spawner->getBullet(_myBulletType, _myBulletTag);
-
-    BulletC* bullet =
-        dynamic_cast<BulletC*>(newBullet->getComponent(bulletComponentName_));
-    bullet->setDamage(getCalculatedDamage());
-
-    TransformComponent* transform = reinterpret_cast<TransformComponent*>(
-        newBullet->getComponent("TransformComponent"));
-
-    RigidbodyPC* bulletRb =
-        reinterpret_cast<RigidbodyPC*>(newBullet->getComponent("RigidbodyPC"));
-    bulletRb->setPosition(transform->getPosition());
-
     // Save original rotation
     Ogre::SceneNode* node = reinterpret_cast<TridimensionalObjectRC*>(
                                 father->getComponent("TridimensionalObjectRC"))
                                 ->getSceneNode();
-    Ogre::Quaternion ori = node->getOrientation();
+    const Ogre::Quaternion originalOrientation = node->getOrientation();
 
     // Orientate for the first pellet
-    int firstPelletAngle = -dispAngle * (nPellets / 2);
+    const Ogre::Real firstPelletAngle = -dispAngle * (nPellets / 2.0f);
 
     node->yaw(Ogre::Radian(Ogre::Degree(firstPelletAngle).valueRadians()));
 
     for (int i = 0; i < nPellets; i++) {
-        onShoot(bullet, transform, bulletRb);
+        Entity* entity = spawner->getBullet(_myBulletType, _myBulletTag);
+
+        auto bullet =
+            dynamic_cast<BulletC*>(entity->getComponent(bulletComponentName_));
+        bullet->setDamage(getCalculatedDamage());
+
+        auto transform = reinterpret_cast<TransformComponent*>(
+            entity->getComponent("TransformComponent"));
+
+        auto rigidBody =
+            reinterpret_cast<RigidbodyPC*>(entity->getComponent("RigidbodyPC"));
+        rigidBody->setPosition(transform->getPosition());
+
+        onShoot(bullet, transform, rigidBody);
 
         // Rotate the node for the next bullet
         node->yaw(Ogre::Radian(Ogre::Degree(dispAngle).valueRadians()));
     }
 
     // Restore original rotation
-    node->setOrientation(ori.w, ori.x, ori.y, ori.z);
+    node->setOrientation(originalOrientation.w, originalOrientation.x,
+                         originalOrientation.y, originalOrientation.z);
 }
 
 void ShotgunC::onShoot(BulletC* bullet, TransformComponent* transform,

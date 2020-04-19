@@ -9,13 +9,6 @@
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
 
-Ogre::Quaternion GunC::getOrientation() const {
-    return reinterpret_cast<TridimensionalObjectRC*>(
-               father->getComponent("TridimensionalObjectRC"))
-        ->getSceneNode()
-        ->getOrientation();
-}
-
 void GunC::destroy() {
     setActive(false);
     scene->getComponentsManager()->eraseDC(this);
@@ -51,20 +44,27 @@ void GunC::onPreShoot() {
     auto spawner = reinterpret_cast<SpawnerBulletsC*>(
         scene->getEntitybyId("GameManager")->getComponent("SpawnerBulletsC"));
 
-    Entity* newBullet = spawner->getBullet(_myBulletType, _myBulletTag);
+    Entity* entity = spawner->getBullet(_myBulletType, _myBulletTag);
 
-    BulletC* bullet =
-        dynamic_cast<BulletC*>(newBullet->getComponent(bulletComponentName_));
+    auto bullet =
+        dynamic_cast<BulletC*>(entity->getComponent(bulletComponentName_));
     bullet->setDamage(getCalculatedDamage());
 
-    TransformComponent* transform = reinterpret_cast<TransformComponent*>(
-        newBullet->getComponent("TransformComponent"));
+    auto transform = reinterpret_cast<TransformComponent*>(
+        entity->getComponent("TransformComponent"));
 
-    RigidbodyPC* bulletRb =
-        reinterpret_cast<RigidbodyPC*>(newBullet->getComponent("RigidbodyPC"));
-    bulletRb->setPosition(transform->getPosition());
+    auto rigidBody =
+        reinterpret_cast<RigidbodyPC*>(entity->getComponent("RigidbodyPC"));
+    rigidBody->setPosition(transform->getPosition());
 
-    onShoot(bullet, transform, bulletRb);
+    onShoot(bullet, transform, rigidBody);
+}
+
+Ogre::Quaternion GunC::getOrientation() const {
+    return reinterpret_cast<TridimensionalObjectRC*>(
+               father->getComponent("TridimensionalObjectRC"))
+        ->getSceneNode()
+        ->getOrientation();
 }
 
 std::string GunC::getBulletType() { return _myBulletType; }
