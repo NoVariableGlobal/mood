@@ -6,13 +6,8 @@
 // FACTORY INFRASTRUCTURE DECLARATION
 DECLARE_FACTORY(HandGunC);
 
-class HandGunC : public GunC {
-  private:
-  public:
-    HandGunC();
-    ~HandGunC();
-
-    virtual void destroy();
-
-    virtual bool shoot();
+class HandGunC final : public GunC {
+  protected:
+    void onShoot(BulletC* bullet, TransformComponent* transform,
+                 RigidbodyPC* rigidBody) override;
 };

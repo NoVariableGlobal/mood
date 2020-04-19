@@ -1,11 +1,11 @@
 #pragma once
+
 #include "Factory.h"
 #include "GunC.h"
 
 DECLARE_FACTORY(SniperGunC);
-class SniperGunC : public GunC {
-
-    virtual void destroy();
-
-    virtual bool shoot();
+class SniperGunC final : public GunC {
+  protected:
+    void onShoot(BulletC* bullet, TransformComponent* transform,
+                 RigidbodyPC* rigidBody) override;
 };

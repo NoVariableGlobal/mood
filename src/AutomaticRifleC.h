@@ -5,11 +5,8 @@
 
 DECLARE_FACTORY(AutomaticRifleC);
 
-class AutomaticRifleC : public GunC {
-  public:
-    AutomaticRifleC();
-    ~AutomaticRifleC();
-
-    virtual void destroy();
-    virtual bool shoot();
+class AutomaticRifleC final : public GunC {
+  protected:
+    void onShoot(BulletC* bullet, TransformComponent* transform,
+                 RigidbodyPC* rigidBody) override;
 };

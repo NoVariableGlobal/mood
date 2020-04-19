@@ -1,34 +1,47 @@
 #pragma once
+
 #include "Component.h"
 #include <string>
 
 class TransformComponent;
+class BulletC;
+class RigidbodyPC;
+
+namespace Ogre {
+    class Quaternion;
+}
 
 class GunC : public Component {
   protected:
-    int _bulletchamber;       // Ammunition in chamber
-    int _bulletchamberMax;    // Total ammunition in chamber
-    int _munition;            // Total ammunition stored
-    int _munitionMax;         // Total ammunition stored
-    int _bulletDamage;        // Damage of a single bullet
-    int _bulletSpeed;         // Speed of a single bullet
-    float _cadence;           // Gun cadence
-    bool _automatic;          // One shot or multiple shot gun
-    bool infiniteAmmo_;       // Whether or not this gun has infinite ammo
-    bool instakill_;          // Whether or not this gun will insta-kill enemies
-    std::string _myBulletTag; // Tag of my bullets
-    std::string _myBulletType; // Type of my bullets
+    int _bulletchamber = 0;     // Ammunition in chamber
+    int _bulletchamberMax = 0;  // Total ammunition in chamber
+    int _munition = 0;          // Total ammunition stored
+    int _munitionMax = 0;       // Total ammunition stored
+    int _bulletDamage = 0;      // Damage of a single bullet
+    int _bulletSpeed = 0;       // Speed of a single bullet
+    float _cadence = 0.0f;      // Gun cadence
+    bool _automatic = false;    // One shot or multiple shot gun
+    bool infiniteAmmo_ = false; // Whether or not this gun has infinite ammo
+    bool instakill_ = false; // Whether or not this gun will insta-kill enemies
+    std::string bulletComponentName_ = ""; // The component name of the bullet
+    std::string _myBulletTag = "";         // Tag of my bullets
+    std::string _myBulletType = "";        // Type of my bullets
     TransformComponent* myTransform;
 
+    virtual void onPreShoot();
+    virtual void onShoot(BulletC* bullet, TransformComponent* transform,
+                         RigidbodyPC* rigidBody) = 0;
+
+    Ogre::Quaternion getOrientation() const;
+
   public:
-    GunC();
-    ~GunC();
+    void destroy() override;
 
     // Tries to reload the gun, returns false if failed
     bool reload();
 
     // Tries to fire a shot, returns false if gun is empty
-    virtual bool shoot() = 0;
+    bool shoot();
 
     // Returns wheter or not there is ammunition left in the gun
     bool mmunitionleft();
@@ -41,8 +54,9 @@ class GunC : public Component {
     int getCalculatedDamage();
 
     // Getters
-    std::string getBulletType(); // Return the tag of my bullets
-    std::string getBulletTag();  // Return the tag of my bullets
+    std::string getBulletType();          // Return the tag of my bullets
+    std::string getBulletTag();           // Return the tag of my bullets
+    std::string getBulletComponentName(); // Returns the bullet's component name
     int getbulletchamber(); // Return the remaining ammunition in the chamber
     int getmunition();      // Return the remaining ammo
     int getbulletdamage();  // Returns the damage of a single bullet
@@ -57,6 +71,7 @@ class GunC : public Component {
     // Setters
     void setBulletType(std::string _bulletType);
     void setBulletTag(std::string _bulletTag);
+    void setBulletComponentName(std::string name);
     void setbulletchamber(int bulletchamberMax);
     void setmunition(int munition);
     void setbulletdamage(int damage);

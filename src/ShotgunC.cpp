@@ -16,24 +16,25 @@
 
 #include <json.h>
 
-ShotgunC::ShotgunC() : GunC() {}
+void ShotgunC::onPreShoot() {
+    auto spawner = reinterpret_cast<SpawnerBulletsC*>(
+        scene->getEntitybyId("GameManager")->getComponent("SpawnerBulletsC"));
 
-ShotgunC::~ShotgunC() {}
+    Entity* newBullet = spawner->getBullet(_myBulletType, _myBulletTag);
 
-void ShotgunC::destroy() {
-    setActive(false);
-    scene->getComponentsManager()->eraseDC(this);
-}
+    BulletC* bullet =
+        dynamic_cast<BulletC*>(newBullet->getComponent(bulletComponentName_));
+    bullet->setDamage(getCalculatedDamage());
 
-bool ShotgunC::shoot() {
-    if (!canShoot())
-        return false;
+    TransformComponent* transform = reinterpret_cast<TransformComponent*>(
+        newBullet->getComponent("TransformComponent"));
 
-    if (!getInfiniteAmmo())
-        _bulletchamber--;
+    RigidbodyPC* bulletRb =
+        reinterpret_cast<RigidbodyPC*>(newBullet->getComponent("RigidbodyPC"));
+    bulletRb->setPosition(transform->getPosition());
 
     // Save original rotation
-    Ogre::SceneNode* node = dynamic_cast<TridimensionalObjectRC*>(
+    Ogre::SceneNode* node = reinterpret_cast<TridimensionalObjectRC*>(
                                 father->getComponent("TridimensionalObjectRC"))
                                 ->getSceneNode();
     Ogre::Quaternion ori = node->getOrientation();
@@ -44,30 +45,7 @@ bool ShotgunC::shoot() {
     node->yaw(Ogre::Radian(Ogre::Degree(firstPelletAngle).valueRadians()));
 
     for (int i = 0; i < nPellets; i++) {
-        auto spawner = reinterpret_cast<SpawnerBulletsC*>(
-            scene->getEntitybyId("GameManager")
-                ->getComponent("SpawnerBulletsC"));
-        Entity* newBullet = spawner->getBullet(_myBulletType, _myBulletTag);
-
-        BulletC* bullet =
-            dynamic_cast<BulletC*>(newBullet->getComponent("BulletC"));
-
-        bullet->setDamage(getCalculatedDamage());
-
-        TransformComponent* bulletTransform = dynamic_cast<TransformComponent*>(
-            newBullet->getComponent("TransformComponent"));
-
-        bulletTransform->setPosition(myTransform->getPosition());
-        bulletTransform->setOrientation(myTransform->getOrientation());
-
-        RigidbodyPC* bulletRb =
-            dynamic_cast<RigidbodyPC*>(newBullet->getComponent("RigidbodyPC"));
-
-        Ogre::Quaternion quat = node->getOrientation();
-
-        bulletRb->setLinearVelocity(-(quat * Ogre::Vector3::NEGATIVE_UNIT_Z) *
-                                    _bulletSpeed);
-        bulletRb->setPosition(myTransform->getPosition());
+        onShoot(bullet, transform, bulletRb);
 
         // Rotate the node for the next bullet
         node->yaw(Ogre::Radian(Ogre::Degree(dispAngle).valueRadians()));
@@ -75,6 +53,16 @@ bool ShotgunC::shoot() {
 
     // Restore original rotation
     node->setOrientation(ori.w, ori.x, ori.y, ori.z);
+}
+
+void ShotgunC::onShoot(BulletC* bullet, TransformComponent* transform,
+                       RigidbodyPC* rigidBody) {
+    transform->setPosition(myTransform->getPosition());
+    transform->setOrientation(myTransform->getOrientation());
+
+    Ogre::Quaternion quat = getOrientation();
+    rigidBody->setLinearVelocity(-(quat * Ogre::Vector3::NEGATIVE_UNIT_Z) *
+                                 _bulletSpeed);
 }
 
 void ShotgunC::setNPellets(int n) { nPellets = n; }
@@ -140,9 +128,14 @@ Component* ShotgunCFactory::create(Entity* _father, Json::Value& _data,
         throw std::exception("ShotgunC: bulletType is not a string");
     shotgun->setBulletType(_data["bulletType"].asString());
 
-    shotgun->setTransform(dynamic_cast<TransformComponent*>(
+    if (!_data["bulletComponent"].isString())
+        throw std::exception("ShotgunC: bulletComponent is not a string");
+    shotgun->setBulletComponentName(_data["bulletComponent"].asString());
+
+    shotgun->setTransform(reinterpret_cast<TransformComponent*>(
         _father->getComponent("TransformComponent")));
 
     return shotgun;
 };
+
 DEFINE_FACTORY(ShotgunC);

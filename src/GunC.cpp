@@ -1,8 +1,25 @@
 #include "GunC.h"
+#include "BulletC.h"
+#include "ComponentsManager.h"
+#include "Entity.h"
+#include "Ogre.h"
+#include "RigidbodyPC.h"
+#include "Scene.h"
+#include "SpawnerBulletsC.h"
+#include "TransformComponent.h"
+#include "TridimensionalObjectRC.h"
 
-GunC::GunC() {}
+Ogre::Quaternion GunC::getOrientation() const {
+    return reinterpret_cast<TridimensionalObjectRC*>(
+               father->getComponent("TridimensionalObjectRC"))
+        ->getSceneNode()
+        ->getOrientation();
+}
 
-GunC::~GunC() {}
+void GunC::destroy() {
+    setActive(false);
+    scene->getComponentsManager()->eraseDC(this);
+}
 
 bool GunC::reload() {
     if (_bulletchamber < _bulletchamberMax && _munition > 0) {
@@ -19,9 +36,42 @@ bool GunC::reload() {
         return false;
 }
 
+bool GunC::shoot() {
+    if (!canShoot())
+        return false;
+
+    if (!getInfiniteAmmo())
+        _bulletchamber--;
+
+    onPreShoot();
+    return true;
+}
+
+void GunC::onPreShoot() {
+    auto spawner = reinterpret_cast<SpawnerBulletsC*>(
+        scene->getEntitybyId("GameManager")->getComponent("SpawnerBulletsC"));
+
+    Entity* newBullet = spawner->getBullet(_myBulletType, _myBulletTag);
+
+    BulletC* bullet =
+        dynamic_cast<BulletC*>(newBullet->getComponent(bulletComponentName_));
+    bullet->setDamage(getCalculatedDamage());
+
+    TransformComponent* transform = reinterpret_cast<TransformComponent*>(
+        newBullet->getComponent("TransformComponent"));
+
+    RigidbodyPC* bulletRb =
+        reinterpret_cast<RigidbodyPC*>(newBullet->getComponent("RigidbodyPC"));
+    bulletRb->setPosition(transform->getPosition());
+
+    onShoot(bullet, transform, bulletRb);
+}
+
 std::string GunC::getBulletType() { return _myBulletType; }
 
 std::string GunC::getBulletTag() { return _myBulletTag; }
+
+std::string GunC::getBulletComponentName() { return bulletComponentName_; }
 
 int GunC::getbulletchamber() { return _bulletchamber; }
 
@@ -38,6 +88,10 @@ bool GunC::getautomatic() { return _automatic; }
 void GunC::setBulletType(std::string bulletType) { _myBulletType = bulletType; }
 
 void GunC::setBulletTag(std::string bulletTag) { _myBulletTag = bulletTag; }
+
+void GunC::setBulletComponentName(std::string name) {
+    bulletComponentName_ = name;
+}
 
 bool GunC::getInfiniteAmmo() { return infiniteAmmo_; }
 

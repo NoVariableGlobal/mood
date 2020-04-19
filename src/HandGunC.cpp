@@ -14,48 +14,15 @@
 #include "TridimensionalObjectRC.h"
 #include <json.h>
 
-HandGunC::HandGunC() : GunC() {}
+void HandGunC::onShoot(BulletC* bullet, TransformComponent* transform,
+                       RigidbodyPC* rigidBody) {
+    Ogre::Quaternion quat = getOrientation();
 
-HandGunC::~HandGunC() {}
+    transform->setPosition(myTransform->getPosition() +
+                           (quat * Ogre::Vector3::UNIT_Z) * 10);
+    transform->setOrientation(myTransform->getOrientation());
 
-void HandGunC::destroy() {
-    setActive(false);
-    scene->getComponentsManager()->eraseDC(this);
-}
-
-bool HandGunC::shoot() {
-    if (!canShoot())
-        return false;
-
-    if (!getInfiniteAmmo())
-        _bulletchamber--;
-
-    auto spawner = reinterpret_cast<SpawnerBulletsC*>(
-        scene->getEntitybyId("GameManager")->getComponent("SpawnerBulletsC"));
-    Entity* newBullet = spawner->getBullet(_myBulletType, _myBulletTag);
-
-    BulletC* bullet =
-        dynamic_cast<BulletC*>(newBullet->getComponent("BulletC"));
-
-    bullet->setDamage(getCalculatedDamage());
-
-    TransformComponent* bulletTransform = dynamic_cast<TransformComponent*>(
-        newBullet->getComponent("TransformComponent"));
-
-    Ogre::Quaternion quat = dynamic_cast<TridimensionalObjectRC*>(
-                                father->getComponent("TridimensionalObjectRC"))
-                                ->getSceneNode()
-                                ->getOrientation();
-
-    bulletTransform->setPosition(myTransform->getPosition() +
-                                 (quat * Ogre::Vector3::UNIT_Z) * 10);
-    bulletTransform->setOrientation(myTransform->getOrientation());
-
-    RigidbodyPC* bulletRb =
-        dynamic_cast<RigidbodyPC*>(newBullet->getComponent("RigidbodyPC"));
-
-    bulletRb->setLinearVelocity((quat * Ogre::Vector3::UNIT_Z) * _bulletSpeed);
-    bulletRb->setPosition(bulletTransform->getPosition());
+    rigidBody->setLinearVelocity((quat * Ogre::Vector3::UNIT_Z) * _bulletSpeed);
 }
 
 // FACTORY INFRASTRUCTURE
@@ -71,7 +38,7 @@ Component* HandGunCFactory::create(Entity* _father, Json::Value& _data,
     hg->setScene(_scene);
 
     if (!_data["bulletTag"].isString())
-        throw std::exception("ShotgunC: bulletTag is not a string");
+        throw std::exception("HandGunC: bulletTag is not a string");
     hg->setBulletTag(_data["bulletTag"].asString());
 
     if (!_data["bulletchamberMax"].isInt())
@@ -83,11 +50,11 @@ Component* HandGunCFactory::create(Entity* _father, Json::Value& _data,
     hg->setmunition(_data["munition"].asInt());
 
     if (!_data["bulletDamage"].isDouble())
-        throw std::exception("ShotgunC: bulletDamage is not a double");
+        throw std::exception("HandGunC: bulletDamage is not a double");
     hg->setbulletdamage(_data["bulletDamage"].asDouble());
 
     if (!_data["bulletSpeed"].isDouble())
-        throw std::exception("ShotgunC: bulletSpeed is not a double");
+        throw std::exception("HandGunC: bulletSpeed is not a double");
     hg->setbulletspeed(_data["bulletSpeed"].asDouble());
 
     if (!_data["cadence"].isDouble())
@@ -106,10 +73,14 @@ Component* HandGunCFactory::create(Entity* _father, Json::Value& _data,
         hg->setInfiniteAmmo(_data["infiniteAmmo"].asBool());
 
     if (!_data["bulletType"].isString())
-        throw std::exception("ShotgunC: bulletType is not a string");
+        throw std::exception("HandGunC: bulletType is not a string");
     hg->setBulletType(_data["bulletType"].asString());
 
-    hg->setTransform(dynamic_cast<TransformComponent*>(
+    if (!_data["bulletComponent"].isString())
+        throw std::exception("HandGunC: bulletComponent is not a string");
+    hg->setBulletComponentName(_data["bulletComponent"].asString());
+
+    hg->setTransform(reinterpret_cast<TransformComponent*>(
         _father->getComponent("TransformComponent")));
 
     return hg;
