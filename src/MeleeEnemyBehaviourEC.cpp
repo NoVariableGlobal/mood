@@ -6,13 +6,13 @@
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "LifeC.h"
+#include "OgreRoot.h"
 #include "PlayerMovementIC.h"
 #include "RankingManagerC.h"
 #include "RigidbodyPC.h"
+#include "Scene.h"
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
-#include "Scene.h"
-#include "OgreRoot.h"
 
 #include <json.h>
 
