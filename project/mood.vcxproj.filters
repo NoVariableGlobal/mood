@@ -117,16 +117,19 @@
     <ClCompile Include="..\src\SpawnerFloorRandomEC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\TridimensionalObjectRC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\WeaponControllerIC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\RounManagerEC.cpp">
+    <ClCompile Include="..\src\BulletHurtPlayerEC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\BulletHurtPlayerEC.cpp">
+    <ClCompile Include="..\src\RoundManagerEC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\RankingManagerC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\DeadManagerEC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -230,9 +233,6 @@
     <ClInclude Include="..\src\SpawnerFloorRandomEC.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\TridimensionalObjectRC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\WeaponControllerIC.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -240,6 +240,12 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\BulletHurtPlayerEC.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\RankingManagerC.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DeadManagerEC.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

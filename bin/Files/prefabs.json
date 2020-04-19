@@ -9,15 +9,15 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.05, 0.05, 0.05 ]
+            "scale": [ 0.08, 0.08, 0.08 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
-            "node": "nCube",
-            "material": "PurpleColourMaterial"
+            "mesh": "shield.mesh",
+            "node": "nShield",
+            "material": "OrangeColourMaterial"
           }
         },
         {
@@ -40,6 +40,17 @@
             "time": 2,
             "timeEffect": 5
           }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Idle",
+                "loop": true
+              }
+            ]
+          }
         }
       ]
     },
@@ -51,22 +62,22 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.05, 0.05, 0.05 ]
+            "scale": [ 15, 15, 15 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
-            "node": "nCube",
-            "material": "BlueColourMaterial"
+            "mesh": "medkit.mesh",
+            "node": "nMedkit",
+            "material": "OrangeColourMaterial"
           }
         },
         {
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 2.5, 2.5, 2.5 ],
+            "shape": [ 5, 5, 5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": true,
@@ -82,6 +93,17 @@
             "time": 20,
             "timeEffect": 1
           }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Idle",
+                "loop": true
+              }
+            ]
+          }
         }
       ]
     },
@@ -93,15 +115,15 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.05, 0.05, 0.05 ]
+            "scale": [ 0.008, 0.008, 0.008 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
-            "node": "nCube",
-            "material": "BlueColourMaterial"
+            "mesh": "nuke.mesh",
+            "node": "nNuke",
+            "material": "OrangeColourMaterial"
           }
         },
         {
@@ -123,6 +145,17 @@
           "attributes": {
             "time": 20,
             "timeEffect": 1
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Idle",
+                "loop": true
+              }
+            ]
           }
         }
       ]
@@ -178,15 +211,15 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.05, 0.05, 0.05 ]
+            "scale": [ 35, 35, 35 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
-            "node": "nCube",
-            "material": "PinkColourMaterial"
+            "mesh": "kill.mesh",
+            "node": "nKill",
+            "material": "OrangeColourMaterial"
           }
         },
         {
@@ -209,6 +242,17 @@
             "time": 20,
             "timeEffect": 5,
             "speedIncrement": 0.5
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Idle",
+                "loop": true
+              }
+            ]
           }
         }
       ]
@@ -588,23 +632,23 @@
           "type": "TransformComponent",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "orientation": [ 90, 15, 57 ],
-            "scale": [ 0.5, 0.5, 0.5 ]
+            "orientation": [ 90, 180, 0 ],
+            "scale": [ 4, 4, 4 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "penguin.mesh",
-            "node": "nEnemy",
-            "material": "PenguinMaterial"
+            "mesh": "melee_zard.mesh",
+            "node": "nMeleeEnemy",
+            "material": "PinkColourMaterial"
           }
         },
         {
           "type": "RigidbodyPC",
           "attributes": {
-            "position": [ 50, 0, 50 ],
-            "shape": [ 5, 5, 5 ],
+            "position": [ 0, 100, 0 ],
+            "shape": [ 3, 3, 3 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": false,
@@ -615,18 +659,37 @@
           }
         },
         {
-          "type": "MeleeEnemyBehaviourEC",
-          "attributes": {
-            "speed": 24,
-            "attack": 10,
-            "attackCooldown": 2,
-            "separationRadius": 1000
-          }
-        },
-        {
           "type": "LifeC",
           "attributes": {
             "life": 100
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Walk",
+                "loop": true
+              },
+              {
+                "name": "Attack",
+                "loop": false
+              },
+              {
+                "name": "Dead",
+                "loop": false
+              }
+            ]
+          }
+        },
+        {
+          "type": "MeleeEnemyBehaviourEC",
+          "attributes": {
+            "speed": 100,
+            "attack": 10,
+            "attackCooldown": 1,
+            "separationRadius": 1000
           }
         }
       ]
@@ -637,17 +700,17 @@
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 50, 0, 50 ],
-            "orientation": [ 90, 15, 57 ],
-            "scale": [ 0.5, 0.5, 0.5 ]
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 180, 0 ],
+            "scale": [ 0.05, 0.05, 0.05 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "penguin.mesh",
-            "node": "nMeleeEnemy",
-            "material": "PenguinMaterial"
+            "mesh": "gazer_mesh.mesh",
+            "node": "nRangedEnemy",
+            "material": "BlueColourMaterial"
           }
         },
         {
@@ -659,7 +722,7 @@
         {
           "type": "RigidbodyPC",
           "attributes": {
-            "position": [ 50, 0, 50 ],
+            "position": [ 0, 0, 0 ],
             "shape": [ 5, 5, 5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
@@ -668,6 +731,25 @@
             "static": false,
             "friction": 500,
             "restitution": 0
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Walk",
+                "loop": true
+              },
+              {
+                "name": "Attack",
+                "loop": false
+              },
+              {
+                "name": "Dead",
+                "loop": false
+              }
+            ]
           }
         },
         {
@@ -692,6 +774,7 @@
             "cadence": 1,
             "automatic": false,
             "instakill": false,
+            "infiniteAmmo":  true,
             "bulletType": "EnemyBullet_handgun"
           }
         }
@@ -703,17 +786,17 @@
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 50, 0, 50 ],
-            "orientation": [ 90, 15, 57 ],
-            "scale": [ 0.5, 0.5, 0.5 ]
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 180, 0 ],
+            "scale": [ 0.05, 0.05, 0.05 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "penguin.mesh",
-            "node": "nMeleeEnemy",
-            "material": "PenguinMaterial"
+            "mesh": "gazer_mesh.mesh",
+            "node": "nRangedEnemy",
+            "material": "BlueColourMaterial"
           }
         },
         {
@@ -725,7 +808,7 @@
         {
           "type": "RigidbodyPC",
           "attributes": {
-            "position": [ 50, 0, 50 ],
+            "position": [ 0, 0, 0 ],
             "shape": [ 5, 5, 5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
@@ -737,13 +820,32 @@
           }
         },
         {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Walk",
+                "loop": true
+              },
+              {
+                "name": "Attack",
+                "loop": false
+              },
+              {
+                "name": "Dead",
+                "loop": false
+              }
+            ]
+          }
+        },
+        {
           "type": "RangedEnemyBehaviourEC",
           "attributes": {
             "speed": 10,
             "attack": 8,
             "attackCooldown": 0.5,
             "weaponEquipped": "AutomaticRifleC",
-            "aggroDistance": 10000.0,
+            "aggroDistance": 9000.0,
             "separationRadius": 1000
           }
         },
@@ -758,6 +860,7 @@
             "cadence": 0.1,
             "automatic": true,
             "instakill": false,
+            "infiniteAmmo": true,
             "bulletType": "EnemyBullet_rifle"
           }
         }
@@ -769,17 +872,17 @@
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 50, 0, 50 ],
-            "orientation": [ 90, 15, 57 ],
-            "scale": [ 0.5, 0.5, 0.5 ]
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 180, 0 ],
+            "scale": [ 0.05, 0.05, 0.05 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "penguin.mesh",
-            "node": "nMeleeEnemy",
-            "material": "PenguinMaterial"
+            "mesh": "gazer_mesh.mesh",
+            "node": "nRangedEnemy",
+            "material": "BlueColourMaterial"
           }
         },
         {
@@ -791,7 +894,7 @@
         {
           "type": "RigidbodyPC",
           "attributes": {
-            "position": [ 50, 0, 50 ],
+            "position": [ 0, 0, 0 ],
             "shape": [ 5, 5, 5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
@@ -800,6 +903,25 @@
             "static": false,
             "friction": 500,
             "restitution": 0
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Walk",
+                "loop": true
+              },
+              {
+                "name": "Attack",
+                "loop": false
+              },
+              {
+                "name": "Dead",
+                "loop": false
+              }
+            ]
           }
         },
         {
@@ -822,10 +944,11 @@
             "bulletDamage": 50,
             "bulletSpeed": 50,
             "cadence": 1,
-            "automatic": false,
             "nPellets": 3,
             "dispersion": 10,
+            "automatic": false,
             "instakill": false,
+            "infiniteAmmo": true,
             "bulletType": "EnemyBullet_shotgun"
           }
         }
@@ -837,17 +960,17 @@
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 50, 0, 50 ],
-            "orientation": [ 90, 15, 57 ],
-            "scale": [ 0.5, 0.5, 0.5 ]
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 180, 0 ],
+            "scale": [ 0.05, 0.05, 0.05 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "penguin.mesh",
-            "node": "nMeleeEnemy",
-            "material": "PenguinMaterial"
+            "mesh": "gazer_mesh.mesh",
+            "node": "nRangedEnemy",
+            "material": "BlueColourMaterial"
           }
         },
         {
@@ -859,7 +982,7 @@
         {
           "type": "RigidbodyPC",
           "attributes": {
-            "position": [ 50, 0, 50 ],
+            "position": [ 0, 0, 0 ],
             "shape": [ 5, 5, 5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
@@ -868,6 +991,25 @@
             "static": false,
             "friction": 500,
             "restitution": 0
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Walk",
+                "loop": true
+              },
+              {
+                "name": "Attack",
+                "loop": false
+              },
+              {
+                "name": "Dead",
+                "loop": false
+              }
+            ]
           }
         },
         {
@@ -891,6 +1033,7 @@
             "bulletSpeed": 100,
             "cadence": 1,
             "instakill": false,
+            "infiniteAmmo": true,
             "bulletType": "EnemyBullet_sniper"
           }
         }

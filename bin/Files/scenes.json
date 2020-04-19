@@ -2,7 +2,11 @@
 	[
 		{
 			"name": "MOOD",
-			"file": "map2.json"
+			"file": "mood.json"
+		},
+		{
+			"name": "DeadMenu",
+			"file": "deadMenu.json"
 		}
 	]
 

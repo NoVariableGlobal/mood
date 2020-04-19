@@ -17,7 +17,9 @@ class RangedEnemyBehaviourEC : public EnemyBehaviourEC {
   public:
     RangedEnemyBehaviourEC();
     ~RangedEnemyBehaviourEC();
+
     virtual void checkEvent();
+    virtual void rotateToPlayer();
 
     // getters and setters
     std::string getWeaponEquipped();

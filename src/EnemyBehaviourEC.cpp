@@ -1,4 +1,5 @@
 #include "EnemyBehaviourEC.h"
+#include "AnimationLC.h"
 #include "BulletC.h"
 #include "ComponentsManager.h"
 #include "Entity.h"
@@ -47,11 +48,23 @@ void EnemyBehaviourEC::destroy() {
     EventComponent::destroy();
 }
 
+void EnemyBehaviourEC::registerComponents() {
+    transform = reinterpret_cast<TransformComponent*>(
+        father->getComponent("TransformComponent"));
+    playerTransform = reinterpret_cast<TransformComponent*>(
+        scene->getEntitybyId("Player")->getComponent("TransformComponent"));
+    rigidbody =
+        reinterpret_cast<RigidbodyPC*>(father->getComponent("RigidbodyPC"));
+    life = reinterpret_cast<LifeC*>(father->getComponent("LifeC"));
+    animations =
+        reinterpret_cast<AnimationLC*>(father->getComponent("AnimationLC"));
+    mesh = dynamic_cast<TridimensionalObjectRC*>(
+        father->getComponent("TridimensionalObjectRC"));
+}
+
 void EnemyBehaviourEC::removeTransforms(EnemyBehaviourEC* behaviour) {
 
-    behaviour->unRegisterInOtherTransforms(
-        reinterpret_cast<TransformComponent*>(
-            father->getComponent("TransformComponent")));
+    behaviour->unRegisterInOtherTransforms(transform);
 }
 
 void EnemyBehaviourEC::registerInOtherEnemies() {
@@ -71,79 +84,31 @@ void EnemyBehaviourEC::registerInOtherEnemies() {
 
 void EnemyBehaviourEC::addTransforms(EnemyBehaviourEC* behaviour,
                                      TransformComponent* other) {
-    behaviour->registerInOtherTransforms(reinterpret_cast<TransformComponent*>(
-        father->getComponent("TransformComponent")));
+    behaviour->registerInOtherTransforms(transform);
 
     otherTransform.push_back(other);
 }
 
 void EnemyBehaviourEC::checkEvent() {
-    TransformComponent* transform = reinterpret_cast<TransformComponent*>(
-        father->getComponent("TransformComponent"));
-    RigidbodyPC* rb =
-        dynamic_cast<RigidbodyPC*>(father->getComponent("RigidbodyPC"));
+    if (!dead) {
+        rigidbody->setLinearVelocity(Ogre::Vector3(0, 0, 0));
 
-    // obtain player position
-    TransformComponent* playerTransform = dynamic_cast<TransformComponent*>(
-        scene->getEntitybyId("Player")->getComponent("TransformComponent"));
-    Ogre::Vector3 playerPosition = playerTransform->getPosition();
+        updatePosibilityToAttackPlayer();
 
-    *distanceToPlayer =
-        Ogre::Vector3(playerPosition.x - transform->getPosition().x,
-                      playerPosition.y - transform->getPosition().y,
-                      playerPosition.z - transform->getPosition().z);
+        if (!attacking)
+            moveTowardsPlayer();
+        else if (animations->animationFinished("Attack")) {
+            attacking = false;
+            animations->startAnimation("Walk");
+        }
 
-    *directionToPlayer = distanceToPlayer->normalisedCopy();
+        checkDamage();
 
-    // check collision with player
-    collisionWithPlayer_ = rb->collidesWith("Player");
-
-    // check if player is within range
-    withinRange = getDistanceToPlayer().squaredLength() <= getAggroDistance();
-
-    // if not colliding with player and not within attack range enemy moves
-    // towards player
-    Ogre::Vector3 velocity;
-    if (!collisionWithPlayer_ && !withinRange) {
-        velocity = Ogre::Vector3(directionToPlayer->x * speed, 0.0f,
-                                 directionToPlayer->z * speed);
+        rotateToPlayer();
 
     } else {
-        velocity = Ogre::Vector3(0.0f, 0.0f, 0.0f);
-    }
-
-    rb->setLinearVelocity(velocity * 0.3 + separate() * 0.7);
-
-    // set orientation towards player
-    float angleInRad =
-        atan2(transform->getPosition().z - playerTransform->getPosition().z,
-              transform->getPosition().x - playerTransform->getPosition().x);
-    float angleInDeg = -angleInRad * 180 / M_PI;
-    // Make the rotation
-    TridimensionalObjectRC* fatherRender =
-        dynamic_cast<TridimensionalObjectRC*>(
-            father->getComponent("TridimensionalObjectRC"));
-    fatherRender->rotate(angleInDeg - 90, Ogre::Vector3(0, 1, 0));
-
-    Entity* playerBullet = rb->collidesWithTag("PlayerBullet");
-    if (playerBullet != nullptr) {
-        LifeC* life = dynamic_cast<LifeC*>(father->getComponent("LifeC"));
-        BulletC* bullet =
-            dynamic_cast<BulletC*>(playerBullet->findComponent("BulletC"));
-        if (bullet == nullptr)
-            bullet = dynamic_cast<BulletC*>(
-                playerBullet->findComponent("SniperBulletC"));
-
-        // enemy is destroyed if it dies
-        if (life->doDamage(bullet->getDamage()))
+        if (animations->animationFinished("Dead"))
             scene->deleteEntity(father);
-
-        bullet->dealCollision();
-
-        if (!active) // if dead
-            dynamic_cast<RoundManagerEC*>(scene->getEntitybyId("GameManager")
-                                              ->getComponent("RoundManagerEC"))
-                ->enemyDied();
     }
 }
 
@@ -158,6 +123,50 @@ bool EnemyBehaviourEC::timeToAttack() {
     return false;
 }
 
+void EnemyBehaviourEC::checkDamage() {
+    Entity* playerBullet = rigidbody->collidesWithTag("PlayerBullet");
+    if (playerBullet != nullptr) {
+        BulletC* bullet =
+            dynamic_cast<BulletC*>(playerBullet->findComponent("BulletC"));
+        if (bullet == nullptr)
+            bullet = dynamic_cast<BulletC*>(
+                playerBullet->findComponent("SniperBulletC"));
+
+        // enemy is destroyed if it dies
+        if (life->doDamage(bullet->getDamage())) {
+            dead = true;
+
+            rigidbody->setLinearVelocity(Ogre::Vector3(0, 0, 0));
+
+            animations->stopAnimations();
+            animations->startAnimation("Dead");
+
+            rigidbody->setActive(false);
+
+            dynamic_cast<RoundManagerEC*>(scene->getEntitybyId("GameManager")
+                                              ->getComponent("RoundManagerEC"))
+                ->enemyDied();
+        }
+
+        bullet->dealCollision();
+    }
+}
+
+void EnemyBehaviourEC::moveTowardsPlayer() {
+    *directionToPlayer = distanceToPlayer->normalisedCopy();
+
+    Ogre::Vector3 velocity;
+    if (!collisionWithPlayer && !withinRange) {
+        velocity = Ogre::Vector3(directionToPlayer->x * speed, 0.0f,
+                                 directionToPlayer->z * speed);
+
+    } else {
+        velocity = Ogre::Vector3(0.0f, 0.0f, 0.0f);
+    }
+
+    rigidbody->setLinearVelocity(velocity * 0.2 + separate() * 0.8);
+}
+
 Ogre::Vector3 EnemyBehaviourEC::separate() {
 
     Ogre::Vector3 result = Ogre::Vector3(0, 0, 0);
@@ -165,9 +174,7 @@ Ogre::Vector3 EnemyBehaviourEC::separate() {
     for (int i = 0; i < numAgents; i++) {
         TransformComponent* objective = otherTransform[i];
 
-        Ogre::Vector3 myPos = reinterpret_cast<TransformComponent*>(
-                                  father->getComponent("TransformComponent"))
-                                  ->getPosition();
+        Ogre::Vector3 myPos = transform->getPosition();
 
         Ogre::Vector3 direction = myPos - objective->getPosition();
 
@@ -186,10 +193,25 @@ Ogre::Vector3 EnemyBehaviourEC::separate() {
     return result;
 }
 
-bool EnemyBehaviourEC::getCollisionWithPlayer() { return collisionWithPlayer_; }
+void EnemyBehaviourEC::updatePosibilityToAttackPlayer() {
+    // check collision with player
+    collisionWithPlayer = rigidbody->collidesWith("Player");
+
+    // check if player is within range
+    Ogre::Vector3 playerPosition = playerTransform->getPosition();
+
+    *distanceToPlayer =
+        Ogre::Vector3(playerPosition.x - transform->getPosition().x,
+                      playerPosition.y - transform->getPosition().y,
+                      playerPosition.z - transform->getPosition().z);
+
+    withinRange = (*distanceToPlayer).squaredLength() <= aggroDistance;
+}
+
+bool EnemyBehaviourEC::getCollisionWithPlayer() { return collisionWithPlayer; }
 
 void EnemyBehaviourEC::setCollisionWithPlayer(bool _collisionWithPlayer) {
-    collisionWithPlayer_ = _collisionWithPlayer;
+    collisionWithPlayer = _collisionWithPlayer;
 }
 
 float EnemyBehaviourEC::getSpeed() { return speed; }
