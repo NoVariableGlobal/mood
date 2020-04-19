@@ -492,13 +492,13 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, -45, 0 ],
-            "scale": [ 1, 1, 1 ]
+            "scale": [ 1.5, 1.5, 1.5 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "Shotgun.mesh",
+            "mesh": "shotgun.mesh",
             "node": "nGunBullet",
             "material": "BrownColourMaterial"
           }
@@ -507,7 +507,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 5, 5, 5 ],
+            "shape": [ 8, 3, 3 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": true,
@@ -549,14 +549,14 @@
           "type": "TransformComponent",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.1, 0.1, 0.1 ]
+            "orientation": [ -45, 0, 0 ],
+            "scale": [ 1, 1, 1 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
+            "mesh": "rifle.mesh",
             "node": "nGunBullet",
             "material": "BrownColourMaterial"
           }
@@ -565,7 +565,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 5, 5, 5 ],
+            "shape": [ 8, 3, 3 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": true,
@@ -586,6 +586,17 @@
           "attributes": {
             "objectName": "GunPowerUpC"
           }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Idle",
+                "loop": true
+              }
+            ]
+          }
         }
       ]
     },
@@ -596,14 +607,14 @@
           "type": "TransformComponent",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.1, 0.1, 0.1 ]
+            "orientation": [ 45, -45, 90 ],
+            "scale": [ 3, 3, 3 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
+            "mesh": "sniper.mesh",
             "node": "nGunBullet",
             "material": "BrownColourMaterial"
           }
@@ -612,7 +623,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 5, 5, 5 ],
+            "shape": [ 10, 2, 2 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": true,
@@ -632,6 +643,17 @@
           "type": "OnEPressPickUpIC",
           "attributes": {
             "objectName": "GunPowerUpC"
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Idle",
+                "loop": true
+              }
+            ]
           }
         }
       ]
