@@ -681,7 +681,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 100, 0 ],
-            "shape": [ 3, 3, 3 ],
+            "shape": [ 4, 4, 4 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": false,
@@ -694,7 +694,7 @@
         {
           "type": "LifeC",
           "attributes": {
-            "life": 100
+            "life": 150
           }
         },
         {
@@ -719,7 +719,7 @@
         {
           "type": "MeleeEnemyBehaviourEC",
           "attributes": {
-            "speed": 100,
+            "speed": 150,
             "attack": 10,
             "attackCooldown": 1,
             "separationRadius": 1000
@@ -756,7 +756,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 5, 5, 5 ],
+            "shape": [ 2.5, 2.5, 2.5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": false,
@@ -842,7 +842,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 5, 5, 5 ],
+            "shape": [ 2.5, 2.5, 2.5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": false,
@@ -874,7 +874,7 @@
         {
           "type": "RangedEnemyBehaviourEC",
           "attributes": {
-            "speed": 10,
+            "speed": 50,
             "attack": 8,
             "attackCooldown": 0.5,
             "weaponEquipped": "AutomaticRifleC",
@@ -928,7 +928,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 5, 5, 5 ],
+            "shape": [ 2.5, 2.5, 2.5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": false,
@@ -960,7 +960,7 @@
         {
           "type": "RangedEnemyBehaviourEC",
           "attributes": {
-            "speed": 10,
+            "speed": 50,
             "attack": 15,
             "attackCooldown": 3,
             "weaponEquipped": "ShotgunC",
@@ -1016,7 +1016,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 5, 5, 5 ],
+            "shape": [ 2.5, 2.5, 2.5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": false,
@@ -1048,7 +1048,7 @@
         {
           "type": "RangedEnemyBehaviourEC",
           "attributes": {
-            "speed": 10,
+            "speed": 50,
             "attack": 20,
             "attackCooldown": 3,
             "weaponEquipped": "SniperGunC",
