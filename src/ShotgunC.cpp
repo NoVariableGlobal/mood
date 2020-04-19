@@ -7,7 +7,6 @@
 #include "Ogre.h"
 #include "OgreQuaternion.h"
 #include "OgreSceneNode.h"
-#include "OgreVector3.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
 #include "SpawnerBulletsC.h"
@@ -17,7 +16,7 @@
 #include <json.h>
 
 void ShotgunC::onPreShoot() {
-    auto spawner = reinterpret_cast<SpawnerBulletsC*>(
+    auto* spawner = reinterpret_cast<SpawnerBulletsC*>(
         scene->getEntitybyId("GameManager")->getComponent("SpawnerBulletsC"));
 
     // Save original rotation
@@ -34,19 +33,19 @@ void ShotgunC::onPreShoot() {
     for (int i = 0; i < nPellets; i++) {
         Entity* entity = spawner->getBullet(_myBulletType, _myBulletTag);
 
-        auto bullet =
+        auto* bullet =
             dynamic_cast<BulletC*>(entity->getComponent(bulletComponentName_));
-        bullet->setDamage(getCalculatedDamage());
+        bullet->setDamage(static_cast<float>(getCalculatedDamage()));
 
-        auto transform = reinterpret_cast<TransformComponent*>(
+        auto* transform = reinterpret_cast<TransformComponent*>(
             entity->getComponent("TransformComponent"));
 
-        auto rigidBody =
+        auto* rigidBody =
             reinterpret_cast<RigidbodyPC*>(entity->getComponent("RigidbodyPC"));
+
+        onShoot(transform, rigidBody);
+
         rigidBody->setPosition(transform->getPosition());
-
-        onShoot(bullet, transform, rigidBody);
-
         // Rotate the node for the next bullet
         node->yaw(Ogre::Radian(Ogre::Degree(dispAngle).valueRadians()));
     }
@@ -56,8 +55,7 @@ void ShotgunC::onPreShoot() {
                          originalOrientation.y, originalOrientation.z);
 }
 
-void ShotgunC::onShoot(BulletC* bullet, TransformComponent* transform,
-                       RigidbodyPC* rigidBody) {
+void ShotgunC::onShoot(TransformComponent* transform, RigidbodyPC* rigidBody) {
     transform->setPosition(myTransform->getPosition());
     transform->setOrientation(myTransform->getOrientation());
 

@@ -6,6 +6,6 @@
 DECLARE_FACTORY(SniperGunC);
 class SniperGunC final : public GunC {
   protected:
-    void onShoot(BulletC* bullet, TransformComponent* transform,
+    void onShoot(TransformComponent* transform,
                  RigidbodyPC* rigidBody) override;
 };

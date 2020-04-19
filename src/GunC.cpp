@@ -16,17 +16,18 @@ void GunC::destroy() {
 
 bool GunC::reload() {
     if (_bulletchamber < _bulletchamberMax && _munition > 0) {
-        int gunreload = _bulletchamberMax - _bulletchamber;
+        int remainder = _bulletchamberMax - _bulletchamber;
 
-        if (gunreload > _munition)
-            gunreload = _munition;
+        if (remainder > _munition)
+            remainder = _munition;
 
-        _bulletchamber += gunreload;
-        _munition -= gunreload;
+        _bulletchamber += remainder;
+        _munition -= remainder;
 
         return true;
-    } else
-        return false;
+    }
+
+    return false;
 }
 
 bool GunC::shoot() {
@@ -41,23 +42,24 @@ bool GunC::shoot() {
 }
 
 void GunC::onPreShoot() {
-    auto spawner = reinterpret_cast<SpawnerBulletsC*>(
+    auto* spawner = reinterpret_cast<SpawnerBulletsC*>(
         scene->getEntitybyId("GameManager")->getComponent("SpawnerBulletsC"));
 
     Entity* entity = spawner->getBullet(_myBulletType, _myBulletTag);
 
-    auto bullet =
+    auto* bullet =
         dynamic_cast<BulletC*>(entity->getComponent(bulletComponentName_));
-    bullet->setDamage(getCalculatedDamage());
+    bullet->setDamage(static_cast<float>(getCalculatedDamage()));
 
-    auto transform = reinterpret_cast<TransformComponent*>(
+    auto* transform = reinterpret_cast<TransformComponent*>(
         entity->getComponent("TransformComponent"));
 
-    auto rigidBody =
+    auto* rigidBody =
         reinterpret_cast<RigidbodyPC*>(entity->getComponent("RigidbodyPC"));
-    rigidBody->setPosition(transform->getPosition());
 
-    onShoot(bullet, transform, rigidBody);
+    onShoot(transform, rigidBody);
+
+    rigidBody->setPosition(transform->getPosition());
 }
 
 Ogre::Quaternion GunC::getOrientation() const {

@@ -29,7 +29,7 @@ class GunC : public Component {
     TransformComponent* myTransform;
 
     virtual void onPreShoot();
-    virtual void onShoot(BulletC* bullet, TransformComponent* transform,
+    virtual void onShoot(TransformComponent* transform,
                          RigidbodyPC* rigidBody) = 0;
 
     Ogre::Quaternion getOrientation() const;

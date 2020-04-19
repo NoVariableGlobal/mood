@@ -2,7 +2,6 @@
 
 #include "Factory.h"
 #include "GunC.h"
-#include <string>
 
 DECLARE_FACTORY(ShotgunC);
 class ShotgunC final : public GunC {
@@ -15,7 +14,7 @@ class ShotgunC final : public GunC {
 
   protected:
     void onPreShoot() override;
-    void onShoot(BulletC* bullet, TransformComponent* transform,
+    void onShoot(TransformComponent* transform,
                  RigidbodyPC* rigidBody) override;
 
   public:

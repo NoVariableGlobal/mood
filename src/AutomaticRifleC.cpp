@@ -5,17 +5,13 @@
 #include "FactoriesFactory.h"
 #include "Ogre.h"
 #include "OgreQuaternion.h"
-#include "OgreSceneNode.h"
-#include "OgreVector3.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
-#include "SpawnerBulletsC.h"
 #include "TransformComponent.h"
-#include "TridimensionalObjectRC.h"
 
 #include <json.h>
 
-void AutomaticRifleC::onShoot(BulletC* bullet, TransformComponent* transform,
+void AutomaticRifleC::onShoot(TransformComponent* transform,
                               RigidbodyPC* rigidBody) {
     Ogre::Quaternion quat = getOrientation();
 
