@@ -1,13 +1,13 @@
 #include "SpawnerFloorRandomEC.h"
-#include "Entity.h"
+#include "AnimationLC.h"
 #include "ComponentsManager.h"
+#include "Entity.h"
 #include "FactoriesFactory.h"
 #include "Factory.h"
 #include "OgreVector4.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
 #include "TransformComponent.h"
-#include "AnimationLC.h"
 
 #include <json.h>
 
@@ -45,12 +45,11 @@ void SpawnerFloorRandomEC::checkEvent() {
         spawnTransform->setPosition(Ogre::Vector3(x, 10, z));
         rigidbody->setPosition(Ogre::Vector3(x, 10, z));
 
-        
         // DESCOMENTAR CUANDO ESTEN TODAS LAS ANIMACIONES 'IDLE'
 
-        //AnimationLC* animations =
+        // AnimationLC* animations =
         //    dynamic_cast<AnimationLC*>(newEntity->getComponent("AnimationLC"));
-        //animations->startAnimation("Idle");
+        // animations->startAnimation("Idle");
     }
 }
 
