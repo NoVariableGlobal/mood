@@ -8,6 +8,7 @@
 #include "Scene.h"
 #include "TransformComponent.h"
 #include "AnimationLC.h"
+#include "RoundManagerEC.h"
 
 #include <json.h>
 
@@ -54,6 +55,11 @@ void SpawnerFloorRandomEC::checkEvent() {
     }
 }
 
+void SpawnerFloorRandomEC::registerInRoundManager() {
+    dynamic_cast<RoundManagerEC*>(
+        scene->getEntitybyId("GameManager")->getComponent("RoundManagerEC"))
+        ->registerOtherSpawner(this);
+}
 // FACTORY INFRASTRUCTURE
 SpawnerFloorRandomECFactory::SpawnerFloorRandomECFactory() = default;
 

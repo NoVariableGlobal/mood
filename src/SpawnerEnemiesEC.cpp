@@ -52,6 +52,10 @@ void SpawnerEnemiesEC::registerInRoundManager() {
         ->registerEnemySpawner(this);
 }
 
+void SpawnerEnemiesEC::changePosition(Ogre::Vector3 newPos) {
+    transform->setPosition(newPos);
+}
+
 // FACTORY INFRASTRUCTURE
 SpawnerEnemiesECFactory::SpawnerEnemiesECFactory() = default;
 

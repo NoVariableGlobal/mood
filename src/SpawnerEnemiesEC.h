@@ -6,6 +6,12 @@
 DECLARE_FACTORY(SpawnerEnemiesEC);
 class TransformComponent;
 
+namespace Ogre {
+    typedef float Real;
+    template <int dims, typename T> class Vector;
+    typedef Vector<3, Real> Vector3;
+} // namespace Ogre
+
 class SpawnerEnemiesEC : public SpawnerEC {
   private:
     TransformComponent* transform = nullptr;
@@ -18,4 +24,6 @@ class SpawnerEnemiesEC : public SpawnerEC {
     void setTransform(TransformComponent* trans);
     void setEnemies(int _enemies);
     virtual void registerInRoundManager();
+
+    void changePosition(Ogre::Vector3 newPos);
 };
