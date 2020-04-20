@@ -45,11 +45,9 @@ void SpawnerFloorRandomEC::checkEvent() {
         spawnTransform->setPosition(Ogre::Vector3(x, 10, z));
         rigidbody->setPosition(Ogre::Vector3(x, 10, z));
 
-        // DESCOMENTAR CUANDO ESTEN TODAS LAS ANIMACIONES 'IDLE'
-
-         AnimationLC* animations =
+        AnimationLC* animations =
             dynamic_cast<AnimationLC*>(newEntity->getComponent("AnimationLC"));
-         animations->startAnimation("Idle");
+        animations->startAnimation("Idle");
     }
 }
 
