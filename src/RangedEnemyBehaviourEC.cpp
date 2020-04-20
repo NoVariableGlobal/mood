@@ -1,4 +1,5 @@
 #include "RangedEnemyBehaviourEC.h"
+#include "AnimationLC.h"
 #include "ComponentsManager.h"
 #include "EnemyBehaviourEC.h"
 #include "FactoriesFactory.h"
@@ -10,8 +11,8 @@
 #include "SpawnerBulletsC.h"
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
+
 #include <Entity.h>
-#include <iostream>
 #include <json.h>
 
 RangedEnemyBehaviourEC::RangedEnemyBehaviourEC() : EnemyBehaviourEC() {}
@@ -20,15 +21,29 @@ RangedEnemyBehaviourEC::~RangedEnemyBehaviourEC() {}
 
 void RangedEnemyBehaviourEC::checkEvent() {
     EnemyBehaviourEC::checkEvent();
-    if (active) {
+
+    if (!dead) {
         // attack every attackCooldown seconds
-        if (timeToAttack()) {
-            // if enemy is within range
-            if (getWithinRange()) {
-                shoot();
-            }
+        if (getWithinRange() && timeToAttack()) {
+            attacking = true;
+
+            animations->stopAnimations();
+            animations->startAnimation("Attack");
+
+            shoot();
         }
     }
+}
+
+void RangedEnemyBehaviourEC::rotateToPlayer() {
+    // set orientation towards player
+    float angleInRad =
+        atan2(transform->getPosition().z - playerTransform->getPosition().z,
+              transform->getPosition().x - playerTransform->getPosition().x);
+    float angleInDeg = -angleInRad * 180 / M_PI;
+
+    // make the rotation
+    mesh->setRotation(Ogre::Vector3(0, angleInDeg + 90, 0));
 }
 
 std::string RangedEnemyBehaviourEC::getWeaponEquipped() {
@@ -55,6 +70,8 @@ Component* RangedEnemyBehaviourECFactory::create(Entity* _father,
 
     rangedEnemyBehaviour->setFather(_father);
     rangedEnemyBehaviour->setScene(scene);
+
+    rangedEnemyBehaviour->registerComponents();
 
     rangedEnemyBehaviour->registerInOtherEnemies();
 

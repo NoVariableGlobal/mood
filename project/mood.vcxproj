@@ -23,6 +23,7 @@
     <ClCompile Include="..\src\AutomaticRifleC.cpp" />
     <ClCompile Include="..\src\BulletC.cpp" />
     <ClCompile Include="..\src\BulletHurtPlayerEC.cpp" />
+    <ClCompile Include="..\src\DeadManagerEC.cpp" />
     <ClCompile Include="..\src\DestroyAfterSecsEC.cpp" />
     <ClCompile Include="..\src\EnemyBehaviourEC.cpp" />
     <ClCompile Include="..\src\GunC.cpp" />
@@ -48,7 +49,7 @@
     <ClCompile Include="..\src\PowerUpTrackerC.cpp" />
     <ClCompile Include="..\src\RangedEnemyBehaviourEC.cpp" />
     <ClCompile Include="..\src\RankingManagerC.cpp" />
-    <ClCompile Include="..\src\RounManagerEC.cpp" />
+    <ClCompile Include="..\src\RoundManagerEC.cpp" />
     <ClCompile Include="..\src\ShotgunC.cpp" />
     <ClCompile Include="..\src\SniperBulletC.cpp" />
     <ClCompile Include="..\src\SniperGunC.cpp" />
@@ -56,7 +57,6 @@
     <ClCompile Include="..\src\SpawnerEC.cpp" />
     <ClCompile Include="..\src\SpawnerEnemiesEC.cpp" />
     <ClCompile Include="..\src\SpawnerFloorRandomEC.cpp" />
-    <ClCompile Include="..\src\TridimensionalObjectRC.cpp" />
     <ClCompile Include="..\src\WeaponControllerIC.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +64,7 @@
     <ClInclude Include="..\src\AutomaticRifleC.h" />
     <ClInclude Include="..\src\BulletC.h" />
     <ClInclude Include="..\src\BulletHurtPlayerEC.h" />
+    <ClInclude Include="..\src\DeadManagerEC.h" />
     <ClInclude Include="..\src\DestroyAfterSecsEC.h" />
     <ClInclude Include="..\src\EnemyBehaviourEC.h" />
     <ClInclude Include="..\src\GunC.h" />
@@ -96,7 +97,6 @@
     <ClInclude Include="..\src\SpawnerEC.h" />
     <ClInclude Include="..\src\SpawnerEnemiesEC.h" />
     <ClInclude Include="..\src\SpawnerFloorRandomEC.h" />
-    <ClInclude Include="..\src\TridimensionalObjectRC.h" />
     <ClInclude Include="..\src\WeaponControllerIC.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

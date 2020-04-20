@@ -44,10 +44,6 @@ void PlayerShotIC::handleInput(const SDL_Event& _event) {
                 ->getCurrentGun()
                 ->reload();
         }
-    } else if (_event.type == SDL_KEYDOWN) {
-        if (_event.key.keysym.sym == SDLK_r) {
-            // reload
-        }
     }
 }
 

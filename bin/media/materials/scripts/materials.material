@@ -99,6 +99,23 @@ material PenguinMaterial
     }
 }
 
+material PruebaMaterial
+{
+    technique 
+    {
+        diffuse 0.61 0.61 0.61 1.00
+
+        pass 
+        {
+            texture_unit 
+            {
+                texture melee.jpg
+                colour_op add
+            }
+        }
+    }
+}
+
 material EnemyBulletMaterial
 {
     technique 

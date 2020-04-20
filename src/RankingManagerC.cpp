@@ -5,6 +5,7 @@
 #include "RoundManagerEC.h"
 #include "Scene.h"
 #include "SpawnerEnemiesEC.h"
+
 #include <time.h>
 #include <value.h>
 
@@ -24,7 +25,7 @@ void RankingManagerC::readRanking() {
 
         auto cinbuf = std::cin.rdbuf(myfile.rdbuf());
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
 
             RankingPosition rank;
             int aux;
@@ -37,7 +38,7 @@ void RankingManagerC::readRanking() {
 
         std::cin.rdbuf(cinbuf);
     } else {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             RankingPosition rank;
 
             rank.name = "-";
@@ -58,7 +59,7 @@ void RankingManagerC::updateRanking() {
 
         auto coutbuf = std::cout.rdbuf(myfile.rdbuf());
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
 
             RankingPosition rank = ranking[i];
 

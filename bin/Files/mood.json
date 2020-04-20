@@ -2,6 +2,7 @@
   "entities": [
     {
       "id": "Camera",
+      "persistent": true,
       "components": [
         {
           "type": "TransformComponent",
@@ -19,7 +20,7 @@
             "offset": [ 0, 300, 0 ],
             "lookAt": [ 0, -1, 0 ],
             "targetId": "Player",
-            "follow": [ true, true, true ]
+            "follow": [ true, false, true ]
           }
         },
         {
@@ -34,6 +35,7 @@
     },
     {
       "id": "GameManager",
+      "persistent": true,
       "components": [
         {
           "type": "SpawnerBulletsC",
@@ -52,16 +54,17 @@
         },
         {
           "type": "RankingManagerC",
-          "attributes": {
-
-          }
+          "attributes": {}
         },
-
+        {
+          "type": "DeadManagerEC",
+          "attributes": {}
+        },
         {
           "type": "SpawnerFloorRandomEC",
           "attributes": {
             "floorDimensions[x,y,z,w]": [ -100, -100, 200, 200 ],
-            "spawnCooldown": 5,
+            "spawnCooldown": 10,
             "spawnID": [ "Medkit", "IncreaseSpeed", "InfiniteAmmo", "InvulnerabilityShield", "Nuke", "Instakill" ],
             "spawnTag": "PowerUp",
             "spawnChances": [ 30, 20, 15, 20, 5, 10 ]
@@ -71,21 +74,22 @@
           "type": "SpawnerFloorRandomEC",
           "attributes": {
             "floorDimensions[x,y,z,w]": [ -100, -100, 200, 200 ],
-            "spawnCooldown": 5,
+            "spawnCooldown": 10,
             "spawnID": [ "AutomaticRifle", "Shotgun", "SniperGun" ],
             "spawnTag": "Gun",
-            "spawnChances": [ 50, 25, 25 ]
+            "spawnChances": [ 40, 30, 30 ]
           }
         }
       ]
     },
     {
       "id": "GeneradorEnemigos",
+      "persistent": true,
       "components": [
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 0, 0, 100 ],
+            "position": [ 0, 10, 100 ],
             "orientation": [ 0, 0, 0 ],
             "scale": [ 1, 1, 1 ]
           }
@@ -93,11 +97,11 @@
         {
           "type": "SpawnerEnemiesEC",
           "attributes": {
-            "spawnCooldown": 2,
-            "spawnID": [ "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
+            "spawnCooldown": 5,
+            "spawnID": [ "MeleeEnemy", "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
             "spawnTag": "Enemy",
-            "spawnChances": [ 25, 25, 25, 25 ],
-            "EnemiesLimit": 8
+            "spawnChances": [ 60, 10, 10, 10, 10 ],
+			      "EnemiesLimit": 10
           }
         }
       ]
@@ -105,13 +109,14 @@
     {
       "id": "Player",
       "tag": "Player",
+      "persistent": true,
       "components": [
         {
           "type": "TransformComponent",
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 3, 3, 3 ]
+            "scale": [ 2, 2, 2 ]
           }
         },
         {
@@ -123,20 +128,9 @@
           }
         },
         {
-          "type": "PlayerMovementIC",
-          "attributes": {
-            "speed": 35
-          }
-        },
-        {
-          "type": "PlayerShotIC",
-          "attributes": {
-          }
-        },
-        {
           "type": "RigidbodyPC",
           "attributes": {
-            "position": [ 0, 0, 0 ],
+            "position": [ 0, 10, 0 ],
             "shape": [ 5, 10, 5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
@@ -145,6 +139,36 @@
             "static": false,
             "friction": 0,
             "restitution": 0
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Dance",
+                "loop": false
+              },
+              {
+                "name": "RunBase",
+                "loop": true
+              },
+              {
+                "name": "RunTop",
+                "loop": true
+              }
+            ]
+          }
+        },
+        {
+          "type": "PlayerMovementIC",
+          "attributes": {
+            "speed": 35
+          }
+        },
+        {
+          "type": "PlayerShotIC",
+          "attributes": {
           }
         },
         {
@@ -160,11 +184,12 @@
             "bulletchamberMax": 20,
             "munition": 1000,
             "bulletDamage": 15,
-            "bulletSpeed": 50,
-            "cadence": 1,
+            "bulletSpeed": 100,
+            "cadence": 0.1,
             "automatic": false,
             "instakill": false,
-            "bulletType": "HandgunBullet"
+            "bulletType": "HandgunBullet",
+            "bulletComponent": "BulletC"
           }
         },
         {
@@ -180,7 +205,8 @@
             "nPellets": 3,
             "dispersion": 10,
             "instakill": false,
-            "bulletType": "ShotgunBullet"
+            "bulletType": "ShotgunBullet",
+            "bulletComponent": "BulletC"
           }
         },
         {
@@ -193,7 +219,8 @@
             "bulletSpeed": 100,
             "cadence": 1,
             "instakill": false,
-            "bulletType": "SniperBullet"
+            "bulletType": "SniperBullet",
+            "bulletComponent": "SniperBulletC"
           }
         },
         {
@@ -203,11 +230,12 @@
             "bulletchamberMax": 30,
             "munition": 90,
             "bulletDamage": 25,
-            "bulletSpeed": 50,
+            "bulletSpeed": 150,
             "cadence": 0.1,
             "automatic": true,
             "instakill": false,
-            "bulletType": "AutomaticRifleBullet"
+            "bulletType": "AutomaticRifleBullet",
+            "bulletComponent": "BulletC"
           }
         },
         {
