@@ -7,7 +7,6 @@
 #include "Ogre.h"
 #include "OgreQuaternion.h"
 #include "OgreSceneNode.h"
-#include "OgreVector3.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
 #include "SpawnerBulletsC.h"
@@ -16,65 +15,53 @@
 
 #include <json.h>
 
-ShotgunC::ShotgunC() : GunC() {}
-
-ShotgunC::~ShotgunC() {}
-
-void ShotgunC::destroy() {
-    setActive(false);
-    scene->getComponentsManager()->eraseDC(this);
-}
-
-bool ShotgunC::shoot() {
-    if (!canShoot())
-        return false;
-
-    if (!getInfiniteAmmo())
-        _bulletchamber--;
+void ShotgunC::onPreShoot() {
+    auto* spawner = reinterpret_cast<SpawnerBulletsC*>(
+        scene->getEntitybyId("GameManager")->getComponent("SpawnerBulletsC"));
 
     // Save original rotation
-    Ogre::SceneNode* node = dynamic_cast<TridimensionalObjectRC*>(
+    Ogre::SceneNode* node = reinterpret_cast<TridimensionalObjectRC*>(
                                 father->getComponent("TridimensionalObjectRC"))
                                 ->getSceneNode();
-    Ogre::Quaternion ori = node->getOrientation();
+    const Ogre::Quaternion originalOrientation = node->getOrientation();
 
     // Orientate for the first pellet
-    int firstPelletAngle = -dispAngle * (nPellets / 2);
+    const Ogre::Real firstPelletAngle = -dispAngle * (nPellets / 2.0f);
 
     node->yaw(Ogre::Radian(Ogre::Degree(firstPelletAngle).valueRadians()));
 
     for (int i = 0; i < nPellets; i++) {
-        auto spawner = reinterpret_cast<SpawnerBulletsC*>(
-            scene->getEntitybyId("GameManager")
-                ->getComponent("SpawnerBulletsC"));
-        Entity* newBullet = spawner->getBullet(_myBulletType, _myBulletTag);
+        Entity* entity = spawner->getBullet(_myBulletType, _myBulletTag);
 
-        BulletC* bullet =
-            dynamic_cast<BulletC*>(newBullet->getComponent("BulletC"));
+        auto* bullet =
+            dynamic_cast<BulletC*>(entity->getComponent(bulletComponentName_));
+        bullet->setDamage(static_cast<float>(getCalculatedDamage()));
 
-        bullet->setDamage(getCalculatedDamage());
+        auto* transform = reinterpret_cast<TransformComponent*>(
+            entity->getComponent("TransformComponent"));
 
-        TransformComponent* bulletTransform = dynamic_cast<TransformComponent*>(
-            newBullet->getComponent("TransformComponent"));
+        auto* rigidBody =
+            reinterpret_cast<RigidbodyPC*>(entity->getComponent("RigidbodyPC"));
 
-        bulletTransform->setPosition(myTransform->getPosition());
-        bulletTransform->setOrientation(myTransform->getOrientation());
+        onShoot(transform, rigidBody);
 
-        RigidbodyPC* bulletRb =
-            dynamic_cast<RigidbodyPC*>(newBullet->getComponent("RigidbodyPC"));
-
-        Ogre::Quaternion quat = node->getOrientation();
-
-        bulletRb->setLinearVelocity(-(quat * Ogre::Vector3::NEGATIVE_UNIT_Z) *
-                                    _bulletSpeed);
-        bulletRb->setPosition(myTransform->getPosition());
-
+        rigidBody->setPosition(transform->getPosition());
         // Rotate the node for the next bullet
         node->yaw(Ogre::Radian(Ogre::Degree(dispAngle).valueRadians()));
     }
 
     // Restore original rotation
-    node->setOrientation(ori.w, ori.x, ori.y, ori.z);
+    node->setOrientation(originalOrientation.w, originalOrientation.x,
+                         originalOrientation.y, originalOrientation.z);
+}
+
+void ShotgunC::onShoot(TransformComponent* transform, RigidbodyPC* rigidBody) {
+    transform->setPosition(myTransform->getPosition());
+    transform->setOrientation(myTransform->getOrientation());
+
+    Ogre::Quaternion quat = getOrientation();
+    rigidBody->setLinearVelocity(-(quat * Ogre::Vector3::NEGATIVE_UNIT_Z) *
+                                 _bulletSpeed);
 }
 
 void ShotgunC::setNPellets(int n) { nPellets = n; }
@@ -140,9 +127,14 @@ Component* ShotgunCFactory::create(Entity* _father, Json::Value& _data,
         throw std::exception("ShotgunC: bulletType is not a string");
     shotgun->setBulletType(_data["bulletType"].asString());
 
-    shotgun->setTransform(dynamic_cast<TransformComponent*>(
+    if (!_data["bulletComponent"].isString())
+        throw std::exception("ShotgunC: bulletComponent is not a string");
+    shotgun->setBulletComponentName(_data["bulletComponent"].asString());
+
+    shotgun->setTransform(reinterpret_cast<TransformComponent*>(
         _father->getComponent("TransformComponent")));
 
     return shotgun;
 };
+
 DEFINE_FACTORY(ShotgunC);

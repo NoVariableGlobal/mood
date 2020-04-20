@@ -1,5 +1,6 @@
 #include "NukeEC.h"
 #include "ComponentsManager.h"
+#include "EnemyBehaviourEC.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "Scene.h"
@@ -9,7 +10,11 @@ void NukeEC::onPick() {
     std::vector<Entity*> enemies = scene->getEntitiesbyTag("Enemy");
 
     for (auto it : enemies) {
-        scene->deleteEntity(it);
+
+        Component* comp = it->findComponent("MeleeEnemyBehaviourEC");
+        if (comp == nullptr)
+            comp = it->getComponent("RangedEnemyBehaviourEC");
+        dynamic_cast<EnemyBehaviourEC*>(comp)->die();
     }
 }
 

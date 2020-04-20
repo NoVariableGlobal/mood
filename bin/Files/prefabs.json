@@ -168,15 +168,15 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.05, 0.05, 0.05 ]
+            "scale": [ 5, 5, 5 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
-            "node": "nCube",
-            "material": "PinkColourMaterial"
+            "mesh": "ammo.mesh",
+            "node": "nAmmo",
+            "material": "OrangeColourMaterial"
           }
         },
         {
@@ -199,6 +199,17 @@
             "time": 20,
             "timeEffect": 10,
             "speedIncrement": 0.5
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Idle",
+                "loop": true
+              }
+            ]
           }
         }
       ]
@@ -265,14 +276,14 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.05, 0.05, 0.05 ]
+            "scale": [ 4, 4, 4 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
-            "node": "nCube",
+            "mesh": "speed.mesh",
+            "node": "nSpeed",
             "material": "OrangeColourMaterial"
           }
         },
@@ -296,6 +307,17 @@
             "time": 20,
             "timeEffect": 10,
             "speedIncrement": 0.5
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Idle",
+                "loop": true
+              }
+            ]
           }
         }
       ]
@@ -335,6 +357,11 @@
         },
         {
           "type": "BulletC",
+          "attributes": {
+          }
+        },
+        {
+          "type": "ObstacleDestroyBulletEC",
           "attributes": {
           }
         },
@@ -385,6 +412,11 @@
           }
         },
         {
+          "type": "ObstacleDestroyBulletEC",
+          "attributes": {
+          }
+        },
+        {
           "type": "DestroyAfterSecsEC",
           "attributes": {
             "lifeTime": 1
@@ -427,6 +459,11 @@
         },
         {
           "type": "SniperBulletC",
+          "attributes": {
+          }
+        },
+        {
+          "type": "ObstacleDestroyBulletEC",
           "attributes": {
           }
         },
@@ -477,6 +514,11 @@
           }
         },
         {
+          "type": "ObstacleDestroyBulletEC",
+          "attributes": {
+          }
+        },
+        {
           "type": "DestroyAfterSecsEC",
           "attributes": {
             "lifeTime": 3
@@ -491,14 +533,14 @@
           "type": "TransformComponent",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.1, 0.1, 0.1 ]
+            "orientation": [ 0, -45, 0 ],
+            "scale": [ 1.5, 1.5, 1.5 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
+            "mesh": "shotgun.mesh",
             "node": "nGunBullet",
             "material": "BrownColourMaterial"
           }
@@ -507,7 +549,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 5, 5, 5 ],
+            "shape": [ 8, 3, 3 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": true,
@@ -528,6 +570,17 @@
           "attributes": {
             "objectName": "GunPowerUpC"
           }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Idle",
+                "loop": true
+              }
+            ]
+          }
         }
       ]
     },
@@ -538,14 +591,14 @@
           "type": "TransformComponent",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.1, 0.1, 0.1 ]
+            "orientation": [ -45, 0, 0 ],
+            "scale": [ 1, 1, 1 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
+            "mesh": "rifle.mesh",
             "node": "nGunBullet",
             "material": "BrownColourMaterial"
           }
@@ -554,7 +607,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 5, 5, 5 ],
+            "shape": [ 8, 3, 3 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": true,
@@ -575,6 +628,17 @@
           "attributes": {
             "objectName": "GunPowerUpC"
           }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Idle",
+                "loop": true
+              }
+            ]
+          }
         }
       ]
     },
@@ -585,14 +649,14 @@
           "type": "TransformComponent",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.1, 0.1, 0.1 ]
+            "orientation": [ 45, -45, 90 ],
+            "scale": [ 3, 3, 3 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
+            "mesh": "sniper.mesh",
             "node": "nGunBullet",
             "material": "BrownColourMaterial"
           }
@@ -601,7 +665,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 5, 5, 5 ],
+            "shape": [ 10, 2, 2 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": true,
@@ -621,6 +685,17 @@
           "type": "OnEPressPickUpIC",
           "attributes": {
             "objectName": "GunPowerUpC"
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Idle",
+                "loop": true
+              }
+            ]
           }
         }
       ]
@@ -648,7 +723,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 100, 0 ],
-            "shape": [ 3, 3, 3 ],
+            "shape": [ 4, 4, 4 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": false,
@@ -661,7 +736,7 @@
         {
           "type": "LifeC",
           "attributes": {
-            "life": 100
+            "life": 150
           }
         },
         {
@@ -686,7 +761,7 @@
         {
           "type": "MeleeEnemyBehaviourEC",
           "attributes": {
-            "speed": 100,
+            "speed": 150,
             "attack": 10,
             "attackCooldown": 1,
             "separationRadius": 1000
@@ -708,7 +783,7 @@
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "gazer_mesh.mesh",
+            "mesh": "ranged_gazer.mesh",
             "node": "nRangedEnemy",
             "material": "BlueColourMaterial"
           }
@@ -723,7 +798,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 5, 5, 5 ],
+            "shape": [ 2.5, 2.5, 2.5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": false,
@@ -775,7 +850,8 @@
             "automatic": false,
             "instakill": false,
             "infiniteAmmo":  true,
-            "bulletType": "EnemyBullet_handgun"
+            "bulletType": "EnemyBullet_handgun",
+            "bulletComponent": "BulletC"
           }
         }
       ]
@@ -794,7 +870,7 @@
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "gazer_mesh.mesh",
+            "mesh": "ranged_gazer.mesh",
             "node": "nRangedEnemy",
             "material": "BlueColourMaterial"
           }
@@ -809,7 +885,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 5, 5, 5 ],
+            "shape": [ 2.5, 2.5, 2.5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": false,
@@ -861,7 +937,8 @@
             "automatic": true,
             "instakill": false,
             "infiniteAmmo": true,
-            "bulletType": "EnemyBullet_rifle"
+            "bulletType": "EnemyBullet_rifle",
+            "bulletComponent": "BulletC"
           }
         }
       ]
@@ -880,7 +957,7 @@
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "gazer_mesh.mesh",
+            "mesh": "ranged_gazer.mesh",
             "node": "nRangedEnemy",
             "material": "BlueColourMaterial"
           }
@@ -895,7 +972,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 5, 5, 5 ],
+            "shape": [ 2.5, 2.5, 2.5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": false,
@@ -949,7 +1026,8 @@
             "automatic": false,
             "instakill": false,
             "infiniteAmmo": true,
-            "bulletType": "EnemyBullet_shotgun"
+            "bulletType": "EnemyBullet_shotgun",
+            "bulletComponent": "BulletC"
           }
         }
       ]
@@ -968,7 +1046,7 @@
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "gazer_mesh.mesh",
+            "mesh": "ranged_gazer.mesh",
             "node": "nRangedEnemy",
             "material": "BlueColourMaterial"
           }
@@ -983,7 +1061,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 5, 5, 5 ],
+            "shape": [ 2.5, 2.5, 2.5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": false,
@@ -1034,7 +1112,8 @@
             "cadence": 1,
             "instakill": false,
             "infiniteAmmo": true,
-            "bulletType": "EnemyBullet_sniper"
+            "bulletType": "EnemyBullet_sniper",
+            "bulletComponent": "SniperBulletC"
           }
         }
       ]
@@ -1066,6 +1145,11 @@
         },
         {
           "type": "BulletC",
+          "attributes": {
+          }
+        },
+        {
+          "type": "ObstacleDestroyBulletEC",
           "attributes": {
           }
         },
@@ -1121,6 +1205,11 @@
           }
         },
         {
+          "type": "ObstacleDestroyBulletEC",
+          "attributes": {
+          }
+        },
+        {
           "type": "BulletHurtPlayerEC",
           "attributes": {
           }
@@ -1172,6 +1261,11 @@
           }
         },
         {
+          "type": "ObstacleDestroyBulletEC",
+          "attributes": {
+          }
+        },
+        {
           "type": "BulletHurtPlayerEC",
           "attributes": {
           }
@@ -1219,6 +1313,11 @@
         },
         {
           "type": "BulletC",
+          "attributes": {
+          }
+        },
+        {
+          "type": "ObstacleDestroyBulletEC",
           "attributes": {
           }
         },

@@ -1,6 +1,7 @@
 #include "SpawnerFloorRandomEC.h"
 #include "Entity.h"
 #include "ComponentsManager.h"
+#include "Entity.h"
 #include "FactoriesFactory.h"
 #include "Factory.h"
 #include "OgreVector4.h"
@@ -46,12 +47,9 @@ void SpawnerFloorRandomEC::checkEvent() {
         spawnTransform->setPosition(Ogre::Vector3(x, 10, z));
         rigidbody->setPosition(Ogre::Vector3(x, 10, z));
 
-        
-        // DESCOMENTAR CUANDO ESTEN TODAS LAS ANIMACIONES 'IDLE'
-
-        //AnimationLC* animations =
-        //    dynamic_cast<AnimationLC*>(newEntity->getComponent("AnimationLC"));
-        //animations->startAnimation("Idle");
+        AnimationLC* animations =
+            dynamic_cast<AnimationLC*>(newEntity->getComponent("AnimationLC"));
+        animations->startAnimation("Idle");
     }
 }
 

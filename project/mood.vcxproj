@@ -39,6 +39,7 @@
     <ClCompile Include="..\src\MeleeEnemyBehaviourEC.cpp" />
     <ClCompile Include="..\src\mood.cpp" />
     <ClCompile Include="..\src\NukeEC.cpp" />
+    <ClCompile Include="..\src\ObstacleDestroyBulletEC.cpp" />
     <ClCompile Include="..\src\OnEPressPickUpIC.cpp" />
     <ClCompile Include="..\src\OrientateToMouseIC.cpp" />
     <ClCompile Include="..\src\PersistentPowerUpEC.cpp" />
@@ -79,6 +80,7 @@
     <ClInclude Include="..\src\MedkitEC.h" />
     <ClInclude Include="..\src\MeleeEnemyBehaviourEC.h" />
     <ClInclude Include="..\src\NukeEC.h" />
+    <ClInclude Include="..\src\ObstacleDestroyBulletEC.h" />
     <ClInclude Include="..\src\OnEPressPickUpIC.h" />
     <ClInclude Include="..\src\OrientateToMouseIC.h" />
     <ClInclude Include="..\src\PersistentPowerUpEC.h" />

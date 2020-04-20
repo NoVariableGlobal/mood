@@ -50,7 +50,6 @@
             "maxAddEnemies": 6,
             "enemiesInRound": 6,
             "timeBetweenRounds": 10,
-            "timeBetweenRounds": 10,
             "map1Spawners": [
               [ 0, 10, -250 ],
               [ 0, 10, 250 ],
@@ -106,7 +105,7 @@
             "spawnCooldown": 20,
             "spawnID": [ "AutomaticRifle", "Shotgun", "SniperGun" ],
             "spawnTag": "Gun",
-            "spawnChances": [ 50, 25, 25 ]
+            "spawnChances": [ 40, 30, 30 ]
           }
         }
       ]
@@ -289,7 +288,8 @@
             "cadence": 0.1,
             "automatic": false,
             "instakill": false,
-            "bulletType": "HandgunBullet"
+            "bulletType": "HandgunBullet",
+            "bulletComponent": "BulletC"
           }
         },
         {
@@ -305,7 +305,8 @@
             "nPellets": 3,
             "dispersion": 10,
             "instakill": false,
-            "bulletType": "ShotgunBullet"
+            "bulletType": "ShotgunBullet",
+            "bulletComponent": "BulletC"
           }
         },
         {
@@ -318,7 +319,8 @@
             "bulletSpeed": 100,
             "cadence": 1,
             "instakill": false,
-            "bulletType": "SniperBullet"
+            "bulletType": "SniperBullet",
+            "bulletComponent": "SniperBulletC"
           }
         },
         {
@@ -332,7 +334,8 @@
             "cadence": 0.1,
             "automatic": true,
             "instakill": false,
-            "bulletType": "AutomaticRifleBullet"
+            "bulletType": "AutomaticRifleBullet",
+            "bulletComponent": "BulletC"
           }
         },
         {
@@ -352,7 +355,7 @@
           "attributes": {}
         }
       ]
-    }, //MAP
+    },
     {
       "id": "Ciudad",
       "components": [
