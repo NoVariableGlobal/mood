@@ -47,9 +47,9 @@ void SpawnerFloorRandomEC::checkEvent() {
 
         // DESCOMENTAR CUANDO ESTEN TODAS LAS ANIMACIONES 'IDLE'
 
-        // AnimationLC* animations =
-        //    dynamic_cast<AnimationLC*>(newEntity->getComponent("AnimationLC"));
-        // animations->startAnimation("Idle");
+         AnimationLC* animations =
+            dynamic_cast<AnimationLC*>(newEntity->getComponent("AnimationLC"));
+         animations->startAnimation("Idle");
     }
 }
 

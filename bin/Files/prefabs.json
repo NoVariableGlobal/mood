@@ -175,7 +175,7 @@
           "type": "TridimensionalObjectRC",
           "attributes": {
             "mesh": "ammo.mesh",
-            "node": "nCube",
+            "node": "nAmmo",
             "material": "OrangeColourMaterial"
           }
         },
@@ -276,14 +276,14 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.05, 0.05, 0.05 ]
+            "scale": [ 4, 4, 4 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
-            "node": "nCube",
+            "mesh": "speed.mesh",
+            "node": "nSpeed",
             "material": "OrangeColourMaterial"
           }
         },
@@ -307,6 +307,17 @@
             "time": 20,
             "timeEffect": 10,
             "speedIncrement": 0.5
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Idle",
+                "loop": true
+              }
+            ]
           }
         }
       ]
