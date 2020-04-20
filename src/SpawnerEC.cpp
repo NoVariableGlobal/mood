@@ -82,7 +82,8 @@ Entity* SpawnerEC::spawnPrefab() {
         toInstantiate = binarySearch(0, _spawns.size() - 1, random);
     }
     return scene->getInstanceOf(toInstantiate._id,
-                                toInstantiate._id + std::to_string(_count++) + father->getId(),
+                                toInstantiate._id + std::to_string(_count++) +
+                                    father->getId(),
                                 toInstantiate._tag);
 }
 

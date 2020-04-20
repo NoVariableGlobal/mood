@@ -4,13 +4,13 @@
 #include "EnemyBehaviourEC.h"
 #include "FactoriesFactory.h"
 #include "GunC.h"
+#include "OgreRoot.h"
 #include "PlayerMovementIC.h"
 #include "RigidbodyPC.h"
+#include "Scene.h"
 #include "SpawnerBulletsC.h"
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
-#include "Scene.h"
-#include "OgreRoot.h"
 
 #include <Entity.h>
 #include <json.h>
