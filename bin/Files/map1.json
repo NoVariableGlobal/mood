@@ -1,0 +1,241 @@
+{
+  "entities": [	
+	{
+      "id": "Ciudad",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, -90, 90 ],
+            "scale": [ 10, 10, 10]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Ciudad.mesh",
+            "node": "nSuelo",
+            "material": "none"
+          }
+        }
+      ]
+    },
+	{
+      "id": "ColisionUp",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 0, 0, 0 ]
+          }
+        },
+        {
+          "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ 0, 0, -270 ],
+            "shape": [ 190, 10, 8 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
+          }
+        }
+      ]
+    },
+	{
+      "id": "ColisionDiagonalLeftUp",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 0, 0, 0 ]
+          }
+        },
+        {
+          "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ -230, 0, -190 ],
+            "shape": [ 80, 10, 80 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
+          }
+        }
+      ]
+    },
+	{
+      "id": "ColisionDiagonalLeftDown",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 0, 0, 0 ]
+          }
+        },
+        {
+          "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ -230, 0, 235 ],
+            "shape": [ 80, 10, 80 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
+          }
+        }
+      ]
+    },
+	{
+      "id": "ColisionDiagonalRightUp",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 0, 0, 0 ]
+          }
+        },
+        {
+          "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ 190, 0, -190 ],
+            "shape": [ 80, 10, 80 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
+          }
+        }
+      ]
+    },
+	{
+      "id": "ColisionDiagonalRightDown",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 0, 0, 0 ]
+          }
+        },
+        {
+          "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ 190, 0, 235 ],
+            "shape": [ 80, 10, 80 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
+          }
+        }
+      ]
+    },
+	{
+      "id": "ColisionDown",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 0, 0, 0 ]
+          }
+        },
+        {
+          "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ 0, 0, 270 ],
+            "shape": [ 190, 10, 8 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
+          }
+        }
+      ]
+    },
+	{
+      "id": "ColisionRight",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 0, 0, 0 ]
+          }
+        },
+        {
+          "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ 270, 0, 0 ],
+            "shape": [ 8, 10, 190 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
+          }
+        }
+      ]
+    },
+	{
+      "id": "ColisionLeft",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 0, 0, 0 ]
+          }
+        },
+        {
+          "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ -270, 0, 0 ],
+            "shape": [ 8, 10, 190 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
+          }
+        }
+      ]
+    }
+  ]
+}

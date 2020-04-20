@@ -16,6 +16,113 @@ material GrassMaterial
     }
 }
 
+material FondoMaterial
+{
+    technique 
+    {
+        pass 
+        { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
+            diffuse 1 0.5 0.5 0.50
+            
+            texture_unit 
+            {
+                texture fondo.jpg
+                colour_op add
+                tex_address_mode wrap
+            }
+        }
+    }
+}
+
+material Suelo1
+{
+    technique 
+    {
+        pass 
+        { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
+            diffuse 0.1 0.1 0.1 1
+            
+            texture_unit 
+            {
+                texture Suelomap1.jpg
+                colour_op add
+                tex_address_mode wrap
+            }
+        }
+    }
+}
+
+material Water
+{
+    technique 
+    {
+        pass 
+        { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
+            diffuse 0.001 0.001 0.001 1
+            
+            texture_unit 
+            {
+                texture Water.jpg
+                colour_op add
+                tex_address_mode wrap
+            }
+        }
+    }
+}
+
+material Arena
+{
+    technique 
+    {
+        pass 
+        { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
+            diffuse 0.001 0.001 0.001 1
+            
+            texture_unit 
+            {
+                texture arena.jpg
+                colour_op add
+                tex_address_mode wrap
+            }
+        }
+    }
+}
+material Asfalto
+{
+    technique 
+    {
+        pass 
+        { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
+            diffuse 0.001 0.001 0.001 1
+            
+            texture_unit 
+            {
+                texture Asfalto.jpg
+                colour_op add
+                tex_address_mode wrap
+            }
+        }
+    }
+}
+
+material Acera
+{
+    technique 
+    {
+        pass 
+        { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
+            diffuse 0.01 0.01 0.01 1
+            
+            texture_unit 
+            {
+                texture acera.jpg
+                colour_op add
+                tex_address_mode wrap
+            }
+        }
+    }
+}
+
 material PurpleColourMaterial
 {
     technique 

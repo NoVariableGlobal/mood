@@ -830,7 +830,7 @@
         {
           "type": "RangedEnemyBehaviourEC",
           "attributes": {
-            "speed": 10,
+            "speed": 50,
             "attack": 10,
             "attackCooldown": 2,
             "weaponEquipped": "HandGunC",

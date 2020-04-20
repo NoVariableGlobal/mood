@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 
-// FACTORY INFRASTRUCTURE DECLARATION
-DECLARE_FACTORY(SpawnerEC);
 class Entity;
 
 struct Spawn {
@@ -62,5 +60,5 @@ class SpawnerEC : public EventComponent {
 
     Spawn binarySearch(int first, int last, float value);
 
-    virtual void registerInRoundManager();
+    virtual void registerInRoundManager() = 0;
 };

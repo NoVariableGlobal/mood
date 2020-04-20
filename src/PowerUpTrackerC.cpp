@@ -24,6 +24,7 @@ void PowerUpTrackerC::removePowerUp(std::string name) {
             powerUps.erase(it);
             break;
         }
+        it++;
     }
 }
 

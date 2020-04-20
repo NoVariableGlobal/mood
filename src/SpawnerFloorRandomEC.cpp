@@ -6,6 +6,7 @@
 #include "Factory.h"
 #include "OgreVector4.h"
 #include "RigidbodyPC.h"
+#include "RoundManagerEC.h"
 #include "Scene.h"
 #include "TransformComponent.h"
 
@@ -51,6 +52,11 @@ void SpawnerFloorRandomEC::checkEvent() {
     }
 }
 
+void SpawnerFloorRandomEC::registerInRoundManager() {
+    dynamic_cast<RoundManagerEC*>(
+        scene->getEntitybyId("GameManager")->getComponent("RoundManagerEC"))
+        ->registerOtherSpawner(this);
+}
 // FACTORY INFRASTRUCTURE
 SpawnerFloorRandomECFactory::SpawnerFloorRandomECFactory() = default;
 
