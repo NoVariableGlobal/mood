@@ -7,6 +7,7 @@
 #include "Scene.h"
 #include "SpawnerEnemiesEC.h"
 #include "SpawnerFloorRandomEC.h"
+#include "RigidbodyPC.h"
 
 #include <iostream>
 #include <time.h>
@@ -63,6 +64,10 @@ void RoundManagerEC::checkEvent() {
 void RoundManagerEC::changeMap() {
     int randNum = (rand() % 3) + 1;
 
+
+    reinterpret_cast<RigidbodyPC*>(
+        scene->getEntitybyId("Player")->getComponent("RigidbodyPC"))
+        ->setPosition(Ogre::Vector3(0,0,0));
     if (lastMap == randNum) {
         if (randNum == 4)
             randNum--;
@@ -74,7 +79,7 @@ void RoundManagerEC::changeMap() {
 
         for (int i = 0; i < 4; i++)
             enemiesSpawners[i]->changePosition(map1Spawners[i]);
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 2; i++)
             otherSpawners[i]->setFloorDimensions(otherSpawnersPos[0]);
 
         scene->changeScene("map1");
@@ -82,7 +87,7 @@ void RoundManagerEC::changeMap() {
 
         for (int i = 0; i < 4; i++)
             enemiesSpawners[i]->changePosition(map2Spawners[i]);
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 2; i++)
             otherSpawners[i]->setFloorDimensions(otherSpawnersPos[1]);
 
         scene->changeScene("map2");
@@ -90,7 +95,7 @@ void RoundManagerEC::changeMap() {
 
         for (int i = 0; i < 4; i++)
             enemiesSpawners[i]->changePosition(map3Spawners[i]);
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 2; i++)
             otherSpawners[i]->setFloorDimensions(otherSpawnersPos[2]);
 
         scene->changeScene("map3");
@@ -98,7 +103,7 @@ void RoundManagerEC::changeMap() {
 
         for (int i = 0; i < 4; i++)
             enemiesSpawners[i]->changePosition(map4Spawners[i]);
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 2; i++)
             otherSpawners[i]->setFloorDimensions(otherSpawnersPos[3]);
 
         scene->changeScene("map4");
