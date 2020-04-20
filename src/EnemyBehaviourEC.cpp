@@ -133,23 +133,27 @@ void EnemyBehaviourEC::checkDamage() {
                 playerBullet->findComponent("SniperBulletC"));
 
         // enemy is destroyed if it dies
-        if (life->doDamage(bullet->getDamage())) {
-            dead = true;
-
-            rigidbody->setLinearVelocity(Ogre::Vector3(0, 0, 0));
-
-            animations->stopAnimations();
-            animations->startAnimation("Dead");
-
-            rigidbody->setActive(false);
-
-            dynamic_cast<RoundManagerEC*>(scene->getEntitybyId("GameManager")
-                                              ->getComponent("RoundManagerEC"))
-                ->enemyDied();
-        }
+        if (life->doDamage(bullet->getDamage()))
+            die();
 
         bullet->dealCollision();
     }
+}
+
+void EnemyBehaviourEC::die() {
+
+    dead = true;
+
+    rigidbody->setLinearVelocity(Ogre::Vector3(0, 0, 0));
+
+    animations->stopAnimations();
+    animations->startAnimation("Dead");
+
+    rigidbody->setActive(false);
+
+    dynamic_cast<RoundManagerEC*>(
+        scene->getEntitybyId("GameManager")->getComponent("RoundManagerEC"))
+        ->enemyDied();
 }
 
 void EnemyBehaviourEC::moveTowardsPlayer() {
