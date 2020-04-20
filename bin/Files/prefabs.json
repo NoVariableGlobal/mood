@@ -361,6 +361,11 @@
           }
         },
         {
+          "type": "ObstacleDestroyBulletEC",
+          "attributes": {
+          }
+        },
+        {
           "type": "DestroyAfterSecsEC",
           "attributes": {
             "lifeTime": 2
@@ -403,6 +408,11 @@
         },
         {
           "type": "BulletC",
+          "attributes": {
+          }
+        },
+        {
+          "type": "ObstacleDestroyBulletEC",
           "attributes": {
           }
         },
@@ -453,6 +463,11 @@
           }
         },
         {
+          "type": "ObstacleDestroyBulletEC",
+          "attributes": {
+          }
+        },
+        {
           "type": "DestroyAfterSecsEC",
           "attributes": {
             "lifeTime": 10
@@ -495,6 +510,11 @@
         },
         {
           "type": "BulletC",
+          "attributes": {
+          }
+        },
+        {
+          "type": "ObstacleDestroyBulletEC",
           "attributes": {
           }
         },
@@ -1129,6 +1149,11 @@
           }
         },
         {
+          "type": "ObstacleDestroyBulletEC",
+          "attributes": {
+          }
+        },
+        {
           "type": "BulletHurtPlayerEC",
           "attributes": {
           }
@@ -1176,6 +1201,11 @@
         },
         {
           "type": "BulletC",
+          "attributes": {
+          }
+        },
+        {
+          "type": "ObstacleDestroyBulletEC",
           "attributes": {
           }
         },
@@ -1231,6 +1261,11 @@
           }
         },
         {
+          "type": "ObstacleDestroyBulletEC",
+          "attributes": {
+          }
+        },
+        {
           "type": "BulletHurtPlayerEC",
           "attributes": {
           }
@@ -1278,6 +1313,11 @@
         },
         {
           "type": "BulletC",
+          "attributes": {
+          }
+        },
+        {
+          "type": "ObstacleDestroyBulletEC",
           "attributes": {
           }
         },
