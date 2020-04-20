@@ -3,6 +3,10 @@
 		{
 			"name": "MOOD",
 			"file": "mood.json"
+		},
+		{
+			"name": "DeadMenu",
+			"file": "deadMenu.json"
 		}
 	]
 

@@ -28,6 +28,10 @@ class RoundManagerEC : public EventComponent {
     ~RoundManagerEC() = default;
 
     virtual void checkEvent();
+
+    void deactivateSpawnerEnemies();
+    void deactivateOtherSpawners();
+
     void setMinAddEnemies(int n);
     void setMaxAddEnemies(int n);
     void setEnemiesInRound(int n);
@@ -36,6 +40,8 @@ class RoundManagerEC : public EventComponent {
 
     void registerEnemySpawner(SpawnerEnemiesEC* spawn);
     void registerOtherSpawner(SpawnerEC* spawn);
+
+    int getRoundNumber();
 
     void enemyDied();
 };

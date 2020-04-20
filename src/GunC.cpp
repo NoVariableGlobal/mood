@@ -1,27 +1,79 @@
 #include "GunC.h"
+#include "BulletC.h"
+#include "ComponentsManager.h"
+#include "Entity.h"
+#include "Ogre.h"
+#include "RigidbodyPC.h"
+#include "Scene.h"
+#include "SpawnerBulletsC.h"
+#include "TransformComponent.h"
+#include "TridimensionalObjectRC.h"
 
-GunC::GunC() {}
-
-GunC::~GunC() {}
+void GunC::destroy() {
+    setActive(false);
+    scene->getComponentsManager()->eraseDC(this);
+}
 
 bool GunC::reload() {
     if (_bulletchamber < _bulletchamberMax && _munition > 0) {
-        int gunreload = _bulletchamberMax - _bulletchamber;
+        int remainder = _bulletchamberMax - _bulletchamber;
 
-        if (gunreload > _munition)
-            gunreload = _munition;
+        if (remainder > _munition)
+            remainder = _munition;
 
-        _bulletchamber += gunreload;
-        _munition -= gunreload;
+        _bulletchamber += remainder;
+        _munition -= remainder;
 
         return true;
-    } else
+    }
+
+    return false;
+}
+
+bool GunC::shoot() {
+    if (!canShoot())
         return false;
+
+    if (!getInfiniteAmmo())
+        _bulletchamber--;
+
+    onPreShoot();
+    return true;
+}
+
+void GunC::onPreShoot() {
+    auto* spawner = reinterpret_cast<SpawnerBulletsC*>(
+        scene->getEntitybyId("GameManager")->getComponent("SpawnerBulletsC"));
+
+    Entity* entity = spawner->getBullet(_myBulletType, _myBulletTag);
+
+    auto* bullet =
+        dynamic_cast<BulletC*>(entity->getComponent(bulletComponentName_));
+    bullet->setDamage(static_cast<float>(getCalculatedDamage()));
+
+    auto* transform = reinterpret_cast<TransformComponent*>(
+        entity->getComponent("TransformComponent"));
+
+    auto* rigidBody =
+        reinterpret_cast<RigidbodyPC*>(entity->getComponent("RigidbodyPC"));
+
+    onShoot(transform, rigidBody);
+
+    rigidBody->setPosition(transform->getPosition());
+}
+
+Ogre::Quaternion GunC::getOrientation() const {
+    return reinterpret_cast<TridimensionalObjectRC*>(
+               father->getComponent("TridimensionalObjectRC"))
+        ->getSceneNode()
+        ->getOrientation();
 }
 
 std::string GunC::getBulletType() { return _myBulletType; }
 
 std::string GunC::getBulletTag() { return _myBulletTag; }
+
+std::string GunC::getBulletComponentName() { return bulletComponentName_; }
 
 int GunC::getbulletchamber() { return _bulletchamber; }
 
@@ -38,6 +90,10 @@ bool GunC::getautomatic() { return _automatic; }
 void GunC::setBulletType(std::string bulletType) { _myBulletType = bulletType; }
 
 void GunC::setBulletTag(std::string bulletTag) { _myBulletTag = bulletTag; }
+
+void GunC::setBulletComponentName(std::string name) {
+    bulletComponentName_ = name;
+}
 
 bool GunC::getInfiniteAmmo() { return infiniteAmmo_; }
 

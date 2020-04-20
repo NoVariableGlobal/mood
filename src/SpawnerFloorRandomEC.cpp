@@ -1,14 +1,14 @@
 #include "SpawnerFloorRandomEC.h"
-#include "Entity.h"
-//#include "FloorComponent.h"
+#include "AnimationLC.h"
 #include "ComponentsManager.h"
+#include "Entity.h"
 #include "FactoriesFactory.h"
 #include "Factory.h"
 #include "OgreVector4.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
 #include "TransformComponent.h"
-#include <iostream>
+
 #include <json.h>
 
 void SpawnerFloorRandomEC::setFloorDimensions(Ogre::Vector4f _floorDimensions) {
@@ -42,8 +42,12 @@ void SpawnerFloorRandomEC::checkEvent() {
         float z = floorDimensions->y + static_cast<float>(rand()) /
                                            static_cast<float>(RAND_MAX) *
                                            floorDimensions->w;
-        spawnTransform->setPosition(Ogre::Vector3(x, 0, z));
-        rigidbody->setPosition(Ogre::Vector3(x, 0, z));
+        spawnTransform->setPosition(Ogre::Vector3(x, 10, z));
+        rigidbody->setPosition(Ogre::Vector3(x, 10, z));
+
+        AnimationLC* animations =
+            dynamic_cast<AnimationLC*>(newEntity->getComponent("AnimationLC"));
+        animations->startAnimation("Idle");
     }
 }
 
