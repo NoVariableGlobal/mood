@@ -819,7 +819,8 @@
             "automatic": false,
             "instakill": false,
             "infiniteAmmo":  true,
-            "bulletType": "EnemyBullet_handgun"
+            "bulletType": "EnemyBullet_handgun",
+            "bulletComponent": "BulletC"
           }
         }
       ]
@@ -905,7 +906,8 @@
             "automatic": true,
             "instakill": false,
             "infiniteAmmo": true,
-            "bulletType": "EnemyBullet_rifle"
+            "bulletType": "EnemyBullet_rifle",
+            "bulletComponent": "BulletC"
           }
         }
       ]
@@ -993,7 +995,8 @@
             "automatic": false,
             "instakill": false,
             "infiniteAmmo": true,
-            "bulletType": "EnemyBullet_shotgun"
+            "bulletType": "EnemyBullet_shotgun",
+            "bulletComponent": "BulletC"
           }
         }
       ]
@@ -1078,7 +1081,8 @@
             "cadence": 1,
             "instakill": false,
             "infiniteAmmo": true,
-            "bulletType": "EnemyBullet_sniper"
+            "bulletType": "EnemyBullet_sniper",
+            "bulletComponent": "SniperBulletC"
           }
         }
       ]

@@ -1,10 +1,10 @@
 #pragma once
+
 #include "Factory.h"
 #include "GunC.h"
-#include <string>
 
 DECLARE_FACTORY(ShotgunC);
-class ShotgunC : public GunC {
+class ShotgunC final : public GunC {
   private:
     // Number of pellets each shot fires
     int nPellets;
@@ -12,13 +12,12 @@ class ShotgunC : public GunC {
     // Distance in angles between each pellet
     int dispAngle;
 
+  protected:
+    void onPreShoot() override;
+    void onShoot(TransformComponent* transform,
+                 RigidbodyPC* rigidBody) override;
+
   public:
-    ShotgunC();
-    ~ShotgunC();
-
-    virtual void destroy();
-    virtual bool shoot();
-
     void setNPellets(int n);
     void setDispersion(int n);
 };
