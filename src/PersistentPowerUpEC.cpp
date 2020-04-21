@@ -44,7 +44,7 @@ void PersistentPowerUpEC::checkEvent() {
             father->getComponent("TridimensionalObjectRC")->setActive(false);
             father->getComponent("RigidbodyPC")->setActive(false);
             father->getComponent("TransformComponent")->setActive(false);
-
+            father->setPersistent(true);
             // Add this powerUp to the tracker
             reinterpret_cast<PowerUpTrackerC*>(
                 scene->getEntitybyId("Player")->getComponent("PowerUpTrackerC"))
