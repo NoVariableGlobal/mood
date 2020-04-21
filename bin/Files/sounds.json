@@ -1,4 +1,28 @@
 {
   "sounds": [
+    {
+      "id": "HandgunShot",
+      "filename": "GunHandgun.mp3",
+      "loop": false,
+      "volume": 0.5
+    },
+    {
+      "id": "ShotgunShot",
+      "filename": "GunShotgun.mp3",
+      "loop": false,
+      "volume": 0.5
+    },
+    {
+      "id": "SniperShot",
+      "filename": "GunRifle.mp3",
+      "loop": false,
+      "volume": 0.5
+    },
+    {
+      "id": "MachinegunShots",
+      "filename": "GunMachineGun.wav",
+      "loop": true,
+      "volume": 0.5
+    }
   ]
 }

@@ -330,7 +330,7 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, -90, 0 ], //-90
-            "scale": [ 3, 3, 3 ] //0.05 -> 2.5, tamaño real 3
+            "scale": [ 3, 3, 3 ] //0.05 -> 2.5, tamaï¿½o real 3
           }
         },
         {
@@ -852,6 +852,7 @@
             "infiniteAmmo":  true,
             "bulletType": "EnemyBullet_handgun",
             "bulletComponent": "BulletC"
+            "shotSound": "HandgunShot"
           }
         }
       ]
@@ -939,6 +940,7 @@
             "infiniteAmmo": true,
             "bulletType": "EnemyBullet_rifle",
             "bulletComponent": "BulletC"
+            "shotSound": "MachinegunShots"
           }
         }
       ]
@@ -1028,6 +1030,7 @@
             "infiniteAmmo": true,
             "bulletType": "EnemyBullet_shotgun",
             "bulletComponent": "BulletC"
+            "shotSound": "ShotgunShot"
           }
         }
       ]
@@ -1114,6 +1117,7 @@
             "infiniteAmmo": true,
             "bulletType": "EnemyBullet_sniper",
             "bulletComponent": "SniperBulletC"
+            "shotSound": "SniperShot"
           }
         }
       ]

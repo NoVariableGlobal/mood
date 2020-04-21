@@ -131,6 +131,12 @@
             "spawnTag": "Gun",
             "spawnChances": [ 40, 30, 30 ]
           }
+        },
+        {
+          "type": "SoundComponent",
+          "attributes":{
+            "sounds": []
+          }
         }
       ]
     },
@@ -314,6 +320,7 @@
             "instakill": false,
             "bulletType": "HandgunBullet",
             "bulletComponent": "BulletC"
+            "shotSound": "HandgunShot"
           }
         },
         {
@@ -331,6 +338,7 @@
             "instakill": false,
             "bulletType": "ShotgunBullet",
             "bulletComponent": "BulletC"
+            "shotSound": "ShotgunShot"
           }
         },
         {
@@ -345,6 +353,7 @@
             "instakill": false,
             "bulletType": "SniperBullet",
             "bulletComponent": "SniperBulletC"
+            "shotSound": "SniperShot"
           }
         },
         {
@@ -360,6 +369,7 @@
             "instakill": false,
             "bulletType": "AutomaticRifleBullet",
             "bulletComponent": "BulletC"
+            "shotSound": "MachinegunShots"
           }
         },
         {
