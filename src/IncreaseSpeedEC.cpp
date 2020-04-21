@@ -34,6 +34,7 @@ Component* IncreaseSpeedECFactory::create(Entity* _father, Json::Value& _data,
     scene->getComponentsManager()->addEC(increaseSpeedIC);
     increaseSpeedIC->setFather(_father);
     increaseSpeedIC->setScene(scene);
+    _father->setPersistent(true);
 
     if (!_data["time"].isDouble())
         throw std::exception("IncreaseSpeed: time is not a double");

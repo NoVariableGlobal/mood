@@ -33,6 +33,8 @@ Component* InstakillECFactory::create(Entity* _father, Json::Value& _data,
 
     instakill->setFather(_father);
     instakill->setScene(scene);
+    _father->setPersistent(true);
+
     scene->getComponentsManager()->addEC(instakill);
 
     if (!_data["time"].isDouble())
