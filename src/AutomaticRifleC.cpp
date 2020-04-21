@@ -78,7 +78,11 @@ Component* AutomaticRifleCFactory::create(Entity* _father, Json::Value& _data,
             "AutomaticRifleC: bulletComponent is not a string");
     automaticRifle->setBulletComponentName(_data["bulletComponent"].asString());
 
-    automaticRifle->setTransform(reinterpret_cast<TransformComponent*>(
+    if (!_data["shotSound"].isString())
+        throw std::exception("AutomaticRifleC: shotSound is not a string");
+    automaticRifle->setShotSound(_data["shotSound"].asString());
+
+    automaticRifle->setTransform(dynamic_cast<TransformComponent*>(
         _father->getComponent("TransformComponent")));
 
     return automaticRifle;

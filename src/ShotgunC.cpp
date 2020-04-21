@@ -62,6 +62,8 @@ void ShotgunC::onShoot(TransformComponent* transform, RigidbodyPC* rigidBody) {
     Ogre::Quaternion quat = getOrientation();
     rigidBody->setLinearVelocity(-(quat * Ogre::Vector3::NEGATIVE_UNIT_Z) *
                                  _bulletSpeed);
+                                 
+    GunC::shoot(transform, rigidBody);
 }
 
 void ShotgunC::setNPellets(int n) { nPellets = n; }
@@ -131,7 +133,11 @@ Component* ShotgunCFactory::create(Entity* _father, Json::Value& _data,
         throw std::exception("ShotgunC: bulletComponent is not a string");
     shotgun->setBulletComponentName(_data["bulletComponent"].asString());
 
-    shotgun->setTransform(reinterpret_cast<TransformComponent*>(
+    if (!_data["shotSound"].isString())
+        throw std::exception("ShotgunC: shotSound is not a string");
+    shotgun->setShotSound(_data["shotSound"].asString());
+
+    shotgun->setTransform(dynamic_cast<TransformComponent*>(
         _father->getComponent("TransformComponent")));
 
     return shotgun;

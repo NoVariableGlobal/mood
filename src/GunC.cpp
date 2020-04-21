@@ -8,6 +8,7 @@
 #include "SpawnerBulletsC.h"
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
+#include <SoundComponent.h>
 
 void GunC::destroy() {
     setActive(false);
@@ -75,6 +76,8 @@ std::string GunC::getBulletTag() { return _myBulletTag; }
 
 std::string GunC::getBulletComponentName() { return bulletComponentName_; }
 
+const std::string & GunC::getShotSound() const { return _shotSound; }
+
 int GunC::getbulletchamber() { return _bulletchamber; }
 
 int GunC::getmunition() { return _munition; }
@@ -94,6 +97,8 @@ void GunC::setBulletTag(std::string bulletTag) { _myBulletTag = bulletTag; }
 void GunC::setBulletComponentName(std::string name) {
     bulletComponentName_ = name;
 }
+
+void GunC::setShotSound(std::string shotSound) { _shotSound = shotSound; }
 
 bool GunC::getInfiniteAmmo() { return infiniteAmmo_; }
 
