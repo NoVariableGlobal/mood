@@ -7,6 +7,7 @@
 #include <SDL.h>
 #include <iostream>
 #include <json.h>
+#include <SoundComponent.h>
 
 WeaponControllerIC::WeaponControllerIC() {}
 
@@ -23,6 +24,14 @@ void WeaponControllerIC::handleInput(const SDL_Event& _event) {
             GunC* aux = currentGun;
             currentGun = secondaryGun;
             secondaryGun = aux;
+
+            if (!secondaryGun->getautomatic()) {
+                if (_soundComponent == nullptr)
+                    _soundComponent = dynamic_cast<SoundComponent*>(
+                        scene->getEntitybyId("GameManager")
+                            ->getComponent("SoundComponent"));
+                _soundComponent->stopSound(secondaryGun->getShotSound());
+            }
         }
     }
 }

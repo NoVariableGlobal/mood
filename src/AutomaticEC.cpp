@@ -10,6 +10,7 @@
 #include <iostream>
 #include <json.h>
 #include <time.h>
+#include <SoundComponent.h>
 
 AutomaticEC::AutomaticEC() {}
 
@@ -25,6 +26,11 @@ void AutomaticEC::checkEvent() {
              father_->getComponent("WeaponControllerIC")))
             ->getCurrentGun()
             ->shoot();
+        if ((dynamic_cast<WeaponControllerIC*>(
+                 father->getComponent("WeaponControllerIC")))
+                ->getCurrentGun()
+                ->getbulletchamber() == 0)
+            setShoot(false);
     }
 }
 
@@ -41,7 +47,25 @@ bool AutomaticEC::timeCadence() {
 
 void AutomaticEC::setCadence(double _cadence) { cadence = _cadence; }
 
-void AutomaticEC::setShoot(bool _shoot) { shoot = _shoot; }
+void AutomaticEC::setShoot(bool _shoot) { 
+  shoot = _shoot;
+    if (_soundComponent == nullptr)
+      _soundComponent = dynamic_cast<SoundComponent*>(
+        scene->getEntitybyId("GameManager")->getComponent("SoundComponent"));
+    if (shoot) {
+        _soundComponent->playSound(
+            dynamic_cast<WeaponControllerIC*>(
+                             father->getComponent("WeaponControllerIC"))
+                             ->getCurrentGun()
+                             ->getShotSound());
+    } else {
+        _soundComponent->stopSound(
+            dynamic_cast<WeaponControllerIC*>(
+                father->getComponent("WeaponControllerIC"))
+                ->getCurrentGun()
+                ->getShotSound());
+    }
+}
 
 // FACTORY INFRASTRUCTURE
 AutomaticECFactory::AutomaticECFactory() = default;
