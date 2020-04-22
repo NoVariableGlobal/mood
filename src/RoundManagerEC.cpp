@@ -31,8 +31,8 @@ void RoundManagerEC::checkEvent() {
         float seconds = clock() / static_cast<float>(CLOCKS_PER_SEC);
         if (seconds - timer >= timeBetweenRounds) {
 
-            if (roundNumber % 5 == 0)
-                changeMap();
+            // if (roundNumber % 5 == 0)
+            changeMap();
             int randNum =
                 rand() % (maxAddEnemies - minAddEnemies + 1) + minAddEnemies;
             enemiesInRound += randNum;
@@ -62,17 +62,15 @@ void RoundManagerEC::checkEvent() {
 }
 
 void RoundManagerEC::changeMap() {
-    int randNum = (rand() % 3) + 1;
+
+    int randNum = (rand() % 4) + 1;
 
     reinterpret_cast<RigidbodyPC*>(
         scene->getEntitybyId("Player")->getComponent("RigidbodyPC"))
         ->setPosition(Ogre::Vector3(0, 10, 0));
-    if (lastMap == randNum) {
-        if (randNum == 4)
-            randNum--;
-        else
-            randNum++;
-    }
+    if (lastMap == randNum)
+        while (randNum == lastMap)
+            randNum = (rand() % 4) + 1;
 
     if (randNum == 1) {
 

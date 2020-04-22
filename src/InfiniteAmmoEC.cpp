@@ -33,6 +33,7 @@ Component* InfiniteAmmoECFactory::create(Entity* _father, Json::Value& _data,
 
     infiniteAmmo->setFather(_father);
     infiniteAmmo->setScene(scene);
+
     scene->getComponentsManager()->addEC(infiniteAmmo);
 
     if (!_data["time"].isDouble())
