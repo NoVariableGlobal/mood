@@ -158,11 +158,11 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)bin</OutDir>
+    <OutDir>$(SolutionDir)bin\</OutDir>
     <EnableClangTidyCodeAnalysis>true</EnableClangTidyCodeAnalysis>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <TargetName>$(ProjectName)_d</TargetName>
-    <IntDir>$(SolutionDir).temp\$(Platform)\$(Configuration)\$(ProjectName)</IntDir>
+    <IntDir>$(SolutionDir).temp\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <IncludePath>$(SolutionDir)src\$(ProjectName);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -170,10 +170,10 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)bin</OutDir>
+    <OutDir>$(SolutionDir)bin\</OutDir>
     <EnableClangTidyCodeAnalysis>true</EnableClangTidyCodeAnalysis>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <IntDir>$(SolutionDir).temp\$(Platform)\$(Configuration)\$(ProjectName)</IntDir>
+    <IntDir>$(SolutionDir).temp\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <IncludePath>$(SolutionDir)src\$(ProjectName);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -198,7 +198,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps\one-thousand-years\src;$(SolutionDir)deps\one-thousand-years\deps\jsoncpp\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\OgreMain\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\Build\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\Components\RTShaderSystem\include;$(SolutionDir)deps\one-thousand-years\deps\bullet\src;$(SolutionDir)deps\one-thousand-years\deps\ogre\PlugIns\STBICodec\include;$(SolutionDir)deps\one-thousand-years\deps\fmod\include;$(SolutionDir)deps\one-thousand-years\deps\SDL2\include;$(SolutionDir)deps\one-thousand-years\deps\jsoncpp\include\json;$(SolutionDir)deps\one-thousand-years\deps\cegui-dependencies\build\dependencies\include;$(SolutionDir)deps\cegui\cegui\include;$(SolutionDir)deps\one-thousand-years\deps\cegui\build\cegui\include;$(SolutionDir)deps\one-thousand-years\deps\OIS\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps\one-thousand-years\src;$(SolutionDir)deps\one-thousand-years\deps\jsoncpp\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\OgreMain\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\Build\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\Components\RTShaderSystem\include;$(SolutionDir)deps\one-thousand-years\deps\bullet\src;$(SolutionDir)deps\one-thousand-years\deps\ogre\PlugIns\STBICodec\include;$(SolutionDir)deps\one-thousand-years\deps\fmod\include;$(SolutionDir)deps\one-thousand-years\deps\SDL2\include;$(SolutionDir)deps\one-thousand-years\deps\jsoncpp\include\json;$(SolutionDir)deps\one-thousand-years\deps\cegui-dependencies\build\dependencies\include;$(SolutionDir)deps\one-thousand-years\deps\cegui\cegui\include;$(SolutionDir)deps\one-thousand-years\deps\cegui\build\cegui\include;$(SolutionDir)deps\one-thousand-years\deps\OIS\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -235,7 +235,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps\one-thousand-years\src;$(SolutionDir)deps\one-thousand-years\deps\jsoncpp\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\OgreMain\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\Build\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\Components\RTShaderSystem\include;$(SolutionDir)deps\one-thousand-years\deps\bullet\src;$(SolutionDir)deps\one-thousand-years\deps\ogre\PlugIns\STBICodec\include;$(SolutionDir)deps\one-thousand-years\deps\fmod\include;$(SolutionDir)deps\one-thousand-years\deps\SDL2\include;$(SolutionDir)deps\one-thousand-years\deps\jsoncpp\include\json;$(SolutionDir)deps\one-thousand-years\deps\cegui-dependencies\build\dependencies\include;$(SolutionDir)deps\cegui\cegui\include;$(SolutionDir)deps\one-thousand-years\deps\cegui\build\cegui\include;$(SolutionDir)deps\one-thousand-years\deps\OIS\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps\one-thousand-years\src;$(SolutionDir)deps\one-thousand-years\deps\jsoncpp\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\OgreMain\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\Build\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\Components\RTShaderSystem\include;$(SolutionDir)deps\one-thousand-years\deps\bullet\src;$(SolutionDir)deps\one-thousand-years\deps\ogre\PlugIns\STBICodec\include;$(SolutionDir)deps\one-thousand-years\deps\fmod\include;$(SolutionDir)deps\one-thousand-years\deps\SDL2\include;$(SolutionDir)deps\one-thousand-years\deps\jsoncpp\include\json;$(SolutionDir)deps\one-thousand-years\deps\cegui-dependencies\build\dependencies\include;$(SolutionDir)deps\one-thousand-years\deps\cegui\cegui\include;$(SolutionDir)deps\one-thousand-years\deps\cegui\build\cegui\include;$(SolutionDir)deps\one-thousand-years\deps\OIS\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
