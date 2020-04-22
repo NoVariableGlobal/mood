@@ -10,12 +10,12 @@
 
 void GunPowerUpC::destroy() {
     setActive(false);
-    scene->getComponentsManager()->eraseDC(this);
+    scene_->getComponentsManager()->eraseDC(this);
 }
 
 void GunPowerUpC::onPickUp() {
     dynamic_cast<WeaponControllerIC*>(
-        scene->getEntitybyId("Player")->getComponent("WeaponControllerIC"))
+        scene_->getEntityById("Player")->getComponent("WeaponControllerIC"))
         ->pickUpGun(_gunId);
 }
 

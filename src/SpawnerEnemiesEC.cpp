@@ -48,7 +48,7 @@ void SpawnerEnemiesEC::setEnemies(int _enemies) { enemies = _enemies; }
 
 void SpawnerEnemiesEC::registerInRoundManager() {
     dynamic_cast<RoundManagerEC*>(
-        scene->getEntitybyId("GameManager")->getComponent("RoundManagerEC"))
+        scene_->getEntityById("GameManager")->getComponent("RoundManagerEC"))
         ->registerEnemySpawner(this);
 }
 

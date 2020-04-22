@@ -7,7 +7,7 @@
 #include <json.h>
 
 void NukeEC::onPick() {
-    std::vector<Entity*> enemies = scene->getEntitiesbyTag("Enemy");
+    std::vector<Entity*> enemies = scene_->getEntitiesByTag("Enemy");
 
     for (auto it : enemies) {
 

@@ -7,7 +7,7 @@
 #include <json.h>
 
 void IncreaseSpeedEC::setEffect(bool value) {
-    Entity* player = scene->getEntitybyId("Player");
+    Entity* player = scene_->getEntityById("Player");
     auto movement = reinterpret_cast<PlayerMovementIC*>(
         player->getComponent("PlayerMovementIC"));
 

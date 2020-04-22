@@ -34,23 +34,24 @@ void MeleeEnemyBehaviourEC::checkEvent() {
 
             // attack player
             LifeC* playerHealth = dynamic_cast<LifeC*>(
-                scene->getEntitybyId("Player")->getComponent("LifeC"));
+                scene_->getEntityById("Player")->getComponent("LifeC"));
 
             // if player dies sleep method is called
             if (playerHealth->doDamage(getAttack())) {
                 AnimationLC* animations = reinterpret_cast<AnimationLC*>(
-                    scene->getEntitybyId("Player")->getComponent(
+                    scene_->getEntityById("Player")->getComponent(
                         "AnimationLC"));
 
                 animations->stopAnimations();
                 animations->startAnimation("Dance");
 
                 reinterpret_cast<RigidbodyPC*>(
-                    scene->getEntitybyId("Player")->getComponent("RigidbodyPC"))
+                    scene_->getEntityById("Player")->getComponent(
+                        "RigidbodyPC"))
                     ->setActive(false);
 
                 reinterpret_cast<DeadManagerEC*>(
-                    scene->getEntitybyId("GameManager")
+                    scene_->getEntityById("GameManager")
                         ->getComponent("DeadManagerEC"))
                     ->setActive(true);
             }

@@ -16,7 +16,7 @@ void DestroyAfterSecsEC::checkEvent() {
 
     float seconds = clock() / static_cast<float>(CLOCKS_PER_SEC);
     if (seconds - creationTime >= lifeTime) {
-        scene->deleteEntity(father);
+        scene_->deleteEntity(father_);
     }
 }
 

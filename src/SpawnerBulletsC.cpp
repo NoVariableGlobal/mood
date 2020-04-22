@@ -13,11 +13,11 @@ SpawnerBulletsC::~SpawnerBulletsC() {}
 
 void SpawnerBulletsC::destroy() {
     setActive(false);
-    scene->getComponentsManager()->eraseDC(this);
+    scene_->getComponentsManager()->eraseDC(this);
 }
 
 Entity* SpawnerBulletsC::getBullet(std::string _type, std::string _tag) {
-    return scene->getInstanceOf(_type, _type + std::to_string(count++), _tag);
+    return scene_->getInstanceOf(_type, _type + std::to_string(count++), _tag);
 }
 
 // FACTORY INFRASTRUCTURE

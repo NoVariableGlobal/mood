@@ -17,11 +17,11 @@
 
 void ShotgunC::onPreShoot() {
     auto* spawner = reinterpret_cast<SpawnerBulletsC*>(
-        scene->getEntitybyId("GameManager")->getComponent("SpawnerBulletsC"));
+        scene_->getEntityById("GameManager")->getComponent("SpawnerBulletsC"));
 
     // Save original rotation
     Ogre::SceneNode* node = reinterpret_cast<TridimensionalObjectRC*>(
-                                father->getComponent("TridimensionalObjectRC"))
+                                father_->getComponent("TridimensionalObjectRC"))
                                 ->getSceneNode();
     const Ogre::Quaternion originalOrientation = node->getOrientation();
 

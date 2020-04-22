@@ -66,7 +66,7 @@ void RoundManagerEC::changeMap() {
     int randNum = (rand() % 4) + 1;
 
     reinterpret_cast<RigidbodyPC*>(
-        scene->getEntitybyId("Player")->getComponent("RigidbodyPC"))
+        scene_->getEntityById("Player")->getComponent("RigidbodyPC"))
         ->setPosition(Ogre::Vector3(0, 10, 0));
     if (lastMap == randNum)
         while (randNum == lastMap)
@@ -79,7 +79,7 @@ void RoundManagerEC::changeMap() {
         for (int i = 0; i < 2; i++)
             otherSpawners[i]->setFloorDimensions(otherSpawnersPos[0]);
 
-        scene->changeScene("map1");
+        scene_->changeScene("map1");
     } else if (randNum == 2) {
 
         for (int i = 0; i < 4; i++)
@@ -87,7 +87,7 @@ void RoundManagerEC::changeMap() {
         for (int i = 0; i < 2; i++)
             otherSpawners[i]->setFloorDimensions(otherSpawnersPos[1]);
 
-        scene->changeScene("map2");
+        scene_->changeScene("map2");
     } else if (randNum == 3) {
 
         for (int i = 0; i < 4; i++)
@@ -95,7 +95,7 @@ void RoundManagerEC::changeMap() {
         for (int i = 0; i < 2; i++)
             otherSpawners[i]->setFloorDimensions(otherSpawnersPos[2]);
 
-        scene->changeScene("map3");
+        scene_->changeScene("map3");
     } else if (randNum == 4) {
 
         for (int i = 0; i < 4; i++)
@@ -103,7 +103,7 @@ void RoundManagerEC::changeMap() {
         for (int i = 0; i < 2; i++)
             otherSpawners[i]->setFloorDimensions(otherSpawnersPos[3]);
 
-        scene->changeScene("map4");
+        scene_->changeScene("map4");
     }
     lastMap = randNum;
 }
