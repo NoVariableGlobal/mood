@@ -103,6 +103,7 @@ If ($Clean) {
 
 # Whether any dependency was specified
 $private:BuildDependenciesSpecified = $BuildDependencies.ToBool() -Or
+    $BuildEngine.ToBool() -Or
     $BuildBullet.ToBool() -Or
     $BuildCegui.ToBool() -Or
     $BuildCeguiDependencies.ToBool() -Or
@@ -145,6 +146,7 @@ If ($BuildDependencies) {
     If (!$BuildOgre.IsPresent) { $BuildOgre = $true }
     If (!$BuildOis.IsPresent) { $BuildOis = $true }
     If (!$BuildSdl2.IsPresent) { $BuildSdl2 = $true }
+    If (!$BuildEngine.IsPresent) { $BuildEngine = $true }
 }
 
 function New-Directory([string[]] $Path) {
