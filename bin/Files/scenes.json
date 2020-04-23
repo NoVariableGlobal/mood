@@ -24,10 +24,10 @@
 			"name": "map4",
 			"file": "map4.json"
 		},
-		{
-			"name": "DeadMenu",
-			"file": "deadMenu.json"
-		}
+    {
+      "name": "DeadMenu",
+      "file": "deadMenu.json"
+    }
 	]
 
 }
