@@ -223,13 +223,130 @@ material PruebaMaterial
     }
 }
 
-material EnemyBulletMaterial
+material HandgunBulletMaterial
+{
+	technique 
+    {
+        diffuse 0.00 0.00 0.00 1.00
+
+        pass 
+        {
+            texture_unit 
+            {
+                texture HandgunBulletColor.png
+            }
+        }
+    }
+}
+
+material RifleBulletMaterial
+{
+	technique 
+    {
+        diffuse 0.00 0.00 0.00 1.00
+
+        pass 
+        {
+            texture_unit 
+            {
+                texture RifleBulletColor.png
+            }
+        }
+    }
+}
+
+material SniperRifleBulletMaterial
+{
+	technique 
+    {
+        diffuse 0.00 0.00 0.00 1.00
+
+        pass 
+        {
+            texture_unit 
+            {
+                texture SniperRifleBulletColor.png
+            }
+        }
+    }
+}
+
+material ShotgunBulletMaterial
 {
     technique 
     {
+        diffuse 0.00 0.00 0.00 1.00
+
         pass 
-        { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
-            diffuse 1.00 0.00 0.00 1.00
+        {
+            texture_unit 
+            {
+                texture ShotgunShot.png
+            }
+        }
+    }
+}
+
+material EnemyHandgunBulletMaterial
+{
+    technique 
+    {
+        diffuse 0.00 0.00 0.00 1.00
+
+        pass 
+        {
+            texture_unit 
+            {
+                texture EnemyHandgunBulletColor.png
+            }
+        }
+    }
+}
+
+material EnemyRifleBulletMaterial
+{
+    technique 
+    {
+        diffuse 0.00 0.00 0.00 1.00
+
+        pass 
+        {
+            texture_unit 
+            {
+                texture EnemyRifleBulletColor.png
+            }
+        }
+    }
+}
+
+material EnemySniperRifleBulletMaterial
+{
+    technique 
+    {
+        diffuse 0.00 0.00 0.00 1.00
+
+        pass 
+        {
+            texture_unit 
+            {
+                texture EnemySniperRifleBulletColor.png
+            }
+        }
+    }
+}
+
+material EnemyShotgunBulletMaterial
+{
+    technique 
+    {
+        diffuse 0.00 0.00 0.00 1.00
+
+        pass 
+        {
+            texture_unit 
+            {
+                texture EnemyShotgunShot.png
+            }
         }
     }
 }
