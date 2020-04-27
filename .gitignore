@@ -44,5 +44,3 @@ bin/*.dll
 bin/*.iobj
 bin/*.ipdb
 bin/*.pdb
-
-*/**/TaharezLook.looknfeel

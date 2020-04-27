@@ -8,8 +8,8 @@
           "type": "QuitButtonComponent",
           "attributes": {
             "text": "quit",
-            "position": [ 0, 0 ],
-            "size": [ 10, 30 ],
+            "position": [ 0.0, 0.0 ],
+            "size": [ 100.0, 30.0 ],
             "name": "QuitButton"
           }
         }
