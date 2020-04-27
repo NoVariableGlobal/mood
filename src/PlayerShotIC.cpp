@@ -10,6 +10,7 @@
 #include "WeaponControllerIC.h"
 #include <iostream>
 #include <json.h>
+#include "AnimationLC.h"
 
 PlayerShotIC::PlayerShotIC() {}
 
@@ -20,6 +21,8 @@ void PlayerShotIC::handleInput(const SDL_Event& _event) {
                           father_->getComponent("WeaponControllerIC")))
                          ->getCurrentGun()
                          ->getautomatic();
+    animations =
+        reinterpret_cast<AnimationLC*>(father->getComponent("AnimationLC"));
     if (_event.type == SDL_MOUSEBUTTONDOWN) {
         if (_event.button.button == SDL_BUTTON_LEFT && !reloading) {
             // TODO: Tell gun component to fire a shot
@@ -32,6 +35,8 @@ void PlayerShotIC::handleInput(const SDL_Event& _event) {
                 (dynamic_cast<AutomaticEC*>(
                      father_->getComponent("AutomaticEC")))
                     ->setShoot(true);
+            animations->stopAnimations();
+            animations->startAnimation("Dead");
         }
     } else if (automatic && _event.type == SDL_MOUSEBUTTONUP) {
         if (_event.button.button == SDL_BUTTON_LEFT) {

@@ -2,6 +2,7 @@
 
 #include "Factory.h"
 #include "InputComponent.h"
+class AnimationLC;
 
 // FACTORY INFRASTRUCTURE DECLARATION
 DECLARE_FACTORY(PlayerShotIC);
