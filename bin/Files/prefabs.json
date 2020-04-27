@@ -329,16 +329,16 @@
           "type": "TransformComponent",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.05, 0.05, 0.05 ]
+            "orientation": [ 0, -90, 0 ], //-90
+            "scale": [ 3, 3, 3 ] //0.05 -> 2.5, tamaño real 3
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
+            "mesh": "HandgunBullet.mesh", //HandgunBullet
             "node": "nGunBullet",
-            "material": "RedColourMaterial"
+            "material": "HandgunBulletMaterial"
           }
         },
         {
@@ -372,7 +372,7 @@
           }
         }
       ]
-    },
+    }, // Handgun Bullet
     {
       "id": "ShotgunBullet",
       "components": [
@@ -381,15 +381,15 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.01, 0.01, 0.01 ]
+            "scale": [ 2, 2, 2 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
+            "mesh": "ShotgunPellet.mesh",
             "node": "nShotgunBullet",
-            "material": "RedColourMaterial"
+            "material": "ShotgunBulletMaterial"
           }
         },
         {
@@ -423,7 +423,7 @@
           }
         }
       ]
-    },
+    }, // Shotgun Bullet
     {
       "id": "SniperBullet",
       "components": [
@@ -432,15 +432,15 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.01, 0.01, 0.01 ]
+            "scale": [ 3, 3, 3 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
-            "node": "nShotgunBullet",
-            "material": "RedColourMaterial"
+            "mesh": "SniperRifleBullet.mesh",
+            "node": "nSniperBullet",
+            "material": "SniperRifleBulletMaterial"
           }
         },
         {
@@ -474,7 +474,7 @@
           }
         }
       ]
-    },
+    }, // Sniper Bullet
     {
       "id": "AutomaticRifleBullet",
       "components": [
@@ -482,16 +482,16 @@
           "type": "TransformComponent",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.05, 0.05, 0.05 ]
+            "orientation": [ 0, -180, 0 ],
+            "scale": [ 2, 2, 2 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
+            "mesh": "RifleBullet.mesh",
             "node": "nAutomaticRifleBullet",
-            "material": "OrangeColourMaterial"
+            "material": "RifleBulletMaterial"
           }
         },
         {
@@ -525,7 +525,7 @@
           }
         }
       ]
-    },
+    }, // Semiauto Bullet
     {
       "id": "Shotgun",
       "components": [
@@ -1125,16 +1125,16 @@
           "type": "TransformComponent",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.05, 0.05, 0.05 ]
+            "orientation": [ 0, -90, 0 ],
+            "scale": [ 3, 3, 3 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
+            "mesh": "HandgunBullet.mesh",
             "node": "nGunBullet",
-            "material": "EnemyBulletMaterial"
+            "material": "EnemyHandgunBulletMaterial"
           }
         },
         {
@@ -1173,7 +1173,7 @@
           }
         }
       ]
-    },
+    }, // Enemy bullet handgun
     {
       "id": "EnemyBullet_rifle",
       "components": [
@@ -1181,16 +1181,16 @@
           "type": "TransformComponent",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.05, 0.05, 0.05 ]
+            "orientation": [ 0, 180, 0 ],
+            "scale": [ 2, 2, 2 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
+            "mesh": "RifleBullet.mesh",
             "node": "nGunBullet",
-            "material": "EnemyBulletMaterial"
+            "material": "EnemyRifleBulletMaterial"
           }
         },
         {
@@ -1229,7 +1229,7 @@
           }
         }
       ]
-    },
+    }, // Enemy bullet rifle
     {
       "id": "EnemyBullet_shotgun",
       "components": [
@@ -1238,15 +1238,15 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.05, 0.05, 0.05 ]
+            "scale": [ 2, 2, 2 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
+            "mesh": "ShotgunPellet.mesh",
             "node": "nShotgunBullet",
-            "material": "EnemyBulletMaterial"
+            "material": "EnemyShotgunBulletMaterial"
           }
         },
         {
@@ -1285,7 +1285,7 @@
           }
         }
       ]
-    },
+    }, // Enemy bullet shotgun
     {
       "id": "EnemyBullet_sniper",
       "components": [
@@ -1294,15 +1294,15 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 0.01, 0.01, 0.01 ]
+            "scale": [ 3, 3, 3 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "cube.mesh",
+            "mesh": "SniperRifleBullet.mesh",
             "node": "nShotgunBullet",
-            "material": "EnemyBulletMaterial"
+            "material": "EnemySniperRifleBulletMaterial"
           }
         },
         {
@@ -1346,7 +1346,7 @@
           }
         }
       ]
-    }
+    }  // Enemy bullet sniper
   ]
 
 }

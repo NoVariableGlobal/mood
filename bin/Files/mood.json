@@ -145,10 +145,10 @@
           "type": "SpawnerFloorRandomEC",
           "attributes": {
             "floorDimensions[x,y,z,w]": [ -100, -100, 200, 200 ],
-            "spawnCooldown": 20,
+            "spawnCooldown": 10, //20
             "spawnID": [ "AutomaticRifle", "Shotgun", "SniperGun" ],
             "spawnTag": "Gun",
-            "spawnChances": [ 40, 30, 30 ]
+            "spawnChances": [  40, 30, 30 ]
           }
         }
       ]
