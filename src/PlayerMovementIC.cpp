@@ -17,7 +17,7 @@ PlayerMovementIC::~PlayerMovementIC() {}
 
 void PlayerMovementIC::handleInput(const SDL_Event& _event) {
     RigidbodyPC* body =
-        dynamic_cast<RigidbodyPC*>(father->getComponent("RigidbodyPC"));
+        dynamic_cast<RigidbodyPC*>(father_->getComponent("RigidbodyPC"));
 
     if (_event.type == SDL_KEYDOWN) {
         switch (_event.key.keysym.sym) {
@@ -94,7 +94,7 @@ void PlayerMovementIC::setMovementSpeed(float speed) { _speed = speed; }
 
 void PlayerMovementIC::setIdleAnimation() {
     animations =
-        reinterpret_cast<AnimationLC*>(father->getComponent("AnimationLC"));
+        reinterpret_cast<AnimationLC*>(father_->getComponent("AnimationLC"));
     animations->stopAnimations();
     animations->startAnimation("Idle");
 }
