@@ -48,6 +48,7 @@
     <ClCompile Include="..\src\PowerUpC.cpp" />
     <ClCompile Include="..\src\PowerUpEC.cpp" />
     <ClCompile Include="..\src\PowerUpTrackerC.cpp" />
+    <ClCompile Include="..\src\QuitButtonC.cpp" />
     <ClCompile Include="..\src\RangedEnemyBehaviourEC.cpp" />
     <ClCompile Include="..\src\RankingManagerC.cpp" />
     <ClCompile Include="..\src\RoundManagerEC.cpp" />
@@ -89,6 +90,7 @@
     <ClInclude Include="..\src\PowerUpC.h" />
     <ClInclude Include="..\src\PowerUpEC.h" />
     <ClInclude Include="..\src\PowerUpTrackerC.h" />
+    <ClInclude Include="..\src\QuitButtonC.h" />
     <ClInclude Include="..\src\RangedEnemyBehaviourEC.h" />
     <ClInclude Include="..\src\RankingManagerC.h" />
     <ClInclude Include="..\src\RoundManagerEC.h" />
