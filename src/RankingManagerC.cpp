@@ -15,7 +15,7 @@ RankingManagerC::~RankingManagerC() { updateRanking(); }
 
 void RankingManagerC::destroy() {
     setActive(false);
-    scene->getComponentsManager()->eraseDC(this);
+    scene_->getComponentsManager()->eraseDC(this);
 }
 
 void RankingManagerC::readRanking() {
@@ -78,7 +78,7 @@ void RankingManagerC::playerDied() {
 
     rank.name = "name";
     rank.round = reinterpret_cast<RoundManagerEC*>(
-                     father->getComponent("RoundManagerEC"))
+                     father_->getComponent("RoundManagerEC"))
                      ->getRoundNumber();
 
     ranking.push_back(rank);

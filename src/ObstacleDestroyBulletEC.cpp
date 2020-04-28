@@ -15,12 +15,12 @@ ObstacleDestroyBulletEC::~ObstacleDestroyBulletEC() {}
 
 void ObstacleDestroyBulletEC::checkEvent() {
     RigidbodyPC* rb =
-        dynamic_cast<RigidbodyPC*>(father->getComponent("RigidbodyPC"));
+        dynamic_cast<RigidbodyPC*>(father_->getComponent("RigidbodyPC"));
 
     // if obstacle collides with bullet
     if (rb->collidesWithTag("Obstacle")) {
         BulletC* bullet =
-            dynamic_cast<BulletC*>(father->getComponent("BulletC"));
+            dynamic_cast<BulletC*>(father_->getComponent("BulletC"));
 
         // destroy bullet
         bullet->dealCollision();

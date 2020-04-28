@@ -18,32 +18,32 @@ BulletHurtPlayerEC::~BulletHurtPlayerEC() {}
 
 void BulletHurtPlayerEC::checkEvent() {
     RigidbodyPC* rb =
-        reinterpret_cast<RigidbodyPC*>(father->getComponent("RigidbodyPC"));
+        reinterpret_cast<RigidbodyPC*>(father_->getComponent("RigidbodyPC"));
 
     // if player collides with bullet
     if (rb->collidesWith("Player")) {
         // hurt player
         BulletC* bullet =
-            reinterpret_cast<BulletC*>(father->getComponent("BulletC"));
+            reinterpret_cast<BulletC*>(father_->getComponent("BulletC"));
         int damage = bullet->getDamage();
 
         LifeC* playerHealth = reinterpret_cast<LifeC*>(
-            scene->getEntitybyId("Player")->getComponent("LifeC"));
+            scene_->getEntityById("Player")->getComponent("LifeC"));
 
         // if player dies sleep method is called
         if (playerHealth->doDamage(damage)) {
             AnimationLC* animations = reinterpret_cast<AnimationLC*>(
-                scene->getEntitybyId("Player")->getComponent("AnimationLC"));
+                scene_->getEntityById("Player")->getComponent("AnimationLC"));
 
             animations->stopAnimations();
             animations->startAnimation("Dance");
 
             reinterpret_cast<RigidbodyPC*>(
-                scene->getEntitybyId("Player")->getComponent("RigidbodyPC"))
+                scene_->getEntityById("Player")->getComponent("RigidbodyPC"))
                 ->setActive(false);
 
             reinterpret_cast<DeadManagerEC*>(
-                scene->getEntitybyId("GameManager")
+                scene_->getEntityById("GameManager")
                     ->getComponent("DeadManagerEC"))
                 ->setActive(true);
         }

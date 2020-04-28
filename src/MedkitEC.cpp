@@ -7,7 +7,7 @@
 #include <json.h>
 
 void MedkitEC::onPick() {
-    Entity* player = scene->getEntitybyId("Player");
+    Entity* player = scene_->getEntityById("Player");
     auto playerHealth = reinterpret_cast<LifeC*>(player->getComponent("LifeC"));
     playerHealth->heal(playerHealth->getTotalLife());
 }

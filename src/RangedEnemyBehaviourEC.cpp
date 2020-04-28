@@ -55,7 +55,7 @@ void RangedEnemyBehaviourEC::setWeaponEquipped(std::string _weaponEquipped) {
 }
 
 void RangedEnemyBehaviourEC::shoot() {
-    gun = dynamic_cast<GunC*>(father->getComponent(weaponEquipped));
+    gun = dynamic_cast<GunC*>(father_->getComponent(weaponEquipped));
     gun->shoot();
 }
 

@@ -34,10 +34,10 @@ EnemyBehaviourEC::~EnemyBehaviourEC() {
 }
 
 void EnemyBehaviourEC::destroy() {
-    std::vector<Entity*> enemies = scene->getEntitiesbyTag("Enemy");
+    std::vector<Entity*> enemies = scene_->getEntitiesByTag("Enemy");
 
     for (auto it : enemies) {
-        if (it != father) {
+        if (it != father_) {
             Component* comp = it->findComponent("MeleeEnemyBehaviourEC");
             if (comp == nullptr)
                 comp = it->getComponent("RangedEnemyBehaviourEC");
@@ -50,16 +50,16 @@ void EnemyBehaviourEC::destroy() {
 
 void EnemyBehaviourEC::registerComponents() {
     transform = reinterpret_cast<TransformComponent*>(
-        father->getComponent("TransformComponent"));
+        father_->getComponent("TransformComponent"));
     playerTransform = reinterpret_cast<TransformComponent*>(
-        scene->getEntitybyId("Player")->getComponent("TransformComponent"));
+        scene_->getEntityById("Player")->getComponent("TransformComponent"));
     rigidbody =
-        reinterpret_cast<RigidbodyPC*>(father->getComponent("RigidbodyPC"));
-    life = reinterpret_cast<LifeC*>(father->getComponent("LifeC"));
+        reinterpret_cast<RigidbodyPC*>(father_->getComponent("RigidbodyPC"));
+    life = reinterpret_cast<LifeC*>(father_->getComponent("LifeC"));
     animations =
-        reinterpret_cast<AnimationLC*>(father->getComponent("AnimationLC"));
+        reinterpret_cast<AnimationLC*>(father_->getComponent("AnimationLC"));
     mesh = dynamic_cast<TridimensionalObjectRC*>(
-        father->getComponent("TridimensionalObjectRC"));
+        father_->getComponent("TridimensionalObjectRC"));
 }
 
 void EnemyBehaviourEC::removeTransforms(EnemyBehaviourEC* behaviour) {
@@ -68,7 +68,7 @@ void EnemyBehaviourEC::removeTransforms(EnemyBehaviourEC* behaviour) {
 }
 
 void EnemyBehaviourEC::registerInOtherEnemies() {
-    std::vector<Entity*> enemies = scene->getEntitiesbyTag("Enemy");
+    std::vector<Entity*> enemies = scene_->getEntitiesByTag("Enemy");
 
     for (auto it : enemies) {
 
@@ -108,7 +108,7 @@ void EnemyBehaviourEC::checkEvent() {
 
     } else {
         if (animations->animationFinished("Dead"))
-            scene->deleteEntity(father);
+            scene_->deleteEntity(father_);
     }
 }
 
@@ -152,7 +152,7 @@ void EnemyBehaviourEC::die() {
     rigidbody->setActive(false);
 
     dynamic_cast<RoundManagerEC*>(
-        scene->getEntitybyId("GameManager")->getComponent("RoundManagerEC"))
+        scene_->getEntityById("GameManager")->getComponent("RoundManagerEC"))
         ->enemyDied();
 }
 

@@ -1,8 +1,7 @@
 #include "Game.h"
 
-#include <fstream>
+#include <ctime>
 #include <iostream>
-#include <time.h>
 #ifdef _DEBUG
 int main()
 #else
@@ -13,9 +12,10 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE prevInstance, LPSTR lmCmdLine,
 {
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
     try {
-        srand(time(NULL));
+        srand(time(nullptr));
         Game game;
-        if (game.init("MOOD"))
+        if (game.init("MOOD", "TaharezLook.scheme", "TaharezLook/MouseArrow",
+                      "DejaVuSans-14"))
             game.run();
     } catch (std::exception& e) {
         std::cout << "\n"

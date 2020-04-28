@@ -11,7 +11,7 @@
 #include <json.h>
 
 void InfiniteAmmoEC::setEffect(bool value) {
-    Entity* player = scene->getEntitybyId("Player");
+    Entity* player = scene_->getEntityById("Player");
     reinterpret_cast<AutomaticRifleC*>(player->getComponent("AutomaticRifleC"))
         ->setInfiniteAmmo(value);
     reinterpret_cast<HandGunC*>(player->getComponent("HandGunC"))

@@ -54,7 +54,7 @@ void SpawnerFloorRandomEC::checkEvent() {
 
 void SpawnerFloorRandomEC::registerInRoundManager() {
     dynamic_cast<RoundManagerEC*>(
-        scene->getEntitybyId("GameManager")->getComponent("RoundManagerEC"))
+        scene_->getEntityById("GameManager")->getComponent("RoundManagerEC"))
         ->registerOtherSpawner(this);
 }
 // FACTORY INFRASTRUCTURE

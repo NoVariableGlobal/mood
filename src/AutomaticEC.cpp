@@ -17,12 +17,12 @@ AutomaticEC::~AutomaticEC() {}
 
 void AutomaticEC::checkEvent() {
     cadence = (dynamic_cast<WeaponControllerIC*>(
-                   father->getComponent("WeaponControllerIC")))
+                   father_->getComponent("WeaponControllerIC")))
                   ->getCurrentGun()
                   ->getcadence();
     if (shoot && timeCadence()) {
         (dynamic_cast<WeaponControllerIC*>(
-             father->getComponent("WeaponControllerIC")))
+             father_->getComponent("WeaponControllerIC")))
             ->getCurrentGun()
             ->shoot();
     }

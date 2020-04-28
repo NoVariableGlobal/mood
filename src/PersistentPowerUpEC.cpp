@@ -16,7 +16,7 @@ void PersistentPowerUpEC::onDestroy() {
         activeEffect_ = false;
         setEffect(false);
 
-        Entity* player = scene->getEntitybyId("Player");
+        Entity* player = scene_->getEntityById("Player");
         reinterpret_cast<PowerUpTrackerC*>(
             player->getComponent("PowerUpTrackerC"))
             ->removePowerUp(getName());
@@ -29,7 +29,7 @@ void PersistentPowerUpEC::checkEvent() {
     if (!getPicked() && getCollisionWithPlayer()) {
         setPicked(true);
 
-        Entity* player = scene->getEntitybyId("Player");
+        Entity* player = scene_->getEntityById("Player");
         auto tracker = reinterpret_cast<PowerUpTrackerC*>(
             player->getComponent("PowerUpTrackerC"));
         auto previous = dynamic_cast<PersistentPowerUpEC*>(
@@ -41,13 +41,14 @@ void PersistentPowerUpEC::checkEvent() {
             setEffect(true);
             activeEffect_ = true;
 
-            father->getComponent("TridimensionalObjectRC")->setActive(false);
-            father->getComponent("RigidbodyPC")->setActive(false);
-            father->getComponent("TransformComponent")->setActive(false);
-            father->setPersistent(true);
+            father_->getComponent("TridimensionalObjectRC")->setActive(false);
+            father_->getComponent("RigidbodyPC")->setActive(false);
+            father_->getComponent("TransformComponent")->setActive(false);
+            father_->setPersistent(true);
             // Add this powerUp to the tracker
             reinterpret_cast<PowerUpTrackerC*>(
-                scene->getEntitybyId("Player")->getComponent("PowerUpTrackerC"))
+                scene_->getEntityById("Player")->getComponent(
+                    "PowerUpTrackerC"))
                 ->addPowerUp(getName(), this);
         } else {
             previous->resetTime();

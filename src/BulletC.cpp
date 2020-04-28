@@ -19,14 +19,14 @@ BulletC::~BulletC() {}
 
 void BulletC::destroy() {
     setActive(false);
-    scene->getComponentsManager()->eraseDC(this);
+    scene_->getComponentsManager()->eraseDC(this);
 }
 
 void BulletC::setDamage(float _d) { damage = _d; }
 
 float BulletC::getDamage() { return damage; }
 
-void BulletC::dealCollision() { scene->deleteEntity(father); }
+void BulletC::dealCollision() { scene_->deleteEntity(father_); }
 
 // FACTORY INFRASTRUCTURE
 BulletCFactory::BulletCFactory() = default;

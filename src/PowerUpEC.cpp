@@ -12,8 +12,8 @@ PowerUpEC::~PowerUpEC() = default;
 
 void PowerUpEC::checkEvent() {
     if (!picked_) {
-        auto rb =
-            reinterpret_cast<RigidbodyPC*>(father->getComponent("RigidbodyPC"));
+        auto rb = reinterpret_cast<RigidbodyPC*>(
+            father_->getComponent("RigidbodyPC"));
 
         // check collision with player
         collisionWithPlayer_ = rb->collidesWith("Player");
@@ -54,4 +54,4 @@ bool PowerUpEC::timeDisappearEffect() {
     return false;
 }
 
-void PowerUpEC::onDestroy() { scene->deleteEntity(father); }
+void PowerUpEC::onDestroy() { scene_->deleteEntity(father_); }

@@ -12,14 +12,14 @@
 #include <json.h>
 
 void OnEPressPickUpIC::handleInput(const SDL_Event& _event) {
-    rb = dynamic_cast<RigidbodyPC*>(father->getComponent("RigidbodyPC"));
+    rb = dynamic_cast<RigidbodyPC*>(father_->getComponent("RigidbodyPC"));
     if (rb->collidesWith("Player")) {
         // TODO: Mostrar un icono con la "E" cuando haya interfaz
 
         if (_event.type == SDL_KEYDOWN && _event.key.keysym.sym == SDLK_e) {
-            dynamic_cast<PowerUpC*>(father->getComponent(objectName))
+            dynamic_cast<PowerUpC*>(father_->getComponent(objectName))
                 ->onPickUp();
-            scene->deleteEntity(father);
+            scene_->deleteEntity(father_);
         }
     }
 }

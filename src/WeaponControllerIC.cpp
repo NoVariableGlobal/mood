@@ -13,7 +13,7 @@ WeaponControllerIC::WeaponControllerIC() {}
 WeaponControllerIC::~WeaponControllerIC() {}
 
 void WeaponControllerIC::init() {
-    currentGun = dynamic_cast<HandGunC*>(father->getComponent("HandGunC"));
+    currentGun = dynamic_cast<HandGunC*>(father_->getComponent("HandGunC"));
 }
 
 void WeaponControllerIC::handleInput(const SDL_Event& _event) {
@@ -35,11 +35,11 @@ void WeaponControllerIC::pickUpGun(std::string _gunName) {
     // Deactivate old gun
     if (secondaryGun != nullptr) {
         if (secondaryGun ==
-            dynamic_cast<HandGunC*>(father->getComponent("HandGunC"))) {
+            dynamic_cast<HandGunC*>(father_->getComponent("HandGunC"))) {
             currentGun->setActive(false);
 
             // Activate ned gun and equip it
-            currentGun = dynamic_cast<GunC*>(father->getComponent(_gunName));
+            currentGun = dynamic_cast<GunC*>(father_->getComponent(_gunName));
             currentGun->setActive(true);
             currentGun->reset();
         }
@@ -48,7 +48,7 @@ void WeaponControllerIC::pickUpGun(std::string _gunName) {
             secondaryGun->setActive(false);
             secondaryGun = currentGun;
             // Activate ned gun and equip it
-            currentGun = dynamic_cast<GunC*>(father->getComponent(_gunName));
+            currentGun = dynamic_cast<GunC*>(father_->getComponent(_gunName));
             currentGun->setActive(true);
 
             currentGun->reset();
@@ -56,7 +56,7 @@ void WeaponControllerIC::pickUpGun(std::string _gunName) {
     } else {
         secondaryGun = currentGun;
         // Activate ned gun and equip it
-        currentGun = dynamic_cast<GunC*>(father->getComponent(_gunName));
+        currentGun = dynamic_cast<GunC*>(father_->getComponent(_gunName));
         currentGun->setActive(true);
 
         currentGun->reset();

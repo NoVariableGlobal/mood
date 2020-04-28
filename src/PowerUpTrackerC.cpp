@@ -6,7 +6,7 @@
 
 void PowerUpTrackerC::destroy() {
     setActive(false);
-    scene->getComponentsManager()->eraseDC(this);
+    scene_->getComponentsManager()->eraseDC(this);
 }
 
 Component* PowerUpTrackerC::findComponent(std::string name) {

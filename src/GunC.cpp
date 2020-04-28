@@ -11,7 +11,7 @@
 
 void GunC::destroy() {
     setActive(false);
-    scene->getComponentsManager()->eraseDC(this);
+    scene_->getComponentsManager()->eraseDC(this);
 }
 
 bool GunC::reload() {
@@ -43,7 +43,7 @@ bool GunC::shoot() {
 
 void GunC::onPreShoot() {
     auto* spawner = reinterpret_cast<SpawnerBulletsC*>(
-        scene->getEntitybyId("GameManager")->getComponent("SpawnerBulletsC"));
+        scene_->getEntityById("GameManager")->getComponent("SpawnerBulletsC"));
 
     Entity* entity = spawner->getBullet(_myBulletType, _myBulletTag);
 
@@ -64,7 +64,7 @@ void GunC::onPreShoot() {
 
 Ogre::Quaternion GunC::getOrientation() const {
     return reinterpret_cast<TridimensionalObjectRC*>(
-               father->getComponent("TridimensionalObjectRC"))
+               father_->getComponent("TridimensionalObjectRC"))
         ->getSceneNode()
         ->getOrientation();
 }

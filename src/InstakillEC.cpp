@@ -11,7 +11,7 @@
 #include <json.h>
 
 void InstakillEC::setEffect(bool effect) {
-    Entity* player = scene->getEntitybyId("Player");
+    Entity* player = scene_->getEntityById("Player");
     reinterpret_cast<AutomaticRifleC*>(player->getComponent("AutomaticRifleC"))
         ->setInstakill(effect);
     reinterpret_cast<HandGunC*>(player->getComponent("HandGunC"))

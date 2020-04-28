@@ -18,29 +18,29 @@ DeadManagerEC::DeadManagerEC() {}
 DeadManagerEC::~DeadManagerEC() {}
 
 void DeadManagerEC::setActive(bool _active) {
-    active = _active;
-    if (active)
+    active_ = _active;
+    if (active_)
         playerAnimations = reinterpret_cast<AnimationLC*>(
-            scene->getEntitybyId("Player")->getComponent("AnimationLC"));
+            scene_->getEntityById("Player")->getComponent("AnimationLC"));
 }
 
 void DeadManagerEC::checkEvent() {
     if (playerAnimations->animationFinished("Dance")) {
         reinterpret_cast<RankingManagerC*>(
-            father->getComponent("RankingManagerC"))
+            father_->getComponent("RankingManagerC"))
             ->playerDied();
 
         RoundManagerEC* roundM = reinterpret_cast<RoundManagerEC*>(
-            father->getComponent("RoundManagerEC"));
+            father_->getComponent("RoundManagerEC"));
 
         roundM->deactivateSpawnerEnemies();
         roundM->deactivateOtherSpawners();
 
-        scene->getEntitybyId("Player")->setActive(false);
+        scene_->getEntityById("Player")->setActive(false);
 
-        scene->changeScene("DeadMenu");
+        scene_->changeScene("DeadMenu");
 
-        active = false;
+        active_ = false;
     }
 }
 
