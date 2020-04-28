@@ -296,6 +296,11 @@
             ]
           }
         },
+		{
+          "type": "AnimationPlayerEC",
+          "attributes": {         
+          }
+        },
         {
           "type": "PlayerMovementIC",
           "attributes": {

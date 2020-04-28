@@ -9,6 +9,7 @@
 #include <SDL.h>
 #include <iostream>
 #include <json.h>
+#include "AnimationLC.h"
 
 PlayerMovementIC::PlayerMovementIC() {}
 
@@ -16,7 +17,9 @@ PlayerMovementIC::~PlayerMovementIC() {}
 
 void PlayerMovementIC::handleInput(const SDL_Event& _event) {
     RigidbodyPC* body =
-        dynamic_cast<RigidbodyPC*>(father_->getComponent("RigidbodyPC"));
+        dynamic_cast<RigidbodyPC*>(father->getComponent("RigidbodyPC"));
+    animations =
+        reinterpret_cast<AnimationLC*>(father->getComponent("AnimationLC"));
 
     if (_event.type == SDL_KEYDOWN) {
         switch (_event.key.keysym.sym) {
