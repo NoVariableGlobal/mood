@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\AnimationPlayerEC.cpp" />
     <ClCompile Include="..\src\AutomaticEC.cpp" />
     <ClCompile Include="..\src\AutomaticRifleC.cpp" />
     <ClCompile Include="..\src\BulletC.cpp" />
@@ -65,7 +64,6 @@
     <ClCompile Include="..\src\WeaponControllerIC.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\AnimationPlayerEC.h" />
     <ClInclude Include="..\src\AutomaticEC.h" />
     <ClInclude Include="..\src\AutomaticRifleC.h" />
     <ClInclude Include="..\src\BulletC.h" />

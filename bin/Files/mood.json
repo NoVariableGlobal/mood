@@ -256,7 +256,7 @@
           "attributes": {
             "mesh": "Mesh.002.mesh",
             "node": "nPlayer",
-            "material": "none"
+            "material": "BlueColourMaterial"
           }
         },
         {
@@ -294,11 +294,6 @@
                 "loop": true
               }
             ]
-          }
-        },
-		{
-          "type": "AnimationPlayerEC",
-          "attributes": {         
           }
         },
         {

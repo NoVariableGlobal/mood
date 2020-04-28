@@ -23,6 +23,7 @@ class PlayerMovementIC : public InputComponent {
     bool wDown = false, sDown = false, aDown = false, dDown = false;
 
   public:
+    bool hit;
     PlayerMovementIC();
     virtual ~PlayerMovementIC();
 
@@ -35,4 +36,6 @@ class PlayerMovementIC : public InputComponent {
 
     // Sets the speed the entity moves at
     void setMovementSpeed(float speed);
+
+    void setIdleAnimation();
 };

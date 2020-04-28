@@ -1,4 +1,5 @@
 #include "PlayerMovementIC.h"
+#include "AnimationLC.h"
 #include "Component.h"
 #include "ComponentsManager.h"
 #include "FactoriesFactory.h"
@@ -9,7 +10,6 @@
 #include <SDL.h>
 #include <iostream>
 #include <json.h>
-#include "AnimationLC.h"
 
 PlayerMovementIC::PlayerMovementIC() {}
 
@@ -18,8 +18,6 @@ PlayerMovementIC::~PlayerMovementIC() {}
 void PlayerMovementIC::handleInput(const SDL_Event& _event) {
     RigidbodyPC* body =
         dynamic_cast<RigidbodyPC*>(father->getComponent("RigidbodyPC"));
-    animations =
-        reinterpret_cast<AnimationLC*>(father->getComponent("AnimationLC"));
 
     if (_event.type == SDL_KEYDOWN) {
         switch (_event.key.keysym.sym) {
@@ -41,6 +39,11 @@ void PlayerMovementIC::handleInput(const SDL_Event& _event) {
 
         default:
             break;
+        }
+        if (!hit) {
+            animations->stopAnimations();
+            animations->startAnimation("Run Down");
+            hit = true;
         }
     } else if (_event.type == SDL_KEYUP) {
         switch (_event.key.keysym.sym) {
@@ -77,11 +80,24 @@ void PlayerMovementIC::handleInput(const SDL_Event& _event) {
         velocity += Ogre::Vector3(_speed, 0.0f, 0.0f);
 
     body->setLinearVelocity(velocity);
+
+    if (hit && velocity == Ogre::Vector3(0.0f, 0.0f, 0.0f)) {
+        animations->stopAnimations();
+        animations->startAnimation("Idle");
+        hit = false;
+    }
 }
 
 float PlayerMovementIC::getMovementSpeed() { return _speed; }
 
 void PlayerMovementIC::setMovementSpeed(float speed) { _speed = speed; }
+
+void PlayerMovementIC::setIdleAnimation() {
+    animations =
+        reinterpret_cast<AnimationLC*>(father->getComponent("AnimationLC"));
+    animations->stopAnimations();
+    animations->startAnimation("Idle");
+}
 
 // FACTORY INFRASTRUCTURE
 PlayerMovementICFactory::PlayerMovementICFactory() = default;
@@ -97,6 +113,7 @@ Component* PlayerMovementICFactory::create(Entity* _father, Json::Value& _data,
     if (!_data["speed"].asInt())
         throw std::exception("PlayerMovementIC: speed is not an int");
     playerMovement->setMovementSpeed(_data["speed"].asFloat());
+    playerMovement->setIdleAnimation();
 
     return playerMovement;
 };
