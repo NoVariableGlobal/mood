@@ -1,6 +1,11 @@
 {
 	"scenes": [
 		{
+			"name": "mainmenu",
+			"file": "mainmenu.json"
+		},
+		
+		{
 			"name": "MOOD",
 			"file": "mood.json"
 		},
@@ -24,10 +29,18 @@
 			"name": "map4",
 			"file": "map4.json"
 		},
-    {
-      "name": "DeadMenu",
-      "file": "deadMenu.json"
-    }
+		{
+		  "name": "DeadMenu",
+		  "file": "deadMenu.json"
+		},
+		{
+		  "name": "ranking",
+		  "file": "ranking.json"
+		},
+		{
+		  "name": "options",
+		  "file": "options.json"
+		}
 	]
 
 }
