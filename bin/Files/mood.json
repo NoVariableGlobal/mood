@@ -2,7 +2,7 @@
   "entities": [
     {
       "id": "QuitButton",
-      "persistent": true,
+      "persistent": false,
       "components": [
         {
           "type": "QuitButtonComponent",

@@ -1,4 +1,6 @@
 <Imageset autoScaled="vertical" imagefile="TaharezLook.png" name="TaharezLook" nativeHorzRes="1280" nativeVertRes="720" version="2">
+    <Image height="420" name="MOOD" width="640" xPos="0" yPos="300" />
+    <Image height="200" name="NotVariableGlobal" width="160" xPos="320" yPos="0" />
     <Image height="64" name="ClientBrush" width="64" xPos="2" yPos="2" />
     <Image height="1" name="GenericBrush" width="1" xPos="9" yPos="71" />
     <Image height="22" name="WindowLeftEdge" width="1" xOffset="4" xPos="6" yOffset="0" yPos="95" />
@@ -168,7 +170,7 @@
     <Image height="6" name="MultiLineEditboxBottomRight" width="6" xPos="63" yPos="100" />
     <Image height="6" name="MultiLineEditboxBackdrop" width="6" xPos="52" yPos="89" />
     <Image height="14" name="MultiLineEditboxSelectionBrush" width="14" xPos="9" yPos="71" />
-    <Image height="17" name="MouseTarget" width="17" xOffset="-8" xPos="182" yOffset="-8" yPos="127" />
+    <Image height="17" name="MouseTarget" width="17" xOffset="-9" xPos="181" yOffset="-9" yPos="126" />
     <Image height="25" name="MouseArrow" width="31" xPos="138" yPos="127" />
     <Image height="18" name="MouseMoveCursor" width="18" xOffset="-8" xPos="201" yOffset="-8" yPos="127" />
     <Image height="18" name="MouseNoSoCursor" width="8" xOffset="-3" xPos="221" yOffset="-8" yPos="127" />

@@ -1,0 +1,71 @@
+{
+  "entities": [
+    {
+      "id": "Title",
+      "components": [
+        {
+          "type": "GuiLabelComponent",
+          "attributes": {
+            "text": "Options",
+            "position": [ 0.465, 0.2 ],
+            "size": [ 100.0, 50.0 ],
+            "name": "OptionsTitle"
+          }
+        }
+      ]
+    },
+	{
+      "id": "ReturnButton",
+      "components": [
+		{
+          "type": "ChangeSceneButtonComponent",
+          "attributes": {
+            "text": "Return",
+            "position": [ 0.44, 0.6 ],
+            "size": [ 120.0, 40.0 ],
+            "name": "OptionsReturn",
+			"scene": "mainmenu"
+          }
+        }
+      ]
+    },
+	{
+      "id": "QuitButton",
+      "components": [
+		{
+          "type": "QuitButtonComponent",
+          "attributes": {
+            "text": "Quit",
+            "position": [ 0.44, 0.7 ],
+            "size": [ 120.0, 40.0 ],
+            "name": "OptionsQuit"
+          }
+        }
+      ]
+    },
+    {
+      "id": "Camera",
+      "persistent": false,
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 3, 3, 3 ]
+          }
+        },
+        {
+          "type": "CameraRC",
+          "attributes": {
+            "node": "nCamera",
+            "viewportColour": [ 0, 0, 0 ],
+            "offset": [ 0, 300, 60 ],
+            "lookAt": [ 0, -1, -0.25 ],
+            "targetId": "none"
+          }
+        }
+      ]
+    }
+  ]
+}
