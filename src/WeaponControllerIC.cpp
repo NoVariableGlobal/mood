@@ -5,9 +5,9 @@
 #include "HandGunC.h"
 #include "Scene.h"
 #include <SDL.h>
+#include <SoundComponent.h>
 #include <iostream>
 #include <json.h>
-#include <SoundComponent.h>
 
 WeaponControllerIC::WeaponControllerIC() {}
 

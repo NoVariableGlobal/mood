@@ -7,10 +7,10 @@
 #include "OgreRoot.h"
 #include "Scene.h"
 #include "WeaponControllerIC.h"
+#include <SoundComponent.h>
 #include <iostream>
 #include <json.h>
 #include <time.h>
-#include <SoundComponent.h>
 
 AutomaticEC::AutomaticEC() {}
 
@@ -47,17 +47,18 @@ bool AutomaticEC::timeCadence() {
 
 void AutomaticEC::setCadence(double _cadence) { cadence = _cadence; }
 
-void AutomaticEC::setShoot(bool _shoot) { 
-  shoot = _shoot;
+void AutomaticEC::setShoot(bool _shoot) {
+    shoot = _shoot;
     if (_soundComponent == nullptr)
-      _soundComponent = dynamic_cast<SoundComponent*>(
-        scene->getEntitybyId("GameManager")->getComponent("SoundComponent"));
+        _soundComponent =
+            dynamic_cast<SoundComponent*>(scene->getEntitybyId("GameManager")
+                                              ->getComponent("SoundComponent"));
     if (shoot) {
         _soundComponent->playSound(
             dynamic_cast<WeaponControllerIC*>(
-                             father->getComponent("WeaponControllerIC"))
-                             ->getCurrentGun()
-                             ->getShotSound());
+                father->getComponent("WeaponControllerIC"))
+                ->getCurrentGun()
+                ->getShotSound());
     } else {
         _soundComponent->stopSound(
             dynamic_cast<WeaponControllerIC*>(

@@ -63,7 +63,7 @@ void ShotgunC::onShoot(TransformComponent* transform, RigidbodyPC* rigidBody) {
     rigidBody->setLinearVelocity(-(quat * Ogre::Vector3::NEGATIVE_UNIT_Z) *
                                  _bulletSpeed);
                                  
-    GunC::shoot(transform, rigidBody);
+    GunC::onShoot(transform, rigidBody);
 }
 
 void ShotgunC::setNPellets(int n) { nPellets = n; }

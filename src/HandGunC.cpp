@@ -18,7 +18,7 @@ void HandGunC::onShoot(TransformComponent* transform, RigidbodyPC* rigidBody) {
     transform->setOrientation(myTransform->getOrientation());
 
     rigidBody->setLinearVelocity((quat * Ogre::Vector3::UNIT_Z) * _bulletSpeed);
-    GunC::shoot(transform, rigidBody);
+    GunC::onShoot(transform, rigidBody);
 }
 
 
@@ -72,7 +72,7 @@ Component* HandGunCFactory::create(Entity* _father, Json::Value& _data,
     if (!_data["bulletType"].isString())
         throw std::exception("HandGunC: bulletType is not a string");
     hg->setBulletType(_data["bulletType"].asString());
-    
+
     if (!_data["shotSound"].isString())
         throw std::exception("HandGunC: shotSound is not a string");
     hg->setShotSound(_data["shotSound"].asString());
