@@ -250,7 +250,9 @@
         },
         {
           "type": "DeadManagerEC",
-          "attributes": {}
+          "attributes": {
+            "timeToWait": 5
+          }
         },
         {
           "type": "SpawnerFloorRandomEC",
