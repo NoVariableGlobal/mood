@@ -14,10 +14,12 @@ namespace Ogre {
 
 class PlayerShotIC : public InputComponent {
   private:
+    bool reloading = false;
   public:
     PlayerShotIC();
     virtual ~PlayerShotIC();
 
     // On mouse button down, tells a gun component to fire a shot
     virtual void handleInput(const SDL_Event& _event);
+    void setReloading(bool reload);
 };

@@ -5,6 +5,7 @@
 #include "FactoriesFactory.h"
 #include "GunC.h"
 #include "OgreRoot.h"
+#include "ReloadEC.h"
 #include "Scene.h"
 #include "WeaponControllerIC.h"
 #include <iostream>
@@ -20,7 +21,7 @@ void PlayerShotIC::handleInput(const SDL_Event& _event) {
                          ->getCurrentGun()
                          ->getautomatic();
     if (_event.type == SDL_MOUSEBUTTONDOWN) {
-        if (_event.button.button == SDL_BUTTON_LEFT) {
+        if (_event.button.button == SDL_BUTTON_LEFT && !reloading) {
             // TODO: Tell gun component to fire a shot
             if (!automatic)
                 (dynamic_cast<WeaponControllerIC*>(
@@ -39,13 +40,14 @@ void PlayerShotIC::handleInput(const SDL_Event& _event) {
         }
     } else if (_event.type == SDL_KEYDOWN) {
         if (_event.key.keysym.sym == SDLK_r) {
-            (dynamic_cast<WeaponControllerIC*>(
-                 father_->getComponent("WeaponControllerIC")))
-                ->getCurrentGun()
-                ->reload();
+            reloading = true;
+            (dynamic_cast<ReloadEC*>(father_->getComponent("ReloadEC")))
+                ->starToReload();
         }
     }
 }
+
+void PlayerShotIC::setReloading(bool reload) { reloading = reload; }
 
 // FACTORY INFRASTRUCTURE
 PlayerShotICFactory::PlayerShotICFactory() = default;
