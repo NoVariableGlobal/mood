@@ -3,8 +3,8 @@
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "HandGunC.h"
-#include "Scene.h"
 #include "ReloadEC.h"
+#include "Scene.h"
 #include <SDL.h>
 #include <iostream>
 #include <json.h>

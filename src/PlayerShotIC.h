@@ -15,6 +15,7 @@ namespace Ogre {
 class PlayerShotIC : public InputComponent {
   private:
     bool reloading = false;
+
   public:
     PlayerShotIC();
     virtual ~PlayerShotIC();
