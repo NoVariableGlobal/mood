@@ -1,4 +1,5 @@
 #include "WeaponControllerIC.h"
+#include "AutomaticEC.h"
 #include "ComponentsManager.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
@@ -21,17 +22,25 @@ void WeaponControllerIC::handleInput(const SDL_Event& _event) {
 
     if (_event.type == SDL_KEYDOWN && _event.key.keysym.sym == SDLK_SPACE) {
         if (secondaryGun != nullptr) {
-            GunC* aux = currentGun;
-            currentGun = secondaryGun;
-            secondaryGun = aux;
-
-            if (secondaryGun->getautomatic()) {
+            if (currentGun->getautomatic()) {
                 if (_soundComponent == nullptr)
                     _soundComponent = dynamic_cast<SoundComponent*>(
                         scene_->getEntityById("GameManager")
                             ->getComponent("SoundComponent"));
-                _soundComponent->stopSound(secondaryGun->getShotSound());
+                _soundComponent->stopSound(currentGun->getShotSound());
+
+                if (_automaticEC == nullptr)
+                    _automaticEC = dynamic_cast<AutomaticEC*>(
+                        father_->getComponent("AutomaticEC"));
+                _automaticEC->setShoot(false);
             }
+
+
+            GunC* aux = currentGun;
+            currentGun = secondaryGun;
+            secondaryGun = aux;
+
+            
         }
     }
 }
