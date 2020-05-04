@@ -1,4 +1,5 @@
 <Imageset autoScaled="vertical" imagefile="TaharezLook.png" name="TaharezLook" nativeHorzRes="1280" nativeVertRes="720" version="2">
+    <Image height="147" name="GunFramework" width="239" xPos="636" yPos="0" />
     <Image height="55" name="RoundFramework" width="150" xPos="486" yPos="0" />
     <Image height="25" name="SpeedIcon" width="25" xPos="0" yPos="269" />
     <Image height="25" name="ShieldIcon" width="25" xPos="25" yPos="269" />

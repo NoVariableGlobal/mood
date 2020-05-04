@@ -140,8 +140,8 @@
           "type": "GuiImageComponent",
           "attributes": {
             "image": "TaharezLook/RoundFramework",
-            "position": [ 0.8, 0.002 ],
-            "size": [ 150.0, 50.0 ],
+            "position": [ 0.8, 0.005 ],
+            "size": [ 150.0, 45.0 ],
             "name": "RoundFramework"
           }
         },
@@ -152,6 +152,21 @@
             "position": [ 0.84, 0.003 ],
             "size": [ 200.0, 50.0 ],
             "name": "RoundText"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GunHUD",
+      "persistent": true,
+      "components": [
+        {
+          "type": "GuiImageComponent",
+          "attributes": {
+            "image": "TaharezLook/GunFramework",
+            "position": [ 0.71, 0.76 ],
+            "size": [ 239.0, 147.0 ],
+            "name": "GunFramework"
           }
         }
       ]
