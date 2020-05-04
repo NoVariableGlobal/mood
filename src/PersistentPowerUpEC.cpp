@@ -1,5 +1,6 @@
 #include "PersistentPowerUpEC.h"
 #include "Entity.h"
+#include "PowerUpIconC.h"
 #include "PowerUpTrackerC.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
@@ -35,6 +36,9 @@ void PersistentPowerUpEC::checkEvent() {
         auto previous = dynamic_cast<PersistentPowerUpEC*>(
             tracker->findComponent(getName()));
 
+        reinterpret_cast<PowerUpIconC*>(scene_->getEntityById(hudName_)->getComponent("PowerUpIconC"))
+            ->activePowerUpIcon();
+
         // If the player already has this powerup refresh it
         if (previous == nullptr) {
             resetTime();
@@ -54,8 +58,18 @@ void PersistentPowerUpEC::checkEvent() {
             previous->resetTime();
             onDestroy();
         }
-    } else if (timeDisappearEffect()) { // delete item when the effect has
+    } else if (getPicked() &&
+               timeDisappearEffect()) { // delete item and disabled icon if you picked the power up and the effect has
+                                        // passed
+        reinterpret_cast<PowerUpIconC*>(
+            scene_->getEntityById(hudName_)->getComponent("PowerUpIconC"))
+            ->desactivePowerUpIcon();
+        onDestroy();
+
+    } else if (timeDisappearEffect()) {// delete item when the effect has
                                         // passed
         onDestroy();
     }
 }
+
+void PersistentPowerUpEC::setHUDName(std::string name) { hudName_ = name; }

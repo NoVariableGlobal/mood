@@ -44,6 +44,11 @@ void LifeC::heal(float _heal) {
 
     if (currentLife > totalLife)
         currentLife = totalLife;
+
+    if (father_->getId() == "Player")
+        reinterpret_cast<LifeBarC*>(
+            scene_->getEntityById("LifeHUD")->getComponent("LifeBarC"))
+            ->updateLifeBar(currentLife, totalLife);
 }
 
 void LifeC::setInvulnerability(bool _invulnerability) {

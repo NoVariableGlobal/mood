@@ -15,7 +15,7 @@ void PowerUpIconC::destroy() {
 
 void PowerUpIconC::activePowerUpIcon() { myself->setAlpha(1.0); }
 
-void PowerUpIconC::desactivePowerUpIcon() { myself->setAlpha(0.5); }
+void PowerUpIconC::desactivePowerUpIcon() { myself->setAlpha(0.1); }
 
 // FACTORY INFRASTRUCTURE
 PowerUpIconCFactory::PowerUpIconCFactory(){};
@@ -46,6 +46,8 @@ Component* PowerUpIconCFactory::create(Entity* _father, Json::Value& _data,
     icon->setName(_data["name"].asString());
 
     icon->create();
+
+    icon->desactivePowerUpIcon();
 
     return icon;
 };

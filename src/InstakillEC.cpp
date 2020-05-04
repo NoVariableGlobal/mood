@@ -44,6 +44,8 @@ Component* InstakillECFactory::create(Entity* _father, Json::Value& _data,
         throw std::exception("InstakillEC: timeEffect is not a double");
     instakill->setDuration(_data["timeEffect"].asDouble());
 
+    instakill->setHUDName("KillHUD");
+
     instakill->setActive(true);
 
     return instakill;
