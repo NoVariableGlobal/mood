@@ -40,21 +40,21 @@ Component* LifeBarCFactory::create(Entity* _father, Json::Value& _data,
     lifeBar->setScene(_scene);
 
     if (!_data["image"].isString())
-        throw std::exception("GuiImageComponent: image is not a string");
+        throw std::exception("LifeBarC: image is not a string");
     lifeBar->setImage(_data["image"].asString());
 
     if (!_data["position"].isArray())
-        throw std::exception("GuiImageComponent: position is not an array");
+        throw std::exception("LifeBarC: position is not an array");
     lifeBar->setPosition(glm::vec2(_data["position"][0].asFloat(),
                                              _data["position"][1].asFloat()));
 
     if (!_data["size"].isArray())
-        throw std::exception("GuiImageComponent: size is not an array");
+        throw std::exception("LifeBarC: size is not an array");
     lifeBar->setSize(
         glm::vec2(_data["size"][0].asFloat(), _data["size"][1].asFloat()));
 
     if (!_data["name"].isString())
-        throw std::exception("GuiImageComponent: name is not a string");
+        throw std::exception("LifeBarC: name is not a string");
     lifeBar->setName(_data["name"].asString());
 
     lifeBar->create();

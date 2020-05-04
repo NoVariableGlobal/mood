@@ -82,6 +82,66 @@
       ]
     },
     {
+      "id": "SpeedHUD",
+      "persistent": true,
+      "components": [
+        {
+          "type": "PowerUpIconC",
+          "attributes": {
+            "image": "TaharezLook/SpeedIcon",
+            "position": [ 0.05, 0.05 ],
+            "size": [ 25.0, 25.0 ],
+            "name": "SpeedIcon"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ShieldHUD",
+      "persistent": true,
+      "components": [
+        {
+          "type": "PowerUpIconC",
+          "attributes": {
+            "image": "TaharezLook/ShieldIcon",
+            "position": [ 0.09, 0.05 ],
+            "size": [ 25.0, 25.0 ],
+            "name": "ShieldIcon"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AmmoHUD",
+      "persistent": true,
+      "components": [
+        {
+          "type": "PowerUpIconC",
+          "attributes": {
+            "image": "TaharezLook/AmmoIcon",
+            "position": [ 0.13, 0.05 ],
+            "size": [ 25.0, 25.0 ],
+            "name": "AmmoIcon"
+          }
+        }
+      ]
+    },
+    {
+      "id": "KillHUD",
+      "persistent": true,
+      "components": [
+        {
+          "type": "PowerUpIconC",
+          "attributes": {
+            "image": "TaharezLook/KillIcon",
+            "position": [ 0.17, 0.05 ],
+            "size": [ 25.0, 25.0 ],
+            "name": "KillIcon"
+          }
+        }
+      ]
+    },
+    {
       "id": "GameManager",
       "persistent": true,
       "components": [

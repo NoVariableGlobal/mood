@@ -1,4 +1,8 @@
 <Imageset autoScaled="vertical" imagefile="TaharezLook.png" name="TaharezLook" nativeHorzRes="1280" nativeVertRes="720" version="2">
+    <Image height="25" name="SpeedIcon" width="25" xPos="0" yPos="269" />
+    <Image height="25" name="ShieldIcon" width="25" xPos="25" yPos="269" />
+    <Image height="25" name="AmmoIcon" width="25" xPos="50" yPos="269" />
+    <Image height="25" name="KillIcon" width="25" xPos="75" yPos="269" />
     <Image height="24" name="LifeBar_Framework" width="392" xPos="2" yPos="225" />
     <Image height="20" name="LifeBar" width="354" xPos="2" yPos="249" />
     <Image height="420" name="MOOD" width="640" xPos="0" yPos="300" />

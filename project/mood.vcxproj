@@ -48,6 +48,7 @@
     <ClCompile Include="..\src\PlayerShotIC.cpp" />
     <ClCompile Include="..\src\PowerUpC.cpp" />
     <ClCompile Include="..\src\PowerUpEC.cpp" />
+    <ClCompile Include="..\src\PowerUpIconC.cpp" />
     <ClCompile Include="..\src\PowerUpTrackerC.cpp" />
     <ClCompile Include="..\src\RangedEnemyBehaviourEC.cpp" />
     <ClCompile Include="..\src\RankingManagerC.cpp" />
@@ -90,6 +91,7 @@
     <ClInclude Include="..\src\PlayerShotIC.h" />
     <ClInclude Include="..\src\PowerUpC.h" />
     <ClInclude Include="..\src\PowerUpEC.h" />
+    <ClInclude Include="..\src\PowerUpIconC.h" />
     <ClInclude Include="..\src\PowerUpTrackerC.h" />
     <ClInclude Include="..\src\RangedEnemyBehaviourEC.h" />
     <ClInclude Include="..\src\RankingManagerC.h" />
