@@ -29,6 +29,19 @@
       ]
     },
     {
+      "id": "Rounds2",
+      "components": [
+        {
+          "type": "GuiRoundLabelC",
+          "attributes": {
+            "position": [ 0.40, 0.2 ],
+            "size": [ 200.0, 50.0 ],
+            "name": "RoundNumber"
+          }
+        }
+      ]
+    },
+    {
       "id": "Ranking2",
       "components": [
         {

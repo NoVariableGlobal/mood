@@ -154,6 +154,10 @@
       <Filter>Source Files\Weapons</Filter>
     </ClCompile>
     <ClCompile Include="..\src\GunModelManager.cpp">
+    <ClCompile Include="..\src\GuiRoundLabelC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\QuitButtonC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -291,6 +295,10 @@
       <Filter>Source Files\Weapons</Filter>
     </ClInclude>
     <ClInclude Include="..\src\GunModelManagerC.h">
+    <ClInclude Include="..\src\GuiRoundLabelC.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\QuitButtonC.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
