@@ -68,8 +68,8 @@ Component* LifeBarCFactory::create(Entity* _father, Json::Value& _data,
     lifeBar->setName(_data["name"].asString());
 
     lifeBar->create();
-    lifeBar->setInitSize(lifeBar->getWindow().getWidth().d_offset,
-                         lifeBar->getWindow().getHeight().d_offset);
+    lifeBar->setInitSize(lifeBar->getWindow()->getWidth().d_offset,
+                         lifeBar->getWindow()->getHeight().d_offset);
 
     return lifeBar;
 };
