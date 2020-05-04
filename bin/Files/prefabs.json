@@ -476,7 +476,7 @@
       ]
     }, // Sniper Bullet
     {
-      "id": "AutomaticRifleBullet",
+      "id": "MachineGunBullet",
       "components": [
         {
           "type": "TransformComponent",
@@ -585,7 +585,7 @@
       ]
     },
     {
-      "id": "AutomaticRifle",
+      "id": "MachineGun",
       "components": [
         {
           "type": "TransformComponent",
@@ -620,7 +620,7 @@
         {
           "type": "GunPowerUpC",
           "attributes": {
-            "gunId": "AutomaticRifleC"
+            "gunId": "MachineGunC"
           }
         },
         {
@@ -921,13 +921,13 @@
             "speed": 50,
             "attack": 8,
             "attackCooldown": 0.5,
-            "weaponEquipped": "AutomaticRifleC",
+            "weaponEquipped": "MachineGunC",
             "aggroDistance": 9000.0,
             "separationRadius": 1000
           }
         },
         {
-          "type": "AutomaticRifleC",
+          "type": "MachineGunC",
           "attributes": {
             "bulletTag": "EnemyBullet",
             "bulletchamberMax": 30,

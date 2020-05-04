@@ -1,5 +1,5 @@
 #include "InfiniteAmmoEC.h"
-#include "AutomaticRifleC.h"
+#include "MachineGunC.h"
 #include "ComponentsManager.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
@@ -12,7 +12,7 @@
 
 void InfiniteAmmoEC::setEffect(bool value) {
     Entity* player = scene_->getEntityById("Player");
-    reinterpret_cast<AutomaticRifleC*>(player->getComponent("AutomaticRifleC"))
+    reinterpret_cast<MachineGunC*>(player->getComponent("MachineGunC"))
         ->setInfiniteAmmo(value);
     reinterpret_cast<HandGunC*>(player->getComponent("HandGunC"))
         ->setInfiniteAmmo(value);

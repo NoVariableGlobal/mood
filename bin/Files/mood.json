@@ -127,7 +127,7 @@
           "attributes": {
             "floorDimensions[x,y,z,w]": [ -100, -100, 200, 200 ],
             "spawnCooldown": 10, //20
-            "spawnID": [ "AutomaticRifle", "Shotgun", "SniperGun" ],
+            "spawnID": [ "MachineGun", "Shotgun", "SniperGun" ],
             "spawnTag": "Gun",
             "spawnChances": [ 40, 30, 30 ]
           }
@@ -357,7 +357,7 @@
           }
         },
         {
-          "type": "AutomaticRifleC",
+          "type": "MachineGunC",
           "attributes": {
             "bulletTag": "PlayerBullet",
             "bulletchamberMax": 30,
@@ -367,7 +367,7 @@
             "cadence": 0.1,
             "automatic": true,
             "instakill": false,
-            "bulletType": "AutomaticRifleBullet",
+            "bulletType": "MachineGunBullet",
             "bulletComponent": "BulletC",
             "shotSound": "MachinegunShots"
           }

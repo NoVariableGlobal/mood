@@ -135,7 +135,7 @@
     <ClCompile Include="..\src\ShotgunC.cpp">
       <Filter>Source Files\Weapons</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\AutomaticRifleC.cpp">
+    <ClCompile Include="..\src\MachineGunC.cpp">
       <Filter>Source Files\Weapons</Filter>
     </ClCompile>
   </ItemGroup>
@@ -254,7 +254,7 @@
     <ClInclude Include="..\src\ShotgunC.h">
       <Filter>Source Files\Weapons</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\AutomaticRifleC.h">
+    <ClInclude Include="..\src\MachineGunC.h">
       <Filter>Source Files\Weapons</Filter>
     </ClInclude>
   </ItemGroup>

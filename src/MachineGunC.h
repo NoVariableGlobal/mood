@@ -3,9 +3,9 @@
 #include "Factory.h"
 #include "GunC.h"
 
-DECLARE_FACTORY(AutomaticRifleC);
+DECLARE_FACTORY(MachineGunC);
 
-class AutomaticRifleC final : public GunC {
+class MachineGunC final : public GunC {
   protected:
     void onShoot(TransformComponent* transform,
                  RigidbodyPC* rigidBody) override;

@@ -1,5 +1,5 @@
 #include "InstakillEC.h"
-#include "AutomaticRifleC.h"
+#include "MachineGunC.h"
 #include "ComponentsManager.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
@@ -12,7 +12,7 @@
 
 void InstakillEC::setEffect(bool effect) {
     Entity* player = scene_->getEntityById("Player");
-    reinterpret_cast<AutomaticRifleC*>(player->getComponent("AutomaticRifleC"))
+    reinterpret_cast<MachineGunC*>(player->getComponent("MachineGunC"))
         ->setInstakill(effect);
     reinterpret_cast<HandGunC*>(player->getComponent("HandGunC"))
         ->setInstakill(effect);
