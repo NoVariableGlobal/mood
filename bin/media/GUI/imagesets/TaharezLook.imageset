@@ -1,4 +1,6 @@
 <Imageset autoScaled="vertical" imagefile="TaharezLook.png" name="TaharezLook" nativeHorzRes="1280" nativeVertRes="720" version="2">
+    <Image height="24" name="LifeBar_Framework" width="392" xPos="2" yPos="300" />
+    <Image height="20" name="LifeBar" width="354" xPos="2" yPos="300" />
     <Image height="420" name="MOOD" width="640" xPos="0" yPos="300" />
     <Image height="200" name="NotVariableGlobal" width="160" xPos="320" yPos="0" />
     <Image height="64" name="ClientBrush" width="64" xPos="2" yPos="2" />
