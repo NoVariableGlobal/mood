@@ -18,7 +18,8 @@ void ReadNameIC::handleInput(const SDL_Event& _event) {
 
         if (_event.key.keysym.sym == SDLK_BACKSPACE)
             removeLetter();
-        else if (_event.key.keysym.sym >= SDLK_a && _event.key.keysym.sym <= SDLK_z)
+        else if (_event.key.keysym.sym >= SDLK_a &&
+                 _event.key.keysym.sym <= SDLK_z)
             addLetter(static_cast<char>(_event.key.keysym.sym));
     }
 }
