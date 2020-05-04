@@ -12,15 +12,6 @@
             "size": [ 100.0, 30.0 ],
             "name": "QuitButton"
           }
-        },
-        {
-          "type": "GuiLabelComponent",
-          "attributes": {
-            "text": "Odio CEGUI",
-            "position": [ 0.5, 0.0 ],
-            "size": [ 100.0, 50.0 ],
-            "name": "OdioLabel"
-          }
         }
       ]
     },
@@ -137,6 +128,30 @@
             "position": [ 0.17, 0.05 ],
             "size": [ 25.0, 25.0 ],
             "name": "KillIcon"
+          }
+        }
+      ]
+    },
+    {
+      "id": "RoundHUD",
+      "persistent": true,
+      "components": [
+        {
+          "type": "GuiImageComponent",
+          "attributes": {
+            "image": "TaharezLook/RoundFramework",
+            "position": [ 0.8, 0.002 ],
+            "size": [ 150.0, 50.0 ],
+            "name": "RoundFramework"
+          }
+        },
+        {
+          "type": "GuiLabelComponent",
+          "attributes": {
+            "text": "Round 1",
+            "position": [ 0.84, 0.003 ],
+            "size": [ 200.0, 50.0 ],
+            "name": "RoundText"
           }
         }
       ]

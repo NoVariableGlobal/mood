@@ -36,6 +36,13 @@ void DeadManagerEC::checkEvent() {
         roundM->deactivateSpawnerEnemies();
         roundM->deactivateOtherSpawners();
 
+        scene_->getEntityById("LifeHUD")->setPersistent(false);
+        scene_->getEntityById("SpeedHUD")->setPersistent(false);
+        scene_->getEntityById("ShieldHUD")->setPersistent(false);
+        scene_->getEntityById("AmmoHUD")->setPersistent(false);
+        scene_->getEntityById("KillHUD")->setPersistent(false);
+        scene_->getEntityById("RoundHUD")->setPersistent(false);
+
         scene_->getEntityById("Player")->setActive(false);
 
         scene_->changeScene("DeadMenu");

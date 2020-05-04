@@ -8,6 +8,7 @@
 #include "Scene.h"
 #include "SpawnerEnemiesEC.h"
 #include "SpawnerFloorRandomEC.h"
+#include "GuiLabelC.h"
 
 #include <iostream>
 #include <time.h>
@@ -25,6 +26,7 @@ void RoundManagerEC::checkEvent() {
                   << "\n";
 
         roundNumber++;
+
         timer = clock() / static_cast<float>(CLOCKS_PER_SEC);
 
     } else if (roundEnd) {
@@ -55,6 +57,11 @@ void RoundManagerEC::checkEvent() {
 
             for (auto it : otherSpawners)
                 it->setActive(true);
+
+            GuiLabelComponent* label = reinterpret_cast<GuiLabelComponent*>(
+                scene_->getEntityById("RoundHUD")
+                    ->getComponent("GuiLabelComponent"));
+            label->setText("Round " + std::to_string(roundNumber));
 
             roundEnd = false;
             enemiesDead = 0;
