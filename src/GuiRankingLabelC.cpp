@@ -17,8 +17,9 @@ GuiRankingLabelC::GuiRankingLabelC() {}
 void GuiRankingLabelC::createText(bool roundNumber, int rankingPosition) {
 
     RankingPosition* rank = reinterpret_cast<RankingManagerC*>(
-                               scene_->getEntityById("GameManager")->getComponent("RankingManagerC"))
-                               ->getRankingPosition(rankingPosition);
+                                scene_->getEntityById("GameManager")
+                                    ->getComponent("RankingManagerC"))
+                                ->getRankingPosition(rankingPosition);
 
     if (roundNumber)
         setText("Round Number: " + std::to_string(rank->round));
