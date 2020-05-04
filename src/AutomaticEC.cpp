@@ -54,11 +54,12 @@ void AutomaticEC::setShoot(bool _shoot) {
             dynamic_cast<SoundComponent*>(scene_->getEntityById("GameManager")
                                               ->getComponent("SoundComponent"));
     if (shoot) {
-        _soundComponent->playSound(
-            dynamic_cast<WeaponControllerIC*>(
-                father_->getComponent("WeaponControllerIC"))
-                ->getCurrentGun()
-                ->getShotSound());
+        auto currentGun =
+            dynamic_cast<GunC*>(dynamic_cast<WeaponControllerIC*>(
+                                    father_->getComponent("WeaponControllerIC"))
+                                    ->getCurrentGun());
+        if (currentGun->canShoot())
+        _soundComponent->playSound(currentGun->getShotSound());
     } else {
         _soundComponent->stopSound(
             dynamic_cast<WeaponControllerIC*>(
