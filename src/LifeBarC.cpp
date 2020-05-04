@@ -24,7 +24,7 @@ void LifeBarC::setInitSize(float x, float y) {
 
 void LifeBarC::updateLifeBar(float life, float maxLife) {
 
-    float newWidth = ((x_ * life) / maxLife) / x_;
+    float newWidth = ((x_ * life) / maxLife);
 
     myself->setWidth(CEGUI::UDim(0, newWidth));
 }
