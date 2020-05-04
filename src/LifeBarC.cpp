@@ -27,16 +27,6 @@ void LifeBarC::updateLifeBar(float life, float maxLife) {
     float newWidth = ((x_ * life) / maxLife) / x_;
 
     myself->setWidth(CEGUI::UDim(0, newWidth));
-
-    // Cambiar color de la barra dependiendo de la vida que tenga
-    //if (life >= maxLife * 0.75)
-    //    _image->setColor(30, 235, 30);
-    //else if (life >= maxLife * 0.5)
-    //    _image->setColor(235, 214, 30);
-    //else if (life >= maxLife * 0.25)
-    //    _image->setColor(209, 104, 43);
-    //else
-    //    _image->setColor(209, 43, 43);
 }
 
 // FACTORY INFRASTRUCTURE
