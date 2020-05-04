@@ -27,7 +27,7 @@ void AutomaticEC::checkEvent() {
             ->getCurrentGun()
             ->shoot();
         if ((dynamic_cast<WeaponControllerIC*>(
-                 father->getComponent("WeaponControllerIC")))
+                 father_->getComponent("WeaponControllerIC")))
                 ->getCurrentGun()
                 ->getbulletchamber() == 0)
             setShoot(false);
@@ -51,18 +51,18 @@ void AutomaticEC::setShoot(bool _shoot) {
     shoot = _shoot;
     if (_soundComponent == nullptr)
         _soundComponent =
-            dynamic_cast<SoundComponent*>(scene->getEntitybyId("GameManager")
+            dynamic_cast<SoundComponent*>(scene_->getEntityById("GameManager")
                                               ->getComponent("SoundComponent"));
     if (shoot) {
         _soundComponent->playSound(
             dynamic_cast<WeaponControllerIC*>(
-                father->getComponent("WeaponControllerIC"))
+                father_->getComponent("WeaponControllerIC"))
                 ->getCurrentGun()
                 ->getShotSound());
     } else {
         _soundComponent->stopSound(
             dynamic_cast<WeaponControllerIC*>(
-                father->getComponent("WeaponControllerIC"))
+                father_->getComponent("WeaponControllerIC"))
                 ->getCurrentGun()
                 ->getShotSound());
     }

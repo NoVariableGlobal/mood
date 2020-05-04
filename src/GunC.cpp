@@ -70,13 +70,13 @@ Ogre::Quaternion GunC::getOrientation() const {
         ->getOrientation();
 }
 
-virtual void GunC::onShoot(TransformComponent* transform,
-                         RigidbodyPC* rigidBody) { 
-  if (_soundComponent == nullptr)
-        _soundComponent = dynamic_cast<SoundComponent*>(
-            scene->getEntitybyId("GameManager")
-                ->getComponent("SoundComponent"));
-  _soundComponent->playSound(_shotSound);
+void GunC::onShoot(TransformComponent* transform,
+                           RigidbodyPC* rigidBody) {
+    if (_soundComponent == nullptr)
+        _soundComponent =
+            dynamic_cast<SoundComponent*>(scene_->getEntityById("GameManager")
+                                              ->getComponent("SoundComponent"));
+    _soundComponent->playSound(_shotSound);
 }
 
 std::string GunC::getBulletType() { return _myBulletType; }
@@ -85,7 +85,7 @@ std::string GunC::getBulletTag() { return _myBulletTag; }
 
 std::string GunC::getBulletComponentName() { return bulletComponentName_; }
 
-const std::string & GunC::getShotSound() const { return _shotSound; }
+const std::string& GunC::getShotSound() const { return _shotSound; }
 
 int GunC::getbulletchamber() { return _bulletchamber; }
 

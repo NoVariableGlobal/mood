@@ -21,7 +21,6 @@ void HandGunC::onShoot(TransformComponent* transform, RigidbodyPC* rigidBody) {
     GunC::onShoot(transform, rigidBody);
 }
 
-
 // FACTORY INFRASTRUCTURE
 HandGunCFactory::HandGunCFactory() = default;
 

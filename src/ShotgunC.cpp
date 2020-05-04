@@ -62,7 +62,7 @@ void ShotgunC::onShoot(TransformComponent* transform, RigidbodyPC* rigidBody) {
     Ogre::Quaternion quat = getOrientation();
     rigidBody->setLinearVelocity(-(quat * Ogre::Vector3::NEGATIVE_UNIT_Z) *
                                  _bulletSpeed);
-                                 
+
     GunC::onShoot(transform, rigidBody);
 }
 
