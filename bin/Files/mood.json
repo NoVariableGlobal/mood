@@ -164,9 +164,18 @@
           "type": "GuiImageComponent",
           "attributes": {
             "image": "TaharezLook/GunFramework",
-            "position": [ 0.71, 0.76 ],
-            "size": [ 239.0, 147.0 ],
+            "position": [ 0.63, 0.76 ],
+            "size": [ 300.0, 147.0 ],
             "name": "GunFramework"
+          }
+        },
+        {
+          "type": "GuiLabelComponent",
+          "attributes": {
+            "text": "20 / 10000",
+            "position": [ 0.68, 0.92 ],
+            "size": [ 200.0, 50.0 ],
+            "name": "AmmoText"
           }
         }
       ]
