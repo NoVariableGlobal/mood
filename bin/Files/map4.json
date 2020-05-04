@@ -20,7 +20,7 @@
           }
         }
       ]
-    },//MAP
+    },
     {
       "id": "Portaviones",
       "components": [
@@ -56,7 +56,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "ColisionLeft",
       "components": [
         {
@@ -83,7 +83,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "ColisionLeft3",
       "components": [
         {
@@ -110,7 +110,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "ColisionRight2",
       "components": [
         {
@@ -137,7 +137,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "ColisionLeft2",
       "components": [
         {
@@ -164,7 +164,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "ColisionRight3",
       "components": [
         {
@@ -191,7 +191,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "ColisionRight",
       "components": [
         {
@@ -218,7 +218,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "ColisionUp",
       "components": [
         {
@@ -245,7 +245,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "ColisionDown",
       "components": [
         {
@@ -272,7 +272,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "Mar",
       "components": [
         {
@@ -293,7 +293,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "Mar2",
       "components": [
         {
@@ -314,7 +314,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "Mar3",
       "components": [
         {

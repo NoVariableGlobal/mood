@@ -70,8 +70,7 @@ Ogre::Quaternion GunC::getOrientation() const {
         ->getOrientation();
 }
 
-void GunC::onShoot(TransformComponent* transform,
-                           RigidbodyPC* rigidBody) {
+void GunC::onShoot(TransformComponent* transform, RigidbodyPC* rigidBody) {
     if (_soundComponent == nullptr)
         _soundComponent =
             dynamic_cast<SoundComponent*>(scene_->getEntityById("GameManager")
