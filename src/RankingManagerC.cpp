@@ -88,6 +88,10 @@ void RankingManagerC::playerDied() {
     ranking.pop_back();
 }
 
+RankingPosition* RankingManagerC::getRankingPosition(int pos) {
+    return &ranking[pos - 1];
+}
+
 // FACTORY INFRASTRUCTURE
 RankingManagerCFactory::RankingManagerCFactory() = default;
 

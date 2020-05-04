@@ -43,4 +43,6 @@ class RankingManagerC : public Component {
     void updateRanking();
 
     void playerDied();
+
+    RankingPosition* getRankingPosition(int pos);
 };
