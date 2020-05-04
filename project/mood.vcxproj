@@ -34,6 +34,7 @@
     <ClCompile Include="..\src\InfiniteAmmoEC.cpp" />
     <ClCompile Include="..\src\InstakillEC.cpp" />
     <ClCompile Include="..\src\InvulnerabilityShield.cpp" />
+    <ClCompile Include="..\src\LifeBarC.cpp" />
     <ClCompile Include="..\src\LifeC.cpp" />
     <ClCompile Include="..\src\MedkitEC.cpp" />
     <ClCompile Include="..\src\MeleeEnemyBehaviourEC.cpp" />
@@ -76,6 +77,7 @@
     <ClInclude Include="..\src\InfiniteAmmoEC.h" />
     <ClInclude Include="..\src\InstakillEC.h" />
     <ClInclude Include="..\src\InvulnerabilityShield.h" />
+    <ClInclude Include="..\src\LifeBarC.h" />
     <ClInclude Include="..\src\LifeC.h" />
     <ClInclude Include="..\src\MedkitEC.h" />
     <ClInclude Include="..\src\MeleeEnemyBehaviourEC.h" />

@@ -24,9 +24,9 @@ void LifeBarC::setInitSize(float x, float y) {
 
 void LifeBarC::updateLifeBar(float life, float maxLife) {
 
-    CEGUI::UDim newWidth = ((myself->getWidth() * CEGUI::UDim(0, life)) / CEGUI::UDim(0, maxLife)) /myself->getWidth();
+    float newWidth = ((x_ * life) / maxLife) / x_;
 
-    myself->setWidth(newWidth);
+    myself->setWidth(CEGUI::UDim(0, newWidth));
 
     // Cambiar color de la barra dependiendo de la vida que tenga
     //if (life >= maxLife * 0.75)
@@ -68,7 +68,8 @@ Component* LifeBarCFactory::create(Entity* _father, Json::Value& _data,
     lifeBar->setName(_data["name"].asString());
 
     lifeBar->create();
-    lifeBar->setInitSize();
+    lifeBar->setInitSize(lifeBar->getWindow().getWidth().d_offset,
+                         lifeBar->getWindow().getHeight().d_offset);
 
     return lifeBar;
 };
