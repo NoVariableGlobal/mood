@@ -8,6 +8,7 @@
 #include "SpawnerBulletsC.h"
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
+#include "GuiLabelC.h"
 
 void GunC::destroy() {
     setActive(false);
@@ -24,6 +25,11 @@ bool GunC::reload() {
         _bulletchamber += remainder;
         _munition -= remainder;
 
+        reinterpret_cast<GuiLabelComponent*>(
+            scene_->getEntityById("GunHUD")->getComponent("GuiLabelComponent"))
+            ->changeText(std::to_string(_bulletchamber) + " / " +
+                         std::to_string(_munition));
+
         return true;
     }
 
@@ -34,8 +40,15 @@ bool GunC::shoot() {
     if (!canShoot())
         return false;
 
-    if (!getInfiniteAmmo())
+    if (!getInfiniteAmmo()) {
         _bulletchamber--;
+
+        reinterpret_cast<GuiLabelComponent*>(
+            scene_->getEntityById("GunHUD")
+                ->getComponent("GuiLabelComponent"))
+            ->changeText(std::to_string(_bulletchamber) + " / " +
+                         std::to_string(_munition));
+    }
 
     onPreShoot();
     return true;

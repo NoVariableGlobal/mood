@@ -58,10 +58,10 @@ void RoundManagerEC::checkEvent() {
             for (auto it : otherSpawners)
                 it->setActive(true);
 
-            GuiLabelComponent* label = reinterpret_cast<GuiLabelComponent*>(
+            reinterpret_cast<GuiLabelComponent*>(
                 scene_->getEntityById("RoundHUD")
-                    ->getComponent("GuiLabelComponent"));
-            label->changeText("Round " + std::to_string(roundNumber));
+                    ->getComponent("GuiLabelComponent"))
+                ->changeText("Round " + std::to_string(roundNumber));
 
             roundEnd = false;
             enemiesDead = 0;
