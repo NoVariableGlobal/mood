@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include "Factory.h"
 #include "GuiLabelC.h"
 #include <glm/glm.hpp>
@@ -15,7 +14,6 @@ DECLARE_FACTORY(GuiRankingLabelC);
 
 class GuiRankingLabelC final : public GuiLabelComponent {
   private:
-
   public:
     GuiRankingLabelC();
 

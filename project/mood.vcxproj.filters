@@ -141,6 +141,9 @@
     <ClCompile Include="..\src\GuiRankingLabelC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ReadNameIC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\AutomaticEC.h">
@@ -261,6 +264,9 @@
       <Filter>Source Files\Weapons</Filter>
     </ClInclude>
     <ClInclude Include="..\src\GuiRankingLabelC.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ReadNameIC.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

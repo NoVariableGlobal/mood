@@ -106,7 +106,9 @@
         },
         {
           "type": "RankingManagerC",
-          "attributes": {}
+          "attributes": {
+            "game": true
+          }
         },
         {
           "type": "DeadManagerEC",

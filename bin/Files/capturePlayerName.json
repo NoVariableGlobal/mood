@@ -1,0 +1,79 @@
+{
+  "entities": [
+    {
+      "id": "GUI",
+      "persistent": false,
+      "components": [
+        {
+          "type": "GuiLabelComponent",
+          "attributes": {
+            "text": "",
+            "position": [ 0.46, 0.5 ],
+            "size": [ 300.0, 50.0 ],
+            "name": "RankingTitle"
+          }
+        },
+        {
+          "type": "ChangeSceneButtonComponent",
+          "attributes": {
+            "text": "Start",
+            "position": [ 0.44, 0.8 ],
+            "size": [ 120.0, 40.0 ],
+            "name": "MainMenuPlay",
+            "scene": "MOOD"
+          }
+        }
+      ]
+    },
+    {
+      "id": "InsertText",
+      "persistent": false,
+      "components": [
+        {
+          "type": "GuiLabelComponent",
+          "attributes": {
+            "text": "Type your name",
+            "position": [ 0.4, 0.3 ],
+            "size": [ 300.0, 50.0 ],
+            "name": "insetText"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NameCapturer",
+      "persistent": true,
+      "components": [
+        {
+          "type": "ReadNameIC",
+          "attributes": {
+          }
+        }
+      ]
+    },
+    {
+      "id": "Camera",
+      "persistent": false,
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 3, 3, 3 ]
+          }
+        },
+        {
+          "type": "CameraRC",
+          "attributes": {
+            "node": "nCamera",
+            "viewportColour": [ 0, 0, 0 ],
+            "offset": [ 0, 300, 60 ],
+            "lookAt": [ 0, -1, -0.25 ],
+            "targetId": "none"
+          }
+        }
+      ]
+    }
+  ]
+}

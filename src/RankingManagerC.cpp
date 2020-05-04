@@ -2,10 +2,10 @@
 #include "ComponentsManager.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
+#include "ReadNameIC.h"
 #include "RoundManagerEC.h"
 #include "Scene.h"
 #include "SpawnerEnemiesEC.h"
-
 #include <time.h>
 #include <value.h>
 
@@ -76,7 +76,7 @@ void RankingManagerC::playerDied() {
 
     RankingPosition rank;
 
-    rank.name = "name";
+    rank.name = playerName;
     rank.round = reinterpret_cast<RoundManagerEC*>(
                      father_->getComponent("RoundManagerEC"))
                      ->getRoundNumber();
@@ -86,6 +86,16 @@ void RankingManagerC::playerDied() {
     std::sort(ranking.begin(), ranking.end());
 
     ranking.pop_back();
+}
+
+void RankingManagerC::setName() {
+
+    Entity* nameCapturer = scene_->getEntityById("NameCapturer");
+    playerName =
+        reinterpret_cast<ReadNameIC*>(nameCapturer->getComponent("ReadNameIC"))
+            ->gatName();
+
+    scene_->deleteEntity(nameCapturer);
 }
 
 RankingPosition* RankingManagerC::getRankingPosition(int pos) {
@@ -104,6 +114,9 @@ Component* RankingManagerCFactory::create(Entity* _father, Json::Value& _data,
     _scene->getComponentsManager()->addDC(rankingManagerC);
 
     rankingManagerC->setActive(true);
+
+    if (_data["game"].isBool())
+        rankingManagerC->setName();
 
     return rankingManagerC;
 };
