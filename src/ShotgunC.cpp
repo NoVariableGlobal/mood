@@ -9,6 +9,7 @@
 #include "OgreSceneNode.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
+#include "SoundComponent.h"
 #include "SpawnerBulletsC.h"
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
@@ -53,6 +54,12 @@ void ShotgunC::onPreShoot() {
     // Restore original rotation
     node->setOrientation(originalOrientation.w, originalOrientation.x,
                          originalOrientation.y, originalOrientation.z);
+
+    if (_soundComponent == nullptr)
+        _soundComponent =
+            dynamic_cast<SoundComponent*>(scene_->getEntityById("GameManager")
+                                              ->getComponent("SoundComponent"));
+    _soundComponent->playSound(_shotSound);
 }
 
 void ShotgunC::onShoot(TransformComponent* transform, RigidbodyPC* rigidBody) {
@@ -63,7 +70,6 @@ void ShotgunC::onShoot(TransformComponent* transform, RigidbodyPC* rigidBody) {
     rigidBody->setLinearVelocity(-(quat * Ogre::Vector3::NEGATIVE_UNIT_Z) *
                                  _bulletSpeed);
 
-    GunC::onShoot(transform, rigidBody);
 }
 
 void ShotgunC::setNPellets(int n) { nPellets = n; }

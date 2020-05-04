@@ -25,7 +25,7 @@ void WeaponControllerIC::handleInput(const SDL_Event& _event) {
             currentGun = secondaryGun;
             secondaryGun = aux;
 
-            if (!secondaryGun->getautomatic()) {
+            if (secondaryGun->getautomatic()) {
                 if (_soundComponent == nullptr)
                     _soundComponent = dynamic_cast<SoundComponent*>(
                         scene_->getEntityById("GameManager")
