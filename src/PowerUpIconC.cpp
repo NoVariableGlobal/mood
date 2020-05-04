@@ -20,7 +20,7 @@ void PowerUpIconC::desactivePowerUpIcon() { myself->setAlpha(0.1); }
 // FACTORY INFRASTRUCTURE
 PowerUpIconCFactory::PowerUpIconCFactory(){};
 Component* PowerUpIconCFactory::create(Entity* _father, Json::Value& _data,
-                                   Scene* _scene) {
+                                       Scene* _scene) {
     PowerUpIconC* icon = new PowerUpIconC();
     _scene->getComponentsManager()->addDC(icon);
 
@@ -34,7 +34,7 @@ Component* PowerUpIconCFactory::create(Entity* _father, Json::Value& _data,
     if (!_data["position"].isArray())
         throw std::exception("PowerUpIconC: position is not an array");
     icon->setPosition(glm::vec2(_data["position"][0].asFloat(),
-                                             _data["position"][1].asFloat()));
+                                _data["position"][1].asFloat()));
 
     if (!_data["size"].isArray())
         throw std::exception("PowerUpIconC: size is not an array");

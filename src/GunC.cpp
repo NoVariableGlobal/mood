@@ -2,13 +2,13 @@
 #include "BulletC.h"
 #include "ComponentsManager.h"
 #include "Entity.h"
+#include "GuiLabelC.h"
 #include "Ogre.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
 #include "SpawnerBulletsC.h"
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
-#include "GuiLabelC.h"
 
 void GunC::destroy() {
     setActive(false);
@@ -44,8 +44,7 @@ bool GunC::shoot() {
         _bulletchamber--;
 
         reinterpret_cast<GuiLabelComponent*>(
-            scene_->getEntityById("GunHUD")
-                ->getComponent("GuiLabelComponent"))
+            scene_->getEntityById("GunHUD")->getComponent("GuiLabelComponent"))
             ->changeText(std::to_string(_bulletchamber) + " / " +
                          std::to_string(_munition));
     }

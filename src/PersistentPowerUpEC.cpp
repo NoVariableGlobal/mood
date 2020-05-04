@@ -36,7 +36,8 @@ void PersistentPowerUpEC::checkEvent() {
         auto previous = dynamic_cast<PersistentPowerUpEC*>(
             tracker->findComponent(getName()));
 
-        reinterpret_cast<PowerUpIconC*>(scene_->getEntityById(hudName_)->getComponent("PowerUpIconC"))
+        reinterpret_cast<PowerUpIconC*>(
+            scene_->getEntityById(hudName_)->getComponent("PowerUpIconC"))
             ->activePowerUpIcon();
 
         // If the player already has this powerup refresh it
@@ -59,14 +60,15 @@ void PersistentPowerUpEC::checkEvent() {
             onDestroy();
         }
     } else if (getPicked() &&
-               timeDisappearEffect()) { // delete item and disabled icon if you picked the power up and the effect has
-                                        // passed
+               timeDisappearEffect()) { // delete item and disabled icon if you
+                                        // picked the power up and the effect
+                                        // has passed
         reinterpret_cast<PowerUpIconC*>(
             scene_->getEntityById(hudName_)->getComponent("PowerUpIconC"))
             ->desactivePowerUpIcon();
         onDestroy();
 
-    } else if (timeDisappearEffect()) {// delete item when the effect has
+    } else if (timeDisappearEffect()) { // delete item when the effect has
                                         // passed
         onDestroy();
     }

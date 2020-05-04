@@ -2,13 +2,13 @@
 #include "ComponentsManager.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
+#include "GuiLabelC.h"
 #include "OgreVector3.h"
 #include "OgreVector4.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
 #include "SpawnerEnemiesEC.h"
 #include "SpawnerFloorRandomEC.h"
-#include "GuiLabelC.h"
 
 #include <iostream>
 #include <time.h>

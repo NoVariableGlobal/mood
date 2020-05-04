@@ -1,7 +1,7 @@
 #pragma once
 
-#include "GuiImageC.h"
 #include "Factory.h"
+#include "GuiImageC.h"
 
 // FACTORY INFRASTRUCTURE DECLARATION
 DECLARE_FACTORY(LifeBarC);
@@ -9,6 +9,7 @@ DECLARE_FACTORY(LifeBarC);
 class LifeBarC : public GuiImageComponent {
   private:
     float x_, y_;
+
   public:
     LifeBarC();
     virtual ~LifeBarC();

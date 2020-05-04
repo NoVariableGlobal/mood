@@ -2,8 +2,10 @@
 #include "ComponentsManager.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
+#include "GuiLabelC.h"
 #include "HandGunC.h"
 #include "Scene.h"
+
 #include <SDL.h>
 #include <iostream>
 #include <json.h>
@@ -23,6 +25,12 @@ void WeaponControllerIC::handleInput(const SDL_Event& _event) {
             GunC* aux = currentGun;
             currentGun = secondaryGun;
             secondaryGun = aux;
+
+            reinterpret_cast<GuiLabelComponent*>(
+                scene_->getEntityById("GunHUD")->getComponent(
+                    "GuiLabelComponent"))
+                ->changeText(std::to_string(currentGun->getbulletchamber()) +
+                             " / " + std::to_string(currentGun->getmunition()));
         }
     }
 }
@@ -61,6 +69,11 @@ void WeaponControllerIC::pickUpGun(std::string _gunName) {
 
         currentGun->reset();
     }
+
+    reinterpret_cast<GuiLabelComponent*>(
+        scene_->getEntityById("GunHUD")->getComponent("GuiLabelComponent"))
+        ->changeText(std::to_string(currentGun->getbulletchamber()) + " / " +
+                     std::to_string(currentGun->getmunition()));
 }
 
 // FACTORY INFRASTRUCTURE

@@ -46,7 +46,7 @@ Component* LifeBarCFactory::create(Entity* _father, Json::Value& _data,
     if (!_data["position"].isArray())
         throw std::exception("LifeBarC: position is not an array");
     lifeBar->setPosition(glm::vec2(_data["position"][0].asFloat(),
-                                             _data["position"][1].asFloat()));
+                                   _data["position"][1].asFloat()));
 
     if (!_data["size"].isArray())
         throw std::exception("LifeBarC: size is not an array");
