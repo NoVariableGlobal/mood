@@ -42,7 +42,8 @@ void DeadManagerEC::checkEvent() {
         scene_->getEntityById("AmmoHUD")->setPersistent(false);
         scene_->getEntityById("KillHUD")->setPersistent(false);
         scene_->getEntityById("RoundHUD")->setPersistent(false);
-        scene_->getEntityById("GunHUD")->setPersistent(false);
+        scene_->getEntityById("GunFrameworkHUD")->setPersistent(false);
+        scene_->getEntityById("GunIconHUD")->setPersistent(false);
 
         scene_->getEntityById("Player")->setActive(false);
 

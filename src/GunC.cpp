@@ -26,7 +26,7 @@ bool GunC::reload() {
         _munition -= remainder;
 
         reinterpret_cast<GuiLabelComponent*>(
-            scene_->getEntityById("GunHUD")->getComponent("GuiLabelComponent"))
+            scene_->getEntityById("GunFrameworkHUD")->getComponent("GuiLabelComponent"))
             ->changeText(std::to_string(_bulletchamber) + " / " +
                          std::to_string(_munition));
 
@@ -44,7 +44,7 @@ bool GunC::shoot() {
         _bulletchamber--;
 
         reinterpret_cast<GuiLabelComponent*>(
-            scene_->getEntityById("GunHUD")->getComponent("GuiLabelComponent"))
+            scene_->getEntityById("GunFrameworkHUD")->getComponent("GuiLabelComponent"))
             ->changeText(std::to_string(_bulletchamber) + " / " +
                          std::to_string(_munition));
     }

@@ -27,7 +27,7 @@ void WeaponControllerIC::handleInput(const SDL_Event& _event) {
             secondaryGun = aux;
 
             reinterpret_cast<GuiLabelComponent*>(
-                scene_->getEntityById("GunHUD")->getComponent(
+                scene_->getEntityById("GunFrameworkHUD")->getComponent(
                     "GuiLabelComponent"))
                 ->changeText(std::to_string(currentGun->getbulletchamber()) +
                              " / " + std::to_string(currentGun->getmunition()));
@@ -71,7 +71,7 @@ void WeaponControllerIC::pickUpGun(std::string _gunName) {
     }
 
     reinterpret_cast<GuiLabelComponent*>(
-        scene_->getEntityById("GunHUD")->getComponent("GuiLabelComponent"))
+        scene_->getEntityById("GunFrameworkHUD")->getComponent("GuiLabelComponent"))
         ->changeText(std::to_string(currentGun->getbulletchamber()) + " / " +
                      std::to_string(currentGun->getmunition()));
 }

@@ -157,7 +157,7 @@
       ]
     },
     {
-      "id": "GunHUD",
+      "id": "GunFrameworkHUD",
       "persistent": true,
       "components": [
         {
@@ -176,6 +176,21 @@
             "position": [ 0.68, 0.92 ],
             "size": [ 200.0, 50.0 ],
             "name": "AmmoText"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GunIconHUD",
+      "persistent": true,
+      "components": [
+        {
+          "type": "GuiImageComponent",
+          "attributes": {
+            "image": "TaharezLook/ShotgunIcon",
+            "position": [ 0.87, 0.8 ],
+            "size": [ 86.0, 104.0 ],
+            "name": "GunIcon"
           }
         }
       ]
