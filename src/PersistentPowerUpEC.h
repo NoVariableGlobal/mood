@@ -5,6 +5,7 @@
 class PersistentPowerUpEC : public PowerUpEC {
   private:
     bool activeEffect_ = false;
+    std::string hudName_;
 
   protected:
     virtual void setEffect(bool value) = 0;
@@ -13,4 +14,6 @@ class PersistentPowerUpEC : public PowerUpEC {
 
   public:
     void checkEvent();
+
+    void setHUDName(std::string name);
 };

@@ -135,6 +135,12 @@
     <ClCompile Include="..\src\ReloadEC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\LifeBarC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PowerUpIconC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\src\GuiRankingLabelC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -267,6 +273,12 @@
       <Filter>Source Files\Weapons</Filter>
     </ClInclude>
     <ClInclude Include="..\src\ReloadEC.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\LifeBarC.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PowerUpIconC.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\GuiRankingLabelC.h">
