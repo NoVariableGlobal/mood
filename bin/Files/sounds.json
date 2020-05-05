@@ -23,6 +23,12 @@
       "filename": "GunMachineGun.wav",
       "loop": true,
       "volume": 0.5
+    },
+    {
+      "id": "Explosion",
+      "filename": "Explosion.wav",
+      "loop": false,
+      "volume": 1
     }
   ]
 }

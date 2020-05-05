@@ -144,7 +144,8 @@
           "type": "NukeEC",
           "attributes": {
             "time": 20,
-            "timeEffect": 1
+            "timeEffect": 1,
+            "sound": "Explosion"
           }
         },
         {
