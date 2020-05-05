@@ -1,6 +1,16 @@
 {
   "entities": [
     {
+      "id": "GameManager",
+      "persistent": false,
+      "components": [
+        {
+          "type": "RankingManagerC",
+          "attributes": {}
+        }
+      ]
+    },
+    {
       "id": "GUI",
       "persistent": false,
       "components": [
@@ -8,28 +18,188 @@
           "type": "GuiLabelComponent",
           "attributes": {
             "text": "Ranking",
-            "position": [ 0.465, 0.2 ],
+            "position": [ 0.465, 0.05 ],
             "size": [ 100.0, 50.0 ],
             "name": "RankingTitle"
           }
         },
-		{
+        {
           "type": "ChangeSceneButtonComponent",
           "attributes": {
             "text": "Return",
-            "position": [ 0.44, 0.6 ],
+            "position": [ 0.1, 0.9 ],
             "size": [ 120.0, 40.0 ],
             "name": "RankingReturn",
-			"scene": "mainmenu"
+            "scene": "mainmenu"
           }
         },
-		{
+        {
           "type": "QuitButtonComponent",
           "attributes": {
             "text": "Quit",
-            "position": [ 0.44, 0.7 ],
+            "position": [ 0.75, 0.9 ],
             "size": [ 120.0, 40.0 ],
             "name": "RankingQuit"
+          }
+        }
+      ]
+    },
+    {
+      "id": "RoundLabel1",
+      "persistent": false,
+      "components": [
+        {
+          "type": "GuiRankingLabelC",
+          "attributes": {
+            "rankingPosition": 1,
+            "roundNumber": true,
+            "position": [ 0.65, 0.2 ],
+            "size": [ 300.0, 40.0 ],
+            "name": "RoundLabel1"
+          }
+        }
+      ]
+    },
+    {
+      "id": "RoundLabel2",
+      "persistent": false,
+      "components": [
+        {
+          "type": "GuiRankingLabelC",
+          "attributes": {
+            "rankingPosition": 2,
+            "roundNumber": true,
+            "position": [ 0.65, 0.3 ],
+            "size": [ 300.0, 40.0 ],
+            "name": "RoundLabel2"
+          }
+        }
+      ]
+    },
+    {
+      "id": "RoundLabel3",
+      "persistent": false,
+      "components": [
+        {
+          "type": "GuiRankingLabelC",
+          "attributes": {
+            "rankingPosition": 3,
+            "roundNumber": true,
+            "position": [ 0.65, 0.4 ],
+            "size": [ 300.0, 40.0 ],
+            "name": "RoundLabel3"
+          }
+        }
+      ]
+    },
+    {
+      "id": "RoundLabel4",
+      "persistent": false,
+      "components": [
+        {
+          "type": "GuiRankingLabelC",
+          "attributes": {
+            "rankingPosition": 4,
+            "roundNumber": true,
+            "position": [ 0.65, 0.5 ],
+            "size": [ 300.0, 40.0 ],
+            "name": "RoundLabel4"
+          }
+        }
+      ]
+    },
+    {
+      "id": "RoundLabel5",
+      "persistent": false,
+      "components": [
+        {
+          "type": "GuiRankingLabelC",
+          "attributes": {
+            "rankingPosition": 5,
+            "roundNumber": true,
+            "position": [ 0.65, 0.6 ],
+            "size": [ 300.0, 40.0 ],
+            "name": "RoundLabel5"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NameLabel1",
+      "persistent": false,
+      "components": [
+        {
+          "type": "GuiRankingLabelC",
+          "attributes": {
+            "rankingPosition": 1,
+            "roundNumber": false,
+            "position": [ 0.2, 0.2 ],
+            "size": [ 300.0, 40.0 ],
+            "name": "NameLabel1"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NameLabel2",
+      "persistent": false,
+      "components": [
+        {
+          "type": "GuiRankingLabelC",
+          "attributes": {
+            "rankingPosition": 2,
+            "roundNumber": false,
+            "position": [ 0.2, 0.3 ],
+            "size": [ 300.0, 40.0 ],
+            "name": "NameLabel2"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NameLabel3",
+      "persistent": false,
+      "components": [
+        {
+          "type": "GuiRankingLabelC",
+          "attributes": {
+            "rankingPosition": 3,
+            "roundNumber": false,
+            "position": [ 0.2, 0.4 ],
+            "size": [ 300.0, 40.0 ],
+            "name": "NameLabel3"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NameLabel4",
+      "persistent": false,
+      "components": [
+        {
+          "type": "GuiRankingLabelC",
+          "attributes": {
+            "rankingPosition": 4,
+            "roundNumber": false,
+            "position": [ 0.2, 0.5 ],
+            "size": [ 300.0, 40.0 ],
+            "name": "NameLabel4"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NameLabel5",
+      "persistent": false,
+      "components": [
+        {
+          "type": "GuiRankingLabelC",
+          "attributes": {
+            "rankingPosition": 5,
+            "roundNumber": false,
+            "position": [ 0.2, 0.6 ],
+            "size": [ 300.0, 40.0 ],
+            "name": "NameLabel5"
           }
         }
       ]

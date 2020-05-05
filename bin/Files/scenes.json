@@ -4,7 +4,7 @@
 			"name": "mainmenu",
 			"file": "mainmenu.json"
 		},
-		
+
 		{
 			"name": "MOOD",
 			"file": "mood.json"
@@ -30,16 +30,20 @@
 			"file": "map4.json"
 		},
 		{
-		  "name": "DeadMenu",
-		  "file": "deadMenu.json"
+			"name": "DeadMenu",
+			"file": "deadMenu.json"
 		},
 		{
-		  "name": "ranking",
-		  "file": "ranking.json"
+			"name": "ranking",
+			"file": "ranking.json"
 		},
 		{
-		  "name": "options",
-		  "file": "options.json"
+			"name": "options",
+			"file": "options.json"
+		},
+		{
+			"name": "captureName",
+			"file": "capturePlayerName.json"
 		}
 	]
 

@@ -1,6 +1,6 @@
 {
   "entities": [
-	  {
+    {
       "id": "TitleImage",
       "components": [
         {
@@ -14,7 +14,7 @@
         }
       ]
     },
-	  {
+    {
       "id": "LogoImage",
       "components": [
         {
@@ -28,17 +28,17 @@
         }
       ]
     },
-	  {
+    {
       "id": "PlayButton",
       "components": [
-		    {
+        {
           "type": "ChangeSceneButtonComponent",
           "attributes": {
             "text": "Play",
             "position": [ 0.44, 0.5 ],
             "size": [ 120.0, 40.0 ],
             "name": "MainMenuPlay",
-			      "scene": "MOOD"
+            "scene": "captureName"
           }
         }
       ]
@@ -46,37 +46,37 @@
     {
       "id": "RankingButton",
       "components": [
-		    {
+        {
           "type": "ChangeSceneButtonComponent",
           "attributes": {
             "text": "Ranking",
             "position": [ 0.44, 0.6 ],
             "size": [ 120.0, 40.0 ],
             "name": "MainMenuRanking",
-			      "scene": "ranking"
+            "scene": "ranking"
           }
         }
       ]
     },
-	  {
+    {
       "id": "OptionsButton",
       "components": [
-		    {
+        {
           "type": "ChangeSceneButtonComponent",
           "attributes": {
             "text": "Options",
             "position": [ 0.44, 0.7 ],
             "size": [ 120.0, 40.0 ],
             "name": "MainMenuOptions",
-			      "scene": "options"
+            "scene": "options"
           }
         }
       ]
     },
-	  {
+    {
       "id": "QuitButton",
       "components": [
-		    {
+        {
           "type": "QuitButtonComponent",
           "attributes": {
             "text": "Quit",
@@ -87,7 +87,7 @@
         }
       ]
     },
-	  {
+    {
       "id": "Camera",
       "persistent": false,
       "components": [
