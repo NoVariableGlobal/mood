@@ -2,6 +2,7 @@
 #include "ComponentsManager.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
+#include "GuiImageC.h"
 #include "GuiLabelC.h"
 #include "HandGunC.h"
 #include "Scene.h"
@@ -31,6 +32,10 @@ void WeaponControllerIC::handleInput(const SDL_Event& _event) {
                     "GuiLabelComponent"))
                 ->changeText(std::to_string(currentGun->getbulletchamber()) +
                              " / " + std::to_string(currentGun->getmunition()));
+
+            reinterpret_cast<GuiImageComponent*>(
+                scene_->getEntityById("GunIconHUD")
+                    ->getComponent("GuiImageComponent"));
         }
     }
 }
