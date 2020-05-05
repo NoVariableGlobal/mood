@@ -6,6 +6,7 @@
 class TransformComponent;
 class BulletC;
 class RigidbodyPC;
+class SoundComponent;
 
 namespace Ogre {
     class Quaternion;
@@ -26,11 +27,13 @@ class GunC : public Component {
     std::string bulletComponentName_ = ""; // The component name of the bullet
     std::string _myBulletTag = "";         // Tag of my bullets
     std::string _myBulletType = "";        // Type of my bullets
+    std::string _shotSound =
+        ""; // Name of the sound that will play while shooting
     TransformComponent* myTransform;
+    SoundComponent* _soundComponent = nullptr;
 
     virtual void onPreShoot();
-    virtual void onShoot(TransformComponent* transform,
-                         RigidbodyPC* rigidBody) = 0;
+    virtual void onShoot(TransformComponent* transform, RigidbodyPC* rigidBody);
 
     Ogre::Quaternion getOrientation() const;
 
@@ -57,6 +60,8 @@ class GunC : public Component {
     std::string getBulletType();          // Return the tag of my bullets
     std::string getBulletTag();           // Return the tag of my bullets
     std::string getBulletComponentName(); // Returns the bullet's component name
+    const std::string&
+    getShotSound() const;   // Returns the name of the sound to shoot.
     int getbulletchamber(); // Return the remaining ammunition in the chamber
     int getmunition();      // Return the remaining ammo
     int getbulletdamage();  // Returns the damage of a single bullet
@@ -72,6 +77,7 @@ class GunC : public Component {
     void setBulletType(std::string _bulletType);
     void setBulletTag(std::string _bulletTag);
     void setBulletComponentName(std::string name);
+    void setShotSound(std::string shotSound);
     void setbulletchamber(int bulletchamberMax);
     void setmunition(int munition);
     void setbulletdamage(int damage);

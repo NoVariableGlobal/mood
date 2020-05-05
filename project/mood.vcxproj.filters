@@ -21,9 +21,6 @@
     <ClCompile Include="..\src\mood.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\AutomaticEC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\BulletC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -135,8 +132,8 @@
     <ClCompile Include="..\src\ShotgunC.cpp">
       <Filter>Source Files\Weapons</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\AutomaticRifleC.cpp">
-      <Filter>Source Files\Weapons</Filter>
+    <ClCompile Include="..\src\ReloadEC.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\LifeBarC.cpp">
       <Filter>Source Files</Filter>
@@ -150,11 +147,14 @@
     <ClCompile Include="..\src\ReadNameIC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\AutomaticEC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\AutomaticRifleC.cpp">
+      <Filter>Source Files\Weapons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\AutomaticEC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\BulletC.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -266,8 +266,8 @@
     <ClInclude Include="..\src\ShotgunC.h">
       <Filter>Source Files\Weapons</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\AutomaticRifleC.h">
-      <Filter>Source Files\Weapons</Filter>
+    <ClInclude Include="..\src\ReloadEC.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\LifeBarC.h">
       <Filter>Source Files</Filter>
@@ -280,6 +280,12 @@
     </ClInclude>
     <ClInclude Include="..\src\ReadNameIC.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\AutomaticEC.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\AutomaticRifleC.h">
+      <Filter>Source Files\Weapons</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

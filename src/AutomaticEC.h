@@ -1,6 +1,7 @@
 #pragma once
 #include "EventComponent.h"
 #include "Factory.h"
+class SoundComponent;
 
 DECLARE_FACTORY(AutomaticEC);
 // class to detect when to fire an automatic weapon depending on its cadence
@@ -9,6 +10,7 @@ class AutomaticEC : public EventComponent {
     double cadence;
     double lastTimecadence = 0;
     bool shoot = false;
+    SoundComponent* _soundComponent = nullptr;
 
   public:
     AutomaticEC();

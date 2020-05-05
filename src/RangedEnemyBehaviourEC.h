@@ -5,6 +5,8 @@
 
 DECLARE_FACTORY(RangedEnemyBehaviourEC);
 class GunC;
+class SoundComponent;
+
 class RangedEnemyBehaviourEC : public EnemyBehaviourEC {
 
   private:
@@ -13,6 +15,7 @@ class RangedEnemyBehaviourEC : public EnemyBehaviourEC {
 
     // pointer to weapon equipped
     GunC* gun = nullptr;
+    SoundComponent* _soundComponent = nullptr;
 
   public:
     RangedEnemyBehaviourEC();

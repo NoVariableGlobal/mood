@@ -9,6 +9,7 @@
 #include "OgreSceneNode.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
+#include "SoundComponent.h"
 #include "SpawnerBulletsC.h"
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
@@ -53,6 +54,12 @@ void ShotgunC::onPreShoot() {
     // Restore original rotation
     node->setOrientation(originalOrientation.w, originalOrientation.x,
                          originalOrientation.y, originalOrientation.z);
+
+    if (_soundComponent == nullptr)
+        _soundComponent =
+            dynamic_cast<SoundComponent*>(scene_->getEntityById("GameManager")
+                                              ->getComponent("SoundComponent"));
+    _soundComponent->playSound(_shotSound);
 }
 
 void ShotgunC::onShoot(TransformComponent* transform, RigidbodyPC* rigidBody) {
@@ -131,7 +138,11 @@ Component* ShotgunCFactory::create(Entity* _father, Json::Value& _data,
         throw std::exception("ShotgunC: bulletComponent is not a string");
     shotgun->setBulletComponentName(_data["bulletComponent"].asString());
 
-    shotgun->setTransform(reinterpret_cast<TransformComponent*>(
+    if (!_data["shotSound"].isString())
+        throw std::exception("ShotgunC: shotSound is not a string");
+    shotgun->setShotSound(_data["shotSound"].asString());
+
+    shotgun->setTransform(dynamic_cast<TransformComponent*>(
         _father->getComponent("TransformComponent")));
 
     return shotgun;

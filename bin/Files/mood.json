@@ -271,6 +271,12 @@
             "spawnTag": "Gun",
             "spawnChances": [ 40, 30, 30 ]
           }
+        },
+        {
+          "type": "SoundComponent",
+          "attributes":{
+            "sounds": []
+          }
         }
       ]
     },
@@ -453,7 +459,8 @@
             "automatic": false,
             "instakill": false,
             "bulletType": "HandgunBullet",
-            "bulletComponent": "BulletC"
+            "bulletComponent": "BulletC",
+            "shotSound": "HandgunShot"
           }
         },
         {
@@ -470,7 +477,8 @@
             "dispersion": 10,
             "instakill": false,
             "bulletType": "ShotgunBullet",
-            "bulletComponent": "BulletC"
+            "bulletComponent": "BulletC",
+            "shotSound": "ShotgunShot"
           }
         },
         {
@@ -484,7 +492,8 @@
             "cadence": 1,
             "instakill": false,
             "bulletType": "SniperBullet",
-            "bulletComponent": "SniperBulletC"
+            "bulletComponent": "SniperBulletC",
+            "shotSound": "SniperShot"
           }
         },
         {
@@ -499,7 +508,8 @@
             "automatic": true,
             "instakill": false,
             "bulletType": "AutomaticRifleBullet",
-            "bulletComponent": "BulletC"
+            "bulletComponent": "BulletC",
+            "shotSound": "MachinegunShots"
           }
         },
         {
@@ -517,6 +527,12 @@
         {
           "type": "PowerUpTrackerC",
           "attributes": {}
+        },
+        {
+          "type": "ReloadEC",
+          "attributes": {
+            "timeToReload": 1
+          }
         }
       ]
     },

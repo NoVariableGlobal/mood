@@ -1,13 +1,16 @@
 #include "WeaponControllerIC.h"
+#include "AutomaticEC.h"
 #include "ComponentsManager.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "GuiImageC.h"
 #include "GuiLabelC.h"
 #include "HandGunC.h"
+#include "ReloadEC.h"
 #include "Scene.h"
 
 #include <SDL.h>
+#include <SoundComponent.h>
 #include <iostream>
 #include <json.h>
 
@@ -23,9 +26,25 @@ void WeaponControllerIC::handleInput(const SDL_Event& _event) {
 
     if (_event.type == SDL_KEYDOWN && _event.key.keysym.sym == SDLK_SPACE) {
         if (secondaryGun != nullptr) {
+            if (currentGun->getautomatic()) {
+                if (_soundComponent == nullptr)
+                    _soundComponent = reinterpret_cast<SoundComponent*>(
+                        scene_->getEntityById("GameManager")
+                            ->getComponent("SoundComponent"));
+                _soundComponent->stopSound(currentGun->getShotSound());
+
+                if (_automaticEC == nullptr)
+                    _automaticEC = reinterpret_cast<AutomaticEC*>(
+                        father_->getComponent("AutomaticEC"));
+                _automaticEC->setShoot(false);
+            }
+
             GunC* aux = currentGun;
             currentGun = secondaryGun;
             secondaryGun = aux;
+
+            reinterpret_cast<ReloadEC*>(father_->getComponent("ReloadEC"))
+                    ->gunChanged();
 
             reinterpret_cast<GuiLabelComponent*>(
                 scene_->getEntityById("GunFrameworkHUD")
@@ -47,6 +66,7 @@ void WeaponControllerIC::handleInput(const SDL_Event& _event) {
                 scene_->getEntityById("GunIconHUD")
                     ->getComponent("GuiImageComponent"))
                 ->changeImage(image);
+
         }
     }
 }
