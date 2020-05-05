@@ -941,7 +941,7 @@
             "infiniteAmmo": true,
             "bulletType": "EnemyBullet_rifle",
             "bulletComponent": "BulletC",
-            "shotSound": "MachinegunShots"
+            "shotSound": "HandgunShot"
           }
         }
       ]
