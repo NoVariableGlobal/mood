@@ -379,6 +379,12 @@
         {
           "type": "PowerUpTrackerC",
           "attributes": {}
+        },
+        {
+          "type": "ReloadEC",
+          "attributes": {
+            "timeToReload": 1
+          }
         }
       ]
     },

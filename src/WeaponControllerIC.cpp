@@ -3,6 +3,7 @@
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "HandGunC.h"
+#include "ReloadEC.h"
 #include "Scene.h"
 #include <SDL.h>
 #include <iostream>
@@ -23,6 +24,8 @@ void WeaponControllerIC::handleInput(const SDL_Event& _event) {
             GunC* aux = currentGun;
             currentGun = secondaryGun;
             secondaryGun = aux;
+            (dynamic_cast<ReloadEC*>(father_->getComponent("ReloadEC")))
+                ->gunChanged();
         }
     }
 }
