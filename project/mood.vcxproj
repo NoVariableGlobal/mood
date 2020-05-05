@@ -35,6 +35,7 @@
     <ClCompile Include="..\src\InfiniteAmmoEC.cpp" />
     <ClCompile Include="..\src\InstakillEC.cpp" />
     <ClCompile Include="..\src\InvulnerabilityShield.cpp" />
+    <ClCompile Include="..\src\LifeBarC.cpp" />
     <ClCompile Include="..\src\LifeC.cpp" />
     <ClCompile Include="..\src\MedkitEC.cpp" />
     <ClCompile Include="..\src\MeleeEnemyBehaviourEC.cpp" />
@@ -48,6 +49,7 @@
     <ClCompile Include="..\src\PlayerShotIC.cpp" />
     <ClCompile Include="..\src\PowerUpC.cpp" />
     <ClCompile Include="..\src\PowerUpEC.cpp" />
+    <ClCompile Include="..\src\PowerUpIconC.cpp" />
     <ClCompile Include="..\src\PowerUpTrackerC.cpp" />
     <ClCompile Include="..\src\RangedEnemyBehaviourEC.cpp" />
     <ClCompile Include="..\src\RankingManagerC.cpp" />
@@ -80,6 +82,7 @@
     <ClInclude Include="..\src\InfiniteAmmoEC.h" />
     <ClInclude Include="..\src\InstakillEC.h" />
     <ClInclude Include="..\src\InvulnerabilityShield.h" />
+    <ClInclude Include="..\src\LifeBarC.h" />
     <ClInclude Include="..\src\LifeC.h" />
     <ClInclude Include="..\src\MedkitEC.h" />
     <ClInclude Include="..\src\MeleeEnemyBehaviourEC.h" />
@@ -92,6 +95,7 @@
     <ClInclude Include="..\src\PlayerShotIC.h" />
     <ClInclude Include="..\src\PowerUpC.h" />
     <ClInclude Include="..\src\PowerUpEC.h" />
+    <ClInclude Include="..\src\PowerUpIconC.h" />
     <ClInclude Include="..\src\PowerUpTrackerC.h" />
     <ClInclude Include="..\src\RangedEnemyBehaviourEC.h" />
     <ClInclude Include="..\src\RankingManagerC.h" />

@@ -44,6 +44,8 @@ Component* InfiniteAmmoECFactory::create(Entity* _father, Json::Value& _data,
         throw std::exception("Shield: timeEffect is not a double");
     infiniteAmmo->setDuration(_data["timeEffect"].asDouble());
 
+    infiniteAmmo->setHUDName("AmmoHUD");
+
     infiniteAmmo->setActive(true);
 
     return infiniteAmmo;

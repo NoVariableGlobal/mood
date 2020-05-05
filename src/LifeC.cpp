@@ -1,7 +1,9 @@
 #include "LifeC.h"
 
 #include "ComponentsManager.h"
+#include "Entity.h"
 #include "FactoriesFactory.h"
+#include "LifeBarC.h"
 #include "OgreRoot.h"
 #include "Scene.h"
 
@@ -25,8 +27,14 @@ int LifeC::getTotalLife() { return totalLife; }
 void LifeC::setTotalLife(int _life) { totalLife = _life; }
 
 bool LifeC::doDamage(float _damage) {
-    if (!invulnerability)
+    if (!invulnerability) {
         currentLife -= _damage;
+
+        if (father_->getId() == "Player")
+            reinterpret_cast<LifeBarC*>(
+                scene_->getEntityById("LifeHUD")->getComponent("LifeBarC"))
+                ->updateLifeBar(currentLife, totalLife);
+    }
 
     return currentLife <= 0;
 }
@@ -36,6 +44,11 @@ void LifeC::heal(float _heal) {
 
     if (currentLife > totalLife)
         currentLife = totalLife;
+
+    if (father_->getId() == "Player")
+        reinterpret_cast<LifeBarC*>(
+            scene_->getEntityById("LifeHUD")->getComponent("LifeBarC"))
+            ->updateLifeBar(currentLife, totalLife);
 }
 
 void LifeC::setInvulnerability(bool _invulnerability) {

@@ -2,6 +2,7 @@
 #include "ComponentsManager.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
+#include "GuiLabelC.h"
 #include "OgreVector3.h"
 #include "OgreVector4.h"
 #include "RigidbodyPC.h"
@@ -25,6 +26,7 @@ void RoundManagerEC::checkEvent() {
                   << "\n";
 
         roundNumber++;
+
         timer = clock() / static_cast<float>(CLOCKS_PER_SEC);
 
     } else if (roundEnd) {
@@ -55,6 +57,11 @@ void RoundManagerEC::checkEvent() {
 
             for (auto it : otherSpawners)
                 it->setActive(true);
+
+            reinterpret_cast<GuiLabelComponent*>(
+                scene_->getEntityById("RoundHUD")
+                    ->getComponent("GuiLabelComponent"))
+                ->changeText("Round " + std::to_string(roundNumber));
 
             roundEnd = false;
             enemiesDead = 0;

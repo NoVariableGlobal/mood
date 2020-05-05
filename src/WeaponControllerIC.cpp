@@ -3,9 +3,12 @@
 #include "ComponentsManager.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
+#include "GuiImageC.h"
+#include "GuiLabelC.h"
 #include "HandGunC.h"
 #include "ReloadEC.h"
 #include "Scene.h"
+
 #include <SDL.h>
 #include <SoundComponent.h>
 #include <iostream>
@@ -25,13 +28,13 @@ void WeaponControllerIC::handleInput(const SDL_Event& _event) {
         if (secondaryGun != nullptr) {
             if (currentGun->getautomatic()) {
                 if (_soundComponent == nullptr)
-                    _soundComponent = dynamic_cast<SoundComponent*>(
+                    _soundComponent = reinterpret_cast<SoundComponent*>(
                         scene_->getEntityById("GameManager")
                             ->getComponent("SoundComponent"));
                 _soundComponent->stopSound(currentGun->getShotSound());
 
                 if (_automaticEC == nullptr)
-                    _automaticEC = dynamic_cast<AutomaticEC*>(
+                    _automaticEC = reinterpret_cast<AutomaticEC*>(
                         father_->getComponent("AutomaticEC"));
                 _automaticEC->setShoot(false);
             }
@@ -39,8 +42,30 @@ void WeaponControllerIC::handleInput(const SDL_Event& _event) {
             GunC* aux = currentGun;
             currentGun = secondaryGun;
             secondaryGun = aux;
-            (dynamic_cast<ReloadEC*>(father_->getComponent("ReloadEC")))
+
+            reinterpret_cast<ReloadEC*>(father_->getComponent("ReloadEC"))
                 ->gunChanged();
+
+            reinterpret_cast<GuiLabelComponent*>(
+                scene_->getEntityById("GunFrameworkHUD")
+                    ->getComponent("GuiLabelComponent"))
+                ->changeText(std::to_string(currentGun->getbulletchamber()) +
+                             " / " + std::to_string(currentGun->getmunition()));
+
+            std::string image;
+            if (currentGun->getBulletType() == "HandgunBullet")
+                image = "TaharezLook/HandgunIcon";
+            else if (currentGun->getBulletType() == "ShotgunBullet")
+                image = "TaharezLook/ShotgunIcon";
+            else if (currentGun->getBulletType() == "AutomaticRifleBullet")
+                image = "TaharezLook/RifleIcon";
+            else if (currentGun->getBulletType() == "SniperBullet")
+                image = "TaharezLook/SniperIcon";
+
+            reinterpret_cast<GuiImageComponent*>(
+                scene_->getEntityById("GunIconHUD")
+                    ->getComponent("GuiImageComponent"))
+                ->changeImage(image);
         }
     }
 }
@@ -79,6 +104,12 @@ void WeaponControllerIC::pickUpGun(std::string _gunName) {
 
         currentGun->reset();
     }
+
+    reinterpret_cast<GuiLabelComponent*>(
+        scene_->getEntityById("GunFrameworkHUD")
+            ->getComponent("GuiLabelComponent"))
+        ->changeText(std::to_string(currentGun->getbulletchamber()) + " / " +
+                     std::to_string(currentGun->getmunition()));
 }
 
 // FACTORY INFRASTRUCTURE
