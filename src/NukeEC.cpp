@@ -4,10 +4,17 @@
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "Scene.h"
+#include "SoundComponent.h"
 #include <json.h>
 
 void NukeEC::onPick() {
     std::vector<Entity*> enemies = scene_->getEntitiesByTag("Enemy");
+
+    if (_soundComponent == nullptr)
+        _soundComponent =
+            dynamic_cast<SoundComponent*>(scene_->getEntityById("GameManager")
+                                              ->getComponent("SoundComponent"));
+    _soundComponent->playSound(_sound);
 
     for (auto it : enemies) {
 
@@ -17,6 +24,8 @@ void NukeEC::onPick() {
         dynamic_cast<EnemyBehaviourEC*>(comp)->die();
     }
 }
+
+void NukeEC::setSound(const std::string& sound) { _sound = sound; }
 
 // FACTORY INFRASTRUCTURE
 NukeECFactory::NukeECFactory() = default;
@@ -31,6 +40,10 @@ Component* NukeECFactory::create(Entity* _father, Json::Value& _data,
     if (!_data["time"].isDouble())
         throw std::exception("NukeEC: time is not a double");
     nukeEC->setDuration(_data["time"].asDouble());
+
+    if (!_data["sound"].isString())
+        throw std::exception("NukeEC: sound is not a string");
+    nukeEC->setSound(_data["sound"].asString());
 
     nukeEC->setActive(true);
 

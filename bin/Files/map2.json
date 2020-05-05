@@ -21,7 +21,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "Mar4",
       "components": [
         {
@@ -42,7 +42,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "Mar2",
       "components": [
         {
@@ -63,7 +63,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "Mar5",
       "components": [
         {
@@ -84,7 +84,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "Mar3",
       "components": [
         {
@@ -105,7 +105,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "Mar6",
       "components": [
         {
@@ -126,7 +126,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "Tierra",
       "components": [
         {
@@ -147,7 +147,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "Tierra2",
       "components": [
         {
@@ -168,7 +168,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "Tierra3",
       "components": [
         {
@@ -209,7 +209,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "Suelo",
       "components": [
         {
@@ -230,7 +230,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "Suelo2",
       "components": [
         {
@@ -251,7 +251,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "Suelo3",
       "components": [
         {
@@ -272,7 +272,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "Suelo6",
       "components": [
         {
@@ -293,7 +293,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "Suelo4",
       "components": [
         {
@@ -314,7 +314,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "Suelo5",
       "components": [
         {
@@ -335,7 +335,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "Puente",
       "components": [
         {
@@ -370,7 +370,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "Puente2",
       "components": [
         {
@@ -405,7 +405,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "Puente3",
       "components": [
         {
@@ -440,7 +440,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "Contenedor",
       "components": [
         {
@@ -475,7 +475,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "Contenedor2",
       "components": [
         {
@@ -509,9 +509,8 @@
           }
         }
       ]
-    }
-	,
-	{
+    },
+	  {
       "id": "ColisionUp",
       "components": [		
         {
@@ -537,7 +536,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "ColisionUp2",
       "components": [		
         {
@@ -563,7 +562,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "ColisionDown",
       "components": [		
         {
@@ -589,7 +588,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "ColisionDown2",
       "components": [		
         {
@@ -615,7 +614,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "ColisionDown3",
       "components": [		
         {
@@ -641,7 +640,7 @@
         }
       ]
     },
-	{
+	  {
       "id": "ColisionDown4",
       "components": [		
         {

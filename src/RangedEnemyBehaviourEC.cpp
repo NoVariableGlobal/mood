@@ -8,10 +8,10 @@
 #include "PlayerMovementIC.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
+#include "SoundComponent.h"
 #include "SpawnerBulletsC.h"
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
-
 #include <Entity.h>
 #include <json.h>
 
@@ -56,6 +56,14 @@ void RangedEnemyBehaviourEC::setWeaponEquipped(std::string _weaponEquipped) {
 
 void RangedEnemyBehaviourEC::shoot() {
     gun = dynamic_cast<GunC*>(father_->getComponent(weaponEquipped));
+    if (gun->getautomatic()) {
+        if (_soundComponent == nullptr)
+            _soundComponent = dynamic_cast<SoundComponent*>(
+                scene_->getEntityById("GameManager")
+                    ->getComponent("SoundComponent"));
+        _soundComponent->playSound(gun->getShotSound());
+    }
+
     gun->shoot();
 }
 

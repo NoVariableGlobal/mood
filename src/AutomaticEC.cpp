@@ -7,6 +7,7 @@
 #include "OgreRoot.h"
 #include "Scene.h"
 #include "WeaponControllerIC.h"
+#include <SoundComponent.h>
 #include <iostream>
 #include <json.h>
 #include <time.h>
@@ -25,6 +26,11 @@ void AutomaticEC::checkEvent() {
              father_->getComponent("WeaponControllerIC")))
             ->getCurrentGun()
             ->shoot();
+        if ((dynamic_cast<WeaponControllerIC*>(
+                 father_->getComponent("WeaponControllerIC")))
+                ->getCurrentGun()
+                ->getbulletchamber() == 0)
+            setShoot(false);
     }
 }
 
@@ -41,7 +47,27 @@ bool AutomaticEC::timeCadence() {
 
 void AutomaticEC::setCadence(double _cadence) { cadence = _cadence; }
 
-void AutomaticEC::setShoot(bool _shoot) { shoot = _shoot; }
+void AutomaticEC::setShoot(bool _shoot) {
+    shoot = _shoot;
+    if (_soundComponent == nullptr)
+        _soundComponent =
+            dynamic_cast<SoundComponent*>(scene_->getEntityById("GameManager")
+                                              ->getComponent("SoundComponent"));
+    if (shoot) {
+        auto currentGun =
+            dynamic_cast<GunC*>(dynamic_cast<WeaponControllerIC*>(
+                                    father_->getComponent("WeaponControllerIC"))
+                                    ->getCurrentGun());
+        if (currentGun->canShoot())
+            _soundComponent->playSound(currentGun->getShotSound());
+    } else {
+        _soundComponent->stopSound(
+            dynamic_cast<WeaponControllerIC*>(
+                father_->getComponent("WeaponControllerIC"))
+                ->getCurrentGun()
+                ->getShotSound());
+    }
+}
 
 // FACTORY INFRASTRUCTURE
 AutomaticECFactory::AutomaticECFactory() = default;

@@ -193,10 +193,10 @@ material PenguinMaterial
 {
     technique 
     {
-        diffuse 0.61 0.61 0.61 1.00
 
         pass 
         {
+            diffuse 0.61 0.61 0.61 1.00
             texture_unit 
             {
                 texture penguin.jpg
@@ -210,10 +210,10 @@ material PruebaMaterial
 {
     technique 
     {
-        diffuse 0.61 0.61 0.61 1.00
 
         pass 
         {
+            diffuse 0.61 0.61 0.61 1.00
             texture_unit 
             {
                 texture melee.jpg
@@ -227,10 +227,10 @@ material HandgunBulletMaterial
 {
 	technique 
     {
-        diffuse 0.00 0.00 0.00 1.00
 
         pass 
         {
+            diffuse 0.00 0.00 0.00 1.00
             texture_unit 
             {
                 texture HandgunBulletColor.png
@@ -243,10 +243,10 @@ material RifleBulletMaterial
 {
 	technique 
     {
-        diffuse 0.00 0.00 0.00 1.00
 
         pass 
         {
+            diffuse 0.00 0.00 0.00 1.00
             texture_unit 
             {
                 texture RifleBulletColor.png
@@ -259,10 +259,10 @@ material SniperRifleBulletMaterial
 {
 	technique 
     {
-        diffuse 0.00 0.00 0.00 1.00
 
         pass 
         {
+            diffuse 0.00 0.00 0.00 1.00
             texture_unit 
             {
                 texture SniperRifleBulletColor.png
@@ -275,10 +275,10 @@ material ShotgunBulletMaterial
 {
     technique 
     {
-        diffuse 0.00 0.00 0.00 1.00
 
         pass 
         {
+            diffuse 0.00 0.00 0.00 1.00
             texture_unit 
             {
                 texture ShotgunShot.png
@@ -291,10 +291,10 @@ material EnemyHandgunBulletMaterial
 {
     technique 
     {
-        diffuse 0.00 0.00 0.00 1.00
 
         pass 
         {
+            diffuse 0.00 0.00 0.00 1.00
             texture_unit 
             {
                 texture EnemyHandgunBulletColor.png
@@ -307,10 +307,10 @@ material EnemyRifleBulletMaterial
 {
     technique 
     {
-        diffuse 0.00 0.00 0.00 1.00
 
         pass 
         {
+            diffuse 0.00 0.00 0.00 1.00
             texture_unit 
             {
                 texture EnemyRifleBulletColor.png
@@ -323,10 +323,10 @@ material EnemySniperRifleBulletMaterial
 {
     technique 
     {
-        diffuse 0.00 0.00 0.00 1.00
 
         pass 
         {
+            diffuse 0.00 0.00 0.00 1.00
             texture_unit 
             {
                 texture EnemySniperRifleBulletColor.png
@@ -339,10 +339,10 @@ material EnemyShotgunBulletMaterial
 {
     technique 
     {
-        diffuse 0.00 0.00 0.00 1.00
 
         pass 
         {
+            diffuse 0.00 0.00 0.00 1.00
             texture_unit 
             {
                 texture EnemyShotgunShot.png

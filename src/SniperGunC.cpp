@@ -19,6 +19,7 @@ void SniperGunC::onShoot(TransformComponent* transform,
                            (quat * Ogre::Vector3::UNIT_Z) * 10);
     transform->setOrientation(myTransform->getOrientation());
     rigidBody->setLinearVelocity((quat * Ogre::Vector3::UNIT_Z) * _bulletSpeed);
+    GunC::onShoot(transform, rigidBody);
 }
 
 // FACTORY INFRASTRUCTURE
@@ -71,6 +72,10 @@ Component* SniperGunCFactory::create(Entity* _father, Json::Value& _data,
     if (!_data["bulletComponent"].isString())
         throw std::exception("SniperGunC: bulletComponent is not a string");
     sniper->setBulletComponentName(_data["bulletComponent"].asString());
+
+    if (!_data["shotSound"].isString())
+        throw std::exception("SniperGunC: shotSound is not a string");
+    sniper->setShotSound(_data["shotSound"].asString());
 
     sniper->setautomatic(false);
 

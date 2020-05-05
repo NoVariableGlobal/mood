@@ -7,11 +7,15 @@
 DECLARE_FACTORY(WeaponControllerIC);
 
 class GunC;
+class SoundComponent;
+class AutomaticEC;
 class WeaponControllerIC : public InputComponent {
 
   private:
     GunC* currentGun = nullptr;
     GunC* secondaryGun = nullptr;
+    SoundComponent* _soundComponent = nullptr;
+    AutomaticEC* _automaticEC = nullptr;
 
   public:
     WeaponControllerIC();

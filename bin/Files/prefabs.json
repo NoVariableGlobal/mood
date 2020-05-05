@@ -144,7 +144,8 @@
           "type": "NukeEC",
           "attributes": {
             "time": 20,
-            "timeEffect": 1
+            "timeEffect": 1,
+            "sound": "Explosion"
           }
         },
         {
@@ -330,7 +331,7 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, -90, 0 ], //-90
-            "scale": [ 3, 3, 3 ] //0.05 -> 2.5, tamaño real 3
+            "scale": [ 3, 3, 3 ] //0.05 -> 2.5, tamaï¿½o real 3
           }
         },
         {
@@ -851,7 +852,8 @@
             "instakill": false,
             "infiniteAmmo":  true,
             "bulletType": "EnemyBullet_handgun",
-            "bulletComponent": "BulletC"
+            "bulletComponent": "BulletC",
+            "shotSound": "HandgunShot"
           }
         }
       ]
@@ -938,7 +940,8 @@
             "instakill": false,
             "infiniteAmmo": true,
             "bulletType": "EnemyBullet_rifle",
-            "bulletComponent": "BulletC"
+            "bulletComponent": "BulletC",
+            "shotSound": "HandgunShot"
           }
         }
       ]
@@ -1027,7 +1030,8 @@
             "instakill": false,
             "infiniteAmmo": true,
             "bulletType": "EnemyBullet_shotgun",
-            "bulletComponent": "BulletC"
+            "bulletComponent": "BulletC",
+            "shotSound": "ShotgunShot"
           }
         }
       ]
@@ -1113,7 +1117,8 @@
             "instakill": false,
             "infiniteAmmo": true,
             "bulletType": "EnemyBullet_sniper",
-            "bulletComponent": "SniperBulletC"
+            "bulletComponent": "SniperBulletC",
+            "shotSound": "SniperShot"
           }
         }
       ]
