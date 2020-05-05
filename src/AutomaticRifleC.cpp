@@ -12,7 +12,7 @@
 #include <json.h>
 
 void AutomaticRifleC::onShoot(TransformComponent* transform,
-                          RigidbodyPC* rigidBody) {
+                              RigidbodyPC* rigidBody) {
     Ogre::Quaternion quat = getOrientation();
 
     transform->setPosition(myTransform->getPosition() +
@@ -21,14 +21,14 @@ void AutomaticRifleC::onShoot(TransformComponent* transform,
 
     rigidBody->setLinearVelocity((quat * Ogre::Vector3::UNIT_Z) * _bulletSpeed);
 
-    //GunC::onShoot(transform, rigidBody);
+    // GunC::onShoot(transform, rigidBody);
 }
 
 // FACTORY INFRASTRUCTURE
 AutomaticRifleCFactory::AutomaticRifleCFactory() = default;
 
 Component* AutomaticRifleCFactory::create(Entity* _father, Json::Value& _data,
-                                      Scene* _scene) {
+                                          Scene* _scene) {
 
     AutomaticRifleC* machineGun = new AutomaticRifleC();
 
@@ -76,7 +76,8 @@ Component* AutomaticRifleCFactory::create(Entity* _father, Json::Value& _data,
     machineGun->setBulletType(_data["bulletType"].asString());
 
     if (!_data["bulletComponent"].isString())
-        throw std::exception("AutomaticRifleC: bulletComponent is not a string");
+        throw std::exception(
+            "AutomaticRifleC: bulletComponent is not a string");
     machineGun->setBulletComponentName(_data["bulletComponent"].asString());
 
     if (!_data["shotSound"].isString())
