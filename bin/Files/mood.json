@@ -321,7 +321,8 @@
             "automatic": false,
             "instakill": false,
             "bulletType": "HandgunBullet",
-            "bulletComponent": "BulletC"
+            "bulletComponent": "BulletC",
+            "shotSound": "HandgunShot"
           }
         },
         {
@@ -338,7 +339,8 @@
             "dispersion": 10,
             "instakill": false,
             "bulletType": "ShotgunBullet",
-            "bulletComponent": "BulletC"
+            "bulletComponent": "BulletC",
+            "shotSound": "ShotgunShot"
           }
         },
         {
@@ -352,7 +354,8 @@
             "cadence": 1,
             "instakill": false,
             "bulletType": "SniperBullet",
-            "bulletComponent": "SniperBulletC"
+            "bulletComponent": "SniperBulletC",
+            "shotSound": "SniperShot"
           }
         },
         {
@@ -367,7 +370,8 @@
             "automatic": true,
             "instakill": false,
             "bulletType": "AutomaticRifleBullet",
-            "bulletComponent": "BulletC"
+            "bulletComponent": "BulletC",
+            "shotSound": "MachinegunShots"
           }
         },
         {
