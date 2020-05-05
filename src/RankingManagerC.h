@@ -32,6 +32,7 @@ struct RankingPosition {
 class RankingManagerC : public Component {
   private:
     std::vector<RankingPosition> ranking;
+    std::string playerName = "name";
 
   public:
     RankingManagerC();
@@ -43,4 +44,7 @@ class RankingManagerC : public Component {
     void updateRanking();
 
     void playerDied();
+    void setName();
+
+    RankingPosition* getRankingPosition(int pos);
 };
