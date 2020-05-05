@@ -33,7 +33,7 @@ void WeaponControllerIC::handleInput(const SDL_Event& _event) {
                 ->changeText(std::to_string(currentGun->getbulletchamber()) +
                              " / " + std::to_string(currentGun->getmunition()));
 
-            std::string image; 
+            std::string image;
             if (currentGun->getBulletType() == "HandgunBullet")
                 image = "TaharezLook/HandgunIcon";
             else if (currentGun->getBulletType() == "ShotgunBullet")
