@@ -28,14 +28,25 @@ void WeaponControllerIC::handleInput(const SDL_Event& _event) {
             secondaryGun = aux;
 
             reinterpret_cast<GuiLabelComponent*>(
-                scene_->getEntityById("GunFrameworkHUD")->getComponent(
-                    "GuiLabelComponent"))
+                scene_->getEntityById("GunFrameworkHUD")
+                    ->getComponent("GuiLabelComponent"))
                 ->changeText(std::to_string(currentGun->getbulletchamber()) +
                              " / " + std::to_string(currentGun->getmunition()));
 
+            std::string image; 
+            if (currentGun->getBulletType() == "HandgunBullet")
+                image = "TaharezLook/HandgunIcon";
+            else if (currentGun->getBulletType() == "ShotgunBullet")
+                image = "TaharezLook/ShotgunIcon";
+            else if (currentGun->getBulletType() == "AutomaticRifleBullet")
+                image = "TaharezLook/RifleIcon";
+            else if (currentGun->getBulletType() == "SniperBullet")
+                image = "TaharezLook/SniperIcon";
+
             reinterpret_cast<GuiImageComponent*>(
                 scene_->getEntityById("GunIconHUD")
-                    ->getComponent("GuiImageComponent"));
+                    ->getComponent("GuiImageComponent"))
+                ->changeImage(image);
         }
     }
 }
@@ -76,7 +87,8 @@ void WeaponControllerIC::pickUpGun(std::string _gunName) {
     }
 
     reinterpret_cast<GuiLabelComponent*>(
-        scene_->getEntityById("GunFrameworkHUD")->getComponent("GuiLabelComponent"))
+        scene_->getEntityById("GunFrameworkHUD")
+            ->getComponent("GuiLabelComponent"))
         ->changeText(std::to_string(currentGun->getbulletchamber()) + " / " +
                      std::to_string(currentGun->getmunition()));
 }
