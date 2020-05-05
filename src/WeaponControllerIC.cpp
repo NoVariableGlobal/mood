@@ -44,7 +44,7 @@ void WeaponControllerIC::handleInput(const SDL_Event& _event) {
             secondaryGun = aux;
 
             reinterpret_cast<ReloadEC*>(father_->getComponent("ReloadEC"))
-                    ->gunChanged();
+                ->gunChanged();
 
             reinterpret_cast<GuiLabelComponent*>(
                 scene_->getEntityById("GunFrameworkHUD")
@@ -66,7 +66,6 @@ void WeaponControllerIC::handleInput(const SDL_Event& _event) {
                 scene_->getEntityById("GunIconHUD")
                     ->getComponent("GuiImageComponent"))
                 ->changeImage(image);
-
         }
     }
 }
