@@ -187,7 +187,7 @@
         {
           "type": "GuiImageComponent",
           "attributes": {
-            "image": "TaharezLook/HandgunIcon",
+            "image": "TaharezLook/SniperIcon",
             "position": [ 0.87, 0.8 ],
             "size": [ 86.0, 104.0 ],
             "name": "GunIcon"
