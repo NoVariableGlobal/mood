@@ -12,7 +12,7 @@
 #include <json.h>
 
 void MachineGunC::onShoot(TransformComponent* transform,
-                              RigidbodyPC* rigidBody) {
+                          RigidbodyPC* rigidBody) {
     Ogre::Quaternion quat = getOrientation();
 
     transform->setPosition(myTransform->getPosition() +
@@ -26,7 +26,7 @@ void MachineGunC::onShoot(TransformComponent* transform,
 MachineGunCFactory::MachineGunCFactory() = default;
 
 Component* MachineGunCFactory::create(Entity* _father, Json::Value& _data,
-                                          Scene* _scene) {
+                                      Scene* _scene) {
 
     MachineGunC* machineGun = new MachineGunC();
 
@@ -74,8 +74,7 @@ Component* MachineGunCFactory::create(Entity* _father, Json::Value& _data,
     machineGun->setBulletType(_data["bulletType"].asString());
 
     if (!_data["bulletComponent"].isString())
-        throw std::exception(
-            "MachineGunC: bulletComponent is not a string");
+        throw std::exception("MachineGunC: bulletComponent is not a string");
     machineGun->setBulletComponentName(_data["bulletComponent"].asString());
 
     if (!_data["shotSound"].isString())

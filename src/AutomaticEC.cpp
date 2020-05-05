@@ -59,7 +59,7 @@ void AutomaticEC::setShoot(bool _shoot) {
                                     father_->getComponent("WeaponControllerIC"))
                                     ->getCurrentGun());
         if (currentGun->canShoot())
-        _soundComponent->playSound(currentGun->getShotSound());
+            _soundComponent->playSound(currentGun->getShotSound());
     } else {
         _soundComponent->stopSound(
             dynamic_cast<WeaponControllerIC*>(

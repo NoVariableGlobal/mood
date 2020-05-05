@@ -23,7 +23,6 @@ void NukeEC::onPick() {
             comp = it->getComponent("RangedEnemyBehaviourEC");
         dynamic_cast<EnemyBehaviourEC*>(comp)->die();
     }
-
 }
 
 void NukeEC::setSound(const std::string& sound) { _sound = sound; }
@@ -42,7 +41,6 @@ Component* NukeECFactory::create(Entity* _father, Json::Value& _data,
         throw std::exception("NukeEC: time is not a double");
     nukeEC->setDuration(_data["time"].asDouble());
 
-    
     if (!_data["sound"].isString())
         throw std::exception("NukeEC: sound is not a string");
     nukeEC->setSound(_data["sound"].asString());

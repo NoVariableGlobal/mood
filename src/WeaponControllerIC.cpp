@@ -35,12 +35,9 @@ void WeaponControllerIC::handleInput(const SDL_Event& _event) {
                 _automaticEC->setShoot(false);
             }
 
-
             GunC* aux = currentGun;
             currentGun = secondaryGun;
             secondaryGun = aux;
-
-            
         }
     }
 }
