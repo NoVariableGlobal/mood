@@ -9,6 +9,7 @@
 #include <json.h>
 
 void PowerUpIconC::destroy() {
+    CEGUI::WindowManager::getSingleton().destroyWindow(myself);
     setActive(false);
     scene_->getComponentsManager()->eraseDC(this);
 }
