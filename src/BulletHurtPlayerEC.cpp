@@ -36,7 +36,7 @@ void BulletHurtPlayerEC::checkEvent() {
                 scene_->getEntityById("Player")->getComponent("AnimationLC"));
 
             animations->stopAnimations();
-            animations->startAnimation("Dance");
+            animations->startAnimation("Dead");
 
             reinterpret_cast<RigidbodyPC*>(
                 scene_->getEntityById("Player")->getComponent("RigidbodyPC"))

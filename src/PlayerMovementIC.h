@@ -1,6 +1,7 @@
 #pragma once
 #include "Factory.h"
 #include "InputComponent.h"
+class AnimationLC;
 
 // FACTORY INFRASTRUCTURE DECLARATION
 DECLARE_FACTORY(PlayerMovementIC);
@@ -17,10 +18,12 @@ class PlayerMovementIC : public InputComponent {
 
   private:
     float _speed = 0;
+    AnimationLC* animations = nullptr;
 
     bool wDown = false, sDown = false, aDown = false, dDown = false;
 
   public:
+    bool hit;
     PlayerMovementIC();
     virtual ~PlayerMovementIC();
 
@@ -33,4 +36,6 @@ class PlayerMovementIC : public InputComponent {
 
     // Sets the speed the entity moves at
     void setMovementSpeed(float speed);
+
+    void setIdleAnimation();
 };

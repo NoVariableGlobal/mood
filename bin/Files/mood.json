@@ -392,7 +392,7 @@
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "Sinbad.mesh",
+            "mesh": "Mesh.002.mesh",
             "node": "nPlayer",
             "material": "none"
           }
@@ -416,15 +416,19 @@
           "attributes": {
             "animations": [
               {
-                "name": "Dance",
-                "loop": false
-              },
-              {
-                "name": "RunBase",
+                "name": "Run Top",
                 "loop": true
               },
               {
-                "name": "RunTop",
+                "name": "Run Down",
+                "loop": true
+              },
+              {
+                "name": "Dead",
+                "loop": false
+              },
+			        {
+                "name": "Idle",
                 "loop": true
               }
             ]

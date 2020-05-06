@@ -1,4 +1,5 @@
 #include "PlayerShotIC.h"
+#include "AnimationLC.h"
 #include "AutomaticEC.h"
 #include "ComponentsManager.h"
 #include "Entity.h"

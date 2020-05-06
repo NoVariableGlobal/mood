@@ -153,6 +153,12 @@
     <ClCompile Include="..\src\AutomaticRifleC.cpp">
       <Filter>Source Files\Weapons</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\QuitButtonC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\AnimationPlayerEC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\BulletC.h">
@@ -286,6 +292,12 @@
     </ClInclude>
     <ClInclude Include="..\src\AutomaticRifleC.h">
       <Filter>Source Files\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\QuitButtonC.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\AnimationPlayerEC.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

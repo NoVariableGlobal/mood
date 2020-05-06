@@ -25,7 +25,7 @@ void DeadManagerEC::setActive(bool _active) {
 }
 
 void DeadManagerEC::checkEvent() {
-    if (playerAnimations->animationFinished("Dance")) {
+    if (playerAnimations->animationFinished("Dead")) {
         reinterpret_cast<RankingManagerC*>(
             father_->getComponent("RankingManagerC"))
             ->playerDied();
