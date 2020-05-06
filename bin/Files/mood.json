@@ -281,102 +281,6 @@
       ]
     },
     {
-      "id": "GeneradorEnemigos",
-      "persistent": true,
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ 0, 10, -250 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 1, 1, 1 ]
-          }
-        },
-        {
-          "type": "SpawnerEnemiesEC",
-          "attributes": {
-            "spawnCooldown": 5,
-            "spawnID": [ "MeleeEnemy", "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
-            "spawnTag": "Enemy",
-            "spawnChances": [ 60, 10, 10, 10, 10 ],
-            "EnemiesLimit": 2
-          }
-        }
-      ]
-    },
-    {
-      "id": "GeneradorEnemigos2",
-      "persistent": true,
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ 0, 10, 250 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 1, 1, 1 ]
-          }
-        },
-        {
-          "type": "SpawnerEnemiesEC",
-          "attributes": {
-            "spawnCooldown": 5,
-            "spawnID": [ "MeleeEnemy", "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
-            "spawnTag": "Enemy",
-            "spawnChances": [ 60, 10, 10, 10, 10 ],
-            "EnemiesLimit": 1
-          }
-        }
-      ]
-    },
-    {
-      "id": "GeneradorEnemigos3",
-      "persistent": true,
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ 250, 10, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 1, 1, 1 ]
-          }
-        },
-        {
-          "type": "SpawnerEnemiesEC",
-          "attributes": {
-            "spawnCooldown": 5,
-            "spawnID": [ "MeleeEnemy", "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
-            "spawnTag": "Enemy",
-            "spawnChances": [ 60, 10, 10, 10, 10 ],
-            "EnemiesLimit": 1
-          }
-        }
-      ]
-    },
-    {
-      "id": "GeneradorEnemigos4",
-      "persistent": true,
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ -250, 10, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 1, 1, 1 ]
-          }
-        },
-        {
-          "type": "SpawnerEnemiesEC",
-          "attributes": {
-            "spawnCooldown": 5,
-            "spawnID": [ "MeleeEnemy", "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
-            "spawnTag": "Enemy",
-            "spawnChances": [ 60, 10, 10, 10, 10 ],
-            "EnemiesLimit": 2
-          }
-        }
-      ]
-    },
-    {
       "id": "Player",
       "tag": "Player",
       "persistent": true,
@@ -539,14 +443,14 @@
           }
         }
       ]
-    },
-    {
-      "id": "Ciudad",
+    }
+	,{
+      "id": "CasaIzquierda",
       "components": [
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 0, 0, 0 ],
+            "position": [ 50, 0, 100 ],
             "orientation": [ 0, -90, 90 ],
             "scale": [ 10, 10, 10 ]
           }
@@ -554,7 +458,7 @@
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "Ciudad.mesh",
+            "mesh": "City_building_001.mesh",
             "node": "nSuelo",
             "material": "none"
           }
@@ -562,217 +466,64 @@
       ]
     },
     {
-      "id": "ColisionUp",
+      "id": "CasaCentro",
       "components": [
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0, 0, 0 ]
+            "position": [ -300, 0, 100 ],
+            "orientation": [ 0, -90, 90 ],
+            "scale": [ 10, 10, 10 ]
           }
         },
         {
-          "type": "RigidbodyPC",
+          "type": "TridimensionalObjectRC",
           "attributes": {
-            "position": [ 0, 0, -270 ],
-            "shape": [ 190, 10, 8 ],
-            "mass": 1,
-            "gravity": [ 0, 0, 0 ],
-            "trigger": false,
-            "kinematic": true,
-            "static": true,
-            "friction": 0,
-            "restitution": 0
+            "mesh": "City_building_028.mesh",
+            "node": "nSuelo",
+            "material": "none"
           }
         }
       ]
     },
-    {
-      "id": "ColisionDiagonalLeftUp",
+	{
+      "id": "CasaDerecha",
       "components": [
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0, 0, 0 ]
+            "position": [ 0, 0, 100 ],
+            "orientation": [ 0, -90, 90 ],
+            "scale": [ 10, 10, 10 ]
           }
         },
         {
-          "type": "RigidbodyPC",
+          "type": "TridimensionalObjectRC",
           "attributes": {
-            "position": [ -230, 0, -190 ],
-            "shape": [ 80, 10, 80 ],
-            "mass": 1,
-            "gravity": [ 0, 0, 0 ],
-            "trigger": false,
-            "kinematic": true,
-            "static": true,
-            "friction": 0,
-            "restitution": 0
+            "mesh": "City_building_034.mesh",
+            "node": "nSuelo",
+            "material": "none"
           }
         }
       ]
     },
-    {
-      "id": "ColisionDiagonalLeftDown",
+	{
+      "id": "Enemigo",
       "components": [
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0, 0, 0 ]
+           "position": [ -30, 0, 0 ],
+            "orientation": [ 0, 90, 90],
+            "scale": [ 4, 4, 4 ]
           }
         },
         {
-          "type": "RigidbodyPC",
+          "type": "TridimensionalObjectRC",
           "attributes": {
-            "position": [ -230, 0, 235 ],
-            "shape": [ 80, 10, 80 ],
-            "mass": 1,
-            "gravity": [ 0, 0, 0 ],
-            "trigger": false,
-            "kinematic": true,
-            "static": true,
-            "friction": 0,
-            "restitution": 0
-          }
-        }
-      ]
-    },
-    {
-      "id": "ColisionDiagonalRightUp",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0, 0, 0 ]
-          }
-        },
-        {
-          "type": "RigidbodyPC",
-          "attributes": {
-            "position": [ 190, 0, -190 ],
-            "shape": [ 80, 10, 80 ],
-            "mass": 1,
-            "gravity": [ 0, 0, 0 ],
-            "trigger": false,
-            "kinematic": true,
-            "static": true,
-            "friction": 0,
-            "restitution": 0
-          }
-        }
-      ]
-    },
-    {
-      "id": "ColisionDiagonalRightDown",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0, 0, 0 ]
-          }
-        },
-        {
-          "type": "RigidbodyPC",
-          "attributes": {
-            "position": [ 190, 0, 235 ],
-            "shape": [ 80, 10, 80 ],
-            "mass": 1,
-            "gravity": [ 0, 0, 0 ],
-            "trigger": false,
-            "kinematic": true,
-            "static": true,
-            "friction": 0,
-            "restitution": 0
-          }
-        }
-      ]
-    },
-    {
-      "id": "ColisionDown",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0, 0, 0 ]
-          }
-        },
-        {
-          "type": "RigidbodyPC",
-          "attributes": {
-            "position": [ 0, 0, 270 ],
-            "shape": [ 190, 10, 8 ],
-            "mass": 1,
-            "gravity": [ 0, 0, 0 ],
-            "trigger": false,
-            "kinematic": true,
-            "static": true,
-            "friction": 0,
-            "restitution": 0
-          }
-        }
-      ]
-    },
-    {
-      "id": "ColisionRight",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0, 0, 0 ]
-          }
-        },
-        {
-          "type": "RigidbodyPC",
-          "attributes": {
-            "position": [ 270, 0, 0 ],
-            "shape": [ 8, 10, 190 ],
-            "mass": 1,
-            "gravity": [ 0, 0, 0 ],
-            "trigger": false,
-            "kinematic": true,
-            "static": true,
-            "friction": 0,
-            "restitution": 0
-          }
-        }
-      ]
-    },
-    {
-      "id": "ColisionLeft",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0, 0, 0 ]
-          }
-        },
-        {
-          "type": "RigidbodyPC",
-          "attributes": {
-            "position": [ -270, 0, 0 ],
-            "shape": [ 8, 10, 190 ],
-            "mass": 1,
-            "gravity": [ 0, 0, 0 ],
-            "trigger": false,
-            "kinematic": true,
-            "static": true,
-            "friction": 0,
-            "restitution": 0
+            "mesh": "melee_zard.mesh",
+            "node": "nSuelo",
+            "material": "PinkColourMaterial"
           }
         }
       ]
