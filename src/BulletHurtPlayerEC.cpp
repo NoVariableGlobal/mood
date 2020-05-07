@@ -6,6 +6,9 @@
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "LifeC.h"
+#include "OrientateToMouseIC.h"
+#include "PlayerMovementIC.h"
+#include "PlayerShotIC.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
 #include "SleepEC.h"
@@ -32,14 +35,24 @@ void BulletHurtPlayerEC::checkEvent() {
 
         // if player dies sleep method is called
         if (playerHealth->doDamage(damage)) {
+            Entity* player = scene_->getEntityById("Player");
             AnimationLC* animations = reinterpret_cast<AnimationLC*>(
-                scene_->getEntityById("Player")->getComponent("AnimationLC"));
+                player->getComponent("AnimationLC"));
 
             animations->stopAnimations();
             animations->startAnimation("Dead");
 
-            reinterpret_cast<RigidbodyPC*>(
-                scene_->getEntityById("Player")->getComponent("RigidbodyPC"))
+            reinterpret_cast<RigidbodyPC*>(player->getComponent("RigidbodyPC"))
+                ->setActive(false);
+            reinterpret_cast<PlayerShotIC*>(
+                player->getComponent("PlayerShotIC"))
+                ->setActive(false);
+            reinterpret_cast<PlayerMovementIC*>(
+                player->getComponent("PlayerMovementIC"))
+                ->setActive(false);
+
+            reinterpret_cast<OrientateToMouseIC*>(
+                player->getComponent("OrientateToMouseIC"))
                 ->setActive(false);
 
             reinterpret_cast<DeadManagerEC*>(

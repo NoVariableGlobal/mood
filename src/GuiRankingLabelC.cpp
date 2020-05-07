@@ -22,7 +22,7 @@ void GuiRankingLabelC::createText(bool roundNumber, int rankingPosition) {
                                 ->getRankingPosition(rankingPosition);
 
     if (roundNumber)
-        setText("Round Number: " + std::to_string(rank->round));
+        setText("Round " + std::to_string(rank->round));
     else
         setText(rank->name);
 }

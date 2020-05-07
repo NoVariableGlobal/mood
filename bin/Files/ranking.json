@@ -37,7 +37,7 @@
           "type": "QuitButtonComponent",
           "attributes": {
             "text": "Quit",
-            "position": [ 0.75, 0.9 ],
+            "position": [ 0.8, 0.9 ],
             "size": [ 120.0, 40.0 ],
             "name": "RankingQuit"
           }
@@ -133,7 +133,7 @@
           "attributes": {
             "rankingPosition": 1,
             "roundNumber": false,
-            "position": [ 0.2, 0.2 ],
+            "position": [ 0.26, 0.2 ],
             "size": [ 300.0, 40.0 ],
             "name": "NameLabel1"
           }
@@ -149,7 +149,7 @@
           "attributes": {
             "rankingPosition": 2,
             "roundNumber": false,
-            "position": [ 0.2, 0.3 ],
+            "position": [ 0.26, 0.3 ],
             "size": [ 300.0, 40.0 ],
             "name": "NameLabel2"
           }
@@ -165,7 +165,7 @@
           "attributes": {
             "rankingPosition": 3,
             "roundNumber": false,
-            "position": [ 0.2, 0.4 ],
+            "position": [ 0.26, 0.4 ],
             "size": [ 300.0, 40.0 ],
             "name": "NameLabel3"
           }
@@ -181,7 +181,7 @@
           "attributes": {
             "rankingPosition": 4,
             "roundNumber": false,
-            "position": [ 0.2, 0.5 ],
+            "position": [ 0.26, 0.5 ],
             "size": [ 300.0, 40.0 ],
             "name": "NameLabel4"
           }
@@ -197,7 +197,7 @@
           "attributes": {
             "rankingPosition": 5,
             "roundNumber": false,
-            "position": [ 0.2, 0.6 ],
+            "position": [ 0.26, 0.6 ],
             "size": [ 300.0, 40.0 ],
             "name": "NameLabel5"
           }
