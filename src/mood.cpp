@@ -14,7 +14,7 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE prevInstance, LPSTR lmCmdLine,
 
     srand(time(nullptr));
     Game game;
-    if (game.init("mainmenu", "TaharezLook", "TaharezLook.scheme",
+    if (game.init("MOOD", "TaharezLook", "TaharezLook.scheme",
                   "TaharezLook/MouseTarget", "DejaVuSans-14"))
         game.run();
 

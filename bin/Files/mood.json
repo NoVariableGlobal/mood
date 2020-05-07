@@ -1,21 +1,6 @@
 {
   "entities": [
     {
-      "id": "QuitButton",
-      "persistent": false,
-      "components": [
-        {
-          "type": "QuitButtonComponent",
-          "attributes": {
-            "text": "quit",
-            "position": [ 0.0, 0.95 ],
-            "size": [ 100.0, 30.0 ],
-            "name": "QuitButton"
-          }
-        }
-      ]
-    },
-    {
       "id": "Camera",
       "persistent": true,
       "components": [
@@ -44,238 +29,6 @@
             "node": "nSpotLight",
             "colour": [ 0.5, 0.5, 0.5 ],
             "direction": [ 0, -1, 0 ]
-          }
-        }
-      ]
-    },
-    {
-      "id": "LifeHUD",
-      "persistent": true,
-      "components": [
-        {
-          "type": "GuiImageComponent",
-          "attributes": {
-            "image": "TaharezLook/LifeBar_Framework",
-            "position": [ 0.005, 0.005 ],
-            "size": [ 392.0, 24.0 ],
-            "name": "LifeBarFramework"
-          }
-        },
-        {
-          "type": "LifeBarC",
-          "attributes": {
-            "image": "TaharezLook/LifeBar",
-            "position": [ 0.047, 0.009 ],
-            "size": [ 354.0, 20.0 ],
-            "name": "LifeBar"
-          }
-        }
-      ]
-    },
-    {
-      "id": "SpeedHUD",
-      "persistent": true,
-      "components": [
-        {
-          "type": "PowerUpIconC",
-          "attributes": {
-            "image": "TaharezLook/SpeedIcon",
-            "position": [ 0.05, 0.05 ],
-            "size": [ 25.0, 25.0 ],
-            "name": "SpeedIcon"
-          }
-        }
-      ]
-    },
-    {
-      "id": "ShieldHUD",
-      "persistent": true,
-      "components": [
-        {
-          "type": "PowerUpIconC",
-          "attributes": {
-            "image": "TaharezLook/ShieldIcon",
-            "position": [ 0.09, 0.05 ],
-            "size": [ 25.0, 25.0 ],
-            "name": "ShieldIcon"
-          }
-        }
-      ]
-    },
-    {
-      "id": "AmmoHUD",
-      "persistent": true,
-      "components": [
-        {
-          "type": "PowerUpIconC",
-          "attributes": {
-            "image": "TaharezLook/AmmoIcon",
-            "position": [ 0.13, 0.05 ],
-            "size": [ 25.0, 25.0 ],
-            "name": "AmmoIcon"
-          }
-        }
-      ]
-    },
-    {
-      "id": "KillHUD",
-      "persistent": true,
-      "components": [
-        {
-          "type": "PowerUpIconC",
-          "attributes": {
-            "image": "TaharezLook/KillIcon",
-            "position": [ 0.17, 0.05 ],
-            "size": [ 25.0, 25.0 ],
-            "name": "KillIcon"
-          }
-        }
-      ]
-    },
-    {
-      "id": "RoundHUD",
-      "persistent": true,
-      "components": [
-        {
-          "type": "GuiImageComponent",
-          "attributes": {
-            "image": "TaharezLook/RoundFramework",
-            "position": [ 0.8, 0.005 ],
-            "size": [ 150.0, 45.0 ],
-            "name": "RoundFramework"
-          }
-        },
-        {
-          "type": "GuiLabelComponent",
-          "attributes": {
-            "text": "Round 1",
-            "position": [ 0.84, 0.003 ],
-            "size": [ 200.0, 50.0 ],
-            "name": "RoundText"
-          }
-        }
-      ]
-    },
-    {
-      "id": "GunFrameworkHUD",
-      "persistent": true,
-      "components": [
-        {
-          "type": "GuiImageComponent",
-          "attributes": {
-            "image": "TaharezLook/GunFramework",
-            "position": [ 0.63, 0.76 ],
-            "size": [ 300.0, 147.0 ],
-            "name": "GunFramework"
-          }
-        },
-        {
-          "type": "GuiLabelComponent",
-          "attributes": {
-            "text": "20 / 1000",
-            "position": [ 0.68, 0.92 ],
-            "size": [ 200.0, 50.0 ],
-            "name": "AmmoText"
-          }
-        }
-      ]
-    },
-    {
-      "id": "GunIconHUD",
-      "persistent": true,
-      "components": [
-        {
-          "type": "GuiImageComponent",
-          "attributes": {
-            "image": "TaharezLook/HandgunIcon",
-            "position": [ 0.87, 0.8 ],
-            "size": [ 86.0, 104.0 ],
-            "name": "GunIcon"
-          }
-        }
-      ]
-    },
-    {
-      "id": "GameManager",
-      "persistent": true,
-      "components": [
-        {
-          "type": "SpawnerBulletsC",
-          "attributes": {
-          }
-        },
-
-        {
-          "type": "RoundManagerEC",
-          "attributes": {
-            "minAddEnemies": 3,
-            "maxAddEnemies": 6,
-            "enemiesInRound": 6,
-            "timeBetweenRounds": 10,
-            "map1Spawners": [
-              [ 0, 10, -250 ],
-              [ 0, 10, 250 ],
-              [ 250, 10, 0 ],
-              [ -250, 10, 0 ]
-            ],
-            "map2Spawners": [
-              [ -400, 10, -100 ],
-              [ -400, 10, 100 ],
-              [ 550, 10, 100 ],
-              [ 550, 10, -100 ]
-            ],
-            "map3Spawners": [
-              [ 170, 10, 170 ],
-              [ 170, 10, -170 ],
-              [ -170, 10, -170 ],
-              [ -170, 10, 170 ]
-            ],
-            "map4Spawners": [
-              [ -210, 10, -180 ],
-              [ -210, 10, 180 ],
-              [ 60, 10, 180 ],
-              [ 110, 10, -380 ]
-            ],
-            "map1others": [ -150, -150, 300, 300 ],
-            "map2others": [ -400, -100, 800, 200 ],
-            "map3others": [ -170, -170, 340, 340 ],
-            "map4others": [ -130, -380, 190, 560 ]
-          }
-        },
-        {
-          "type": "RankingManagerC",
-          "attributes": {
-            "game": true
-          }
-        },
-        {
-          "type": "DeadManagerEC",
-          "attributes": {}
-        },
-        {
-          "type": "SpawnerFloorRandomEC",
-          "attributes": {
-            "floorDimensions[x,y,z,w]": [ -100, -100, 200, 200 ],
-            "spawnCooldown": 10,
-            "spawnID": [ "Medkit", "IncreaseSpeed", "InfiniteAmmo", "InvulnerabilityShield", "Nuke", "Instakill" ],
-            "spawnTag": "PowerUp",
-            "spawnChances": [ 30, 20, 15, 20, 5, 10 ]
-          }
-        },
-        {
-          "type": "SpawnerFloorRandomEC",
-          "attributes": {
-            "floorDimensions[x,y,z,w]": [ -100, -100, 200, 200 ],
-            "spawnCooldown": 10, //20
-            "spawnID": [ "AutomaticRifle", "Shotgun", "SniperGun" ],
-            "spawnTag": "Gun",
-            "spawnChances": [ 40, 30, 30 ]
-          }
-        },
-        {
-          "type": "SoundComponent",
-          "attributes":{
-            "sounds": []
           }
         }
       ]
@@ -345,133 +98,18 @@
           }
         },
         {
-          "type": "PlayerShotIC",
-          "attributes": {
-          }
-        },
-        {
-          "type": "LifeC",
-          "attributes": {
-            "life": 100
-          }
-        },
-        {
-          "type": "HandGunC",
-          "attributes": {
-            "bulletTag": "PlayerBullet",
-            "bulletchamberMax": 20,
-            "munition": 1000,
-            "bulletDamage": 15,
-            "bulletSpeed": 100,
-            "cadence": 0.1,
-            "automatic": false,
-            "instakill": false,
-            "bulletType": "HandgunBullet",
-            "bulletComponent": "BulletC",
-            "shotSound": "HandgunShot"
-          }
-        },
-        {
-          "type": "ShotgunC",
-          "attributes": {
-            "bulletTag": "PlayerBullet",
-            "bulletchamberMax": 2,
-            "munition": 14,
-            "bulletDamage": 50,
-            "bulletSpeed": 50,
-            "cadence": 1,
-            "automatic": false,
-            "nPellets": 3,
-            "dispersion": 10,
-            "instakill": false,
-            "bulletType": "ShotgunBullet",
-            "bulletComponent": "BulletC",
-            "shotSound": "ShotgunShot"
-          }
-        },
-        {
-          "type": "SniperGunC",
-          "attributes": {
-            "bulletTag": "PlayerBullet",
-            "bulletchamberMax": 1,
-            "munition": 5,
-            "bulletDamage": 100,
-            "bulletSpeed": 100,
-            "cadence": 1,
-            "instakill": false,
-            "bulletType": "SniperBullet",
-            "bulletComponent": "SniperBulletC",
-            "shotSound": "SniperShot"
-          }
-        },
-        {
-          "type": "AutomaticRifleC",
-          "attributes": {
-            "bulletTag": "PlayerBullet",
-            "bulletchamberMax": 30,
-            "munition": 90,
-            "bulletDamage": 25,
-            "bulletSpeed": 150,
-            "cadence": 0.1,
-            "automatic": true,
-            "instakill": false,
-            "bulletType": "AutomaticRifleBullet",
-            "bulletComponent": "BulletC",
-            "shotSound": "MachinegunShots"
-          }
-        },
-        {
-          "type": "AutomaticEC",
-          "attributes": {}
-        },
-        {
-          "type": "WeaponControllerIC",
-          "attributes": {}
-        },
-        {
           "type": "OrientateToMouseIC",
           "attributes": {}
-        },
-        {
-          "type": "PowerUpTrackerC",
-          "attributes": {}
-        },
-        {
-          "type": "ReloadEC",
-          "attributes": {
-            "timeToReload": 1
-          }
-        }
-      ]
-    }
-	,{
-      "id": "CasaIzquierda",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ 50, 0, 100 ],
-            "orientation": [ 0, -90, 90 ],
-            "scale": [ 10, 10, 10 ]
-          }
-        },
-        {
-          "type": "TridimensionalObjectRC",
-          "attributes": {
-            "mesh": "City_building_001.mesh",
-            "node": "nSuelo",
-            "material": "none"
-          }
         }
       ]
     },
     {
-      "id": "CasaCentro",
+      "id": "CasaConTextura",
       "components": [
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ -300, 0, 100 ],
+            "position": [ -400, 0, 50 ],
             "orientation": [ 0, -90, 90 ],
             "scale": [ 10, 10, 10 ]
           }
@@ -486,13 +124,13 @@
         }
       ]
     },
-	{
-      "id": "CasaDerecha",
+	  {
+      "id": "CasaSinTextura",
       "components": [
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 0, 0, 100 ],
+            "position": [ -100, 0, 50 ],
             "orientation": [ 0, -90, 90 ],
             "scale": [ 10, 10, 10 ]
           }
@@ -507,26 +145,26 @@
         }
       ]
     },
-	{
-      "id": "Enemigo",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-           "position": [ -30, 0, 0 ],
-            "orientation": [ 0, 90, 90],
-            "scale": [ 4, 4, 4 ]
+    {
+        "id": "Enemigo",
+        "components": [
+          {
+            "type": "TransformComponent",
+            "attributes": {
+            "position": [ -30, 0, 0 ],
+              "orientation": [ 0, 90, 90],
+              "scale": [ 6, 6, 6 ]
+            }
+          },
+          {
+            "type": "TridimensionalObjectRC",
+            "attributes": {
+              "mesh": "melee_zard.mesh",
+              "node": "nSuelo",
+              "material": "none"
+            }
           }
-        },
-        {
-          "type": "TridimensionalObjectRC",
-          "attributes": {
-            "mesh": "melee_zard.mesh",
-            "node": "nSuelo",
-            "material": "MeleeMaterial"
-          }
-        }
-      ]
-    }
+        ]
+      }
   ]
 }
