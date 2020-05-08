@@ -17,7 +17,7 @@
     },
     {
       "id": "Camera",
-      "persistent": false,
+      "persistent": true,
       "components": [
         {
           "type": "TransformComponent",

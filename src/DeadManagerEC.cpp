@@ -9,6 +9,7 @@
 #include "Scene.h"
 #include "WeaponControllerIC.h"
 #include "PlayerShotIC.h"
+#include "OrientateToMouseIC.h"
 
 #include <iostream>
 #include <json.h>
@@ -35,6 +36,11 @@ void DeadManagerEC::checkEvent() {
         PlayerShotIC* playerShot = reinterpret_cast<PlayerShotIC*>(
             scene_->getEntityById("Player")->getComponent("PlayerShotIC"));
         playerShot->setActive(false);
+
+		OrientateToMouseIC* orientateToMouse =
+            reinterpret_cast<OrientateToMouseIC*>(
+            scene_->getEntityById("Player")->getComponent("OrientateToMouseIC"));
+        orientateToMouse->setActive(false);
 
 		dead = true;
 

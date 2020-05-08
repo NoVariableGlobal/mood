@@ -45,7 +45,7 @@
       "id": "RankingButton2",
       "components": [
         {
-          "type": "ChangeSceneButtonComponent",
+          "type": "ChangeAndClearSceneButtonComponent",
           "attributes": {
             "text": "Ranking",
             "position": [ 0.38, 0.6 ],
@@ -60,7 +60,7 @@
       "id": "BackToMenu",
       "components": [
         {
-          "type": "ChangeSceneButtonComponent",
+          "type": "ChangeAndClearSceneButtonComponent",
           "attributes": {
             "text": "Main Menu",
             "position": [ 0.38, 0.7 ],
@@ -70,8 +70,8 @@
           }
         }
       ]
-    },
-    {
+    }
+/*{
       "id": "Camera",
       "persistent": false,
       "components": [
@@ -95,5 +95,6 @@
         }
       ]
     }
+  */
   ]
 }
