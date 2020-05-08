@@ -38,9 +38,14 @@ void EnemyBehaviourEC::destroy() {
 
     for (auto it : enemies) {
         if (it != father_) {
+
             Component* comp = it->findComponent("MeleeEnemyBehaviourEC");
-            if (comp == nullptr)
-                comp = it->getComponent("RangedEnemyBehaviourEC");
+            if (comp == nullptr) {
+                comp = it->findComponent("TankMeleeEnemyBehaviourEC");
+
+                if (comp == nullptr)
+                    comp = it->getComponent("RangedEnemyBehaviourEC");
+            }
 
             removeTransforms(dynamic_cast<EnemyBehaviourEC*>(comp));
         }
@@ -73,8 +78,12 @@ void EnemyBehaviourEC::registerInOtherEnemies() {
     for (auto it : enemies) {
 
         Component* comp = it->findComponent("MeleeEnemyBehaviourEC");
-        if (comp == nullptr)
-            comp = it->getComponent("RangedEnemyBehaviourEC");
+        if (comp == nullptr) {
+            comp = it->findComponent("TankMeleeEnemyBehaviourEC");
+
+            if (comp == nullptr)
+                comp = it->getComponent("RangedEnemyBehaviourEC");
+        }
 
         addTransforms(dynamic_cast<EnemyBehaviourEC*>(comp),
                       reinterpret_cast<TransformComponent*>(

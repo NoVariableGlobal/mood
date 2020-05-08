@@ -296,9 +296,9 @@
           "type": "SpawnerEnemiesEC",
           "attributes": {
             "spawnCooldown": 5,
-            "spawnID": [ "MeleeEnemy", "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
+            "spawnID": [ "MeleeEnemy", "TankEnemy", "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
             "spawnTag": "Enemy",
-            "spawnChances": [ 60, 10, 10, 10, 10 ],
+            "spawnChances": [ 60, 5, 10, 10, 7, 8 ],
             "EnemiesLimit": 2
           }
         }
@@ -320,9 +320,9 @@
           "type": "SpawnerEnemiesEC",
           "attributes": {
             "spawnCooldown": 5,
-            "spawnID": [ "MeleeEnemy", "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
+            "spawnID": [ "MeleeEnemy", "TankEnemy", "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
             "spawnTag": "Enemy",
-            "spawnChances": [ 60, 10, 10, 10, 10 ],
+            "spawnChances": [ 60, 5, 10, 10, 7, 8 ],
             "EnemiesLimit": 1
           }
         }
@@ -344,9 +344,9 @@
           "type": "SpawnerEnemiesEC",
           "attributes": {
             "spawnCooldown": 5,
-            "spawnID": [ "MeleeEnemy", "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
+            "spawnID": [ "MeleeEnemy", "TankEnemy", "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
             "spawnTag": "Enemy",
-            "spawnChances": [ 60, 10, 10, 10, 10 ],
+            "spawnChances": [ 60, 5, 10, 10, 7, 8 ],
             "EnemiesLimit": 1
           }
         }
@@ -368,9 +368,9 @@
           "type": "SpawnerEnemiesEC",
           "attributes": {
             "spawnCooldown": 5,
-            "spawnID": [ "MeleeEnemy", "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
+            "spawnID": [ "MeleeEnemy", "TankEnemy", "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
             "spawnTag": "Enemy",
-            "spawnChances": [ 60, 10, 10, 10, 10 ],
+            "spawnChances": [ 60, 5, 10, 10, 7, 8 ],
             "EnemiesLimit": 2
           }
         }

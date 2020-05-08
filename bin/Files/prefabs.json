@@ -737,7 +737,7 @@
         {
           "type": "LifeC",
           "attributes": {
-            "life": 150
+            "life": 100
           }
         },
         {
@@ -763,7 +763,76 @@
           "type": "MeleeEnemyBehaviourEC",
           "attributes": {
             "speed": 150,
-            "attack": 10,
+            "attack": 5,
+            "attackCooldown": 1,
+            "separationRadius": 1000
+          }
+        }
+      ]
+    },
+    {
+      "id": "TankEnemy",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 90, -90, 90 ],
+            "scale": [ 4, 4, 4 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Tank.mesh",
+            "node": "nTankEnemy",
+            "material": "none"
+          }
+        },
+        {
+          "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ 0, 100, 0 ],
+            "shape": [ 4, 4, 4 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": false,
+            "static": false,
+            "friction": 500,
+            "restitution": 0
+          }
+        },
+        {
+          "type": "LifeC",
+          "attributes": {
+            "life": 500
+          }
+        },
+        {
+          "type": "AnimationLC",
+          "attributes": {
+            "animations":[
+              {
+                "name": "Walk",
+                "loop": true
+              },
+              {
+                "name": "Attack",
+                "loop": false
+              },
+              {
+                "name": "Dead",
+                "loop": false
+              }
+            ]
+          }
+        },
+        {
+          "type": "TankMeleeEnemyBehaviourEC",
+          "attributes": {
+            "speed": 25,
+            "attack": 50,
             "attackCooldown": 1,
             "separationRadius": 1000
           }

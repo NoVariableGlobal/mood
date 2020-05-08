@@ -63,6 +63,7 @@
     <ClCompile Include="..\src\SpawnerEC.cpp" />
     <ClCompile Include="..\src\SpawnerEnemiesEC.cpp" />
     <ClCompile Include="..\src\SpawnerFloorRandomEC.cpp" />
+    <ClCompile Include="..\src\TankMeleeEnemyBehaviourEC.cpp" />
     <ClCompile Include="..\src\WeaponControllerIC.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +110,7 @@
     <ClInclude Include="..\src\SpawnerEC.h" />
     <ClInclude Include="..\src\SpawnerEnemiesEC.h" />
     <ClInclude Include="..\src\SpawnerFloorRandomEC.h" />
+    <ClInclude Include="..\src\TankMeleeEnemyBehaviourEC.h" />
     <ClInclude Include="..\src\WeaponControllerIC.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
