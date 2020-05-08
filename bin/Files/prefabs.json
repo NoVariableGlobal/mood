@@ -784,9 +784,9 @@
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "Tank.mesh",
+            "mesh": "Mesh.mesh",
             "node": "nTankEnemy",
-            "material": "none"
+            "material": "PurpleColourMaterial"
           }
         },
         {
@@ -915,8 +915,8 @@
             "bulletchamberMax": 20,
             "munition": 1000,
             "bulletDamage": 15,
-            "bulletSpeed": 50,
-            "cadence": 1,
+            "bulletSpeed": 100,
+            "cadence": 0.1,
             "automatic": false,
             "instakill": false,
             "infiniteAmmo":  true,
@@ -1003,7 +1003,7 @@
             "bulletchamberMax": 30,
             "munition": 90,
             "bulletDamage": 13,
-            "bulletSpeed": 50,
+            "bulletSpeed": 150,
             "cadence": 0.1,
             "automatic": true,
             "instakill": false,

@@ -178,47 +178,13 @@ material PinkColourMaterial
     }
 }
 
-material RedColourMaterial
+material PurpleColourMaterial
 {
     technique 
     {
         pass 
         { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
-            diffuse 1.00 0.00 0.00 1.00
-        }
-    }
-}
-
-material PenguinMaterial
-{
-    technique 
-    {
-
-        pass 
-        {
-            diffuse 0.61 0.61 0.61 1.00
-            texture_unit 
-            {
-                texture penguin.jpg
-                colour_op add
-            }
-        }
-    }
-}
-
-material PruebaMaterial
-{
-    technique 
-    {
-
-        pass 
-        {
-            diffuse 0.61 0.61 0.61 1.00
-            texture_unit 
-            {
-                texture melee.jpg
-                colour_op add
-            }
+            diffuse 0.47 0.00 1.00 1.00
         }
     }
 }
