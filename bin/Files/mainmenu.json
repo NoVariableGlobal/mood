@@ -7,7 +7,7 @@
           "type": "GuiImageComponent",
           "attributes": {
             "image": "TaharezLook/MOOD",
-            "position": [ 0.18, 0.1 ],
+            "position": [ 0.36, 0.1 ],
             "size": [ 500.0, 200.0 ],
             "name": "MainMenuTitle"
           }
@@ -35,7 +35,7 @@
           "type": "ChangeSceneButtonComponent",
           "attributes": {
             "text": "Play",
-            "position": [ 0.44, 0.5 ],
+            "position": [ 0.465, 0.5 ],
             "size": [ 120.0, 40.0 ],
             "name": "MainMenuPlay",
             "scene": "captureName"
@@ -50,7 +50,7 @@
           "type": "ChangeSceneButtonComponent",
           "attributes": {
             "text": "Ranking",
-            "position": [ 0.44, 0.6 ],
+            "position": [ 0.465, 0.6 ],
             "size": [ 120.0, 40.0 ],
             "name": "MainMenuRanking",
             "scene": "ranking"
@@ -65,7 +65,7 @@
           "type": "ChangeSceneButtonComponent",
           "attributes": {
             "text": "Options",
-            "position": [ 0.44, 0.7 ],
+            "position": [ 0.465, 0.7 ],
             "size": [ 120.0, 40.0 ],
             "name": "MainMenuOptions",
             "scene": "options"
@@ -80,7 +80,7 @@
           "type": "QuitButtonComponent",
           "attributes": {
             "text": "Quit",
-            "position": [ 0.44, 0.8 ],
+            "position": [ 0.465, 0.8 ],
             "size": [ 120.0, 40.0 ],
             "name": "MainMenuQuit"
           }

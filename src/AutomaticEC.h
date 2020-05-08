@@ -2,6 +2,7 @@
 #include "EventComponent.h"
 #include "Factory.h"
 class SoundComponent;
+class WeaponControllerIC;
 
 DECLARE_FACTORY(AutomaticEC);
 // class to detect when to fire an automatic weapon depending on its cadence
@@ -11,6 +12,7 @@ class AutomaticEC : public EventComponent {
     double lastTimecadence = 0;
     bool shoot = false;
     SoundComponent* _soundComponent = nullptr;
+    WeaponControllerIC* weaponController = nullptr;
 
   public:
     AutomaticEC();
@@ -19,4 +21,6 @@ class AutomaticEC : public EventComponent {
     bool timeCadence();
     void setCadence(double _cadence);
     void setShoot(bool _shoot);
+
+    void setWeaponControllerAndSound();
 };

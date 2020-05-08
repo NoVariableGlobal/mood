@@ -65,7 +65,7 @@
           "type": "LifeBarC",
           "attributes": {
             "image": "TaharezLook/LifeBar",
-            "position": [ 0.047, 0.009 ],
+            "position": [ 0.023, 0.0065 ],
             "size": [ 354.0, 20.0 ],
             "name": "LifeBar"
           }
@@ -80,7 +80,7 @@
           "type": "PowerUpIconC",
           "attributes": {
             "image": "TaharezLook/SpeedIcon",
-            "position": [ 0.05, 0.05 ],
+            "position": [ 0.03, 0.03 ],
             "size": [ 25.0, 25.0 ],
             "name": "SpeedIcon"
           }
@@ -95,7 +95,7 @@
           "type": "PowerUpIconC",
           "attributes": {
             "image": "TaharezLook/ShieldIcon",
-            "position": [ 0.09, 0.05 ],
+            "position": [ 0.05, 0.03 ],
             "size": [ 25.0, 25.0 ],
             "name": "ShieldIcon"
           }
@@ -110,7 +110,7 @@
           "type": "PowerUpIconC",
           "attributes": {
             "image": "TaharezLook/AmmoIcon",
-            "position": [ 0.13, 0.05 ],
+            "position": [ 0.07, 0.03 ],
             "size": [ 25.0, 25.0 ],
             "name": "AmmoIcon"
           }
@@ -125,7 +125,7 @@
           "type": "PowerUpIconC",
           "attributes": {
             "image": "TaharezLook/KillIcon",
-            "position": [ 0.17, 0.05 ],
+            "position": [ 0.09, 0.03 ],
             "size": [ 25.0, 25.0 ],
             "name": "KillIcon"
           }
@@ -140,7 +140,7 @@
           "type": "GuiImageComponent",
           "attributes": {
             "image": "TaharezLook/RoundFramework",
-            "position": [ 0.8, 0.005 ],
+            "position": [ 0.88, 0.005 ],
             "size": [ 150.0, 45.0 ],
             "name": "RoundFramework"
           }
@@ -149,7 +149,7 @@
           "type": "GuiLabelComponent",
           "attributes": {
             "text": "Round 1",
-            "position": [ 0.84, 0.003 ],
+            "position": [ 0.9, 0.003 ],
             "size": [ 200.0, 50.0 ],
             "name": "RoundText"
           }
@@ -164,7 +164,7 @@
           "type": "GuiImageComponent",
           "attributes": {
             "image": "TaharezLook/GunFramework",
-            "position": [ 0.63, 0.76 ],
+            "position": [ 0.85, 0.87 ],
             "size": [ 300.0, 147.0 ],
             "name": "GunFramework"
           }
@@ -173,7 +173,7 @@
           "type": "GuiLabelComponent",
           "attributes": {
             "text": "20 / 1000",
-            "position": [ 0.68, 0.92 ],
+            "position": [ 0.875, 0.96 ],
             "size": [ 200.0, 50.0 ],
             "name": "AmmoText"
           }
@@ -188,7 +188,7 @@
           "type": "GuiImageComponent",
           "attributes": {
             "image": "TaharezLook/HandgunIcon",
-            "position": [ 0.87, 0.8 ],
+            "position": [ 0.95, 0.9 ],
             "size": [ 86.0, 104.0 ],
             "name": "GunIcon"
           }
@@ -427,7 +427,7 @@
                 "name": "Dead",
                 "loop": false
               },
-			        {
+              {
                 "name": "Idle",
                 "loop": true
               }
@@ -517,13 +517,14 @@
           }
         },
         {
-          "type": "AutomaticEC",
-          "attributes": {}
-        },
-        {
           "type": "WeaponControllerIC",
           "attributes": {}
         },
+        {
+          "type": "AutomaticEC",
+          "attributes": {}
+        },
+
         {
           "type": "OrientateToMouseIC",
           "attributes": {}
