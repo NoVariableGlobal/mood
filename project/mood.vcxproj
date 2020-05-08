@@ -25,6 +25,7 @@
     <ClCompile Include="..\src\BulletHurtPlayerEC.cpp" />
     <ClCompile Include="..\src\DeadManagerEC.cpp" />
     <ClCompile Include="..\src\DestroyAfterSecsEC.cpp" />
+    <ClCompile Include="..\src\DynamicTridimensionalObjectRC.cpp" />
     <ClCompile Include="..\src\EnemyBehaviourEC.cpp" />
     <ClCompile Include="..\src\GuiRankingLabelC.cpp" />
     <ClCompile Include="..\src\GunC.cpp" />
@@ -45,6 +46,7 @@
     <ClCompile Include="..\src\OnEPressPickUpIC.cpp" />
     <ClCompile Include="..\src\OrientateToMouseIC.cpp" />
     <ClCompile Include="..\src\PersistentPowerUpEC.cpp" />
+    <ClCompile Include="..\src\GunModelManager.cpp" />
     <ClCompile Include="..\src\PlayerMovementIC.cpp" />
     <ClCompile Include="..\src\PlayerShotIC.cpp" />
     <ClCompile Include="..\src\PowerUpC.cpp" />
@@ -72,6 +74,7 @@
     <ClInclude Include="..\src\BulletHurtPlayerEC.h" />
     <ClInclude Include="..\src\DeadManagerEC.h" />
     <ClInclude Include="..\src\DestroyAfterSecsEC.h" />
+    <ClInclude Include="..\src\DynamicTridimensionalObjectRC.h" />
     <ClInclude Include="..\src\EnemyBehaviourEC.h" />
     <ClInclude Include="..\src\GuiRankingLabelC.h" />
     <ClInclude Include="..\src\GunC.h" />
@@ -91,6 +94,7 @@
     <ClInclude Include="..\src\OnEPressPickUpIC.h" />
     <ClInclude Include="..\src\OrientateToMouseIC.h" />
     <ClInclude Include="..\src\PersistentPowerUpEC.h" />
+    <ClInclude Include="..\src\GunModelManagerC.h" />
     <ClInclude Include="..\src\PlayerMovementIC.h" />
     <ClInclude Include="..\src\PlayerShotIC.h" />
     <ClInclude Include="..\src\PowerUpC.h" />

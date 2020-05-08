@@ -153,10 +153,10 @@
     <ClCompile Include="..\src\AutomaticRifleC.cpp">
       <Filter>Source Files\Weapons</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\QuitButtonC.cpp">
+    <ClCompile Include="..\src\DynamicTridimensionalObjectRC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\AnimationPlayerEC.cpp">
+    <ClCompile Include="..\src\GunModelManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -293,10 +293,10 @@
     <ClInclude Include="..\src\AutomaticRifleC.h">
       <Filter>Source Files\Weapons</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\QuitButtonC.h">
+    <ClInclude Include="..\src\DynamicTridimensionalObjectRC.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\AnimationPlayerEC.h">
+    <ClInclude Include="..\src\GunModelManagerC.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
