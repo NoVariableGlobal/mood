@@ -632,27 +632,6 @@
           }
         }
       ]
-    },
-{
-      "id": "Suelo",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ 0, -1, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 3, 0.0001, 3 ]
-          }
-        },
-        {
-          "type": "TridimensionalObjectRC",
-          "attributes": {
-            "mesh": "cube.mesh",
-            "node": "nSuelo",
-            "material": "GrassMaterial"
-          }
-        }
-      ]
     },//MAP
     {
       "id": "Portaviones",
@@ -897,7 +876,7 @@
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 0, -100, 0 ],
+            "position": [ -300, -100, 0 ],
             "orientation": [ 0, 0, 0 ],
             "scale": [ 10, 10, 10 ]
           }
@@ -918,7 +897,7 @@
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 0, -100, 300 ],
+            "position": [ 300, -100, 0 ],
             "orientation": [ 0, 0, 0 ],
             "scale": [ 10, 10, 10 ]
           }
@@ -939,7 +918,70 @@
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 0, -100, 700 ],
+            "position": [ -300, -100, -500 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Plane.003.mesh",
+            "node": "nSuelo",
+            "material": "Water"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Mar4",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 300, -100, -500 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Plane.003.mesh",
+            "node": "nSuelo",
+            "material": "Water"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Mar5",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 300, -100, 500 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Plane.003.mesh",
+            "node": "nSuelo",
+            "material": "Water"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Mar6",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ -300, -100, 500 ],
             "orientation": [ 0, 0, 0 ],
             "scale": [ 10, 10, 10 ]
           }
