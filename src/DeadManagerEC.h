@@ -8,7 +8,7 @@ class AnimationLC;
 
 class DeadManagerEC : public EventComponent {
   private:
-	// seconds to wait for scene change
+    // seconds to wait for scene change
     int timeToWait;
     int timeOfDeath = 0;
     bool dead = false;

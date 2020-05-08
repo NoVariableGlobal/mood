@@ -1,4 +1,5 @@
 #pragma once
+#pragma once
 
 #include "Factory.h"
 #include "GuiLabelC.h"

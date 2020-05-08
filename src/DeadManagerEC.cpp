@@ -4,17 +4,17 @@
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "Factory.h"
+#include "OrientateToMouseIC.h"
+#include "PlayerShotIC.h"
 #include "RankingManagerC.h"
 #include "RoundManagerEC.h"
 #include "Scene.h"
 #include "WeaponControllerIC.h"
-#include "PlayerShotIC.h"
-#include "OrientateToMouseIC.h"
 
 #include <iostream>
 #include <json.h>
-#include <time.h>
 #include <math.h>
+#include <time.h>
 #include <utility>
 #include <value.h>
 
@@ -37,14 +37,15 @@ void DeadManagerEC::checkEvent() {
             scene_->getEntityById("Player")->getComponent("PlayerShotIC"));
         playerShot->setActive(false);
 
-		OrientateToMouseIC* orientateToMouse =
+        OrientateToMouseIC* orientateToMouse =
             reinterpret_cast<OrientateToMouseIC*>(
-            scene_->getEntityById("Player")->getComponent("OrientateToMouseIC"));
+                scene_->getEntityById("Player")->getComponent(
+                    "OrientateToMouseIC"));
         orientateToMouse->setActive(false);
 
-		dead = true;
+        dead = true;
 
-		timeOfDeath = clock() / static_cast<float>(CLOCKS_PER_SEC);
+        timeOfDeath = clock() / static_cast<float>(CLOCKS_PER_SEC);
     }
 
     if (dead) {

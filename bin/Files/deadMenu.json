@@ -7,7 +7,7 @@
           "type": "GuiLabelComponent",
           "attributes": {
             "text": "GAME OVER",
-            "position": [ 0.42, 0.2 ],
+            "position": [ 0.463, 0.2 ],
             "size": [ 150.0, 50.0 ],
             "name": "GameOverTitle"
           }
@@ -48,7 +48,7 @@
           "type": "ChangeAndClearSceneButtonComponent",
           "attributes": {
             "text": "Ranking",
-            "position": [ 0.38, 0.6 ],
+            "position": [ 0.44, 0.5 ],
             "size": [ 180.0, 40.0 ],
             "name": "DeadMenuRanking",
             "scene": "ranking"
@@ -63,7 +63,7 @@
           "type": "ChangeAndClearSceneButtonComponent",
           "attributes": {
             "text": "Main Menu",
-            "position": [ 0.38, 0.7 ],
+            "position": [ 0.44, 0.6 ],
             "size": [ 180.0, 40.0 ],
             "name": "ToMainMenu",
             "scene": "mainmenu"
@@ -71,7 +71,7 @@
         }
       ]
     }
-/*{
+    /*{
       "id": "Camera",
       "persistent": false,
       "components": [
