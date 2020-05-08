@@ -16,6 +16,27 @@ material GrassMaterial
     }
 }
 
+material ShieldTexture
+{
+	technique
+	{
+		pass
+		{
+			lighting off
+			scene_blend alpha_blend
+			depth_write off
+			diffuse vertexcolour
+
+			texture_unit
+			{
+				texture shieldPARTICLES.png
+				tex_address_mode clamp
+			}
+		}
+	}
+}
+
+
 material FondoMaterial
 {
     technique 
@@ -174,17 +195,6 @@ material PinkColourMaterial
         pass 
         { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
             diffuse 1.00 0.00 0.83 1.00
-        }
-    }
-}
-
-material PurpleColourMaterial
-{
-    technique 
-    {
-        pass 
-        { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
-            diffuse 0.47 0.00 1.00 1.00
         }
     }
 }

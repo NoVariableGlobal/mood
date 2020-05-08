@@ -84,6 +84,17 @@
             "size": [ 25.0, 25.0 ],
             "name": "SpeedIcon"
           }
+        },
+        {
+          "type": "ParticleC",
+          "attributes": {
+            "particles": [
+              {
+                "name": "Particles",
+                "particleName": "ShieldParticle"
+              }
+            ]
+          }
         }
       ]
     },
@@ -98,6 +109,17 @@
             "position": [ 0.09, 0.05 ],
             "size": [ 25.0, 25.0 ],
             "name": "ShieldIcon"
+          }
+        },
+        {
+          "type": "ParticleC",
+          "attributes": {
+            "particles": [
+              {
+                "name": "Particles",
+                "particleName": "ShieldParticle"
+              }
+            ]
           }
         }
       ]
@@ -114,6 +136,17 @@
             "size": [ 25.0, 25.0 ],
             "name": "AmmoIcon"
           }
+        },
+        {
+          "type": "ParticleC",
+          "attributes": {
+            "particles": [
+              {
+                "name": "Particles",
+                "particleName": "ShieldParticle"
+              }
+            ]
+          }
         }
       ]
     },
@@ -128,6 +161,17 @@
             "position": [ 0.17, 0.05 ],
             "size": [ 25.0, 25.0 ],
             "name": "KillIcon"
+          }
+        },
+        {
+          "type": "ParticleC",
+          "attributes": {
+            "particles": [
+              {
+                "name": "Particles",
+                "particleName": "ShieldParticle"
+              }
+            ]
           }
         }
       ]
