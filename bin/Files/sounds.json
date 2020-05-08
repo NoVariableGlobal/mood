@@ -21,8 +21,8 @@
     {
       "id": "MachinegunShots",
       "filename": "GunMachineGun.wav",
-      "loop": true,
-      "volume": 0.5
+      "loop": false,
+      "volume": 0.15
     },
     {
       "id": "Explosion",
