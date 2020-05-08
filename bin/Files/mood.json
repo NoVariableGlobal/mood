@@ -213,8 +213,8 @@
             "enemiesInRound": 6,
             "timeBetweenRounds": 10,
             "map1Spawners": [
-              [ 0, 10, -250 ],
-              [ 0, 10, 250 ],
+              [ 0, 10, -230 ],
+              [ 0, 10, 295 ],
               [ 250, 10, 0 ],
               [ -250, 10, 0 ]
             ],
@@ -225,13 +225,13 @@
               [ 550, 10, -100 ]
             ],
             "map3Spawners": [
-              [ 170, 10, 170 ],
-              [ 170, 10, -170 ],
-              [ -170, 10, -170 ],
-              [ -170, 10, 170 ]
+              [ 140, 10, 190 ],
+              [ 140, 10, -150 ],
+              [ -190, 10, -150 ],
+              [ -190, 10, 190 ]
             ],
             "map4Spawners": [
-              [ -210, 10, -180 ],
+              [ -210, 10, -160 ],
               [ -210, 10, 180 ],
               [ 60, 10, 180 ],
               [ 110, 10, -380 ]
@@ -287,7 +287,7 @@
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 0, 10, -250 ],
+            "position": [ 0, 10, -230 ],
             "orientation": [ 0, 0, 0 ],
             "scale": [ 1, 1, 1 ]
           }
@@ -311,7 +311,7 @@
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 0, 10, 250 ],
+            "position": [ 0, 10, 295 ],
             "orientation": [ 0, 0, 0 ],
             "scale": [ 1, 1, 1 ]
           }
@@ -634,189 +634,27 @@
       ]
     },//MAP
     {
-      "id": "Portaviones",
+      "id": "Ciudad",
       "components": [
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 100, 95, 370 ],
-            "orientation": [ 0, 45, 0 ],
-            "scale": [ 550, 550, 550 ]
+            "position": [ -20, 0, 22 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 10, 10, 10 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "Plane_3d_models.mesh",
-            "node": "piso",
+            "mesh": "Ciudad.mesh",
+            "node": "nSuelo",
             "material": "none"
           }
         }
       ]
     },
-	{
-      "id": "ColisionLeft",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0, 0, 0 ]
-          }
-        },
-        {
-          "type": "RigidbodyPC",
-          "attributes": {
-            "position": [ -230, 0, 0 ],
-            "shape": [ 8, 10, 200 ],
-            "mass": 1,
-            "gravity": [ 0, 0, 0 ],
-            "trigger": false,
-            "kinematic": true,
-            "static": true,
-            "friction": 0,
-            "restitution": 0
-          }
-        }
-      ]
-    },
-	{
-      "id": "ColisionLeft3",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0, 0, 0 ]
-          }
-        },
-        {
-          "type": "RigidbodyPC",
-          "attributes": {
-            "position": [ -155, 0, -300 ],
-            "shape": [ 8, 10, 100 ],
-            "mass": 1,
-            "gravity": [ 0, 0, 0 ],
-            "trigger": false,
-            "kinematic": true,
-            "static": true,
-            "friction": 0,
-            "restitution": 0
-          }
-        }
-      ]
-    },
-	{
-      "id": "ColisionRight2",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0, 0, 0 ]
-          }
-        },
-        {
-          "type": "RigidbodyPC",
-          "attributes": {
-            "position": [ 130, 0, -300 ],
-            "shape": [ 8, 10, 100 ],
-            "mass": 1,
-            "gravity": [ 0, 0, 0 ],
-            "trigger": false,
-            "kinematic": true,
-            "static": true,
-            "friction": 0,
-            "restitution": 0
-          }
-        }
-      ]
-    },
-	{
-      "id": "ColisionLeft2",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0, 0, 0 ]
-          }
-        },
-        {
-          "type": "RigidbodyPC",
-          "attributes": {
-            "position": [ -207, 0, -183 ],
-            "shape": [ 60, 10, 17 ],
-            "mass": 1,
-            "gravity": [ 0, 0, 0 ],
-            "trigger": false,
-            "kinematic": true,
-            "static": true,
-            "friction": 0,
-            "restitution": 0
-          }
-        }
-      ]
-    },
-	{
-      "id": "ColisionRight3",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0, 0, 0 ]
-          }
-        },
-        {
-          "type": "RigidbodyPC",
-          "attributes": {
-            "position": [ 110, 0, -200 ],
-            "shape": [ 30, 10, 13 ],
-            "mass": 1,
-            "gravity": [ 0, 0, 0 ],
-            "trigger": false,
-            "kinematic": true,
-            "static": true,
-            "friction": 0,
-            "restitution": 0
-          }
-        }
-      ]
-    },
-	{
-      "id": "ColisionRight",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 0, 0, 0 ]
-          }
-        },
-        {
-          "type": "RigidbodyPC",
-          "attributes": {
-            "position": [ 80, 0, 0 ],
-            "shape": [ 8, 10, 210 ],
-            "mass": 1,
-            "gravity": [ 0, 0, 0 ],
-            "trigger": false,
-            "kinematic": true,
-            "static": true,
-            "friction": 0,
-            "restitution": 0
-          }
-        }
-      ]
-    },
-	{
+    {
       "id": "ColisionUp",
       "components": [
         {
@@ -830,7 +668,7 @@
         {
           "type": "RigidbodyPC",
           "attributes": {
-            "position": [ -25, 0, -390 ],
+            "position": [ 0, 0, -240 ],
             "shape": [ 190, 10, 8 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
@@ -843,7 +681,115 @@
         }
       ]
     },
-	{
+    {
+      "id": "ColisionDiagonalLeftUp",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 0, 0, 0 ]
+          }
+        },
+        {
+          "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ -230, 0, -190 ],
+            "shape": [ 80, 10, 80 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "ColisionDiagonalLeftDown",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 0, 0, 0 ]
+          }
+        },
+        {
+          "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ -230, 0, 235 ],
+            "shape": [ 80, 10, 80 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "ColisionDiagonalRightUp",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 0, 0, 0 ]
+          }
+        },
+        {
+          "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ 190, 0, -190 ],
+            "shape": [ 80, 10, 80 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "ColisionDiagonalRightDown",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 0, 0, 0 ]
+          }
+        },
+        {
+          "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ 190, 0, 235 ],
+            "shape": [ 80, 10, 80 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
+          }
+        }
+      ]
+    },
+    {
       "id": "ColisionDown",
       "components": [
         {
@@ -857,7 +803,7 @@
         {
           "type": "RigidbodyPC",
           "attributes": {
-            "position": [ -50, 0, 215 ],
+            "position": [ 0, 0, 320 ],
             "shape": [ 190, 10, 8 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
@@ -870,128 +816,56 @@
         }
       ]
     },
-	{
-      "id": "Mar",
+    {
+      "id": "ColisionRight",
       "components": [
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ -300, -100, 0 ],
+            "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 10, 10, 10 ]
+            "scale": [ 0, 0, 0 ]
           }
         },
         {
-          "type": "TridimensionalObjectRC",
+          "type": "RigidbodyPC",
           "attributes": {
-            "mesh": "Plane.003.mesh",
-            "node": "nSuelo",
-            "material": "Water"
+            "position": [ 270, 0, 0 ],
+            "shape": [ 8, 10, 190 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
           }
         }
       ]
     },
-	{
-      "id": "Mar2",
+    {
+      "id": "ColisionLeft",
       "components": [
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 300, -100, 0 ],
+            "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 10, 10, 10 ]
+            "scale": [ 0, 0, 0 ]
           }
         },
         {
-          "type": "TridimensionalObjectRC",
+          "type": "RigidbodyPC",
           "attributes": {
-            "mesh": "Plane.003.mesh",
-            "node": "nSuelo",
-            "material": "Water"
-          }
-        }
-      ]
-    },
-	{
-      "id": "Mar3",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ -300, -100, -500 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 10, 10, 10 ]
-          }
-        },
-        {
-          "type": "TridimensionalObjectRC",
-          "attributes": {
-            "mesh": "Plane.003.mesh",
-            "node": "nSuelo",
-            "material": "Water"
-          }
-        }
-      ]
-    },
-	{
-      "id": "Mar4",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ 300, -100, -500 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 10, 10, 10 ]
-          }
-        },
-        {
-          "type": "TridimensionalObjectRC",
-          "attributes": {
-            "mesh": "Plane.003.mesh",
-            "node": "nSuelo",
-            "material": "Water"
-          }
-        }
-      ]
-    },
-	{
-      "id": "Mar5",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ 300, -100, 500 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 10, 10, 10 ]
-          }
-        },
-        {
-          "type": "TridimensionalObjectRC",
-          "attributes": {
-            "mesh": "Plane.003.mesh",
-            "node": "nSuelo",
-            "material": "Water"
-          }
-        }
-      ]
-    },
-	{
-      "id": "Mar6",
-      "components": [
-        {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ -300, -100, 500 ],
-            "orientation": [ 0, 0, 0 ],
-            "scale": [ 10, 10, 10 ]
-          }
-        },
-        {
-          "type": "TridimensionalObjectRC",
-          "attributes": {
-            "mesh": "Plane.003.mesh",
-            "node": "nSuelo",
-            "material": "Water"
+            "position": [ -260, 0, 0 ],
+            "shape": [ 8, 10, 190 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
           }
         }
       ]
