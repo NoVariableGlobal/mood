@@ -251,7 +251,6 @@
         {
           "type": "DeadManagerEC",
           "attributes": {
-            "timeToWait": 5
           }
         },
         {
@@ -276,7 +275,7 @@
         },
         {
           "type": "SoundComponent",
-          "attributes":{
+          "attributes": {
             "sounds": []
           }
         }
