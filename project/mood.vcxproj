@@ -25,7 +25,6 @@
     <ClCompile Include="..\src\BulletHurtPlayerEC.cpp" />
     <ClCompile Include="..\src\DeadManagerEC.cpp" />
     <ClCompile Include="..\src\DestroyAfterSecsEC.cpp" />
-    <ClCompile Include="..\src\DynamicTridimensionalObjectRC.cpp" />
     <ClCompile Include="..\src\EnemyBehaviourEC.cpp" />
     <ClCompile Include="..\src\GuiRankingLabelC.cpp" />
     <ClCompile Include="..\src\GunC.cpp" />
@@ -74,7 +73,6 @@
     <ClInclude Include="..\src\BulletHurtPlayerEC.h" />
     <ClInclude Include="..\src\DeadManagerEC.h" />
     <ClInclude Include="..\src\DestroyAfterSecsEC.h" />
-    <ClInclude Include="..\src\DynamicTridimensionalObjectRC.h" />
     <ClInclude Include="..\src\EnemyBehaviourEC.h" />
     <ClInclude Include="..\src\GuiRankingLabelC.h" />
     <ClInclude Include="..\src\GunC.h" />

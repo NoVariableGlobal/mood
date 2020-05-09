@@ -384,14 +384,14 @@
           "type": "TransformComponent",
           "attributes": {
             "position": [ 0, 10, 0 ],
-            "orientation": [ 0, 0, -45 ],
-            "scale": [ 1, 2, 0.5 ]
+            "orientation": [ 0, 90, 0 ],
+            "scale": [ 0.2, 1, 0.8 ]
           }
         },
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "shotgun.mesh",
+            "mesh": "rifle.mesh",
             "node": "nWeaponModel",
             "material": "BrownColourMaterial"
           }
@@ -406,7 +406,7 @@
           "type": "TransformComponent",
           "attributes": {
             "position": [ 0, 10, 0 ],
-            "orientation": [ 0, 0, -45 ],
+            "orientation": [ 0, -10, 0 ],
             "scale": [ 1, 2, 1 ]
           }
         },
@@ -428,7 +428,7 @@
           "type": "TransformComponent",
           "attributes": {
             "position": [ 0, 10, 0 ],
-            "orientation": [ 0, 45, 0 ],
+            "orientation": [ 0, 90, 0 ],
             "scale": [ 0.8, 0.8, 0.8 ]
           }
         },
@@ -450,7 +450,7 @@
           "type": "TransformComponent",
           "attributes": {
             "position": [ 0, 10, 0 ],
-            "orientation": [ 0, -45, 0 ],
+            "orientation": [ 0, -90, 0 ],
             "scale": [ 4, 4, 4 ]
           }
         },
@@ -469,11 +469,6 @@
       "tag": "Player",
       "persistent": true,
       "components": [
-	  
-        {
-          "type": "GunModelManagerC",
-          "attributes": {}
-        },
         {
           "type": "TransformComponent",
           "attributes": {
@@ -481,6 +476,10 @@
             "orientation": [ 0, 0, 0 ],
             "scale": [ 2, 2, 2 ]
           }
+        },
+        {
+          "type": "GunModelManagerC",
+          "attributes": {}
         },
         {
           "type": "TridimensionalObjectRC",
