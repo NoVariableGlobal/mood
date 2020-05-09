@@ -792,8 +792,8 @@
         {
           "type": "RigidbodyPC",
           "attributes": {
-            "position": [ 0, 100, 0 ],
-            "shape": [ 4, 4, 4 ],
+            "position": [ 0, 0, 0 ],
+            "shape": [ 10, 10, 10 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": false,
