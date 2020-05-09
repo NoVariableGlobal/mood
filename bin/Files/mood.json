@@ -435,8 +435,8 @@
           "attributes": {
             "particles": [
               {
-                "name": "Particles",
-                "particleName": "ShieldParticle",
+                "name": "SpeedHUDParticles",
+                "particleName": "KillParticle",
                 "attachedTo": "Player"
               }
             ]
@@ -462,7 +462,7 @@
           "attributes": {
             "particles": [
               {
-                "name": "Particles",
+                "name": "ShieldHUDParticles",
                 "particleName": "ShieldParticle",
                 "attachedTo": "Player"
               }
@@ -489,8 +489,8 @@
           "attributes": {
             "particles": [
               {
-                "name": "Particles",
-                "particleName": "ShieldParticle",
+                "name": "AmmoHUDParticles",
+                "particleName": "KillParticle",
                 "attachedTo": "Player"
               }
             ]
@@ -516,8 +516,8 @@
           "attributes": {
             "particles": [
               {
-                "name": "Particles",
-                "particleName": "ShieldParticle",
+                "name": "KillHUDParticles",
+                "particleName": "KillParticle",
                 "attachedTo": "Player"
               }
             ]

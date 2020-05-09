@@ -16,6 +16,26 @@ material GrassMaterial
     }
 }
 
+material SpeedTexture
+{
+	technique
+	{
+		pass
+		{
+			lighting off
+			scene_blend alpha_blend
+			depth_write off
+			diffuse vertexcolour
+
+			texture_unit
+			{
+				texture shieldPARTICLES.png
+				tex_address_mode clamp
+			}
+		}
+	}
+}
+
 material ShieldTexture
 {
 	technique
@@ -30,6 +50,46 @@ material ShieldTexture
 			texture_unit
 			{
 				texture shieldPARTICLES.png
+				tex_address_mode clamp
+			}
+		}
+	}
+}
+
+material AmmoTexture
+{
+	technique
+	{
+		pass
+		{
+			lighting off
+			scene_blend alpha_blend
+			depth_write off
+			diffuse vertexcolour
+
+			texture_unit
+			{
+				texture shieldPARTICLES.png
+				tex_address_mode clamp
+			}
+		}
+	}
+}
+
+material KillTexture
+{
+	technique
+	{
+		pass
+		{
+			lighting off
+			scene_blend alpha_blend
+			depth_write off
+			diffuse vertexcolour
+
+			texture_unit
+			{
+				texture killPARTICLES.png
 				tex_address_mode clamp
 			}
 		}
