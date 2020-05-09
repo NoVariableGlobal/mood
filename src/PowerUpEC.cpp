@@ -5,6 +5,7 @@
 #include "RigidbodyPC.h"
 #include "Scene.h"
 #include "TransformComponent.h"
+#include "SoundComponent.h"
 #include <json.h>
 
 PowerUpEC::PowerUpEC() = default;
@@ -52,6 +53,11 @@ bool PowerUpEC::timeDisappearEffect() {
     }
 
     return false;
+}
+
+void PowerUpEC::setSoundManager() {
+    soundManager = dynamic_cast<SoundComponent*>(
+        scene_->getEntityById("GameManager")->getComponent("SoundComponent"));
 }
 
 void PowerUpEC::onDestroy() { scene_->deleteEntity(father_); }

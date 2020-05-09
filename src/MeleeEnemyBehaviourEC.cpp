@@ -13,6 +13,7 @@
 #include "RankingManagerC.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
+#include "SoundComponent.h"
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
 
@@ -41,6 +42,8 @@ void MeleeEnemyBehaviourEC::checkEvent() {
             // if player dies sleep method is called
             if (playerHealth->doDamage(getAttack())) {
 
+                soundManager->playSound("PlayerDeath");
+
                 Entity* player = scene_->getEntityById("Player");
                 AnimationLC* animations = reinterpret_cast<AnimationLC*>(
                     player->getComponent("AnimationLC"));
@@ -66,6 +69,8 @@ void MeleeEnemyBehaviourEC::checkEvent() {
                     scene_->getEntityById("GameManager")
                         ->getComponent("DeadManagerEC"))
                     ->setActive(true);
+            } else {
+                soundManager->playSound("PlayerHurt");
             }
         }
     }
@@ -93,6 +98,8 @@ Component* MeleeEnemyBehaviourECFactory::create(Entity* _father,
 
     meleeEnemyBehaviour->setFather(_father);
     meleeEnemyBehaviour->setScene(scene);
+
+    meleeEnemyBehaviour->setSoundManager();
 
     meleeEnemyBehaviour->registerComponents();
 

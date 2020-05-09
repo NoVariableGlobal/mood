@@ -1,6 +1,7 @@
 #pragma once
 #include "EventComponent.h"
 
+class SoundComponent;
 class PowerUpEC : public EventComponent {
   private:
     float durationTotal_ = 0.0f;
@@ -11,6 +12,8 @@ class PowerUpEC : public EventComponent {
 
   protected:
     virtual void onDestroy();
+
+    SoundComponent* soundManager = nullptr;
 
   public:
     PowerUpEC();
@@ -26,4 +29,6 @@ class PowerUpEC : public EventComponent {
     bool getPicked();
     bool getCollisionWithPlayer();
     bool timeDisappearEffect();
+
+    void setSoundManager();
 };

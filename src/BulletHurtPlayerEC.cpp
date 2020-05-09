@@ -12,6 +12,7 @@
 #include "RigidbodyPC.h"
 #include "Scene.h"
 #include "SleepEC.h"
+#include "SoundComponent.h"
 
 #include <json.h>
 
@@ -35,6 +36,9 @@ void BulletHurtPlayerEC::checkEvent() {
 
         // if player dies sleep method is called
         if (playerHealth->doDamage(damage)) {
+
+            soundManager->playSound("PlayerDeath");
+
             Entity* player = scene_->getEntityById("Player");
             AnimationLC* animations = reinterpret_cast<AnimationLC*>(
                 player->getComponent("AnimationLC"));
@@ -59,13 +63,18 @@ void BulletHurtPlayerEC::checkEvent() {
                 scene_->getEntityById("GameManager")
                     ->getComponent("DeadManagerEC"))
                 ->setActive(true);
+        } else {
+            soundManager->playSound("PlayerHurt");
         }
 
         // destroy bullet
         bullet->dealCollision();
     }
 }
-
+void BulletHurtPlayerEC::setSoundManager() {
+    soundManager = dynamic_cast<SoundComponent*>(
+        scene_->getEntityById("GameManager")->getComponent("SoundComponent"));
+}
 // FACTORY INFRASTRUCTURE
 BulletHurtPlayerECFactory::BulletHurtPlayerECFactory() = default;
 
@@ -76,6 +85,8 @@ Component* BulletHurtPlayerECFactory::create(Entity* _father,
 
     bulletHurtPlayer->setFather(_father);
     bulletHurtPlayer->setScene(scene);
+
+    bulletHurtPlayer->setSoundManager();
 
     return bulletHurtPlayer;
 };

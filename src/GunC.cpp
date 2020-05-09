@@ -39,8 +39,10 @@ bool GunC::reload() {
 }
 
 bool GunC::shoot() {
-    if (!canShoot())
+    if (!canShoot()) {
+        soundManager->playSound("EmptyGun");
         return false;
+    }
 
     if (!getInfiniteAmmo()) {
         _bulletchamber--;
@@ -149,6 +151,11 @@ void GunC::setInfiniteAmmo(bool infinite) { infiniteAmmo_ = infinite; }
 void GunC::setInstakill(bool instakill) { instakill_ = instakill; }
 
 void GunC::setTransform(TransformComponent* trans) { myTransform = trans; }
+
+void GunC::setSoundManager() {
+    soundManager = dynamic_cast<SoundComponent*>(
+        scene_->getEntityById("GameManager")->getComponent("SoundComponent"));
+}
 
 bool GunC::mmunitionleft() {
     if (_bulletchamber == 0 && _munition == 0)
