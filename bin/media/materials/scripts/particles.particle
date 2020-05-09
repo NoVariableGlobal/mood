@@ -10,31 +10,20 @@ particle_system SpeedParticle
     // cull_each: comprobar si está en el frustrum cada partícula de forma individual o el conjunto (bounding box). Default: false
     // sorted: con respecto a la cámara. Default: false
     
-    material ShieldTexture
-    particle_width 25
-    particle_height 25
+    material SpeedTexture
+    particle_width 15
+    particle_height 15
     quota 500
     
     emitter Point
     { // e. attributes
-        position 0 0 0
+        position 0 10 0
         direction 0 0 0
         angle 35
-        emission_rate 5
+        emission_rate 25
         time_to_live 0.5
         velocity_min 25
         velocity_max 50
-    }
-    affector Rotator
-    { // a. attributes
-        rotation_range_start 0
-        rotation_range_end 90
-        rotation_speed_range_start -60
-        rotation_speed_range_end 200
-    }
-    affector DirectionRandomiser
-    { // a. attributes
-        randomness 5
     }
 }
 
@@ -79,17 +68,17 @@ particle_system AmmoParticle
     // sorted: con respecto a la cámara. Default: false
     
     material AmmoTexture
-    particle_width 25
-    particle_height 25
+    particle_width 5
+    particle_height 5
     quota 500
     
     emitter Point
     { // e. attributes
-        position 0 0 0
+        position 0 10 5
         direction 0 0 0
         angle 35
-        emission_rate 5
-        time_to_live 1.0
+        emission_rate 50
+        time_to_live 0.1
         velocity_min 50
         velocity_max 80
     }
@@ -118,28 +107,17 @@ particle_system KillParticle
     // sorted: con respecto a la cámara. Default: false
     
     material KillTexture
-    particle_width 15
-    particle_height 15
+    particle_width 5
+    particle_height 5
     quota 500
     
     emitter Point
     { // e. attributes
-        position 0 0 0
+        position 0 10 8
         direction 0 0 0
         emission_rate 50
         time_to_live 0.1
         velocity_min 50
         velocity_max 80
-    }
-    affector Rotator
-    { // a. attributes
-        rotation_range_start 0
-        rotation_range_end 360
-        rotation_speed_range_start -60
-        rotation_speed_range_end 200
-    }
-    affector DirectionRandomiser
-    { // a. attributes
-        randomness 5
     }
 }

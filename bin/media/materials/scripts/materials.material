@@ -29,7 +29,7 @@ material SpeedTexture
 
 			texture_unit
 			{
-				texture shieldPARTICLES.png
+				texture speedPARTICLES.png
 				tex_address_mode clamp
 			}
 		}
@@ -69,7 +69,7 @@ material AmmoTexture
 
 			texture_unit
 			{
-				texture shieldPARTICLES.png
+				texture ammoPARTICLES.png
 				tex_address_mode clamp
 			}
 		}

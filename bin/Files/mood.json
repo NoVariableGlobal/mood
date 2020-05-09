@@ -463,7 +463,7 @@
             "particles": [
               {
                 "name": "ShieldHUDParticles",
-                "particleName": "ShieldParticle",
+                "particleName": "KillParticle",
                 "attachedTo": "Player"
               }
             ]
@@ -490,7 +490,7 @@
             "particles": [
               {
                 "name": "AmmoHUDParticles",
-                "particleName": "KillParticle",
+                "particleName": "AmmoParticle",
                 "attachedTo": "Player"
               }
             ]
