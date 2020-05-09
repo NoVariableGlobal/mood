@@ -316,11 +316,11 @@ Try {
     # Build One Thousand Years
     If ($BuildEngine) {
         If ($NDebug) {
-            Step-VisualStudio -MsBuild $MsBuild -Path "$EngineFolder\build\one-thousand-years.sln" -Configuration "Debug"
+            Step-VisualStudio -MsBuild $MsBuild -Path "$EngineFolder\one-thousand-years.sln" -ThrowOnError $True -Configuration "Debug"
         }
 
         If ($NRelease) {
-            Step-VisualStudio -MsBuild $MsBuild -Path "$EngineFolder\build\one-thousand-years.sln" -Configuration "Release"
+            Step-VisualStudio -MsBuild $MsBuild -Path "$EngineFolder\one-thousand-years.sln" -ThrowOnError $True -Configuration "Release"
         }
     }
 
