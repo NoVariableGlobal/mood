@@ -9,7 +9,7 @@ class Entity;
 DECLARE_FACTORY(GunModelManagerC);
 
 class GunModelManagerC : public EventComponent {
-	Entity* _currentGun;
+    Entity* _currentGun;
 
     Entity* _handgun;
     Entity* _shotgun;
@@ -27,5 +27,5 @@ class GunModelManagerC : public EventComponent {
 
     void changeGunModel(std::string _gunId);
 
-	void deactivateAll();
+    void deactivateAll();
 };
