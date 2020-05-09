@@ -436,7 +436,8 @@
             "particles": [
               {
                 "name": "Particles",
-                "particleName": "ShieldParticle"
+                "particleName": "ShieldParticle",
+                "attachedTo": "Player"
               }
             ]
           }
@@ -462,7 +463,8 @@
             "particles": [
               {
                 "name": "Particles",
-                "particleName": "ShieldParticle"
+                "particleName": "ShieldParticle",
+                "attachedTo": "Player"
               }
             ]
           }
@@ -488,7 +490,8 @@
             "particles": [
               {
                 "name": "Particles",
-                "particleName": "ShieldParticle"
+                "particleName": "ShieldParticle",
+                "attachedTo": "Player"
               }
             ]
           }
@@ -514,7 +517,8 @@
             "particles": [
               {
                 "name": "Particles",
-                "particleName": "ShieldParticle"
+                "particleName": "ShieldParticle",
+                "attachedTo": "Player"
               }
             ]
           }
