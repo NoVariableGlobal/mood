@@ -88,6 +88,8 @@ Component* ShotgunCFactory::create(Entity* _father, Json::Value& _data,
     shotgun->setFather(_father);
     shotgun->setScene(_scene);
 
+    shotgun->setSoundManager();
+
     if (!_data["bulletTag"].isString())
         throw std::exception("ShotgunC: bulletTag is not a string");
     shotgun->setBulletTag(_data["bulletTag"].asString());

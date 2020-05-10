@@ -33,6 +33,7 @@ Component* HandGunCFactory::create(Entity* _father, Json::Value& _data,
     _scene->getComponentsManager()->addDC(hg);
     hg->setFather(_father);
     hg->setScene(_scene);
+    hg->setSoundManager();
 
     if (!_data["bulletTag"].isString())
         throw std::exception("HandGunC: bulletTag is not a string");

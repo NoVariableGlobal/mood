@@ -35,6 +35,8 @@ Component* SniperGunCFactory::create(Entity* _father, Json::Value& _data,
     sniper->setFather(_father);
     sniper->setScene(_scene);
 
+    sniper->setSoundManager();
+
     if (!_data["bulletTag"].isString())
         throw std::exception("SniperGunC: bulletTag is not a string");
     sniper->setBulletTag(_data["bulletTag"].asString());

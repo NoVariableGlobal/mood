@@ -29,6 +29,108 @@
       "filename": "Explosion.wav",
       "loop": false,
       "volume": 1
+    },
+    {
+      "id": "PlayerDeath",
+      "filename": "die1.wav",
+      "loop": false,
+      "volume": 1
+    },
+    {
+      "id": "PlayerHurt",
+      "filename": "pain1.wav",
+      "loop": false,
+      "volume": 1
+    },
+    {
+      "id": "Reload",
+      "filename": "reload.wav",
+      "loop": false,
+      "volume": 1
+    },
+    {
+      "id": "EmptyGun",
+      "filename": "emptyGun.wav",
+      "loop": false,
+      "volume": 1
+    },
+    {
+      "id": "MeleeDeath",
+      "filename": "meleeDeath.wav",
+      "loop": false,
+      "volume": 1
+    },
+    {
+      "id": "RangedDeath",
+      "filename": "rangedDeath.wav",
+      "loop": false,
+      "volume": 1
+    },
+    {
+      "id": "BigMeleeDeath",
+      "filename": "bigMeleeDeath.wav",
+      "loop": false,
+      "volume": 1
+    },
+    {
+      "id": "MeleeHit",
+      "filename": "meleeHit.wav",
+      "loop": false,
+      "volume": 1
+    },
+    {
+      "id": "RangedHit",
+      "filename": "rangedHit.wav",
+      "loop": false,
+      "volume": 1
+    },
+    {
+      "id": "BigMeleeHit",
+      "filename": "bigMeleeHit.wav",
+      "loop": false,
+      "volume": 1
+    },
+    {
+      "id": "MedKit",
+      "filename": "medKit.wav",
+      "loop": false,
+      "volume": 1
+    },
+    {
+      "id": "Nuke",
+      "filename": "nuke.wav",
+      "loop": false,
+      "volume": 1
+    },
+    {
+      "id": "Speed",
+      "filename": "speed.wav",
+      "loop": false,
+      "volume": 1
+    },
+    {
+      "id": "InstaKill",
+      "filename": "instaKill.wav",
+      "loop": false,
+      "volume": 1
+    },
+    {
+      "id": "InfiniteAmmo",
+      "filename": "infiniteAmmo.wav",
+      "loop": false,
+      "volume": 1
+    },
+    {
+      "id": "Shield",
+      "filename": "shield.wav",
+      "loop": false,
+      "volume": 1
+    },
+    {
+      "id": "SwapGun",
+      "filename": "swapGun.wav",
+      "loop": false,
+      "volume": 1
     }
   ]
 }

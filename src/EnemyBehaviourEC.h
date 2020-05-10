@@ -13,6 +13,7 @@ class RigidbodyPC;
 class LifeC;
 class TridimensionalObjectRC;
 class AnimationLC;
+class SoundComponent;
 
 class EnemyBehaviourEC : public EventComponent {
   private:
@@ -56,6 +57,8 @@ class EnemyBehaviourEC : public EventComponent {
     bool attacking = false;
     // true if enemy is colliding with player
     bool dead = false;
+
+    SoundComponent* soundManager = nullptr;
 
     // Pointer to animation component
     AnimationLC* animations = nullptr;
@@ -108,4 +111,6 @@ class EnemyBehaviourEC : public EventComponent {
 
     void registerInOtherTransforms(TransformComponent* trans);
     void unRegisterInOtherTransforms(TransformComponent* trans);
+
+    void setSoundManager();
 };

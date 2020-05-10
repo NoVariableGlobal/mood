@@ -37,6 +37,8 @@ class GunC : public Component {
 
     Ogre::Quaternion getOrientation() const;
 
+    SoundComponent* soundManager = nullptr;
+
   public:
     void destroy() override;
 
@@ -88,4 +90,6 @@ class GunC : public Component {
     void setInstakill(bool instakill);
 
     void setTransform(TransformComponent* trans);
+
+    void setSoundManager();
 };

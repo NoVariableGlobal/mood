@@ -14,7 +14,7 @@ class WeaponControllerIC : public InputComponent {
   private:
     GunC* currentGun = nullptr;
     GunC* secondaryGun = nullptr;
-    SoundComponent* _soundComponent = nullptr;
+    SoundComponent* soundManager = nullptr;
     AutomaticEC* _automaticEC = nullptr;
 
   public:
@@ -29,4 +29,6 @@ class WeaponControllerIC : public InputComponent {
     GunC* getCurrentGun();
     GunC* getSecondaryGun();
     void pickUpGun(std::string _gunName);
+
+    void setSoundManager();
 };

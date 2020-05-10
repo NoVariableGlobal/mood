@@ -83,6 +83,8 @@ Component* RangedEnemyBehaviourECFactory::create(Entity* _father,
 
     rangedEnemyBehaviour->registerInOtherEnemies();
 
+    rangedEnemyBehaviour->setSoundManager();
+
     if (!_data["speed"].isDouble())
         throw std::exception("MeleeEnemyBehaviourEC: speed is not a float");
     rangedEnemyBehaviour->setSpeed(_data["speed"].asFloat());
