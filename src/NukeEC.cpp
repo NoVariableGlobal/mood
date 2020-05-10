@@ -21,7 +21,6 @@ void NukeEC::onPick() {
     }
 }
 
-
 // FACTORY INFRASTRUCTURE
 NukeECFactory::NukeECFactory() = default;
 

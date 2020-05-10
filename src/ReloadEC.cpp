@@ -5,8 +5,8 @@
 #include "GunC.h"
 #include "PlayerShotIC.h"
 #include "Scene.h"
-#include "WeaponControllerIC.h"
 #include "SoundComponent.h"
+#include "WeaponControllerIC.h"
 #include <json.h>
 
 void ReloadEC::checkEvent() {

@@ -112,6 +112,5 @@ class EnemyBehaviourEC : public EventComponent {
     void registerInOtherTransforms(TransformComponent* trans);
     void unRegisterInOtherTransforms(TransformComponent* trans);
 
-
     void setSoundManager();
 };

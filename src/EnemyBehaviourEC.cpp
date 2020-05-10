@@ -132,7 +132,7 @@ void EnemyBehaviourEC::checkDamage() {
         if (bullet == nullptr)
             bullet = dynamic_cast<BulletC*>(
                 playerBullet->findComponent("SniperBulletC"));
-        //sonido daño enemigo
+        // sonido daño enemigo
 
         Component* comp = father_->findComponent("MeleeEnemyBehaviourEC");
         if (comp != nullptr)

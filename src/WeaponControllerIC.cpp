@@ -84,7 +84,7 @@ GunC* WeaponControllerIC::getCurrentGun() { return currentGun; }
 GunC* WeaponControllerIC::getSecondaryGun() { return secondaryGun; }
 
 void WeaponControllerIC::pickUpGun(std::string _gunName) {
-   
+
     soundManager->playSound("SwapGun");
     // Deactivate old gun
     if (secondaryGun != nullptr) {

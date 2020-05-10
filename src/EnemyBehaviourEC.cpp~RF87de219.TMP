@@ -1,7 +1,7 @@
-#include "EnemyBehaviourEC.h"
 #include "AnimationLC.h"
 #include "BulletC.h"
 #include "ComponentsManager.h"
+#include "EnemyBehaviourEC.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "Factory.h"
@@ -161,7 +161,7 @@ void EnemyBehaviourEC::die() {
         soundManager->playSound("MeleeDeath");
     else {
     }
-        father_->getComponent("RangedEnemyBehaviourEC");
+    father_->getComponent("RangedEnemyBehaviourEC");
     if (comp)
 }
 
