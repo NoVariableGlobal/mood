@@ -13,7 +13,7 @@
 
 void InfiniteAmmoEC::setEffect(bool value) {
 
-    soundManager->playSound("InstaKill");
+    soundManager->playSound("InfiniteAmmo");
     Entity* player = scene_->getEntityById("Player");
     reinterpret_cast<AutomaticRifleC*>(player->getComponent("AutomaticRifleC"))
         ->setInfiniteAmmo(value);
