@@ -14,6 +14,7 @@ void HandGunC::onShoot(TransformComponent* transform, RigidbodyPC* rigidBody) {
     Ogre::Quaternion quat = getOrientation();
 
     transform->setPosition(myTransform->getPosition() +
+                           (quat * Ogre::Vector3::UNIT_Y) * 25 +
                            (quat * Ogre::Vector3::UNIT_Z) * 10);
     transform->setOrientation(myTransform->getOrientation());
 

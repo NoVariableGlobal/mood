@@ -5,6 +5,7 @@
 #include "FactoriesFactory.h"
 #include "GuiImageC.h"
 #include "GuiLabelC.h"
+#include "GunModelManagerC.h"
 #include "HandGunC.h"
 #include "ReloadEC.h"
 #include "Scene.h"
@@ -49,20 +50,31 @@ void WeaponControllerIC::handleInput(const SDL_Event& _event) {
                 ->changeText(std::to_string(currentGun->getbulletchamber()) +
                              " / " + std::to_string(currentGun->getmunition()));
 
-            std::string image;
-            if (currentGun->getBulletType() == "HandgunBullet")
+            std::string image, gunName;
+            if (currentGun->getBulletType() == "HandgunBullet") {
                 image = "TaharezLook/HandgunIcon";
-            else if (currentGun->getBulletType() == "ShotgunBullet")
+                gunName = "HandGunC";
+            } else if (currentGun->getBulletType() == "ShotgunBullet") {
                 image = "TaharezLook/ShotgunIcon";
-            else if (currentGun->getBulletType() == "AutomaticRifleBullet")
+                gunName = "ShotgunC";
+            } else if (currentGun->getBulletType() == "AutomaticRifleBullet") {
                 image = "TaharezLook/RifleIcon";
-            else if (currentGun->getBulletType() == "SniperBullet")
+                gunName = "AutomaticRifleC";
+            } else if (currentGun->getBulletType() == "SniperBullet") {
                 image = "TaharezLook/SniperIcon";
+                gunName = "SniperGunC";
+            }
 
+            // Change GUI
             reinterpret_cast<GuiImageComponent*>(
                 scene_->getEntityById("GunIconHUD")
                     ->getComponent("GuiImageComponent"))
                 ->changeImage(image);
+
+            // Change gun model
+            reinterpret_cast<GunModelManagerC*>(
+                father_->getComponent("GunModelManagerC"))
+                ->changeGunModel(gunName);
         }
     }
 }
@@ -104,11 +116,17 @@ void WeaponControllerIC::pickUpGun(std::string _gunName) {
         currentGun->reset();
     }
 
+    // Change GUI
     reinterpret_cast<GuiLabelComponent*>(
         scene_->getEntityById("GunFrameworkHUD")
             ->getComponent("GuiLabelComponent"))
         ->changeText(std::to_string(currentGun->getbulletchamber()) + " / " +
                      std::to_string(currentGun->getmunition()));
+
+    // Change gun model
+    reinterpret_cast<GunModelManagerC*>(
+        father_->getComponent("GunModelManagerC"))
+        ->changeGunModel(_gunName);
 }
 
 void WeaponControllerIC::setSoundManager() {

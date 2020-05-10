@@ -45,6 +45,7 @@
     <ClCompile Include="..\src\OnEPressPickUpIC.cpp" />
     <ClCompile Include="..\src\OrientateToMouseIC.cpp" />
     <ClCompile Include="..\src\PersistentPowerUpEC.cpp" />
+    <ClCompile Include="..\src\GunModelManager.cpp" />
     <ClCompile Include="..\src\PlayerMovementIC.cpp" />
     <ClCompile Include="..\src\PlayerShotIC.cpp" />
     <ClCompile Include="..\src\PowerUpC.cpp" />
@@ -91,6 +92,7 @@
     <ClInclude Include="..\src\OnEPressPickUpIC.h" />
     <ClInclude Include="..\src\OrientateToMouseIC.h" />
     <ClInclude Include="..\src\PersistentPowerUpEC.h" />
+    <ClInclude Include="..\src\GunModelManagerC.h" />
     <ClInclude Include="..\src\PlayerMovementIC.h" />
     <ClInclude Include="..\src\PlayerShotIC.h" />
     <ClInclude Include="..\src\PowerUpC.h" />
@@ -208,7 +210,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps\one-thousand-years\src;$(SolutionDir)deps\one-thousand-years\deps\jsoncpp\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\OgreMain\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\Build\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\Components\RTShaderSystem\include;$(SolutionDir)deps\one-thousand-years\deps\bullet\src;$(SolutionDir)deps\one-thousand-years\deps\ogre\PlugIns\ParticleFX\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\PlugIns\STBICodec\include;$(SolutionDir)deps\one-thousand-years\deps\fmod\include;$(SolutionDir)deps\one-thousand-years\deps\SDL2\include;$(SolutionDir)deps\one-thousand-years\deps\jsoncpp\include\json;$(SolutionDir)deps\one-thousand-years\deps\cegui-dependencies\build\dependencies\include;$(SolutionDir)deps\one-thousand-years\deps\cegui\cegui\include;$(SolutionDir)deps\one-thousand-years\deps\cegui\build\cegui\include;$(SolutionDir)deps\one-thousand-years\deps\OIS\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps\one-thousand-years\src;$(SolutionDir)deps\one-thousand-years\deps\jsoncpp\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\OgreMain\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\Build\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\Components\RTShaderSystem\include;$(SolutionDir)deps\one-thousand-years\deps\bullet\src;$(SolutionDir)deps\one-thousand-years\deps\ogre\PlugIns\ParticleFX\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\PlugIns\STBICodec\include;$(SolutionDir)deps\one-thousand-years\deps\fmod\include;$(SolutionDir)deps\one-thousand-years\deps\SDL2\include;$(SolutionDir)deps\one-thousand-years\deps\jsoncpp\include\json;$(SolutionDir)deps\one-thousand-years\deps\cegui-dependencies\build\dependencies\include;$(SolutionDir)deps\one-thousand-years\deps\cegui\cegui\include;$(SolutionDir)deps\one-thousand-years\deps\cegui\build\cegui\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -245,7 +247,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)deps\one-thousand-years\src;$(SolutionDir)deps\one-thousand-years\deps\jsoncpp\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\OgreMain\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\Build\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\Components\RTShaderSystem\include;$(SolutionDir)deps\one-thousand-years\deps\bullet\src;$(SolutionDir)deps\one-thousand-years\deps\ogre\PlugIns\ParticleFX\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\PlugIns\STBICodec\include;$(SolutionDir)deps\one-thousand-years\deps\fmod\include;$(SolutionDir)deps\one-thousand-years\deps\SDL2\include;$(SolutionDir)deps\one-thousand-years\deps\jsoncpp\include\json;$(SolutionDir)deps\one-thousand-years\deps\cegui-dependencies\build\dependencies\include;$(SolutionDir)deps\one-thousand-years\deps\cegui\cegui\include;$(SolutionDir)deps\one-thousand-years\deps\cegui\build\cegui\include;$(SolutionDir)deps\one-thousand-years\deps\OIS\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)deps\one-thousand-years\src;$(SolutionDir)deps\one-thousand-years\deps\jsoncpp\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\OgreMain\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\Build\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\Components\RTShaderSystem\include;$(SolutionDir)deps\one-thousand-years\deps\bullet\src;$(SolutionDir)deps\one-thousand-years\deps\ogre\PlugIns\ParticleFX\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\PlugIns\STBICodec\include;$(SolutionDir)deps\one-thousand-years\deps\fmod\include;$(SolutionDir)deps\one-thousand-years\deps\SDL2\include;$(SolutionDir)deps\one-thousand-years\deps\jsoncpp\include\json;$(SolutionDir)deps\one-thousand-years\deps\cegui-dependencies\build\dependencies\include;$(SolutionDir)deps\one-thousand-years\deps\cegui\cegui\include;$(SolutionDir)deps\one-thousand-years\deps\cegui\build\cegui\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
