@@ -73,6 +73,24 @@
       "volume": 1
     },
     {
+      "id": "MeleeHit",
+      "filename": "meleeHit.wav",
+      "loop": false,
+      "volume": 1
+    },
+    {
+      "id": "RangedHit",
+      "filename": "rangedHit.wav",
+      "loop": false,
+      "volume": 1
+    },
+    {
+      "id": "BigMeleeHit",
+      "filename": "bigMeleeHit.wav",
+      "loop": false,
+      "volume": 1
+    },
+    {
       "id": "MedKit",
       "filename": "medKit.wav",
       "loop": false,
@@ -87,6 +105,30 @@
     {
       "id": "Speed",
       "filename": "speed.wav",
+      "loop": false,
+      "volume": 1
+    },
+    {
+      "id": "InstaKill",
+      "filename": "instaKill.wav",
+      "loop": false,
+      "volume": 1
+    },
+    {
+      "id": "InfiniteAmmo.wav",
+      "filename": "infiniteAmmo.wav",
+      "loop": false,
+      "volume": 1
+    },
+    {
+      "id": "Shield",
+      "filename": "shield.wav",
+      "loop": false,
+      "volume": 1
+    },
+    {
+      "id": "SwapGun",
+      "filename": "swapGun.wav",
       "loop": false,
       "volume": 1
     }

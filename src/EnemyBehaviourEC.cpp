@@ -132,6 +132,19 @@ void EnemyBehaviourEC::checkDamage() {
         if (bullet == nullptr)
             bullet = dynamic_cast<BulletC*>(
                 playerBullet->findComponent("SniperBulletC"));
+        //sonido daño enemigo
+
+        Component* comp = father_->findComponent("MeleeEnemyBehaviourEC");
+        if (comp != nullptr)
+            soundManager->playSound("MeleeHit");
+        else {
+            comp = father_->getComponent("RangedEnemyBehaviourEC");
+
+            if (comp != nullptr)
+                soundManager->playSound("RangedHit");
+            else
+                soundManager->playSound("BigMeleeHit");
+        }
 
         // enemy is destroyed if it dies
         if (life->doDamage(bullet->getDamage()))

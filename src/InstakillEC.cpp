@@ -8,9 +8,12 @@
 #include "Scene.h"
 #include "ShotgunC.h"
 #include "SniperGunC.h"
+#include "SoundComponent.h"
 #include <json.h>
 
 void InstakillEC::setEffect(bool effect) {
+
+    soundManager->playSound("InstaKill");
     Entity* player = scene_->getEntityById("Player");
     reinterpret_cast<AutomaticRifleC*>(player->getComponent("AutomaticRifleC"))
         ->setInstakill(effect);
@@ -33,7 +36,7 @@ Component* InstakillECFactory::create(Entity* _father, Json::Value& _data,
 
     instakill->setFather(_father);
     instakill->setScene(scene);
-
+    instakill->setSoundManager();
     scene->getComponentsManager()->addEC(instakill);
 
     if (!_data["time"].isDouble())
