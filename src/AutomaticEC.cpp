@@ -23,11 +23,12 @@ void AutomaticEC::checkEvent() {
     if (shoot && timeCadence()) {
         weaponController->getCurrentGun()->shoot();
 
-        _soundComponent->playSound(
-            weaponController->getCurrentGun()->getShotSound());
-
-        if (weaponController->getCurrentGun()->getbulletchamber() == 0)
+        if (weaponController->getCurrentGun()->getbulletchamber() == 0) {
+            _soundComponent->playSound("EmptyGun");
             setShoot(false);
+        } else
+            _soundComponent->playSound(
+                weaponController->getCurrentGun()->getShotSound());
     }
 }
 

@@ -1,18 +1,18 @@
+#include "GunModelManagerEC.h"
 #include "ComponentsManager.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
-#include "GunModelManagerC.h"
 #include "Scene.h"
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
 #include <iostream>
 #include <json.h>
 
-GunModelManagerC::GunModelManagerC() = default;
+GunModelManagerEC::GunModelManagerEC() = default;
 
-GunModelManagerC::~GunModelManagerC() = default;
+GunModelManagerEC::~GunModelManagerEC() = default;
 
-void GunModelManagerC::checkEvent() {
+void GunModelManagerEC::checkEvent() {
     TransformComponent* _playerTransform =
         reinterpret_cast<TransformComponent*>(
             father_->getComponent("TransformComponent"));
@@ -65,13 +65,13 @@ void GunModelManagerC::checkEvent() {
           }
         }
 */
-void GunModelManagerC::destroy() {
+void GunModelManagerEC::destroy() {
     setActive(false);
-    scene_->getComponentsManager()->eraseDC(this);
+    scene_->getComponentsManager()->eraseEC(this);
 }
 
-void GunModelManagerC::init(Entity* handGun, Entity* shotgun, Entity* rifle,
-                            Entity* sniper) {
+void GunModelManagerEC::init(Entity* handGun, Entity* shotgun, Entity* rifle,
+                             Entity* sniper) {
     _handgun = handGun;
     _shotgun = shotgun;
     _rifle = rifle;
@@ -82,7 +82,7 @@ void GunModelManagerC::init(Entity* handGun, Entity* shotgun, Entity* rifle,
     _currentGun = _handgun;
 }
 
-void GunModelManagerC::changeGunModel(std::string _gunId) {
+void GunModelManagerEC::changeGunModel(std::string _gunId) {
     deactivateAll();
 
     if (_gunId == "HandGunC") {
@@ -100,7 +100,7 @@ void GunModelManagerC::changeGunModel(std::string _gunId) {
     }
 }
 
-void GunModelManagerC::deactivateAll() {
+void GunModelManagerEC::deactivateAll() {
     _handgun->setActive(false);
     _shotgun->setActive(false);
     _rifle->setActive(false);
@@ -108,12 +108,12 @@ void GunModelManagerC::deactivateAll() {
 }
 
 // FACTORY INFRASTRUCTURE
-GunModelManagerCFactory::GunModelManagerCFactory() = default;
+GunModelManagerECFactory::GunModelManagerECFactory() = default;
 
-Component* GunModelManagerCFactory::create(Entity* _father, Json::Value& _data,
-                                           Scene* _scene) {
+Component* GunModelManagerECFactory::create(Entity* _father, Json::Value& _data,
+                                            Scene* _scene) {
 
-    GunModelManagerC* gunModelManagerC = new GunModelManagerC();
+    GunModelManagerEC* gunModelManagerC = new GunModelManagerEC();
 
     Entity* handgun = _scene->getEntityById("HandgunModel");
     Entity* shotgun = _scene->getEntityById("ShotgunModel");
@@ -129,4 +129,4 @@ Component* GunModelManagerCFactory::create(Entity* _father, Json::Value& _data,
     return gunModelManagerC;
 };
 
-DEFINE_FACTORY(GunModelManagerC);
+DEFINE_FACTORY(GunModelManagerEC);

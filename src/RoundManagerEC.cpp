@@ -41,7 +41,12 @@ void RoundManagerEC::checkEvent() {
             enemiesInRound += randNum;
 
             int i = 0, size = enemiesSpawners.size();
-            int toAdd = enemiesInRound / size;
+
+            int toAdd;
+            if (enemiesInRound % 2 == 0)
+                toAdd = enemiesInRound / size;
+            else
+                toAdd = (enemiesInRound / size) + 1;
 
             std::cout << "ROUND START"
                       << "\n";
