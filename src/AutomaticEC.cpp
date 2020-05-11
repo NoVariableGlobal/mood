@@ -17,19 +17,16 @@ AutomaticEC::AutomaticEC() {}
 AutomaticEC::~AutomaticEC() {}
 
 void AutomaticEC::checkEvent() {
-    cadence = (dynamic_cast<WeaponControllerIC*>(
-                   father_->getComponent("WeaponControllerIC")))
-                  ->getCurrentGun()
-                  ->getcadence();
+
+    cadence = weaponController->getCurrentGun()->getcadence();
+
     if (shoot && timeCadence()) {
-        (dynamic_cast<WeaponControllerIC*>(
-             father_->getComponent("WeaponControllerIC")))
-            ->getCurrentGun()
-            ->shoot();
-        if ((dynamic_cast<WeaponControllerIC*>(
-                 father_->getComponent("WeaponControllerIC")))
-                ->getCurrentGun()
-                ->getbulletchamber() == 0)
+        weaponController->getCurrentGun()->shoot();
+
+        _soundComponent->playSound(
+            weaponController->getCurrentGun()->getShotSound());
+
+        if (weaponController->getCurrentGun()->getbulletchamber() == 0)
             setShoot(false);
     }
 }
@@ -49,24 +46,20 @@ void AutomaticEC::setCadence(double _cadence) { cadence = _cadence; }
 
 void AutomaticEC::setShoot(bool _shoot) {
     shoot = _shoot;
-    if (_soundComponent == nullptr)
-        _soundComponent =
-            dynamic_cast<SoundComponent*>(scene_->getEntityById("GameManager")
-                                              ->getComponent("SoundComponent"));
     if (shoot) {
         auto currentGun =
             dynamic_cast<GunC*>(dynamic_cast<WeaponControllerIC*>(
                                     father_->getComponent("WeaponControllerIC"))
                                     ->getCurrentGun());
-        if (currentGun->canShoot())
-            _soundComponent->playSound(currentGun->getShotSound());
-    } else {
-        _soundComponent->stopSound(
-            dynamic_cast<WeaponControllerIC*>(
-                father_->getComponent("WeaponControllerIC"))
-                ->getCurrentGun()
-                ->getShotSound());
     }
+}
+
+void AutomaticEC::setWeaponControllerAndSound() {
+    weaponController = dynamic_cast<WeaponControllerIC*>(
+        father_->getComponent("WeaponControllerIC"));
+
+    _soundComponent = dynamic_cast<SoundComponent*>(
+        scene_->getEntityById("GameManager")->getComponent("SoundComponent"));
 }
 
 // FACTORY INFRASTRUCTURE
@@ -78,10 +71,11 @@ Component* AutomaticECFactory::create(Entity* _father, Json::Value& _data,
 
     automatic->setFather(_father);
     automatic->setScene(scene);
+
     scene->getComponentsManager()->addEC(automatic);
 
     automatic->setActive(true);
-
+    automatic->setWeaponControllerAndSound();
     return automatic;
 };
 

@@ -6,9 +6,13 @@
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "LifeC.h"
+#include "OrientateToMouseIC.h"
+#include "PlayerMovementIC.h"
+#include "PlayerShotIC.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
 #include "SleepEC.h"
+#include "SoundComponent.h"
 
 #include <json.h>
 
@@ -32,27 +36,45 @@ void BulletHurtPlayerEC::checkEvent() {
 
         // if player dies sleep method is called
         if (playerHealth->doDamage(damage)) {
+
+            soundManager->playSound("PlayerDeath");
+
+            Entity* player = scene_->getEntityById("Player");
             AnimationLC* animations = reinterpret_cast<AnimationLC*>(
-                scene_->getEntityById("Player")->getComponent("AnimationLC"));
+                player->getComponent("AnimationLC"));
 
             animations->stopAnimations();
             animations->startAnimation("Dead");
 
-            reinterpret_cast<RigidbodyPC*>(
-                scene_->getEntityById("Player")->getComponent("RigidbodyPC"))
+            reinterpret_cast<RigidbodyPC*>(player->getComponent("RigidbodyPC"))
+                ->setActive(false);
+            reinterpret_cast<PlayerShotIC*>(
+                player->getComponent("PlayerShotIC"))
+                ->setActive(false);
+            reinterpret_cast<PlayerMovementIC*>(
+                player->getComponent("PlayerMovementIC"))
+                ->setActive(false);
+
+            reinterpret_cast<OrientateToMouseIC*>(
+                player->getComponent("OrientateToMouseIC"))
                 ->setActive(false);
 
             reinterpret_cast<DeadManagerEC*>(
                 scene_->getEntityById("GameManager")
                     ->getComponent("DeadManagerEC"))
                 ->setActive(true);
+        } else {
+            soundManager->playSound("PlayerHurt");
         }
 
         // destroy bullet
         bullet->dealCollision();
     }
 }
-
+void BulletHurtPlayerEC::setSoundManager() {
+    soundManager = dynamic_cast<SoundComponent*>(
+        scene_->getEntityById("GameManager")->getComponent("SoundComponent"));
+}
 // FACTORY INFRASTRUCTURE
 BulletHurtPlayerECFactory::BulletHurtPlayerECFactory() = default;
 
@@ -63,6 +85,8 @@ Component* BulletHurtPlayerECFactory::create(Entity* _father,
 
     bulletHurtPlayer->setFather(_father);
     bulletHurtPlayer->setScene(scene);
+
+    bulletHurtPlayer->setSoundManager();
 
     return bulletHurtPlayer;
 };

@@ -16,6 +16,7 @@ void SniperGunC::onShoot(TransformComponent* transform,
     Ogre::Quaternion quat = getOrientation();
 
     transform->setPosition(myTransform->getPosition() +
+                           (quat * Ogre::Vector3::UNIT_Y) * 25 +
                            (quat * Ogre::Vector3::UNIT_Z) * 10);
     transform->setOrientation(myTransform->getOrientation());
     rigidBody->setLinearVelocity((quat * Ogre::Vector3::UNIT_Z) * _bulletSpeed);
@@ -33,6 +34,8 @@ Component* SniperGunCFactory::create(Entity* _father, Json::Value& _data,
     _scene->getComponentsManager()->addDC(sniper);
     sniper->setFather(_father);
     sniper->setScene(_scene);
+
+    sniper->setSoundManager();
 
     if (!_data["bulletTag"].isString())
         throw std::exception("SniperGunC: bulletTag is not a string");

@@ -154,6 +154,9 @@
       <Filter>Source Files\Weapons</Filter>
     </ClCompile>
     <ClCompile Include="..\src\TankMeleeEnemyBehaviourEC.cpp">
+         <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GunModelManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -291,6 +294,9 @@
       <Filter>Source Files\Weapons</Filter>
     </ClInclude>
     <ClInclude Include="..\src\TankMeleeEnemyBehaviourEC.h">
+          <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GunModelManagerC.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

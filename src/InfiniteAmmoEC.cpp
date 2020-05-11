@@ -8,9 +8,12 @@
 #include "Scene.h"
 #include "ShotgunC.h"
 #include "SniperGunC.h"
+#include "SoundComponent.h"
 #include <json.h>
 
 void InfiniteAmmoEC::setEffect(bool value) {
+
+    soundManager->playSound("InfiniteAmmo");
     Entity* player = scene_->getEntityById("Player");
     reinterpret_cast<AutomaticRifleC*>(player->getComponent("AutomaticRifleC"))
         ->setInfiniteAmmo(value);
@@ -33,6 +36,7 @@ Component* InfiniteAmmoECFactory::create(Entity* _father, Json::Value& _data,
 
     infiniteAmmo->setFather(_father);
     infiniteAmmo->setScene(scene);
+    infiniteAmmo->setSoundManager();
 
     scene->getComponentsManager()->addEC(infiniteAmmo);
 

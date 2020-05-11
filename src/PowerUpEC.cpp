@@ -4,6 +4,7 @@
 #include "OgreRoot.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
+#include "SoundComponent.h"
 #include "TransformComponent.h"
 #include <json.h>
 
@@ -52,6 +53,11 @@ bool PowerUpEC::timeDisappearEffect() {
     }
 
     return false;
+}
+
+void PowerUpEC::setSoundManager() {
+    soundManager = dynamic_cast<SoundComponent*>(
+        scene_->getEntityById("GameManager")->getComponent("SoundComponent"));
 }
 
 void PowerUpEC::onDestroy() { scene_->deleteEntity(father_); }

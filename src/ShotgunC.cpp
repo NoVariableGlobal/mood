@@ -63,10 +63,11 @@ void ShotgunC::onPreShoot() {
 }
 
 void ShotgunC::onShoot(TransformComponent* transform, RigidbodyPC* rigidBody) {
-    transform->setPosition(myTransform->getPosition());
+    Ogre::Quaternion quat = getOrientation();
+    transform->setPosition(myTransform->getPosition() +
+                           (quat * Ogre::Vector3::UNIT_Y) * 25);
     transform->setOrientation(myTransform->getOrientation());
 
-    Ogre::Quaternion quat = getOrientation();
     rigidBody->setLinearVelocity(-(quat * Ogre::Vector3::NEGATIVE_UNIT_Z) *
                                  _bulletSpeed);
 }
@@ -86,6 +87,8 @@ Component* ShotgunCFactory::create(Entity* _father, Json::Value& _data,
     _scene->getComponentsManager()->addDC(shotgun);
     shotgun->setFather(_father);
     shotgun->setScene(_scene);
+
+    shotgun->setSoundManager();
 
     if (!_data["bulletTag"].isString())
         throw std::exception("ShotgunC: bulletTag is not a string");

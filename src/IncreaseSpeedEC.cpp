@@ -4,12 +4,15 @@
 #include "FactoriesFactory.h"
 #include "PlayerMovementIC.h"
 #include "Scene.h"
+#include "SoundComponent.h"
 #include <json.h>
 
 void IncreaseSpeedEC::setEffect(bool value) {
     Entity* player = scene_->getEntityById("Player");
     auto movement = reinterpret_cast<PlayerMovementIC*>(
         player->getComponent("PlayerMovementIC"));
+
+    soundManager->playSound("Speed");
 
     if (value) {
         originalSpeed_ = movement->getMovementSpeed();
@@ -34,6 +37,8 @@ Component* IncreaseSpeedECFactory::create(Entity* _father, Json::Value& _data,
     scene->getComponentsManager()->addEC(increaseSpeed);
     increaseSpeed->setFather(_father);
     increaseSpeed->setScene(scene);
+
+    increaseSpeed->setSoundManager();
 
     if (!_data["time"].isDouble())
         throw std::exception("IncreaseSpeed: time is not a double");

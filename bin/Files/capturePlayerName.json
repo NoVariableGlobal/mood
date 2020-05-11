@@ -8,7 +8,7 @@
           "type": "GuiLabelComponent",
           "attributes": {
             "text": "",
-            "position": [ 0.46, 0.5 ],
+            "position": [ 0.465, 0.5 ],
             "size": [ 300.0, 50.0 ],
             "name": "RankingTitle"
           }
@@ -17,7 +17,7 @@
           "type": "ChangeSceneButtonComponent",
           "attributes": {
             "text": "Start",
-            "position": [ 0.44, 0.8 ],
+            "position": [ 0.465, 0.8 ],
             "size": [ 120.0, 40.0 ],
             "name": "MainMenuPlay",
             "scene": "MOOD"
@@ -33,7 +33,7 @@
           "type": "GuiLabelComponent",
           "attributes": {
             "text": "Type your name",
-            "position": [ 0.4, 0.3 ],
+            "position": [ 0.455, 0.3 ],
             "size": [ 300.0, 50.0 ],
             "name": "insetText"
           }

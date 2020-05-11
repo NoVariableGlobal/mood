@@ -724,7 +724,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 100, 0 ],
-            "shape": [ 4, 4, 4 ],
+            "shape": [ 6, 25, 6 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": false,
@@ -868,7 +868,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 2.5, 2.5, 2.5 ],
+            "shape": [ 4, 25, 4 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": false,
@@ -956,7 +956,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 2.5, 2.5, 2.5 ],
+            "shape": [ 4, 25, 4 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": false,
@@ -1044,7 +1044,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 2.5, 2.5, 2.5 ],
+            "shape": [ 4, 25, 4 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": false,
@@ -1134,7 +1134,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 2.5, 2.5, 2.5 ],
+            "shape": [ 4, 25, 4 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": false,
@@ -1236,7 +1236,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 2.5, 2.5, 2.5 ],
+            "shape": [ 2.5, 20, 2.5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": true,
@@ -1292,7 +1292,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 2.5, 2.5, 2.5 ],
+            "shape": [ 2.5, 20, 2.5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": true,
@@ -1348,7 +1348,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 1, 1, 1 ],
+            "shape": [ 1, 20, 1 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": true,
@@ -1409,7 +1409,7 @@
           "type": "RigidbodyPC",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "shape": [ 0.5, 0.5, 0.5 ],
+            "shape": [ 0.5, 20, 0.5 ],
             "mass": 1,
             "gravity": [ 0, 0, 0 ],
             "trigger": true,
