@@ -22,9 +22,6 @@ void RoundManagerEC::checkEvent() {
         deactivateSpawnerEnemies();
         deactivateOtherSpawners();
 
-        std::cout << "ROUND OVER"
-                  << "\n";
-
         roundNumber++;
 
         timer = clock() / static_cast<float>(CLOCKS_PER_SEC);
@@ -47,10 +44,6 @@ void RoundManagerEC::checkEvent() {
                 toAdd = enemiesInRound / size;
             else
                 toAdd = (enemiesInRound / size) + 1;
-
-            std::cout << "ROUND START"
-                      << "\n";
-            std::cout << "NUMBER OF ENEMIES " << enemiesInRound << "\n";
 
             while (i < size - 1) {
                 enemiesSpawners[i]->setActive(true);
@@ -151,7 +144,6 @@ int RoundManagerEC::getRoundNumber() { return roundNumber; }
 
 void RoundManagerEC::enemyDied() {
     enemiesDead++;
-    std::cout << "ENEMIES LEFT " << enemiesInRound - enemiesDead << "\n";
 }
 
 void RoundManagerEC::setEnemySpawnersPositions(Ogre::Vector3 pos, int map) {
