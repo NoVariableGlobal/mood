@@ -7,10 +7,13 @@
 #include "FactoriesFactory.h"
 #include "LifeC.h"
 #include "OgreRoot.h"
+#include "OrientateToMouseIC.h"
 #include "PlayerMovementIC.h"
+#include "PlayerShotIC.h"
 #include "RankingManagerC.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
+#include "SoundComponent.h"
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
 
@@ -38,16 +41,26 @@ void TankMeleeEnemyBehaviourEC::checkEvent() {
 
             // if player dies sleep method is called
             if (playerHealth->doDamage(getAttack())) {
+                Entity* player = scene_->getEntityById("Player");
+
                 AnimationLC* animations = reinterpret_cast<AnimationLC*>(
-                    scene_->getEntityById("Player")->getComponent(
+                    player->getComponent(
                         "AnimationLC"));
 
                 animations->stopAnimations();
                 animations->startAnimation("Dead");
 
                 reinterpret_cast<RigidbodyPC*>(
-                    scene_->getEntityById("Player")->getComponent(
-                        "RigidbodyPC"))
+                    player->getComponent("RigidbodyPC"))
+                    ->setActive(false);
+                reinterpret_cast<PlayerShotIC*>(
+                    player->getComponent("PlayerShotIC"))
+                    ->setActive(false);
+                reinterpret_cast<PlayerMovementIC*>(
+                    player->getComponent("PlayerMovementIC"))
+                    ->setActive(false);
+                reinterpret_cast<OrientateToMouseIC*>(
+                    player->getComponent("OrientateToMouseIC"))
                     ->setActive(false);
 
                 reinterpret_cast<DeadManagerEC*>(
