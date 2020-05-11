@@ -51,15 +51,14 @@ void DeadManagerEC::checkEvent() {
         scene_->getEntityById("GunFrameworkHUD")->setPersistent(false);
         scene_->getEntityById("GunIconHUD")->setPersistent(false);
 
-             scene_->getEntityById("Player")->setActive(false);
+        scene_->getEntityById("Player")->setActive(false);
         scene_->getEntityById("HandgunModel")->setActive(false);
         scene_->getEntityById("ShotgunModel")->setActive(false);
         scene_->getEntityById("RifleModel")->setActive(false);
         scene_->getEntityById("SniperModel")->setActive(false);
 
-            scene_->changeScene("DeadMenu");
-            active_ = false;
-        }
+        scene_->changeScene("DeadMenu");
+        active_ = false;
     }
 }
 
