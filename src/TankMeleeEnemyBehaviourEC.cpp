@@ -83,26 +83,28 @@ Component* TankMeleeEnemyBehaviourECFactory::create(Entity* _father,
     tank->setFather(_father);
     tank->setScene(scene);
 
+    tank->setSoundManager();
+
     tank->registerComponents();
 
     tank->registerInOtherEnemies();
 
     if (!_data["speed"].isDouble())
-        throw std::exception("MeleeEnemyBehaviourEC: speed is not a float");
+        throw std::exception("TankMeleeEnemyBehaviourEC: speed is not a float");
     tank->setSpeed(_data["speed"].asFloat());
 
     if (!_data["attack"].isInt())
-        throw std::exception("MeleeEnemyBehaviourEC: attack is not an int");
+        throw std::exception("TankMeleeEnemyBehaviourEC: attack is not an int");
     tank->setAttack(_data["attack"].asInt());
 
     if (!_data["attackCooldown"].isDouble())
         throw std::exception(
-            "MeleeEnemyBehaviourEC: attackCooldown is not a float");
+            "TankMeleeEnemyBehaviourEC: attackCooldown is not a float");
     tank->setAttackCooldown(_data["attackCooldown"].asFloat());
 
     if (!_data["separationRadius"].isInt())
         throw std::exception(
-            "MeleeEnemyBehaviourEC: separationRadius is not a int");
+            "TankMeleeEnemyBehaviourEC: separationRadius is not a int");
     tank->setSeparationRadius(_data["separationRadius"].asInt());
 
     return tank;
