@@ -119,7 +119,7 @@
           "type": "SpawnerFloorRandomEC",
           "attributes": {
             "floorDimensions[x,y,z,w]": [ -100, -100, 200, 200 ],
-            "spawnCooldown": 10, //20
+            "spawnCooldown": 20,
             "spawnID": [ "AutomaticRifle", "Shotgun", "SniperGun" ],
             "spawnTag": "Gun",
             "spawnChances": [ 40, 30, 30 ]
@@ -151,7 +151,7 @@
             "spawnCooldown": 5,
             "spawnID": [ "MeleeEnemy", "TankEnemy", "RangedHandgunEnemy", "RangedRifleEnemy", "RangedShotgunEnemy", "RangedSniperEnemy" ],
             "spawnTag": "Enemy",
-            "spawnChances": [ 60, 5, 10, 10, 7, 8 ],
+            "spawnChances": [ 60, 5, 20, 0, 20, 0 ],
             "EnemiesLimit": 2
           }
         }
@@ -529,7 +529,7 @@
             "particles": [
               {
                 "name": "SpeedHUDParticles",
-                "particleName": "KillParticle",
+                "particleName": "SpeedParticle",
                 "attachedTo": "Player"
               }
             ]
@@ -556,7 +556,7 @@
             "particles": [
               {
                 "name": "ShieldHUDParticles",
-                "particleName": "KillParticle",
+                "particleName": "ShieldParticle",
                 "attachedTo": "Player"
               }
             ]
