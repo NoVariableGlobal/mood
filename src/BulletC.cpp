@@ -7,7 +7,6 @@
 #include "Scene.h"
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
-#include "ParticleC.h"
 
 #include <json.h>
 #include <time.h>
@@ -28,10 +27,6 @@ void BulletC::setDamage(float _d) { damage = _d; }
 float BulletC::getDamage() { return damage; }
 
 void BulletC::dealCollision() {
-    ParticleC* particles = reinterpret_cast<ParticleC*>(father_->findComponent("ParticleC"));
-    if (particles != nullptr) {
-        particles->stopAllParticles();
-    }
     scene_->deleteEntity(father_);
 }
 

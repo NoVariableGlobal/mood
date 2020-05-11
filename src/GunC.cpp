@@ -9,7 +9,6 @@
 #include "SpawnerBulletsC.h"
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
-#include "ParticleC.h"
 #include <SoundComponent.h>
 
 void GunC::destroy() {
@@ -68,12 +67,6 @@ void GunC::onPreShoot() {
     auto* bullet =
         dynamic_cast<BulletC*>(entity->getComponent(bulletComponentName_));
     bullet->setDamage(static_cast<float>(getCalculatedDamage()));
-
-    ParticleC* particles = reinterpret_cast<ParticleC*>(
-        bullet->getFather()->findComponent("ParticleC"));
-    if (particles != nullptr) {
-        particles->emitParticles("BulletEffect");
-    }
 
     auto* transform = reinterpret_cast<TransformComponent*>(
         entity->getComponent("TransformComponent"));
