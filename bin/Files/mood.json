@@ -7,8 +7,8 @@
         {
           "type": "GuiLabelComponent",
           "attributes": {
-            "text": "Leaving Game...",
-            "position": [ 0.5, 0.5 ],
+            "text": "Leaving...",
+            "position": [ 0.01, 0.95 ],
             "size": [ 200.0, 50.0 ],
             "name": "Leaving Game"
           }
@@ -125,6 +125,19 @@
             "spawnChances": [ 30, 20, 15, 20, 5, 10 ]
           }
         },
+
+        {
+          "type": "SoundComponent",
+          "attributes": {
+            "sounds": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "SpawnerArmas",
+      "persistent": true,
+      "components": [
         {
           "type": "SpawnerFloorRandomEC",
           "attributes": {
@@ -133,12 +146,6 @@
             "spawnID": [ "AutomaticRifle", "Shotgun", "SniperGun" ],
             "spawnTag": "Gun",
             "spawnChances": [ 40, 30, 30 ]
-          }
-        },
-        {
-          "type": "SoundComponent",
-          "attributes":{
-            "sounds": []
           }
         }
       ]

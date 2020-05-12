@@ -11,6 +11,7 @@ class ExitWithEscapeEC : public EventComponent {
     int timeToExit = 2;
     float startTime = 0;
     bool pressing = false;
+    bool out = false;
 
     GuiLabelComponent* label;
 
