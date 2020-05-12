@@ -8,8 +8,6 @@ class AnimationLC;
 
 class DeadManagerEC : public EventComponent {
   private:
-    int timeToWait = 0;
-
     AnimationLC* playerAnimations = nullptr;
 
   public:

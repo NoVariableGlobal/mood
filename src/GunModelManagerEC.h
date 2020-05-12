@@ -6,9 +6,9 @@
 
 class Entity;
 
-DECLARE_FACTORY(GunModelManagerC);
+DECLARE_FACTORY(GunModelManagerEC);
 
-class GunModelManagerC : public EventComponent {
+class GunModelManagerEC : public EventComponent {
     Entity* _currentGun;
 
     Entity* _handgun;
@@ -17,8 +17,8 @@ class GunModelManagerC : public EventComponent {
     Entity* _sniper;
 
   public:
-    GunModelManagerC();
-    ~GunModelManagerC();
+    GunModelManagerEC();
+    ~GunModelManagerEC();
     virtual void checkEvent() override;
 
     virtual void destroy();
