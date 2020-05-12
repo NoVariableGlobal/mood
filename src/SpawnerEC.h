@@ -61,4 +61,6 @@ class SpawnerEC : public EventComponent {
     Spawn binarySearch(int first, int last, float value);
 
     virtual void registerInRoundManager() = 0;
+
+    void resetLastTimeSpawned();
 };

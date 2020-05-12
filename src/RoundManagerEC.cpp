@@ -80,32 +80,40 @@ void RoundManagerEC::changeMap() {
 
     if (randNum == 1) {
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++) {
             enemiesSpawners[i]->changePosition(map1Spawners[i]);
+            enemiesSpawners[i]->resetLastTimeSpawned();
+        }
         for (int i = 0; i < 2; i++)
             otherSpawners[i]->setFloorDimensions(otherSpawnersPos[0]);
 
         scene_->changeScene("map1");
     } else if (randNum == 2) {
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++) {
             enemiesSpawners[i]->changePosition(map2Spawners[i]);
+            enemiesSpawners[i]->resetLastTimeSpawned();
+        }
         for (int i = 0; i < 2; i++)
             otherSpawners[i]->setFloorDimensions(otherSpawnersPos[1]);
 
         scene_->changeScene("map2");
     } else if (randNum == 3) {
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++) {
             enemiesSpawners[i]->changePosition(map3Spawners[i]);
+            enemiesSpawners[i]->resetLastTimeSpawned();
+        }
         for (int i = 0; i < 2; i++)
             otherSpawners[i]->setFloorDimensions(otherSpawnersPos[2]);
 
         scene_->changeScene("map3");
     } else if (randNum == 4) {
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++) {
             enemiesSpawners[i]->changePosition(map4Spawners[i]);
+            enemiesSpawners[i]->resetLastTimeSpawned();
+        }
         for (int i = 0; i < 2; i++)
             otherSpawners[i]->setFloorDimensions(otherSpawnersPos[3]);
 
