@@ -155,30 +155,32 @@ void EnemyBehaviourEC::checkDamage() {
 }
 
 void EnemyBehaviourEC::die() {
+    if (!dead) {
 
-    dead = true;
+        dead = true;
 
-    rigidbody->setLinearVelocity(Ogre::Vector3(0, 0, 0));
+        rigidbody->setLinearVelocity(Ogre::Vector3(0, 0, 0));
 
-    animations->stopAnimations();
-    animations->startAnimation("Dead");
+        animations->stopAnimations();
+        animations->startAnimation("Dead");
 
-    rigidbody->setActive(false);
+        rigidbody->setActive(false);
 
-    dynamic_cast<RoundManagerEC*>(
-        scene_->getEntityById("GameManager")->getComponent("RoundManagerEC"))
-        ->enemyDied();
+        dynamic_cast<RoundManagerEC*>(scene_->getEntityById("GameManager")
+                                          ->getComponent("RoundManagerEC"))
+            ->enemyDied();
 
-    Component* comp = father_->findComponent("MeleeEnemyBehaviourEC");
-    if (comp != nullptr)
-        soundManager->playSound("MeleeDeath");
-    else {
-        comp = father_->getComponent("RangedEnemyBehaviourEC");
-
+        Component* comp = father_->findComponent("MeleeEnemyBehaviourEC");
         if (comp != nullptr)
-            soundManager->playSound("RangedDeath");
-        else
-            soundManager->playSound("BigMeleeDeath");
+            soundManager->playSound("MeleeDeath");
+        else {
+            comp = father_->getComponent("RangedEnemyBehaviourEC");
+
+            if (comp != nullptr)
+                soundManager->playSound("RangedDeath");
+            else
+                soundManager->playSound("BigMeleeDeath");
+        }
     }
 }
 

@@ -156,6 +156,12 @@
     <ClCompile Include="..\src\GunModelManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\EscapePressIC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ExitWithEscapeEC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\BulletC.h">
@@ -291,6 +297,12 @@
       <Filter>Source Files\Weapons</Filter>
     </ClInclude>
     <ClInclude Include="..\src\GunModelManagerC.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ExitWithEscapeEC.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\EscapePressIC.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

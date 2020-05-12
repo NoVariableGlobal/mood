@@ -3,6 +3,7 @@
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "Factory.h"
+#include "GuiLabelC.h"
 #include "Scene.h"
 
 #include <iostream>
@@ -14,9 +15,20 @@ ExitWithEscapeEC::ExitWithEscapeEC() {}
 ExitWithEscapeEC::~ExitWithEscapeEC() {}
 
 void ExitWithEscapeEC::setPress(bool press) {
+    std::cout << pressing;
     pressing = press;
     if (press)
         startTime = clock() / static_cast<float>(CLOCKS_PER_SEC);
+    else
+        reinterpret_cast<GuiLabelComponent*>(
+            father_->getComponent("GuiLabelComponent"))
+            ->setAlpha(0);
+}
+
+void ExitWithEscapeEC::setAlpha() {
+    label = reinterpret_cast<GuiLabelComponent*>(
+        father_->getComponent("GuiLabelComponent"));
+    label->setAlpha(0);
 }
 
 void ExitWithEscapeEC::checkEvent() {
@@ -26,7 +38,8 @@ void ExitWithEscapeEC::checkEvent() {
         float seconds = clock() / static_cast<float>(CLOCKS_PER_SEC);
         if (seconds - startTime >= timeToExit) {
             scene_->changeScene("mainmenu", true);
-        }
+        } else
+            label->setAlpha((seconds - startTime) / 2);
     }
 }
 
@@ -41,8 +54,8 @@ Component* ExitWithEscapeECFactory::create(Entity* _father, Json::Value& _data,
     manager->setFather(_father);
     manager->setScene(scene);
 
-    manager->setActive(false);
-
+    manager->setActive(true);
+    manager->setAlpha();
     return manager;
 };
 
