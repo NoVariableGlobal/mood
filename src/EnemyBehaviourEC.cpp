@@ -183,7 +183,7 @@ void EnemyBehaviourEC::die() {
         if (comp != nullptr)
             soundManager->playSound("MeleeDeath");
         else {
-            comp = father_->getComponent("RangedEnemyBehaviourEC");
+            comp = father_->findComponent("RangedEnemyBehaviourEC");
 
             if (comp != nullptr)
                 soundManager->playSound("RangedDeath");
