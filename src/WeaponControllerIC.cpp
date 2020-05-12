@@ -44,7 +44,7 @@ void WeaponControllerIC::handleInput(const SDL_Event& _event) {
             reinterpret_cast<ReloadEC*>(father_->getComponent("ReloadEC"))
                 ->gunChanged();
 
-			currentGun->updateAmmoTracker();
+            currentGun->updateAmmoTracker();
 
             std::string image, gunName;
             if (currentGun->getBulletType() == "HandgunBullet") {

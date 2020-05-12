@@ -60,7 +60,7 @@ class GunC : public Component {
     // Returns the calculated damage
     int getCalculatedDamage();
 
-	// Updates the weapon GUI
+    // Updates the weapon GUI
     void updateAmmoTracker();
 
     // Getters

@@ -17,7 +17,7 @@ void GunC::destroy() {
 }
 
 bool GunC::reload() {
-	// For weapons with limited ammo
+    // For weapons with limited ammo
     if (_bulletchamber < _bulletchamberMax && _munition > 0) {
         int remainder = _bulletchamberMax - _bulletchamber;
 
@@ -31,7 +31,7 @@ bool GunC::reload() {
 
         return true;
 
-	// For weapons with unlimited ammo
+        // For weapons with unlimited ammo
     } else if (_bulletchamber < _bulletchamberMax && _munition < 0) {
         _bulletchamber = _bulletchamberMax;
         updateAmmoTracker();
@@ -195,8 +195,8 @@ void GunC::updateAmmoTracker() {
             scene_->getEntityById("GunFrameworkHUD")
                 ->getComponent("GuiLabelComponent"))
             ->changeText(std::to_string(_bulletchamber) + " / Unlimited");
-       
-	// For weapons with unlimited ammo
+
+        // For weapons with unlimited ammo
     } else {
         reinterpret_cast<GuiLabelComponent*>(
             scene_->getEntityById("GunFrameworkHUD")
