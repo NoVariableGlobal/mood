@@ -142,9 +142,7 @@ void RoundManagerEC::registerOtherSpawner(SpawnerFloorRandomEC* spawn) {
 
 int RoundManagerEC::getRoundNumber() { return roundNumber; }
 
-void RoundManagerEC::enemyDied() {
-    enemiesDead++;
-}
+void RoundManagerEC::enemyDied() { enemiesDead++; }
 
 void RoundManagerEC::setEnemySpawnersPositions(Ogre::Vector3 pos, int map) {
 
