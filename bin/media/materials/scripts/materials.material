@@ -65,6 +65,7 @@ material Water
                 texture Water.jpg
                 colour_op add
                 tex_address_mode wrap
+				scroll_anim 0.0 0.01
             }
         }
     }
@@ -98,6 +99,60 @@ material Asfalto
             texture_unit 
             {
                 texture Asfalto.jpg
+                colour_op add
+                tex_address_mode wrap
+            }
+        }
+    }
+}
+
+material Asfalto2
+{
+    technique 
+    {
+        pass 
+        { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
+            diffuse 0.001 0.001 0.001 1
+            
+            texture_unit 
+            {
+                texture Asfalto2.jpg
+                colour_op add
+                tex_address_mode wrap
+            }
+        }
+    }
+}
+
+material Asfalto3
+{
+    technique 
+    {
+        pass 
+        { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
+            diffuse 0.001 0.001 0.001 1
+            
+            texture_unit 
+            {
+                texture Asfalto3.jpg
+                colour_op add
+                tex_address_mode wrap
+            }
+        }
+    }
+}
+
+material Asfalto4
+{
+    technique 
+    {
+        pass 
+        { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
+            diffuse 0.001 0.001 0.001 1
+            
+            texture_unit 
+            {
+                texture Asfalto4.jpg
                 colour_op add
                 tex_address_mode wrap
             }

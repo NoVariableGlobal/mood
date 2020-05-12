@@ -246,7 +246,7 @@
           "attributes": {
             "mesh": "Suelo.mesh",
             "node": "nGunBullet",
-            "material": "Asfalto"
+            "material": "Asfalto2"
           }
         }
       ]
@@ -267,7 +267,7 @@
           "attributes": {
             "mesh": "Suelo.mesh",
             "node": "nGunBullet",
-            "material": "Asfalto"
+            "material": "Asfalto3"
           }
         }
       ]
@@ -288,7 +288,7 @@
           "attributes": {
             "mesh": "Suelo.mesh",
             "node": "nGunBullet",
-            "material": "Asfalto"
+            "material": "Asfalto4"
           }
         }
       ]
@@ -309,7 +309,7 @@
           "attributes": {
             "mesh": "Suelo.mesh",
             "node": "nGunBullet",
-            "material": "Asfalto"
+            "material": "Asfalto2"
           }
         }
       ]
@@ -446,8 +446,8 @@
         {
           "type": "TransformComponent",
           "attributes": {
-            "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
+            "position": [ -430, 10, 0 ],
+            "orientation": [ 0, 40, 0 ],
             "scale": [ 0.1, 0.1, 0.1 ]
           }
         },
@@ -458,40 +458,417 @@
             "node": "nGunBullet",
             "material": "none"
           }
+        }
+      ]
+    },
+	{
+      "id": "Contenedor2",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ -445, 10, -60 ],
+            "orientation": [ 0, 130, 0 ],
+            "scale": [ 0.1, 0.1, 0.1 ]
+          }
         },
         {
-          "type": "RigidbodyPC",
+          "type": "TridimensionalObjectRC",
           "attributes": {
-            "position": [ -450, 0, 0 ],
-            "shape": [ 35, 5, 130 ],
-            "mass": 1,
-            "gravity": [ 0, 0, 0 ],
-            "trigger": false,
-            "kinematic": true,
-            "static": true,
-            "friction": 0,
-            "restitution": 0
+            "mesh": "Container_00.001.mesh",
+            "node": "nGunBullet",
+            "material": "none"
           }
         }
       ]
     },
-	  {
-      "id": "Contenedor2",
+	{
+      "id": "Contenedor3",
       "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ -485, 10, -45 ],
+            "orientation": [ 0, 80, 0 ],
+            "scale": [ 0.1, 0.1, 0.1 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Container_00.002.mesh",
+            "node": "nGunBullet",
+            "material": "none"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Coche",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ -430, 10, 100 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "CarP.mesh",
+            "node": "nGunBullet",
+            "material": "none"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Coche2",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ -460, 10, 80 ],
+            "orientation": [ 0, 40, 0 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "CarP2.mesh",
+            "node": "nGunBullet",
+            "material": "none"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Coche3",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ -460, 10, 0 ],
+            "orientation": [ 90, 20, 0 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "CarP2.mesh",
+            "node": "nGunBullet",
+            "material": "none"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Coche4",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ -510, 10, 0 ],
+            "orientation": [ 0, 30, 0 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "CarP3.mesh",
+            "node": "nGunBullet",
+            "material": "none"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Contenedor8",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 630, 10, 80 ],
+            "orientation": [ 0, 10, 0 ],
+            "scale": [ 0.1, 0.1, 0.1 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Container_00.003.mesh",
+            "node": "nGunBullet",
+            "material": "none"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Coche7",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 650, 10, 30 ],
+            "orientation": [ 0, 10, 0 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "CarP2.mesh",
+            "node": "nGunBullet",
+            "material": "none"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Contenedor10",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 600, 10, -45 ],
+            "orientation": [ 0, 80, 0 ],
+            "scale": [ 0.1, 0.1, 0.1 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Container_00.002.mesh",
+            "node": "nGunBullet",
+            "material": "none"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Coche5",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 580, 10, -30 ],
+            "orientation": [ 0, 15, 0 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "CarP4.mesh",
+            "node": "nGunBullet",
+            "material": "none"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Contenedor9",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 580, 10, 0 ],
+            "orientation": [ 0, 45, 0 ],
+            "scale": [ 0.1, 0.1, 0.1 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Container_00.mesh",
+            "node": "nGunBullet",
+            "material": "none"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Coche6",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 580, 10, -80 ],
+            "orientation": [ 90, 15, 0 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "CarP.mesh",
+            "node": "nGunBullet",
+            "material": "none"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Coche8",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, -58, 190 ],
+            "orientation": [ 10, 10, 10 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "CarP.mesh",
+            "node": "nGunBullet",
+            "material": "none"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Coche9",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ -100, -50, -190 ],
+            "orientation": [ 10, 10, 10 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "CarP3.mesh",
+            "node": "nGunBullet",
+            "material": "none"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Contenedor11",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 150, -42, -190 ],
+            "orientation": [ 10, 10, 10 ],
+            "scale": [ 0.1, 0.1, 0.1 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Container_00.002.mesh",
+            "node": "nGunBullet",
+            "material": "none"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Contenedor12",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ -250, -42, 190 ],
+            "orientation": [ 10, 10, 10 ],
+            "scale": [ 0.1, 0.1, 0.1 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "Container_00.003.mesh",
+            "node": "nGunBullet",
+            "material": "none"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Coche10",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ -300, -50, 230 ],
+            "orientation": [ 10, 40, 10 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "CarP4.mesh",
+            "node": "nGunBullet",
+            "material": "none"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Coche11",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 300, -47, 230 ],
+            "orientation": [ 10, 40, 40 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "CarP3.mesh",
+            "node": "nGunBullet",
+            "material": "none"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Coche12",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 370, -47, -230 ],
+            "orientation": [ 80, 40, 40 ],
+            "scale": [ 10, 10, 10 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "CarP.mesh",
+            "node": "nGunBullet",
+            "material": "none"
+          }
+        }
+      ]
+    },
+	{
+      "id": "ColisionRight",
+      "components": [		
         {
           "type": "TransformComponent",
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
             "scale": [ 0.1, 0.1, 0.1 ]
-          }
-        },
-        {
-          "type": "TridimensionalObjectRC",
-          "attributes": {
-            "mesh": "Container_00.mesh",
-            "node": "nGunBullet",
-            "material": "none"
           }
         },
         {
@@ -510,7 +887,7 @@
         }
       ]
     },
-	  {
+	{
       "id": "ColisionUp",
       "components": [		
         {
@@ -665,6 +1042,33 @@
           }
         }
       ]
-    }
+    },
+	{
+      "id": "ColisionLeft",
+      "components": [		
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 0, 0, 0 ]
+          }
+        },
+        {
+          "type": "RigidbodyPC",
+          "attributes": {
+            "position": [ -450, 20, 0 ],
+            "shape": [ 35, 5, 130 ],
+            "mass": 1,
+            "gravity": [ 0, 0, 0 ],
+            "trigger": false,
+            "kinematic": true,
+            "static": true,
+            "friction": 0,
+            "restitution": 0
+          }
+        }
+      ]
+    } 
   ]
 }
