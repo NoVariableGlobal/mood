@@ -1,303 +1,102 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Source Files\Weapons">
-      <UniqueIdentifier>{85fbb1a2-edb5-4de5-9965-49605b57546a}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\src\mood.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\BulletC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\DestroyAfterSecsEC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\EnemyBehaviourEC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\GunPowerUpC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ImmediatePowerUpEC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\IncreaseSpeedEC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\InfiniteAmmoEC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\InstakillEC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\InvulnerabilityShield.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\LifeC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\MedkitEC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\MeleeEnemyBehaviourEC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\NukeEC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\OnEPressPickUpIC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\OrientateToMouseIC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\PersistentPowerUpEC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\PlayerMovementIC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\PlayerShotIC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\PowerUpC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\PowerUpEC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\PowerUpTrackerC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\RangedEnemyBehaviourEC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\SniperBulletC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\SpawnerBulletsC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\SpawnerEC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\SpawnerEnemiesEC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\SpawnerFloorRandomEC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\WeaponControllerIC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\BulletHurtPlayerEC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\RoundManagerEC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\RankingManagerC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ObstacleDestroyBulletEC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\DeadManagerEC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\HandGunC.cpp">
-      <Filter>Source Files\Weapons</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\GunC.cpp">
-      <Filter>Source Files\Weapons</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\SniperGunC.cpp">
-      <Filter>Source Files\Weapons</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ShotgunC.cpp">
-      <Filter>Source Files\Weapons</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ReloadEC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\LifeBarC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\PowerUpIconC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\GuiRankingLabelC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ReadNameIC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\AutomaticEC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\AutomaticRifleC.cpp">
-      <Filter>Source Files\Weapons</Filter>
-    </ClCompile>
+    <ClCompile Include="..\src\AutomaticEC.cpp" />
+    <ClCompile Include="..\src\AutomaticRifleC.cpp" />
+    <ClCompile Include="..\src\BulletC.cpp" />
+    <ClCompile Include="..\src\BulletHurtPlayerEC.cpp" />
+    <ClCompile Include="..\src\DeadManagerEC.cpp" />
+    <ClCompile Include="..\src\DestroyAfterSecsEC.cpp" />
+    <ClCompile Include="..\src\EnemyBehaviourEC.cpp" />
+    <ClCompile Include="..\src\GuiRoundLabelC.cpp" />
+    <ClCompile Include="..\src\GuiRankingLabelC.cpp" />
+    <ClCompile Include="..\src\GunC.cpp" />
+    <ClCompile Include="..\src\GunPowerUpC.cpp" />
+    <ClCompile Include="..\src\HandGunC.cpp" />
+    <ClCompile Include="..\src\ImmediatePowerUpEC.cpp" />
+    <ClCompile Include="..\src\IncreaseSpeedEC.cpp" />
+    <ClCompile Include="..\src\InfiniteAmmoEC.cpp" />
+    <ClCompile Include="..\src\InstakillEC.cpp" />
+    <ClCompile Include="..\src\InvulnerabilityShield.cpp" />
+    <ClCompile Include="..\src\LifeBarC.cpp" />
+    <ClCompile Include="..\src\LifeC.cpp" />
+    <ClCompile Include="..\src\MedkitEC.cpp" />
+    <ClCompile Include="..\src\MeleeEnemyBehaviourEC.cpp" />
+    <ClCompile Include="..\src\mood.cpp" />
+    <ClCompile Include="..\src\NukeEC.cpp" />
+    <ClCompile Include="..\src\ObstacleDestroyBulletEC.cpp" />
+    <ClCompile Include="..\src\OnEPressPickUpIC.cpp" />
+    <ClCompile Include="..\src\OrientateToMouseIC.cpp" />
+    <ClCompile Include="..\src\PersistentPowerUpEC.cpp" />
+    <ClCompile Include="..\src\PlayerMovementIC.cpp" />
+    <ClCompile Include="..\src\PlayerShotIC.cpp" />
+    <ClCompile Include="..\src\PowerUpC.cpp" />
+    <ClCompile Include="..\src\PowerUpEC.cpp" />
+    <ClCompile Include="..\src\PowerUpIconC.cpp" />
+    <ClCompile Include="..\src\PowerUpTrackerC.cpp" />
+    <ClCompile Include="..\src\RangedEnemyBehaviourEC.cpp" />
+    <ClCompile Include="..\src\RankingManagerC.cpp" />
+    <ClCompile Include="..\src\ReloadEC.cpp" />
+    <ClCompile Include="..\src\ReadNameIC.cpp" />
+    <ClCompile Include="..\src\RoundManagerEC.cpp" />
+    <ClCompile Include="..\src\ShotgunC.cpp" />
+    <ClCompile Include="..\src\SniperBulletC.cpp" />
+    <ClCompile Include="..\src\SniperGunC.cpp" />
+    <ClCompile Include="..\src\SpawnerBulletsC.cpp" />
+    <ClCompile Include="..\src\SpawnerEC.cpp" />
+    <ClCompile Include="..\src\SpawnerEnemiesEC.cpp" />
+    <ClCompile Include="..\src\SpawnerFloorRandomEC.cpp" />
     <ClCompile Include="..\src\TankMeleeEnemyBehaviourEC.cpp">
-         <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\GunModelManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <ClCompile Include="..\src\WeaponControllerIC.cpp" />
+    <ClCompile Include="..\src\GunModelManagerEC.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\BulletC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\DestroyAfterSecsEC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\EnemyBehaviourEC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\GunPowerUpC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ImmediatePowerUpEC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\IncreaseSpeedEC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\InfiniteAmmoEC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\InstakillEC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\InvulnerabilityShield.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\LifeC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\MedkitEC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\MeleeEnemyBehaviourEC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\NukeEC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\OnEPressPickUpIC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\OrientateToMouseIC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\PersistentPowerUpEC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\PlayerMovementIC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\PlayerShotIC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\PowerUpC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\PowerUpEC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\PowerUpTrackerC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\RangedEnemyBehaviourEC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\SniperBulletC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\SpawnerBulletsC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\SpawnerEC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\SpawnerEnemiesEC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\SpawnerFloorRandomEC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\WeaponControllerIC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\RoundManagerEC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\BulletHurtPlayerEC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ObstacleDestroyBulletEC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\RankingManagerC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\DeadManagerEC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\HandGunC.h">
-      <Filter>Source Files\Weapons</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\GunC.h">
-      <Filter>Source Files\Weapons</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\SniperGunC.h">
-      <Filter>Source Files\Weapons</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ShotgunC.h">
-      <Filter>Source Files\Weapons</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ReloadEC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\LifeBarC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\PowerUpIconC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\GuiRankingLabelC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ReadNameIC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\AutomaticEC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\AutomaticRifleC.h">
-      <Filter>Source Files\Weapons</Filter>
-    </ClInclude>
+    <ClInclude Include="..\src\AutomaticEC.h" />
+    <ClInclude Include="..\src\AutomaticRifleC.h" />
+    <ClInclude Include="..\src\BulletC.h" />
+    <ClInclude Include="..\src\BulletHurtPlayerEC.h" />
+    <ClInclude Include="..\src\DeadManagerEC.h" />
+    <ClInclude Include="..\src\DestroyAfterSecsEC.h" />
+    <ClInclude Include="..\src\EnemyBehaviourEC.h" />
+    <ClInclude Include="..\src\GuiRoundLabelC.h" />
+    <ClInclude Include="..\src\GuiRankingLabelC.h" />
+    <ClInclude Include="..\src\GunC.h" />
+    <ClInclude Include="..\src\GunPowerUpC.h" />
+    <ClInclude Include="..\src\HandGunC.h" />
+    <ClInclude Include="..\src\ImmediatePowerUpEC.h" />
+    <ClInclude Include="..\src\IncreaseSpeedEC.h" />
+    <ClInclude Include="..\src\InfiniteAmmoEC.h" />
+    <ClInclude Include="..\src\InstakillEC.h" />
+    <ClInclude Include="..\src\InvulnerabilityShield.h" />
+    <ClInclude Include="..\src\LifeBarC.h" />
+    <ClInclude Include="..\src\LifeC.h" />
+    <ClInclude Include="..\src\MedkitEC.h" />
+    <ClInclude Include="..\src\MeleeEnemyBehaviourEC.h" />
+    <ClInclude Include="..\src\NukeEC.h" />
+    <ClInclude Include="..\src\ObstacleDestroyBulletEC.h" />
+    <ClInclude Include="..\src\OnEPressPickUpIC.h" />
+    <ClInclude Include="..\src\OrientateToMouseIC.h" />
+    <ClInclude Include="..\src\PersistentPowerUpEC.h" />
+    <ClInclude Include="..\src\PlayerMovementIC.h" />
+    <ClInclude Include="..\src\PlayerShotIC.h" />
+    <ClInclude Include="..\src\PowerUpC.h" />
+    <ClInclude Include="..\src\PowerUpEC.h" />
+    <ClInclude Include="..\src\PowerUpIconC.h" />
+    <ClInclude Include="..\src\PowerUpTrackerC.h" />
+    <ClInclude Include="..\src\RangedEnemyBehaviourEC.h" />
+    <ClInclude Include="..\src\RankingManagerC.h" />
+    <ClInclude Include="..\src\ReloadEC.h" />
+    <ClInclude Include="..\src\ReadNameIC.h" />
+    <ClInclude Include="..\src\RoundManagerEC.h" />
+    <ClInclude Include="..\src\ShotgunC.h" />
+    <ClInclude Include="..\src\SniperBulletC.h" />
+    <ClInclude Include="..\src\SniperGunC.h" />
+    <ClInclude Include="..\src\SpawnerBulletsC.h" />
+    <ClInclude Include="..\src\SpawnerEC.h" />
+    <ClInclude Include="..\src\SpawnerEnemiesEC.h" />
+    <ClInclude Include="..\src\SpawnerFloorRandomEC.h" />
     <ClInclude Include="..\src\TankMeleeEnemyBehaviourEC.h">
-          <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\GunModelManagerC.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
+    <ClInclude Include="..\src\WeaponControllerIC.h" />
+    <ClInclude Include="..\src\GunModelManagerEC.h" />
   </ItemGroup>
 </Project>
