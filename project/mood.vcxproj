@@ -28,6 +28,7 @@
     <ClCompile Include="..\src\EnemyBehaviourEC.cpp" />
     <ClCompile Include="..\src\EscapePressIC.cpp" />
     <ClCompile Include="..\src\ExitWithEscapeEC.cpp" />
+    <ClCompile Include="..\src\GuiRoundLabelC.cpp" />
     <ClCompile Include="..\src\GuiRankingLabelC.cpp" />
     <ClCompile Include="..\src\GunC.cpp" />
     <ClCompile Include="..\src\GunPowerUpC.cpp" />
@@ -47,7 +48,7 @@
     <ClCompile Include="..\src\OnEPressPickUpIC.cpp" />
     <ClCompile Include="..\src\OrientateToMouseIC.cpp" />
     <ClCompile Include="..\src\PersistentPowerUpEC.cpp" />
-    <ClCompile Include="..\src\GunModelManager.cpp" />
+    <ClCompile Include="..\src\GunModelManagerEC.cpp" />
     <ClCompile Include="..\src\PlayerMovementIC.cpp" />
     <ClCompile Include="..\src\PlayerShotIC.cpp" />
     <ClCompile Include="..\src\PowerUpC.cpp" />
@@ -66,6 +67,7 @@
     <ClCompile Include="..\src\SpawnerEC.cpp" />
     <ClCompile Include="..\src\SpawnerEnemiesEC.cpp" />
     <ClCompile Include="..\src\SpawnerFloorRandomEC.cpp" />
+    <ClCompile Include="..\src\TankMeleeEnemyBehaviourEC.cpp" />
     <ClCompile Include="..\src\WeaponControllerIC.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +80,7 @@
     <ClInclude Include="..\src\EnemyBehaviourEC.h" />
     <ClInclude Include="..\src\EscapePressIC.h" />
     <ClInclude Include="..\src\ExitWithEscapeEC.h" />
+    <ClInclude Include="..\src\GuiRoundLabelC.h" />
     <ClInclude Include="..\src\GuiRankingLabelC.h" />
     <ClInclude Include="..\src\GunC.h" />
     <ClInclude Include="..\src\GunPowerUpC.h" />
@@ -96,7 +99,7 @@
     <ClInclude Include="..\src\OnEPressPickUpIC.h" />
     <ClInclude Include="..\src\OrientateToMouseIC.h" />
     <ClInclude Include="..\src\PersistentPowerUpEC.h" />
-    <ClInclude Include="..\src\GunModelManagerC.h" />
+    <ClInclude Include="..\src\GunModelManagerEC.h" />
     <ClInclude Include="..\src\PlayerMovementIC.h" />
     <ClInclude Include="..\src\PlayerShotIC.h" />
     <ClInclude Include="..\src\PowerUpC.h" />
@@ -115,6 +118,7 @@
     <ClInclude Include="..\src\SpawnerEC.h" />
     <ClInclude Include="..\src\SpawnerEnemiesEC.h" />
     <ClInclude Include="..\src\SpawnerFloorRandomEC.h" />
+    <ClInclude Include="..\src\TankMeleeEnemyBehaviourEC.h" />
     <ClInclude Include="..\src\WeaponControllerIC.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

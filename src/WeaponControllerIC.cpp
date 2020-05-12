@@ -5,7 +5,7 @@
 #include "FactoriesFactory.h"
 #include "GuiImageC.h"
 #include "GuiLabelC.h"
-#include "GunModelManagerC.h"
+#include "GunModelManagerEC.h"
 #include "HandGunC.h"
 #include "ReloadEC.h"
 #include "Scene.h"
@@ -72,8 +72,8 @@ void WeaponControllerIC::handleInput(const SDL_Event& _event) {
                 ->changeImage(image);
 
             // Change gun model
-            reinterpret_cast<GunModelManagerC*>(
-                father_->getComponent("GunModelManagerC"))
+            reinterpret_cast<GunModelManagerEC*>(
+                father_->getComponent("GunModelManagerEC"))
                 ->changeGunModel(gunName);
         }
     }
@@ -124,8 +124,8 @@ void WeaponControllerIC::pickUpGun(std::string _gunName) {
                      std::to_string(currentGun->getmunition()));
 
     // Change gun model
-    reinterpret_cast<GunModelManagerC*>(
-        father_->getComponent("GunModelManagerC"))
+    reinterpret_cast<GunModelManagerEC*>(
+        father_->getComponent("GunModelManagerEC"))
         ->changeGunModel(_gunName);
 }
 

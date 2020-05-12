@@ -1,5 +1,6 @@
 #include "PersistentPowerUpEC.h"
 #include "Entity.h"
+#include "ParticleC.h"
 #include "PowerUpIconC.h"
 #include "PowerUpTrackerC.h"
 #include "RigidbodyPC.h"
@@ -40,6 +41,10 @@ void PersistentPowerUpEC::checkEvent() {
             scene_->getEntityById(hudName_)->getComponent("PowerUpIconC"))
             ->activePowerUpIcon();
 
+        reinterpret_cast<ParticleC*>(
+            scene_->getEntityById(hudName_)->getComponent("ParticleC"))
+            ->emitParticles(hudName_ + "Particles");
+
         // If the player already has this powerup refresh it
         if (previous == nullptr) {
             resetTime();
@@ -66,6 +71,11 @@ void PersistentPowerUpEC::checkEvent() {
         reinterpret_cast<PowerUpIconC*>(
             scene_->getEntityById(hudName_)->getComponent("PowerUpIconC"))
             ->desactivePowerUpIcon();
+
+        reinterpret_cast<ParticleC*>(
+            scene_->getEntityById(hudName_)->getComponent("ParticleC"))
+            ->stopParticles(hudName_ + "Particles");
+
         onDestroy();
 
     } else if (timeDisappearEffect()) { // delete item when the effect has

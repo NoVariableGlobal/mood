@@ -39,9 +39,14 @@ void EnemyBehaviourEC::destroy() {
 
     for (auto it : enemies) {
         if (it != father_) {
+
             Component* comp = it->findComponent("MeleeEnemyBehaviourEC");
-            if (comp == nullptr)
-                comp = it->getComponent("RangedEnemyBehaviourEC");
+            if (comp == nullptr) {
+                comp = it->findComponent("TankMeleeEnemyBehaviourEC");
+
+                if (comp == nullptr)
+                    comp = it->getComponent("RangedEnemyBehaviourEC");
+            }
 
             removeTransforms(dynamic_cast<EnemyBehaviourEC*>(comp));
         }
@@ -74,8 +79,12 @@ void EnemyBehaviourEC::registerInOtherEnemies() {
     for (auto it : enemies) {
 
         Component* comp = it->findComponent("MeleeEnemyBehaviourEC");
-        if (comp == nullptr)
-            comp = it->getComponent("RangedEnemyBehaviourEC");
+        if (comp == nullptr) {
+            comp = it->findComponent("TankMeleeEnemyBehaviourEC");
+
+            if (comp == nullptr)
+                comp = it->getComponent("RangedEnemyBehaviourEC");
+        }
 
         addTransforms(dynamic_cast<EnemyBehaviourEC*>(comp),
                       reinterpret_cast<TransformComponent*>(
@@ -132,13 +141,13 @@ void EnemyBehaviourEC::checkDamage() {
         if (bullet == nullptr)
             bullet = dynamic_cast<BulletC*>(
                 playerBullet->findComponent("SniperBulletC"));
-        // sonido daño enemigo
+        // sonido daï¿½o enemigo
 
         Component* comp = father_->findComponent("MeleeEnemyBehaviourEC");
         if (comp != nullptr)
             soundManager->playSound("MeleeHit");
         else {
-            comp = father_->getComponent("RangedEnemyBehaviourEC");
+            comp = father_->findComponent("RangedEnemyBehaviourEC");
 
             if (comp != nullptr)
                 soundManager->playSound("RangedHit");

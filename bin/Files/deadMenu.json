@@ -1,4 +1,100 @@
 {
   "entities": [
+    {
+      "id": "GameOver",
+      "components": [
+        {
+          "type": "GuiLabelComponent",
+          "attributes": {
+            "text": "GAME OVER",
+            "position": [ 0.463, 0.2 ],
+            "size": [ 150.0, 50.0 ],
+            "name": "GameOverTitle"
+          }
+        }
+      ]
+    },
+    {
+      "id": "Rounds",
+      "components": [
+        {
+          "type": "GuiLabelComponent",
+          "attributes": {
+            "text": "Rounds survived: ",
+            "position": [ 0.38, 0.3 ],
+            "size": [ 200.0, 50.0 ],
+            "name": "RoundsTitle"
+          }
+        }
+      ]
+    },
+    {
+      "id": "Rounds2",
+      "components": [
+        {
+          "type": "GuiRoundLabelC",
+          "attributes": {
+            "position": [ 0.6, 0.3 ],
+            "size": [ 200.0, 50.0 ],
+            "name": "RoundNumber"
+          }
+        }
+      ]
+    },
+    {
+      "id": "RankingButton2",
+      "components": [
+        {
+          "type": "ChangeAndClearSceneButtonComponent",
+          "attributes": {
+            "text": "Ranking",
+            "position": [ 0.44, 0.5 ],
+            "size": [ 180.0, 40.0 ],
+            "name": "DeadMenuRanking",
+            "scene": "ranking"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BackToMenu",
+      "components": [
+        {
+          "type": "ChangeAndClearSceneButtonComponent",
+          "attributes": {
+            "text": "Main Menu",
+            "position": [ 0.44, 0.6 ],
+            "size": [ 180.0, 40.0 ],
+            "name": "ToMainMenu",
+            "scene": "mainmenu"
+          }
+        }
+      ]
+    }
+    /*{
+      "id": "Camera",
+      "persistent": false,
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 3, 3, 3 ]
+          }
+        },
+        {
+          "type": "CameraRC",
+          "attributes": {
+            "node": "nCamera2",
+            "viewportColour": [ 0, 0, 0 ],
+            "offset": [ 0, 300, 60 ],
+            "lookAt": [ 0, -1, -0.25 ],
+            "targetId": "none"
+          }
+        }
+      ]
+    }
+  */
   ]
 }

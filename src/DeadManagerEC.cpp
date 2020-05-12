@@ -4,6 +4,7 @@
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "Factory.h"
+#include "PowerUpTrackerC.h"
 #include "RankingManagerC.h"
 #include "RoundManagerEC.h"
 #include "Scene.h"
@@ -11,7 +12,10 @@
 
 #include <iostream>
 #include <json.h>
+#include <math.h>
 #include <time.h>
+#include <utility>
+#include <value.h>
 
 DeadManagerEC::DeadManagerEC() {}
 
@@ -26,6 +30,7 @@ void DeadManagerEC::setActive(bool _active) {
 
 void DeadManagerEC::checkEvent() {
     if (playerAnimations->animationFinished("Dead")) {
+
         reinterpret_cast<RankingManagerC*>(
             father_->getComponent("RankingManagerC"))
             ->playerDied();
@@ -35,6 +40,10 @@ void DeadManagerEC::checkEvent() {
 
         roundM->deactivateSpawnerEnemies();
         roundM->deactivateOtherSpawners();
+
+        reinterpret_cast<PowerUpTrackerC*>(
+            scene_->getEntityById("Player")->getComponent("PowerUpTrackerC"))
+            ->setAllPowerUpsNotPersistant();
 
         scene_->getEntityById("LifeHUD")->setPersistent(false);
         scene_->getEntityById("SpeedHUD")->setPersistent(false);
@@ -52,7 +61,6 @@ void DeadManagerEC::checkEvent() {
         scene_->getEntityById("SniperModel")->setActive(false);
 
         scene_->changeScene("DeadMenu");
-
         active_ = false;
     }
 }

@@ -1,5 +1,6 @@
 #include "PowerUpTrackerC.h"
 #include "ComponentsManager.h"
+#include "Entity.h"
 #include "FactoriesFactory.h"
 #include "Scene.h"
 #include "Util.h"
@@ -26,6 +27,11 @@ void PowerUpTrackerC::removePowerUp(std::string name) {
         }
         it++;
     }
+}
+
+void PowerUpTrackerC::setAllPowerUpsNotPersistant() {
+    for (auto p : powerUps)
+        p.second->getFather()->setPersistent(false);
 }
 
 // FACTORY INFRASTRUCTURE

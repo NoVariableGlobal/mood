@@ -15,8 +15,12 @@ void NukeEC::onPick() {
     for (auto it : enemies) {
 
         Component* comp = it->findComponent("MeleeEnemyBehaviourEC");
-        if (comp == nullptr)
-            comp = it->getComponent("RangedEnemyBehaviourEC");
+        if (comp == nullptr) {
+            comp = it->findComponent("TankMeleeEnemyBehaviourEC");
+
+            if (comp == nullptr)
+                comp = it->getComponent("RangedEnemyBehaviourEC");
+        }
         dynamic_cast<EnemyBehaviourEC*>(comp)->die();
     }
 }
