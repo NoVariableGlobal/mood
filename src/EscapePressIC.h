@@ -10,6 +10,7 @@ class EscapePressIC : public InputComponent {
   private:
     bool pressing = false;
     bool up = false;
+
   public:
     EscapePressIC();
     virtual ~EscapePressIC();

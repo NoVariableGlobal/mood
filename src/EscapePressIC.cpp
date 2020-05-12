@@ -1,10 +1,10 @@
 #include "EscapePressIC.h"
 #include "ComponentsManager.h"
 #include "Entity.h"
+#include "ExitWithEscapeEC.h"
 #include "FactoriesFactory.h"
 #include "OgreRoot.h"
 #include "Scene.h"
-#include "ExitWithEscapeEC.h"
 #include <iostream>
 #include <json.h>
 
