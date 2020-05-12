@@ -46,6 +46,7 @@
     <ClCompile Include="..\src\SpawnerEC.cpp" />
     <ClCompile Include="..\src\SpawnerEnemiesEC.cpp" />
     <ClCompile Include="..\src\SpawnerFloorRandomEC.cpp" />
+    <ClCompile Include="..\src\TankMeleeEnemyBehaviourEC.cpp">
     <ClCompile Include="..\src\WeaponControllerIC.cpp" />
     <ClCompile Include="..\src\GunModelManagerEC.cpp" />
   </ItemGroup>
@@ -94,6 +95,7 @@
     <ClInclude Include="..\src\SpawnerEC.h" />
     <ClInclude Include="..\src\SpawnerEnemiesEC.h" />
     <ClInclude Include="..\src\SpawnerFloorRandomEC.h" />
+    <ClInclude Include="..\src\TankMeleeEnemyBehaviourEC.h">
     <ClInclude Include="..\src\WeaponControllerIC.h" />
     <ClInclude Include="..\src\GunModelManagerEC.h" />
   </ItemGroup>

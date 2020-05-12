@@ -47,24 +47,7 @@ void GunModelManagerEC::checkEvent() {
                                  (quat * Ogre::Vector3::UNIT_Z) * 10);
     }
 }
-/*
-                {
-          "type": "TransformComponent",
-          "attributes": {
-            "position": [ 0, 10, 0 ],
-            "orientation": [ 0, 90, 0 ],
-            "scale": [ 0.2, 1, 0.8 ]
-          }
-        },
-        {
-          "type": "TridimensionalObjectRC",
-          "attributes": {
-            "mesh": "rifle.mesh",
-            "node": "nWeaponModel",
-            "material": "BrownColourMaterial"
-          }
-        }
-*/
+
 void GunModelManagerEC::destroy() {
     setActive(false);
     scene_->getComponentsManager()->eraseEC(this);

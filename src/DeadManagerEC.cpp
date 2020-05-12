@@ -4,8 +4,7 @@
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "Factory.h"
-#include "OrientateToMouseIC.h"
-#include "PlayerShotIC.h"
+#include "PowerUpTrackerC.h"
 #include "RankingManagerC.h"
 #include "RoundManagerEC.h"
 #include "Scene.h"
@@ -41,6 +40,10 @@ void DeadManagerEC::checkEvent() {
 
         roundM->deactivateSpawnerEnemies();
         roundM->deactivateOtherSpawners();
+
+        reinterpret_cast<PowerUpTrackerC*>(
+            scene_->getEntityById("Player")->getComponent("PowerUpTrackerC"))
+            ->setAllPowerUpsNotPersistant();
 
         scene_->getEntityById("LifeHUD")->setPersistent(false);
         scene_->getEntityById("SpeedHUD")->setPersistent(false);
