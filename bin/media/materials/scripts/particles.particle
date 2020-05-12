@@ -78,7 +78,7 @@ particle_system AmmoParticle
         direction 0 0 0
         angle 35
         emission_rate 50
-        time_to_live 0.1
+        time_to_live 0.05
         velocity_min 50
         velocity_max 80
     }
@@ -113,10 +113,10 @@ particle_system KillParticle
     
     emitter Point
     { // e. attributes
-        position 0 10 8
+        position 0 10 7
         direction 0 0 0
         emission_rate 50
-        time_to_live 0.1
+        time_to_live 0.05
         velocity_min 50
         velocity_max 80
     }
