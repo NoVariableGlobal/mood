@@ -26,9 +26,7 @@ void BulletC::setDamage(float _d) { damage = _d; }
 
 float BulletC::getDamage() { return damage; }
 
-void BulletC::dealCollision() {
-    scene_->deleteEntity(father_);
-}
+void BulletC::dealCollision() { scene_->deleteEntity(father_); }
 
 // FACTORY INFRASTRUCTURE
 BulletCFactory::BulletCFactory() = default;

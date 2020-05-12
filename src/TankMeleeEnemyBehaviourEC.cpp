@@ -44,8 +44,7 @@ void TankMeleeEnemyBehaviourEC::checkEvent() {
                 Entity* player = scene_->getEntityById("Player");
 
                 AnimationLC* animations = reinterpret_cast<AnimationLC*>(
-                    player->getComponent(
-                        "AnimationLC"));
+                    player->getComponent("AnimationLC"));
 
                 animations->stopAnimations();
                 animations->startAnimation("Dead");
@@ -87,10 +86,9 @@ void TankMeleeEnemyBehaviourEC::rotateToPlayer() {
 TankMeleeEnemyBehaviourECFactory::TankMeleeEnemyBehaviourECFactory() = default;
 
 Component* TankMeleeEnemyBehaviourECFactory::create(Entity* _father,
-                                                Json::Value& _data,
-                                                Scene* scene) {
-    TankMeleeEnemyBehaviourEC* tank =
-        new TankMeleeEnemyBehaviourEC();
+                                                    Json::Value& _data,
+                                                    Scene* scene) {
+    TankMeleeEnemyBehaviourEC* tank = new TankMeleeEnemyBehaviourEC();
     scene->getComponentsManager()->addEC(tank);
 
     tank->setFather(_father);
