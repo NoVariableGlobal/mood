@@ -7,7 +7,7 @@
         {
           "type": "GuiLabelComponent",
           "attributes": {
-            "text": "Leaving Game",
+            "text": "Leaving Game...",
             "position": [ 0.5, 0.5 ],
             "size": [ 200.0, 50.0 ],
             "name": "Leaving Game"
