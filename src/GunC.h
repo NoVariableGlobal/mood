@@ -60,6 +60,9 @@ class GunC : public Component {
     // Returns the calculated damage
     int getCalculatedDamage();
 
+	// Updates the weapon GUI
+    void updateAmmoTracker();
+
     // Getters
     std::string getBulletType();          // Return the tag of my bullets
     std::string getBulletTag();           // Return the tag of my bullets

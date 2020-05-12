@@ -44,11 +44,7 @@ void WeaponControllerIC::handleInput(const SDL_Event& _event) {
             reinterpret_cast<ReloadEC*>(father_->getComponent("ReloadEC"))
                 ->gunChanged();
 
-            reinterpret_cast<GuiLabelComponent*>(
-                scene_->getEntityById("GunFrameworkHUD")
-                    ->getComponent("GuiLabelComponent"))
-                ->changeText(std::to_string(currentGun->getbulletchamber()) +
-                             " / " + std::to_string(currentGun->getmunition()));
+			currentGun->updateAmmoTracker();
 
             std::string image, gunName;
             if (currentGun->getBulletType() == "HandgunBullet") {
@@ -117,11 +113,7 @@ void WeaponControllerIC::pickUpGun(std::string _gunName) {
     }
 
     // Change GUI
-    reinterpret_cast<GuiLabelComponent*>(
-        scene_->getEntityById("GunFrameworkHUD")
-            ->getComponent("GuiLabelComponent"))
-        ->changeText(std::to_string(currentGun->getbulletchamber()) + " / " +
-                     std::to_string(currentGun->getmunition()));
+    currentGun->updateAmmoTracker();
 
     // Change gun model
     reinterpret_cast<GunModelManagerEC*>(

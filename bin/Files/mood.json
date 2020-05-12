@@ -418,7 +418,7 @@
           "attributes": {
             "bulletTag": "PlayerBullet",
             "bulletchamberMax": 20,
-            "munition": 1000,
+            "munition": -1,
             "bulletDamage": 15,
             "bulletSpeed": 100,
             "cadence": 0.1,

@@ -17,6 +17,7 @@ void GunC::destroy() {
 }
 
 bool GunC::reload() {
+	// For weapons with limited ammo
     if (_bulletchamber < _bulletchamberMax && _munition > 0) {
         int remainder = _bulletchamberMax - _bulletchamber;
 
@@ -26,11 +27,14 @@ bool GunC::reload() {
         _bulletchamber += remainder;
         _munition -= remainder;
 
-        reinterpret_cast<GuiLabelComponent*>(
-            scene_->getEntityById("GunFrameworkHUD")
-                ->getComponent("GuiLabelComponent"))
-            ->changeText(std::to_string(_bulletchamber) + " / " +
-                         std::to_string(_munition));
+        updateAmmoTracker();
+
+        return true;
+
+	// For weapons with unlimited ammo
+    } else if (_bulletchamber < _bulletchamberMax && _munition < 0) {
+        _bulletchamber = _bulletchamberMax;
+        updateAmmoTracker();
 
         return true;
     }
@@ -50,11 +54,7 @@ bool GunC::shoot() {
     if (!getInfiniteAmmo()) {
         _bulletchamber--;
 
-        reinterpret_cast<GuiLabelComponent*>(
-            scene_->getEntityById("GunFrameworkHUD")
-                ->getComponent("GuiLabelComponent"))
-            ->changeText(std::to_string(_bulletchamber) + " / " +
-                         std::to_string(_munition));
+        updateAmmoTracker();
     }
 
     onPreShoot();
@@ -186,4 +186,22 @@ bool GunC::canShoot() { return infiniteAmmo_ || _bulletchamber != 0; }
 
 int GunC::getCalculatedDamage() {
     return instakill_ ? std::numeric_limits<int>::max() : _bulletDamage;
+}
+
+void GunC::updateAmmoTracker() {
+    // For weapons with limited ammo
+    if (_munition < 0) {
+        reinterpret_cast<GuiLabelComponent*>(
+            scene_->getEntityById("GunFrameworkHUD")
+                ->getComponent("GuiLabelComponent"))
+            ->changeText(std::to_string(_bulletchamber) + " / Unlimited");
+       
+	// For weapons with unlimited ammo
+    } else {
+        reinterpret_cast<GuiLabelComponent*>(
+            scene_->getEntityById("GunFrameworkHUD")
+                ->getComponent("GuiLabelComponent"))
+            ->changeText(std::to_string(_bulletchamber) + " / " +
+                         std::to_string(_munition));
+    }
 }
