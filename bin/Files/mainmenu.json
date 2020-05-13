@@ -14,6 +14,20 @@
         }
       ]
     },
+	{
+      "id": "Background",
+      "components": [
+        {
+          "type": "SkyPlaneObjectC",
+          "attributes": {
+            "normal": "Z",
+            "distance": -100,
+            "bow": 0.0,
+            "material": "BackgroundMenuTexture"
+          }
+        }
+      ]
+    },
     {
       "id": "LogoImage",
       "components": [
@@ -87,6 +101,25 @@
         }
       ]
     },
+	{
+      "id": "Light",
+      "components": [
+        {
+          "type": "AmbientLightC",
+          "attributes": {
+            "colour": [ 0.5, 0.0, 0.5 ]
+          }
+        },
+        {
+          "type": "SpotLightRC",
+          "attributes": {
+            "node": "nSpotLight",
+            "colour": [ 1, 1, 1 ],
+            "direction": [ 0, -1, -1 ]
+          }
+        }
+      ]
+    },
     {
       "id": "Camera",
       "persistent": false,
@@ -96,7 +129,7 @@
           "attributes": {
             "position": [ 0, 0, 0 ],
             "orientation": [ 0, 0, 0 ],
-            "scale": [ 3, 3, 3 ]
+            "scale": [ 1, 1, 1 ]
           }
         },
         {
@@ -104,8 +137,8 @@
           "attributes": {
             "node": "nCamera",
             "viewportColour": [ 0, 0, 0 ],
-            "offset": [ 0, 300, 60 ],
-            "lookAt": [ 0, -1, -0.25 ],
+            "offset": [ 0, 0, 1000 ],
+            "lookAt": [  0, 0, -1 ],
             "targetId": "none"
           }
         }

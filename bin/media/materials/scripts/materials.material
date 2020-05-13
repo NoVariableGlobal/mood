@@ -1,3 +1,19 @@
+material BackgroundMenuTexture
+{
+    technique 
+    {
+        pass 
+        {
+            texture_unit
+            { 
+                texture FondoMenu.png 2d 
+                tex_address_mode wrap 
+                
+            } // de acceso al texel
+        } 
+    }
+}
+
 material GrassMaterial
 {
     technique 
