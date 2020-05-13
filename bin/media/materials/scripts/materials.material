@@ -4,12 +4,17 @@ material BackgroundMenuTexture
     {
         pass 
         {
-            texture_unit
-            { 
+            texture_unit 
+            { // * ‐> int 0
+                // archivo
                 texture FondoMenu.png 2d 
+                // sólo configuración
+                // wrap (repeat), clamp, mirror
                 tex_address_mode wrap 
-                
-            } // de acceso al texel
+                // de acceso al texel
+                // nearest, linear, bilinear, none
+                filtering bilinear 	
+            }            
         } 
     }
 }
