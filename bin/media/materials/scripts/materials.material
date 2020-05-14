@@ -4,7 +4,22 @@ material BackgroundMenuTexture
     {
         pass 
         {
-            texture_unit 
+			diffuse 0.8 0.8 0.8 1
+			ambient 0.1 0.1 0.1 0.1
+			texture_unit texture0 
+            { // * ‐> int 0
+                // archivo
+                texture Interferences.png 2d 
+                // sólo configuración
+                // wrap (repeat), clamp, mirror
+                tex_address_mode wrap 
+                // de acceso al texel
+                // nearest, linear, bilinear, none
+                filtering bilinear 
+				scroll_anim 0.0 5				
+                colour_op add
+            }
+            texture_unit texture 1
             { // * ‐> int 0
                 // archivo
                 texture FondoMenu.png 2d 
