@@ -133,6 +133,12 @@
       "loop": false,
       "volume": 1
     },
+    {
+      "id": "NextRound",
+      "filename": "bells.wav",
+      "loop": false,
+      "volume":  1
+    },
     // Background Music
     {
       "id": "RoundBackgroundMusic",

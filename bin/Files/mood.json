@@ -124,11 +124,16 @@
             "spawnChances": [ 30, 20, 15, 20, 5, 10 ]
           }
         },
-
         {
           "type": "SoundComponent",
           "attributes": {
-            "sounds": []
+            "sounds": [ "RoundBackgroundMusic", "MenuBackgroundMusic", "RankingBackgroundMusic", "NextRound" ]
+          }
+        },
+        {
+          "type": "GameMusicC",
+          "attributes": {
+            "sound": "RoundBackgroundMusic"
           }
         }
       ]
@@ -145,18 +150,6 @@
             "spawnID": [ "AutomaticRifle", "Shotgun", "SniperGun" ],
             "spawnTag": "Gun",
             "spawnChances": [ 40, 30, 30 ]
-          }
-        },
-        {
-          "type": "SoundComponent",
-          "attributes": {
-            "sounds": [ "RoundBackgroundMusic", "MenuBackgroundMusic", "RankingBackgroundMusic" ]
-          }
-        },
-        {
-          "type": "GameMusicC",
-          "attributes": {
-            "sound": "RoundBackgroundMusic"
           }
         }
       ]
