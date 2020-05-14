@@ -67,7 +67,6 @@
           "attributes": {
           }
         },
-
         {
           "type": "RoundManagerEC",
           "attributes": {
@@ -146,6 +145,18 @@
             "spawnID": [ "AutomaticRifle", "Shotgun", "SniperGun" ],
             "spawnTag": "Gun",
             "spawnChances": [ 40, 30, 30 ]
+          }
+        },
+        {
+          "type": "SoundComponent",
+          "attributes": {
+            "sounds": [ "RoundBackgroundMusic", "MenuBackgroundMusic", "RankingBackgroundMusic" ]
+          }
+        },
+        {
+          "type": "GameMusicC",
+          "attributes": {
+            "sound": "RoundBackgroundMusic"
           }
         }
       ]

@@ -4,6 +4,7 @@
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "Factory.h"
+#include "GameMusicC.h"
 #include "PowerUpTrackerC.h"
 #include "RankingManagerC.h"
 #include "RoundManagerEC.h"
@@ -30,7 +31,6 @@ void DeadManagerEC::setActive(bool _active) {
 
 void DeadManagerEC::checkEvent() {
     if (playerAnimations->animationFinished("Dead")) {
-
         reinterpret_cast<RankingManagerC*>(
             father_->getComponent("RankingManagerC"))
             ->playerDied();
@@ -59,6 +59,10 @@ void DeadManagerEC::checkEvent() {
         scene_->getEntityById("ShotgunModel")->setActive(false);
         scene_->getEntityById("RifleModel")->setActive(false);
         scene_->getEntityById("SniperModel")->setActive(false);
+
+        reinterpret_cast<GameMusicC*>(
+            scene_->getEntityById("GameManager")->getComponent("GameMusicC"))
+            ->setMusic("MenuBackgroundMusic");
 
         scene_->changeScene("DeadMenu");
         active_ = false;
