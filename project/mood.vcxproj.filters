@@ -49,6 +49,8 @@
     <ClCompile Include="..\src\TankMeleeEnemyBehaviourEC.cpp">
     <ClCompile Include="..\src\WeaponControllerIC.cpp" />
     <ClCompile Include="..\src\GunModelManagerEC.cpp" />
+    <ClCompile Include="..\src\ExitWithEscapeEC.cpp">
+    <ClCompile Include="..\src\EscapePressIC.cpp">
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\AutomaticEC.h" />
@@ -98,5 +100,7 @@
     <ClInclude Include="..\src\TankMeleeEnemyBehaviourEC.h">
     <ClInclude Include="..\src\WeaponControllerIC.h" />
     <ClInclude Include="..\src\GunModelManagerEC.h" />
+    <ClInclude Include="..\src\ExitWithEscapeEC.h">
+    <ClInclude Include="..\src\EscapePressIC.h">
   </ItemGroup>
 </Project>

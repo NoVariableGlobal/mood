@@ -26,6 +26,8 @@
     <ClCompile Include="..\src\DeadManagerEC.cpp" />
     <ClCompile Include="..\src\DestroyAfterSecsEC.cpp" />
     <ClCompile Include="..\src\EnemyBehaviourEC.cpp" />
+    <ClCompile Include="..\src\EscapePressIC.cpp" />
+    <ClCompile Include="..\src\ExitWithEscapeEC.cpp" />
     <ClCompile Include="..\src\GuiRoundLabelC.cpp" />
     <ClCompile Include="..\src\GuiRankingLabelC.cpp" />
     <ClCompile Include="..\src\GunC.cpp" />
@@ -76,6 +78,8 @@
     <ClInclude Include="..\src\DeadManagerEC.h" />
     <ClInclude Include="..\src\DestroyAfterSecsEC.h" />
     <ClInclude Include="..\src\EnemyBehaviourEC.h" />
+    <ClInclude Include="..\src\EscapePressIC.h" />
+    <ClInclude Include="..\src\ExitWithEscapeEC.h" />
     <ClInclude Include="..\src\GuiRoundLabelC.h" />
     <ClInclude Include="..\src\GuiRankingLabelC.h" />
     <ClInclude Include="..\src\GunC.h" />

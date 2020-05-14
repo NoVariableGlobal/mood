@@ -103,3 +103,7 @@ Spawn SpawnerEC::binarySearch(int first, int last, float value) {
 
     return {"", 0, 0};
 }
+
+void SpawnerEC::resetLastTimeSpawned() {
+    _lastTimeSpawned = clock() / static_cast<float>(CLOCKS_PER_SEC);
+}
