@@ -22,19 +22,31 @@
         }
       ]
     },
+	{
+      "id": "Fondo",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, -10 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 1.25, 0.7, 0.5 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "cube.mesh",
+            "node": "nSuelo",
+            "material": "BackgroundRankingTexture"
+          }
+        }
+      ]
+    },
     {
       "id": "GUI",
       "persistent": false,
       "components": [
-        {
-          "type": "GuiLabelComponent",
-          "attributes": {
-            "text": "Ranking",
-            "position": [ 0.465, 0.05 ],
-            "size": [ 100.0, 50.0 ],
-            "name": "RankingTitle"
-          }
-        },
         {
           "type": "ChangeSceneButtonComponent",
           "attributes": {
@@ -65,7 +77,7 @@
           "attributes": {
             "rankingPosition": 1,
             "roundNumber": true,
-            "position": [ 0.65, 0.2 ],
+            "position": [ 0.65, 0.25 ],
             "size": [ 300.0, 40.0 ],
             "name": "RoundLabel1"
           }
@@ -81,7 +93,7 @@
           "attributes": {
             "rankingPosition": 2,
             "roundNumber": true,
-            "position": [ 0.65, 0.3 ],
+            "position": [ 0.65, 0.35 ],
             "size": [ 300.0, 40.0 ],
             "name": "RoundLabel2"
           }
@@ -97,7 +109,7 @@
           "attributes": {
             "rankingPosition": 3,
             "roundNumber": true,
-            "position": [ 0.65, 0.4 ],
+            "position": [ 0.65, 0.45 ],
             "size": [ 300.0, 40.0 ],
             "name": "RoundLabel3"
           }
@@ -113,7 +125,7 @@
           "attributes": {
             "rankingPosition": 4,
             "roundNumber": true,
-            "position": [ 0.65, 0.5 ],
+            "position": [ 0.65, 0.55 ],
             "size": [ 300.0, 40.0 ],
             "name": "RoundLabel4"
           }
@@ -129,7 +141,7 @@
           "attributes": {
             "rankingPosition": 5,
             "roundNumber": true,
-            "position": [ 0.65, 0.6 ],
+            "position": [ 0.65, 0.65 ],
             "size": [ 300.0, 40.0 ],
             "name": "RoundLabel5"
           }
@@ -145,7 +157,7 @@
           "attributes": {
             "rankingPosition": 1,
             "roundNumber": false,
-            "position": [ 0.26, 0.2 ],
+            "position": [ 0.3, 0.25 ],
             "size": [ 300.0, 40.0 ],
             "name": "NameLabel1"
           }
@@ -161,7 +173,7 @@
           "attributes": {
             "rankingPosition": 2,
             "roundNumber": false,
-            "position": [ 0.26, 0.3 ],
+            "position": [ 0.3, 0.35 ],
             "size": [ 300.0, 40.0 ],
             "name": "NameLabel2"
           }
@@ -177,7 +189,7 @@
           "attributes": {
             "rankingPosition": 3,
             "roundNumber": false,
-            "position": [ 0.26, 0.4 ],
+            "position": [ 0.3, 0.45 ],
             "size": [ 300.0, 40.0 ],
             "name": "NameLabel3"
           }
@@ -193,7 +205,7 @@
           "attributes": {
             "rankingPosition": 4,
             "roundNumber": false,
-            "position": [ 0.26, 0.5 ],
+            "position": [ 0.3, 0.55 ],
             "size": [ 300.0, 40.0 ],
             "name": "NameLabel4"
           }
@@ -209,7 +221,7 @@
           "attributes": {
             "rankingPosition": 5,
             "roundNumber": false,
-            "position": [ 0.26, 0.6 ],
+            "position": [ 0.3, 0.65 ],
             "size": [ 300.0, 40.0 ],
             "name": "NameLabel5"
           }
@@ -233,8 +245,8 @@
           "attributes": {
             "node": "nCamera",
             "viewportColour": [ 0, 0, 0 ],
-            "offset": [ 0, 300, 60 ],
-            "lookAt": [ 0, -1, -0.25 ],
+            "offset": [ 0, 0, 100 ],
+            "lookAt": [  0, 0, -1 ],
             "targetId": "none"
           }
         }
