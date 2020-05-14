@@ -8,9 +8,9 @@
 #include "OgreVector4.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
+#include "SoundComponent.h"
 #include "SpawnerEnemiesEC.h"
 #include "SpawnerFloorRandomEC.h"
-#include "SoundComponent.h"
 
 #include <iostream>
 #include <time.h>
@@ -63,9 +63,9 @@ void RoundManagerEC::checkEvent() {
                     ->getComponent("GuiLabelComponent"))
                 ->changeText("Round " + std::to_string(roundNumber));
 
-			dynamic_cast<SoundComponent*>(
-                scene_->getEntityById("GameManager")
-                    ->getComponent("SoundComponent"))->playSound("NextRound");
+            dynamic_cast<SoundComponent*>(scene_->getEntityById("GameManager")
+                                              ->getComponent("SoundComponent"))
+                ->playSound("NextRound");
 
             reinterpret_cast<GameMusicC*>(scene_->getEntityById("GameManager")
                                               ->getComponent("GameMusicC"))
