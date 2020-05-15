@@ -52,6 +52,42 @@ material BackgroundRankingTexture
     }
 }
 
+material BackgroundPlayerNameTexture
+{
+    technique 
+    {
+        pass 
+        {
+			diffuse 0.11 0.31 0.11 1.00
+            texture_unit
+            { // * ‐> int 0
+                // archivo
+                texture PlayerName.png
+                colour_op add
+                tex_address_mode wrap
+            }            
+        } 
+    }
+}
+
+material BackgroundGameOverTexture
+{
+    technique 
+    {
+        pass 
+        {
+			diffuse 0.11 0.31 0.11 1.00
+            texture_unit
+            { // * ‐> int 0
+                // archivo
+                texture GameOverFondo.png
+                colour_op add
+                tex_address_mode wrap
+            }            
+        } 
+    }
+}
+
 material GrassMaterial
 {
     technique 

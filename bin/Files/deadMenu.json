@@ -14,6 +14,20 @@
         }
       ]
     },
+	{
+      "id": "Background",
+      "components": [
+        {
+          "type": "SkyPlaneObjectC",
+          "attributes": {
+            "normal": "Y",
+            "distance": -100,
+            "bow": 0.0,
+            "material": "BackgroundGameOverTexture"
+          }
+        }
+      ]
+    },
     {
       "id": "Rounds",
       "components": [
@@ -70,8 +84,8 @@
           }
         }
       ]
-    }
-    /*{
+    }/*
+    {
       "id": "Camera",
       "persistent": false,
       "components": [
@@ -86,15 +100,14 @@
         {
           "type": "CameraRC",
           "attributes": {
-            "node": "nCamera2",
+            "node": "nCamera",
             "viewportColour": [ 0, 0, 0 ],
-            "offset": [ 0, 300, 60 ],
-            "lookAt": [ 0, -1, -0.25 ],
+            "offset": [ 0, 0, 100 ],
+            "lookAt": [  0, 0, -1 ],
             "targetId": "none"
           }
         }
       ]
-    }
-  */
+    }*/
   ]
 }
