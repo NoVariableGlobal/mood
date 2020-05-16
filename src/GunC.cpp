@@ -39,6 +39,9 @@ bool GunC::reload() {
 }
 
 bool GunC::shoot() {
+    if (!timeCadence())
+        return false;
+
     if (!canShoot()) {
         soundManager->playSound("EmptyGun");
         return false;
@@ -94,6 +97,17 @@ void GunC::onShoot(TransformComponent* transform, RigidbodyPC* rigidBody) {
     _soundComponent->playSound(_shotSound);
 }
 
+bool GunC::timeCadence() {
+    const float seconds = clock() / static_cast<float>(CLOCKS_PER_SEC);
+
+    if (seconds - lastTimeCadence_ >= cadence_) {
+        lastTimeCadence_ = seconds;
+        return true;
+    }
+
+    return false;
+}
+
 std::string GunC::getBulletType() { return _myBulletType; }
 
 std::string GunC::getBulletTag() { return _myBulletTag; }
@@ -110,7 +124,7 @@ int GunC::getbulletdamage() { return _bulletDamage; }
 
 int GunC::getbulletspeed() { return _bulletSpeed; }
 
-float GunC::getcadence() { return _cadence; }
+float GunC::getcadence() { return cadence_; }
 
 bool GunC::getautomatic() { return _automatic; }
 
@@ -142,7 +156,7 @@ void GunC::setbulletdamage(int damage) { _bulletDamage = damage; }
 
 void GunC::setbulletspeed(int speed) { _bulletSpeed = speed; }
 
-void GunC::setcadence(float cadence) { _cadence = cadence; }
+void GunC::setcadence(float cadence) { cadence_ = cadence; }
 
 void GunC::setautomatic(bool automatic) { _automatic = automatic; }
 
