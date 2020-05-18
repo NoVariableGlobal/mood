@@ -4,56 +4,22 @@
 #include "FactoriesFactory.h"
 #include "Factory.h"
 #include "GunC.h"
-#include "OgreRoot.h"
 #include "Scene.h"
 #include "WeaponControllerIC.h"
 #include <SoundComponent.h>
 #include <iostream>
 #include <json.h>
-#include <time.h>
 
 AutomaticEC::AutomaticEC() {}
 
 AutomaticEC::~AutomaticEC() {}
 
 void AutomaticEC::checkEvent() {
-
-    cadence = weaponController->getCurrentGun()->getcadence();
-
-    if (shoot && timeCadence()) {
+    if (shoot)
         weaponController->getCurrentGun()->shoot();
-
-        if (weaponController->getCurrentGun()->getbulletchamber() == 0) {
-            _soundComponent->playSound("EmptyGun");
-            setShoot(false);
-        } else
-            _soundComponent->playSound(
-                weaponController->getCurrentGun()->getShotSound());
-    }
 }
 
-bool AutomaticEC::timeCadence() {
-    float seconds = clock() / static_cast<float>(CLOCKS_PER_SEC);
-
-    if (seconds - lastTimecadence >= cadence) {
-        lastTimecadence = seconds;
-        return true;
-    }
-
-    return false;
-}
-
-void AutomaticEC::setCadence(double _cadence) { cadence = _cadence; }
-
-void AutomaticEC::setShoot(bool _shoot) {
-    shoot = _shoot;
-    if (shoot) {
-        auto currentGun =
-            dynamic_cast<GunC*>(dynamic_cast<WeaponControllerIC*>(
-                                    father_->getComponent("WeaponControllerIC"))
-                                    ->getCurrentGun());
-    }
-}
+void AutomaticEC::setShoot(bool _shoot) { shoot = _shoot; }
 
 void AutomaticEC::setWeaponControllerAndSound() {
     weaponController = dynamic_cast<WeaponControllerIC*>(

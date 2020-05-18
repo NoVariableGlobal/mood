@@ -14,13 +14,14 @@ namespace Ogre {
 
 class GunC : public Component {
   protected:
-    int _bulletchamber = 0;     // Ammunition in chamber
-    int _bulletchamberMax = 0;  // Total ammunition in chamber
-    int _munition = 0;          // Total ammunition stored
-    int _munitionMax = 0;       // Total ammunition stored
-    int _bulletDamage = 0;      // Damage of a single bullet
-    int _bulletSpeed = 0;       // Speed of a single bullet
-    float _cadence = 0.0f;      // Gun cadence
+    int _bulletchamber = 0;    // Ammunition in chamber
+    int _bulletchamberMax = 0; // Total ammunition in chamber
+    int _munition = 0;         // Total ammunition stored
+    int _munitionMax = 0;      // Total ammunition stored
+    int _bulletDamage = 0;     // Damage of a single bullet
+    int _bulletSpeed = 0;      // Speed of a single bullet
+    double cadence_ = 0.0;     // Gun cadence
+    double lastTimeCadence_ = 0.0;
     bool _automatic = false;    // One shot or multiple shot gun
     bool infiniteAmmo_ = false; // Whether or not this gun has infinite ammo
     bool instakill_ = false; // Whether or not this gun will insta-kill enemies
@@ -32,6 +33,7 @@ class GunC : public Component {
     TransformComponent* myTransform;
     SoundComponent* _soundComponent = nullptr;
 
+    bool timeCadence();
     virtual void onPreShoot();
     virtual void onShoot(TransformComponent* transform, RigidbodyPC* rigidBody);
 
