@@ -15,15 +15,15 @@
       ]
     },
 	{
-      "id": "Background",
+      "id": "TitleImage",
       "components": [
         {
-          "type": "SkyPlaneObjectC",
+          "type": "GuiImageComponent",
           "attributes": {
-            "normal": "Y",
-            "distance": -100,
-            "bow": 0.0,
-            "material": "BackgroundGameOverTexture"
+            "image": "GameOverFondo/Fondo",
+            "position": [ 0, 0 ],
+            "size": [ 10.0, 10.0 ],
+            "name": "LoseTitle"
           }
         }
       ]

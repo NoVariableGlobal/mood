@@ -52,6 +52,24 @@ material BackgroundRankingTexture
     }
 }
 
+material BackgroundOptionTexture
+{
+    technique 
+    {
+        pass 
+        {
+			diffuse 0.11 0.31 0.11 1.00
+            texture_unit
+            { // * ‐> int 0
+                // archivo
+                texture FondoOpciones.png
+                colour_op add
+                tex_address_mode wrap
+            }            
+        } 
+    }
+}
+
 material BackgroundPlayerNameTexture
 {
     technique 
