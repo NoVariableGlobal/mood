@@ -107,7 +107,7 @@ void EnemyBehaviourEC::checkEvent() {
 
         if (!attacking)
             moveTowardsPlayer();
-        else if (animations->animationFinished("Attack")) {
+        else if (animations->animationFinished("Attack") && !idle) {
             attacking = false;
             animations->startAnimation("Walk");
         }
@@ -115,6 +115,14 @@ void EnemyBehaviourEC::checkEvent() {
         checkDamage();
 
         rotateToPlayer();
+
+        LifeC* playerHealth = dynamic_cast<LifeC*>(
+            (scene_->getEntityById("Player")->getComponent("LifeC")));
+        if (playerHealth->getLife() <= 0) {
+            rigidbody->setLinearVelocity(Ogre::Vector3(0, 0, 0));
+            if (!idle)
+                setIdle();
+        }
 
     } else {
         if (animations->animationFinished("Dead"))
@@ -206,6 +214,12 @@ void EnemyBehaviourEC::moveTowardsPlayer() {
     }
 
     rigidbody->setLinearVelocity(velocity * 0.2 + separate() * 0.8);
+}
+
+void EnemyBehaviourEC::setIdle() {
+    idle = true;
+    animations->stopAnimations();
+    animations->startAnimation("Idle");
 }
 
 Ogre::Vector3 EnemyBehaviourEC::separate() {
