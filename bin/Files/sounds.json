@@ -144,19 +144,19 @@
       "id": "RoundBackgroundMusic",
       "filename": "music_round_back.wav",
       "loop": true,
-      "volume": 1
+      "volume": 0.3
     },
     {
       "id": "MenuBackgroundMusic",
       "filename": "music_menu_back.wav",
       "loop": true,
-      "volume": 1
+      "volume": 0.3
     },
     {
       "id": "RankingBackgroundMusic",
       "filename": "music_ranking_back.wav",
       "loop": true,
-      "volume":  1
+      "volume":  0.3
     }
   ]
 }
