@@ -64,7 +64,7 @@
           "type": "ChangeSceneButtonComponent",
           "attributes": {
             "text": "Return",
-            "position": [ 0.465, 0.6 ],
+            "position": [ 0.575, 0.938 ],
             "size": [ 120.0, 40.0 ],
             "name": "OptionsReturn",
 			      "scene": "mainmenu"
@@ -171,7 +171,7 @@
           "type": "QuitButtonComponent",
           "attributes": {
             "text": "Quit",
-            "position": [ 0.465, 0.7 ],
+            "position": [ 0.375, 0.938 ],
             "size": [ 120.0, 40.0 ],
             "name": "OptionsQuit"
           }
