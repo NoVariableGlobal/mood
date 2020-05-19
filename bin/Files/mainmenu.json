@@ -110,6 +110,23 @@
           }
         }
       ]
+    },
+    {
+      "id": "GameManager",
+      "components": [
+        {
+          "type": "SoundComponent",
+          "attributes": {
+            "sounds": [ "MenuBackgroundMusic" ]
+          }
+        },
+        {
+          "type": "GameMusicC",
+          "attributes": {
+            "sound": "MenuBackgroundMusic"
+          }
+        }
+      ]
     }
   ]
 }

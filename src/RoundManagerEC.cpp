@@ -2,11 +2,13 @@
 #include "ComponentsManager.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
+#include "GameMusicC.h"
 #include "GuiLabelC.h"
 #include "OgreVector3.h"
 #include "OgreVector4.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
+#include "SoundComponent.h"
 #include "SpawnerEnemiesEC.h"
 #include "SpawnerFloorRandomEC.h"
 
@@ -60,6 +62,14 @@ void RoundManagerEC::checkEvent() {
                 scene_->getEntityById("RoundHUD")
                     ->getComponent("GuiLabelComponent"))
                 ->changeText("Round " + std::to_string(roundNumber));
+
+            dynamic_cast<SoundComponent*>(scene_->getEntityById("GameManager")
+                                              ->getComponent("SoundComponent"))
+                ->playSound("NextRound");
+
+            reinterpret_cast<GameMusicC*>(scene_->getEntityById("GameManager")
+                                              ->getComponent("GameMusicC"))
+                ->setMusic("RoundBackgroundMusic");
 
             roundEnd = false;
             enemiesDead = 0;

@@ -1,5 +1,6 @@
 {
   "sounds": [
+    // Effects
     {
       "id": "HandgunShot",
       "filename": "GunHandgun.mp3",
@@ -131,6 +132,31 @@
       "filename": "swapGun.wav",
       "loop": false,
       "volume": 1
+    },
+    {
+      "id": "NextRound",
+      "filename": "bells.wav",
+      "loop": false,
+      "volume":  1
+    },
+    // Background Music
+    {
+      "id": "RoundBackgroundMusic",
+      "filename": "music_round_back.wav",
+      "loop": true,
+      "volume": 0.3
+    },
+    {
+      "id": "MenuBackgroundMusic",
+      "filename": "music_menu_back.wav",
+      "loop": true,
+      "volume": 0.3
+    },
+    {
+      "id": "RankingBackgroundMusic",
+      "filename": "music_ranking_back.wav",
+      "loop": true,
+      "volume":  0.3
     }
   ]
 }
