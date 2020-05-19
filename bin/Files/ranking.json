@@ -7,6 +7,18 @@
         {
           "type": "RankingManagerC",
           "attributes": {}
+        },
+		{
+          "type": "SoundComponent",
+          "attributes": {
+            "sounds": [ "RankingBackgroundMusic" ]
+          }
+        },
+        {
+          "type": "GameMusicC",
+          "attributes": {
+            "sound": "RankingBackgroundMusic"
+          }
         }
       ]
     },

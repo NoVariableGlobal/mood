@@ -2,10 +2,12 @@
 #include "ComponentsManager.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
+#include "GameMusicC.h"
 #include "ReadNameIC.h"
 #include "RoundManagerEC.h"
 #include "Scene.h"
 #include "SpawnerEnemiesEC.h"
+
 #include <time.h>
 #include <value.h>
 
@@ -86,6 +88,10 @@ void RankingManagerC::playerDied() {
     std::sort(ranking.begin(), ranking.end());
 
     ranking.pop_back();
+
+    reinterpret_cast<GameMusicC*>(
+        scene_->getEntityById("GameManager")->getComponent("GameMusicC"))
+        ->setMusic("RankingBackgroundMusic");
 }
 
 void RankingManagerC::setName() {
