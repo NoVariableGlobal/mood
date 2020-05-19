@@ -219,9 +219,8 @@ void EnemyBehaviourEC::moveTowardsPlayer() {
 void EnemyBehaviourEC::setIdle(bool active) {
     idle = active;
 
-    if (active) 
+    if (active)
         animations->startAnimation("Idle");
-    
 }
 
 Ogre::Vector3 EnemyBehaviourEC::separate() {
