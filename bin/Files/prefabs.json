@@ -755,6 +755,10 @@
               {
                 "name": "Dead",
                 "loop": false
+              },
+              {
+                "name": "Idle",
+                "loop": true
               }
             ]
           }
@@ -824,6 +828,10 @@
               {
                 "name": "Dead",
                 "loop": false
+              },
+              {
+                "name": "Idle",
+                "loop": true
               }
             ]
           }
@@ -893,6 +901,10 @@
               {
                 "name": "Dead",
                 "loop": false
+              },
+              {
+                "name": "Idle",
+                "loop": true
               }
             ]
           }
@@ -941,7 +953,7 @@
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "ranged_gazer.mesh",
+            "mesh": "gazer_mesh.mesh",
             "node": "nRangedEnemy",
             "material": "BlueColourMaterial"
           }
@@ -981,6 +993,10 @@
               {
                 "name": "Dead",
                 "loop": false
+              },
+              {
+                "name": "Idle",
+                "loop": true
               }
             ]
           }
@@ -1069,6 +1085,10 @@
               {
                 "name": "Dead",
                 "loop": false
+              },
+              {
+                "name": "Idle",
+                "loop": true
               }
             ]
           }
@@ -1119,7 +1139,7 @@
         {
           "type": "TridimensionalObjectRC",
           "attributes": {
-            "mesh": "ranged_gazer.mesh",
+            "mesh": "gazer_mesh.mesh",
             "node": "nRangedEnemy",
             "material": "BlueColourMaterial"
           }
@@ -1159,6 +1179,10 @@
               {
                 "name": "Dead",
                 "loop": false
+              },
+              {
+                "name": "Idle",
+                "loop": true
               }
             ]
           }

@@ -57,6 +57,8 @@ class EnemyBehaviourEC : public EventComponent {
     bool attacking = false;
     // true if enemy is colliding with player
     bool dead = false;
+    // true if player is dead and enemy is in idle animation
+    bool idle = false;
 
     SoundComponent* soundManager = nullptr;
 
@@ -83,6 +85,7 @@ class EnemyBehaviourEC : public EventComponent {
     virtual void die();
     virtual void moveTowardsPlayer();
     virtual void rotateToPlayer() = 0;
+    void setIdle(bool active);
     Ogre::Vector3 separate();
 
     void updatePosibilityToAttackPlayer();

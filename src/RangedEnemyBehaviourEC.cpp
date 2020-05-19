@@ -24,13 +24,30 @@ void RangedEnemyBehaviourEC::checkEvent() {
 
     if (!dead) {
         // attack every attackCooldown seconds
-        if (getWithinRange() && timeToAttack()) {
-            attacking = true;
+        if (getWithinRange()) {
+            if (timeToAttack()) {
+                setIdle(false);
+                attacking = true;
 
-            animations->stopAnimations();
-            animations->startAnimation("Attack");
+                animations->stopAnimations();
+                animations->startAnimation("Attack");
 
-            shoot();
+                shoot();
+            } else if (!idle && animations->animationFinished("Attack")) {
+                animations->stopAnimations();
+                setIdle(true);
+            }
+        } else {
+            if (idle) {
+                animations->stopAnimations();
+                animations->startAnimation("Walk");
+                setIdle(false);
+            }
+            if (attacking && animations->animationFinished("Attack")) {
+                attacking = false;
+                animations->stopAnimations();
+                animations->startAnimation("Walk");
+            }
         }
     }
 }
