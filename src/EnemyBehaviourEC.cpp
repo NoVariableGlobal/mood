@@ -121,7 +121,7 @@ void EnemyBehaviourEC::checkEvent() {
         if (playerHealth->getLife() <= 0) {
             rigidbody->setLinearVelocity(Ogre::Vector3(0, 0, 0));
             if (!idle)
-                setIdle();
+                setIdle(true);
         }
 
     } else {
@@ -216,10 +216,12 @@ void EnemyBehaviourEC::moveTowardsPlayer() {
     rigidbody->setLinearVelocity(velocity * 0.2 + separate() * 0.8);
 }
 
-void EnemyBehaviourEC::setIdle() {
-    idle = true;
-    animations->stopAnimations();
-    animations->startAnimation("Idle");
+void EnemyBehaviourEC::setIdle(bool active) {
+    idle = active;
+
+    if (active) 
+        animations->startAnimation("Idle");
+    
 }
 
 Ogre::Vector3 EnemyBehaviourEC::separate() {
