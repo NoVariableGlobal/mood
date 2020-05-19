@@ -15,19 +15,54 @@
       ]
     },
 	{
-      "id": "TitleImage",
+      "id": "Background",
+      "components": [
+        {
+          "type": "SkyPlaneObjectC",
+          "attributes": {
+            "normal": "Z",
+            "distance": -100,
+            "bow": 0.0,
+            "material": "BackgroundGameOverTexture"
+          }
+        }
+      ]
+    }
+	/*{
+      "id": "LogoImage",
       "components": [
         {
           "type": "GuiImageComponent",
           "attributes": {
-            "image": "GameOverFondo/Fondo",
-            "position": [ 0, 0 ],
-            "size": [ 10.0, 10.0 ],
-            "name": "LoseTitle"
+            "image": "TaharezLook/GameOver",
+            "position": [ 0, -0.01 ],
+            "size": [ 1920.0, 1080.0 ],
+            "name": "MainMenuLogo"
           }
         }
       ]
-    },
+    }
+	{
+      "id": "Fondo",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, -10 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 1.25, 0.7, 0.5 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "cube.mesh",
+            "node": "nSuelo",
+            "material": "BackgroundMenuTexture"
+          }
+        }
+      ]
+    }*/,
     {
       "id": "Rounds",
       "components": [
@@ -84,7 +119,7 @@
           }
         }
       ]
-    }/*
+    },
     {
       "id": "Camera",
       "persistent": false,
@@ -108,6 +143,6 @@
           }
         }
       ]
-    }*/
+    }
   ]
 }

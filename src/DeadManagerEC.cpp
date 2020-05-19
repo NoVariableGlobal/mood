@@ -1,5 +1,6 @@
 #include "DeadManagerEC.h"
 #include "AnimationLC.h"
+#include "CameraRC.h"
 #include "ComponentsManager.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
@@ -9,7 +10,12 @@
 #include "RankingManagerC.h"
 #include "RoundManagerEC.h"
 #include "Scene.h"
+#include "TransformComponent.h"
+#include "WeaponControllerIC.h"
 
+#include "RigidbodyPC.h"
+
+#include <iostream>
 #include <json.h>
 #include <value.h>
 
@@ -48,11 +54,13 @@ void DeadManagerEC::checkEvent() {
         scene_->getEntityById("RoundHUD")->setPersistent(false);
         scene_->getEntityById("GunFrameworkHUD")->setPersistent(false);
         scene_->getEntityById("GunIconHUD")->setPersistent(false);
+        scene_->getEntityById("Camera")->setPersistent(false);
 
         scene_->getEntityById("Player")->setActive(false);
         scene_->getEntityById("HandgunModel")->setActive(false);
         scene_->getEntityById("ShotgunModel")->setActive(false);
         scene_->getEntityById("RifleModel")->setActive(false);
+        scene_->getEntityById("SniperModel")->setActive(false);
         scene_->getEntityById("SniperModel")->setActive(false);
 
         reinterpret_cast<GameMusicC*>(
