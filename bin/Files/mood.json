@@ -418,7 +418,7 @@
           "attributes": {
             "bulletTag": "PlayerBullet",
             "bulletchamberMax": 20,
-            "munition": 1000,
+            "munition": -1,
             "bulletDamage": 15,
             "bulletSpeed": 100,
             "cadence": 0.1,
@@ -675,7 +675,7 @@
         {
           "type": "GuiLabelComponent",
           "attributes": {
-            "text": "20 / 1000",
+            "text": "20 / Unlimited",
             "position": [ 0.875, 0.96 ],
             "size": [ 200.0, 50.0 ],
             "name": "AmmoText"
