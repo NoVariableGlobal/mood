@@ -8,7 +8,7 @@ DECLARE_FACTORY(LifeBarC);
 
 class LifeBarC : public GuiImageComponent {
   private:
-    float x_, y_;
+    float x_ = 0.0f, y_ = 0.0f;
 
   public:
     LifeBarC();

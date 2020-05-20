@@ -8,7 +8,6 @@
 #include "RoundManagerEC.h"
 #include "Scene.h"
 #include "TransformComponent.h"
-
 #include <json.h>
 
 SpawnerEnemiesEC::SpawnerEnemiesEC() {}

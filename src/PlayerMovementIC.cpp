@@ -3,7 +3,6 @@
 #include "Component.h"
 #include "ComponentsManager.h"
 #include "FactoriesFactory.h"
-#include "OgreRoot.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
 #include <Entity.h>

@@ -1,11 +1,9 @@
 #include "PowerUpEC.h"
 #include "ComponentsManager.h"
 #include "Entity.h"
-#include "OgreRoot.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
 #include "SoundComponent.h"
-#include "TransformComponent.h"
 #include <json.h>
 
 PowerUpEC::PowerUpEC() = default;

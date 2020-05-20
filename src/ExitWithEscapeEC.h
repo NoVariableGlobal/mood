@@ -13,7 +13,7 @@ class ExitWithEscapeEC : public EventComponent {
     bool pressing = false;
     bool out = false;
 
-    GuiLabelComponent* label;
+    GuiLabelComponent* label = nullptr;
 
   public:
     ExitWithEscapeEC();

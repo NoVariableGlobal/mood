@@ -15,7 +15,6 @@ namespace Ogre {
 } // namespace Ogre
 
 class PlayerMovementIC : public InputComponent {
-
   private:
     float _speed = 0;
     AnimationLC* animations = nullptr;
@@ -23,7 +22,7 @@ class PlayerMovementIC : public InputComponent {
     bool wDown = false, sDown = false, aDown = false, dDown = false;
 
   public:
-    bool hit;
+    bool hit = false;
     PlayerMovementIC();
     virtual ~PlayerMovementIC();
 

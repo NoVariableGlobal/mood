@@ -1,6 +1,4 @@
 #pragma once
-#include <string>
-
 #include "Factory.h"
 #include "ImmediatePowerUpEC.h"
 

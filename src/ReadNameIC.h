@@ -1,8 +1,8 @@
 #pragma once
-
 #include "Factory.h"
 #include "InputComponent.h"
 #include <string>
+
 // FACTORY INFRASTRUCTURE DECLARATION
 DECLARE_FACTORY(ReadNameIC);
 

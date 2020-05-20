@@ -30,9 +30,10 @@ bool GunC::reload() {
         updateAmmoTracker();
 
         return true;
+    }
 
-        // For weapons with unlimited ammo
-    } else if (_bulletchamber < _bulletchamberMax && _munition < 0) {
+    // For weapons with unlimited ammo
+    if (_bulletchamber < _bulletchamberMax && _munition < 0) {
         _bulletchamber = _bulletchamberMax;
         updateAmmoTracker();
 
