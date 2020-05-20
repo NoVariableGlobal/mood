@@ -254,7 +254,7 @@
       "id": "HandgunModel",
       "persistent": true,
       "components": [
-		{
+        {
           "type": "TransformComponent",
           "attributes": {
             "position": [ 0, 10, 0 ],
@@ -276,7 +276,7 @@
       "id": "ShotgunModel",
       "persistent": true,
       "components": [
-		{
+        {
           "type": "TransformComponent",
           "attributes": {
             "position": [ 0, 10, 0 ],
@@ -298,7 +298,7 @@
       "id": "RifleModel",
       "persistent": true,
       "components": [
-		{
+        {
           "type": "TransformComponent",
           "attributes": {
             "position": [ 0, 10, 0 ],
@@ -320,7 +320,7 @@
       "id": "SniperModel",
       "persistent": true,
       "components": [
-		{
+        {
           "type": "TransformComponent",
           "attributes": {
             "position": [ 0, 10, 0 ],
@@ -443,8 +443,8 @@
             "bulletSpeed": 50,
             "cadence": 1,
             "automatic": false,
-            "nPellets": 3,
-            "dispersion": 10,
+            "nPellets": 5,
+            "dispersion": 15,
             "instakill": false,
             "bulletType": "ShotgunBullet",
             "bulletComponent": "BulletC",
@@ -506,7 +506,7 @@
           }
         }
       ]
-    },//MAP
+    }, //MAP
     {
       "id": "LifeHUD",
       "persistent": true,
@@ -723,7 +723,7 @@
         }
       ]
     },
-	{
+    {
       "id": "Suelo",
       "components": [
         {
@@ -959,6 +959,6 @@
           }
         }
       ]
-    }	
+    }
   ]
 }
