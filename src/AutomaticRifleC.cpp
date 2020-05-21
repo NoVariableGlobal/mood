@@ -24,13 +24,7 @@ void AutomaticRifleC::onShoot(TransformComponent* transform,
 
     rigidBody->setLinearVelocity((quat * Ogre::Vector3::UNIT_Z) * _bulletSpeed);
 
-    if (_soundComponent == nullptr)
-        _soundComponent =
-            dynamic_cast<SoundComponent*>(scene_->getEntityById("GameManager")
-                                              ->getComponent("SoundComponent"));
-    _soundComponent->playSound(_shotSound);
-
-    // GunC::onShoot(transform, rigidBody);
+    GunC::onShoot(transform, rigidBody);
 }
 
 // FACTORY INFRASTRUCTURE
