@@ -26,7 +26,7 @@ material EnemigoMeleeMaterial
     {
         pass 
         { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
-            diffuse 0.7 0.2 0.4 1.0
+            diffuse 0.9 0.2 0.3 1.0
         }
     }
 }
@@ -491,11 +491,7 @@ material HandgunBulletMaterial
 
         pass 
         {
-            diffuse 0.00 0.00 0.00 1.00
-            texture_unit 
-            {
-                texture HandgunBulletColor.png
-            }
+            diffuse 0.80 0.80 0.00 1.00
         }
     }
 }
@@ -507,11 +503,7 @@ material RifleBulletMaterial
 
         pass 
         {
-            diffuse 0.00 0.00 0.00 1.00
-            texture_unit 
-            {
-                texture RifleBulletColor.png
-            }
+            diffuse 0.50 0.50 0.00 1.00
         }
     }
 }
@@ -523,11 +515,7 @@ material SniperRifleBulletMaterial
 
         pass 
         {
-            diffuse 0.00 0.00 0.00 1.00
-            texture_unit 
-            {
-                texture SniperRifleBulletColor.png
-            }
+            diffuse 1.00 1.00 0.00 1.00
         }
     }
 }
@@ -539,11 +527,7 @@ material ShotgunBulletMaterial
 
         pass 
         {
-            diffuse 0.00 0.00 0.00 1.00
-            texture_unit 
-            {
-                texture ShotgunShot.png
-            }
+            diffuse 0.70 0.00 0.00 1.00
         }
     }
 }
@@ -555,11 +539,7 @@ material EnemyHandgunBulletMaterial
 
         pass 
         {
-            diffuse 0.00 0.00 0.00 1.00
-            texture_unit 
-            {
-                texture EnemyHandgunBulletColor.png
-            }
+            diffuse 0.60 0.00 0.00 1.00
         }
     }
 }
@@ -571,11 +551,7 @@ material EnemyRifleBulletMaterial
 
         pass 
         {
-            diffuse 0.00 0.00 0.00 1.00
-            texture_unit 
-            {
-                texture EnemyRifleBulletColor.png
-            }
+            diffuse 0.60 0.00 0.00 1.00
         }
     }
 }
@@ -587,11 +563,7 @@ material EnemySniperRifleBulletMaterial
 
         pass 
         {
-            diffuse 0.00 0.00 0.00 1.00
-            texture_unit 
-            {
-                texture EnemySniperRifleBulletColor.png
-            }
+            diffuse 0.60 0.00 0.00 1.00
         }
     }
 }
@@ -603,11 +575,7 @@ material EnemyShotgunBulletMaterial
 
         pass 
         {
-            diffuse 0.00 0.00 0.00 1.00
-            texture_unit 
-            {
-                texture EnemyShotgunShot.png
-            }
+            diffuse 0.60 0.00 0.00 1.00
         }
     }
 }
