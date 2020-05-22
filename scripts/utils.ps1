@@ -131,11 +131,64 @@ If ($Upgrade) {
         Write-Host "# Finished in "       -ForegroundColor Green -NoNewLine
         Write-Host ("{0:g}" -f $duration) -ForegroundColor Cyan  -NoNewLine
         Write-Host "."                    -ForegroundColor Green
-    } Else {
+    }
+    Else {
         Write-Host "# Errored with code $LastExitCode in " -ForegroundColor Red  -NoNewLine
         Write-Host ("{0:g}" -f $duration)                  -ForegroundColor Cyan -NoNewLine
         Write-Host "."                                     -ForegroundColor Red
         Throw "Failed to upgrade the engine.";
+    }
+
+    # If the engine was updated,
+    If ($(git status -s).Contains('M  deps/one-thousand-years')) {
+        Write-Host "Updating build for CI re-hash... " -ForegroundColor Green -NoNewline
+
+        $local:buildPath = "$RootFolder\scripts\build.ps1"
+        $local:read = Get-Content -Path $buildPath
+        $local:version = $null
+        $read | ForEach-Object {
+            if ($_.ReadCount -eq 1) {
+                # Parse the version
+                $version = [int]$_.Split(" ")[-1]
+
+                # Write the new version
+                $_ -Replace '.+', "# Version $($version + 1)"
+            }
+            else {
+                # Keep the original content
+                $_
+            }
+        } | Set-Content $buildPath
+
+        If ($null -eq $version) {
+            Write-Host "Could not find the file version." -ForegroundColor Red
+        }
+        Else {
+            Write-Host "Version "                 -ForegroundColor Green -NoNewline
+            Write-Host $version                   -ForegroundColor Cyan  -NoNewline
+            Write-Host " -> "                     -ForegroundColor Green -NoNewline
+            Write-Host $($version + 1)            -ForegroundColor Cyan  -NoNewline
+            Write-Host ". Adding it to stage... " -ForegroundColor Green -NoNewline
+
+            # Run the process
+            $private:duration = Measure-Command {
+                # Add script's changes to the git stage
+                & git add $buildPath
+            }
+
+            # Print information to the screen
+            If ($LastExitCode -Eq 0) {
+                Write-Host "Finished in "         -ForegroundColor Green -NoNewLine
+                Write-Host ("{0:g}" -f $duration) -ForegroundColor Cyan  -NoNewLine
+                Write-Host "."                    -ForegroundColor Green
+            }
+            Else {
+                Write-Host "Errored with code $LastExitCode in " -ForegroundColor Red  -NoNewLine
+                Write-Host ("{0:g}" -f $duration)                -ForegroundColor Cyan -NoNewLine
+                Write-Host "."                                   -ForegroundColor Red
+                Throw "Failed to add the build to stage.";
+            }
+        }
     }
 }
 
