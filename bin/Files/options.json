@@ -14,25 +14,57 @@
         }
       ]
     },
-	{
+	  {
       "id": "ReturnButton",
       "components": [
-		{
+		    {
           "type": "ChangeSceneButtonComponent",
           "attributes": {
             "text": "Return",
             "position": [ 0.44, 0.6 ],
             "size": [ 120.0, 40.0 ],
             "name": "OptionsReturn",
-			"scene": "mainmenu"
+			      "scene": "mainmenu"
           }
         }
       ]
     },
-	{
+    {
+      "id": "VolumeSlider",
+      "components": [
+        {
+          "type": "BrightnessHandlerComponent",
+          "attributes":{}
+        },
+        {
+          "type": "GuiLabelComponent",
+          "attributes": {
+            "text": "",
+            "position": [ 0.465, 0.5 ],
+            "size": [ 100.0, 50.0 ],
+            "name": "BrightnessMeter"
+          }
+        },
+		    {
+          "type": "GuiSliderComponent",
+          "attributes": {
+            "position": [ 0.465, 0.55 ],
+            "size": [ 20.0, 200.0 ],
+            "name": "BrightnessSlider"
+          }
+        },
+        {
+          "type": "SliderHandlerComponent",
+          "attributes": {
+            "floatHandler": "BrightnessHandlerComponent"
+          }
+        }
+      ]
+    },
+	  {
       "id": "QuitButton",
       "components": [
-		{
+		    {
           "type": "QuitButtonComponent",
           "attributes": {
             "text": "Quit",
