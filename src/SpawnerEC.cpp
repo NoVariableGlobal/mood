@@ -1,10 +1,9 @@
 #include "SpawnerEC.h"
 #include "ComponentsManager.h"
 #include "Entity.h"
-#include "FactoriesFactory.h"
 #include "RoundManagerEC.h"
 #include "Scene.h"
-#include <time.h>
+#include <ctime>
 #include <utility>
 #include <value.h>
 

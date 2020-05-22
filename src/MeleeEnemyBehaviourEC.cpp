@@ -10,7 +10,6 @@
 #include "OrientateToMouseIC.h"
 #include "PlayerMovementIC.h"
 #include "PlayerShotIC.h"
-#include "RankingManagerC.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
 #include "SoundComponent.h"

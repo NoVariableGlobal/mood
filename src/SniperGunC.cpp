@@ -8,7 +8,6 @@
 #include "TransformComponent.h"
 
 #include <OgreQuaternion.h>
-#include <OgreSceneNode.h>
 #include <json.h>
 
 void SniperGunC::onShoot(TransformComponent* transform,

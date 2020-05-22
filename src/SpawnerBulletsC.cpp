@@ -1,10 +1,8 @@
 #include "SpawnerBulletsC.h"
-
 #include "ComponentsManager.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "Scene.h"
-
 #include <json.h>
 
 SpawnerBulletsC::SpawnerBulletsC() {}

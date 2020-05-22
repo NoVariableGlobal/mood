@@ -6,14 +6,7 @@
 #include "Scene.h"
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
-
-#include "OgreRoot.h"
-
 #include <SDL.h>
-#include <cstdlib>
-#include <math.h>
-#include <stdlib.h>
-
 #include <iostream>
 
 void OrientateToMouseIC::handleInput(const SDL_Event& _event) {

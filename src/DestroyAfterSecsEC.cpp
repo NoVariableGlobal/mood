@@ -4,8 +4,8 @@
 #include "FactoriesFactory.h"
 #include "Scene.h"
 
+#include <ctime>
 #include <iostream>
-#include <time.h>
 #include <value.h>
 
 void DestroyAfterSecsEC::checkEvent() {

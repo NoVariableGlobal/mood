@@ -5,15 +5,14 @@
 #include "GameMusicC.h"
 #include "GuiLabelC.h"
 #include "OgreVector3.h"
-#include "OgreVector4.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
 #include "SoundComponent.h"
 #include "SpawnerEnemiesEC.h"
 #include "SpawnerFloorRandomEC.h"
 
+#include <ctime>
 #include <iostream>
-#include <time.h>
 #include <value.h>
 
 void RoundManagerEC::checkEvent() {

@@ -3,8 +3,6 @@
 #include "ComponentsManager.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
-#include "LifeC.h"
-#include "OgreRoot.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
 #include <json.h>

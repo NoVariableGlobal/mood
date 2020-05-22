@@ -1,5 +1,4 @@
 #include "ImmediatePowerUpEC.h"
-#include "Scene.h"
 
 void ImmediatePowerUpEC::checkEvent() {
     PowerUpEC::checkEvent();

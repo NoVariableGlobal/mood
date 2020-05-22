@@ -4,14 +4,13 @@
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "LifeBarC.h"
-#include "OgreRoot.h"
 #include "Scene.h"
 
 #include <json.h>
 
-LifeC::LifeC() : invulnerability(false) {}
+LifeC::LifeC() = default;
 
-LifeC::~LifeC() {}
+LifeC::~LifeC() = default;
 
 void LifeC::destroy() {
     setActive(false);

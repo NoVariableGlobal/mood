@@ -10,7 +10,6 @@ class GunC;
 class SoundComponent;
 class AutomaticEC;
 class WeaponControllerIC : public InputComponent {
-
   private:
     GunC* currentGun = nullptr;
     GunC* secondaryGun = nullptr;

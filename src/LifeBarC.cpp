@@ -1,11 +1,10 @@
 #include "LifeBarC.h"
 #include "ComponentsManager.h"
 #include "FactoriesFactory.h"
-#include "OgreRoot.h"
 #include "Scene.h"
 
 #include <CEGUI/CEGUI.h>
-#include <CEGUI\Window.h>
+#include <CEGUI/Window.h>
 #include <json.h>
 
 LifeBarC::LifeBarC() {}

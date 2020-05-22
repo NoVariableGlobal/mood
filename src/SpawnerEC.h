@@ -1,6 +1,5 @@
 #pragma once
 #include "EventComponent.h"
-#include "Factory.h"
 #include <string>
 #include <vector>
 

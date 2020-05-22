@@ -3,13 +3,9 @@
 #include "ComponentsManager.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
-#include "OgreEntity.h"
-#include "OgreSDLContext.h"
 #include "Scene.h"
 #include "SoundComponent.h"
-#include "TransformComponent.h"
 
-#include <OgreSceneManager.h>
 #include <json.h>
 
 void GameMusicC::destroy() {

@@ -3,11 +3,7 @@
 #include "ParticleC.h"
 #include "PowerUpIconC.h"
 #include "PowerUpTrackerC.h"
-#include "RigidbodyPC.h"
 #include "Scene.h"
-#include "TransformComponent.h"
-#include "TridimensionalObjectRC.h"
-#include <time.h>
 
 void PersistentPowerUpEC::onDestroy() {
     PowerUpEC::onDestroy();

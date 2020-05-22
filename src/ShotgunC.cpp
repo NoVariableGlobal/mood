@@ -5,15 +5,12 @@
 #include "FactoriesFactory.h"
 #include "Factory.h"
 #include "Ogre.h"
-#include "OgreQuaternion.h"
-#include "OgreSceneNode.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
 #include "SoundComponent.h"
 #include "SpawnerBulletsC.h"
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
-
 #include <json.h>
 
 void ShotgunC::onPreShoot() {

@@ -3,7 +3,6 @@
 #include "Entity.h"
 #include "ExitWithEscapeEC.h"
 #include "FactoriesFactory.h"
-#include "OgreRoot.h"
 #include "Scene.h"
 #include <iostream>
 #include <json.h>

@@ -9,13 +9,8 @@
 #include "RankingManagerC.h"
 #include "RoundManagerEC.h"
 #include "Scene.h"
-#include "WeaponControllerIC.h"
 
-#include <iostream>
 #include <json.h>
-#include <math.h>
-#include <time.h>
-#include <utility>
 #include <value.h>
 
 DeadManagerEC::DeadManagerEC() {}
