@@ -1203,7 +1203,7 @@
             "bulletTag": "EnemyBullet",
             "bulletchamberMax": 1,
             "munition": 5,
-            "bulletDamage": 90,
+            "bulletDamage": 50,
             "bulletSpeed": 100,
             "cadence": 1,
             "instakill": false,
