@@ -1,13 +1,35 @@
 {
   "entities": [
     {
+      "id": "GameManager",
+      "persistent": false,
+      "components": [
+        {
+          "type": "RankingManagerC",
+          "attributes": {}
+        },
+		{
+          "type": "SoundComponent",
+          "attributes": {
+            "sounds": [ "RankingBackgroundMusic" ]
+          }
+        },
+        {
+          "type": "GameMusicC",
+          "attributes": {
+            "sound": "RankingBackgroundMusic"
+          }
+        }
+      ]
+    },
+    {
       "id": "Title",
       "components": [
         {
           "type": "GuiLabelComponent",
           "attributes": {
             "text": "Options",
-            "position": [ 0.465, 0.2 ],
+            "position": [ 0.48, 0.2 ],
             "size": [ 100.0, 50.0 ],
             "name": "OptionsTitle"
           }
@@ -21,7 +43,7 @@
           "type": "ChangeSceneButtonComponent",
           "attributes": {
             "text": "Return",
-            "position": [ 0.44, 0.6 ],
+            "position": [ 0.465, 0.6 ],
             "size": [ 120.0, 40.0 ],
             "name": "OptionsReturn",
 			      "scene": "mainmenu"
@@ -30,7 +52,35 @@
       ]
     },
     {
-      "id": "VolumeSlider",
+      "id": "BrightnessName",
+      "components":[
+        {
+          "type":"GuiLabelComponent",
+          "attributes": {
+            "text": "Brightness",
+            "position": [ 0.474, 0.29 ],
+            "size": [ 110.0, 50.0 ],
+            "name": "BrightnessName"
+          }
+        }
+      ]
+    },
+    {
+      "id": "VolumeName",
+      "components":[
+        {
+          "type":"GuiLabelComponent",
+          "attributes": {
+            "text": "Volume",
+            "position": [ 0.48, 0.44 ],
+            "size": [ 100.0, 50.0 ],
+            "name": "VolumeName"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BrightnessSlider",
       "components": [
         {
           "type": "BrightnessHandlerComponent",
@@ -40,7 +90,7 @@
           "type": "GuiLabelComponent",
           "attributes": {
             "text": "",
-            "position": [ 0.465, 0.5 ],
+            "position": [ 0.485, 0.35 ],
             "size": [ 100.0, 50.0 ],
             "name": "BrightnessMeter"
           }
@@ -48,7 +98,7 @@
 		    {
           "type": "GuiSliderComponent",
           "attributes": {
-            "position": [ 0.465, 0.55 ],
+            "position": [ 0.49, 0.25 ],
             "size": [ 20.0, 200.0 ],
             "name": "BrightnessSlider"
           }
@@ -61,6 +111,38 @@
         }
       ]
     },
+    {
+      "id": "VolumeSlider",
+      "components": [
+        {
+          "type": "VolumeHandlerComponent",
+          "attributes":{}
+        },
+        {
+          "type": "GuiLabelComponent",
+          "attributes": {
+            "text": "",
+            "position": [ 0.485, 0.50 ],
+            "size": [ 100.0, 50.0 ],
+            "name": "VolumeMeter"
+          }
+        },
+		    {
+          "type": "GuiSliderComponent",
+          "attributes": {
+            "position": [ 0.49, 0.40 ],
+            "size": [ 20.0, 200.0 ],
+            "name": "VolumeSlider"
+          }
+        },
+        {
+          "type": "SliderHandlerComponent",
+          "attributes": {
+            "floatHandler": "VolumeHandlerComponent"
+          }
+        }
+      ]
+    },
 	  {
       "id": "QuitButton",
       "components": [
@@ -68,7 +150,7 @@
           "type": "QuitButtonComponent",
           "attributes": {
             "text": "Quit",
-            "position": [ 0.44, 0.7 ],
+            "position": [ 0.465, 0.7 ],
             "size": [ 120.0, 40.0 ],
             "name": "OptionsQuit"
           }
