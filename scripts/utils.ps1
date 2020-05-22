@@ -139,7 +139,12 @@ If ($Upgrade) {
         Throw "Failed to upgrade the engine.";
     }
 
-    # If the engine was updated,
+    # If the engine was updated and added to stage, scan the build.ps1 file and replace
+    # it's version number. Why? This is done because CI has a hash-keyed cache that
+    # depends on said file. By bumping this little number, the hash changes, and thus the
+    # old cache will be invalidated and discarded in the next runs, avoiding caching
+    # issues where PRs that update the engine get failing build in CI despite of working
+    # perfectly locally.
     If ($(git status -s).Contains('M  deps/one-thousand-years')) {
         Write-Host "Updating build for CI re-hash... " -ForegroundColor Green -NoNewline
 
