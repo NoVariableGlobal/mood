@@ -31,7 +31,6 @@ class GunC : public Component {
     std::string _shotSound =
         ""; // Name of the sound that will play while shooting
     TransformComponent* myTransform;
-    SoundComponent* _soundComponent = nullptr;
 
     bool timeCadence();
     virtual void onPreShoot();
