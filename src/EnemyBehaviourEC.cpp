@@ -185,7 +185,6 @@ void EnemyBehaviourEC::die(bool withSound) {
         else {
             comp = father_->findComponent("RangedEnemyBehaviourEC");
 
-            // AQUI LOS SONIDOS
             if (withSound) {
                 if (comp != nullptr)
                     soundManager->playSound("RangedDeath");

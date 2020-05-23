@@ -131,7 +131,7 @@
       "id": "SwapGun",
       "filename": "swapGun.wav",
       "loop": false,
-      "volume": 1
+      "volume": 0.7
     },
     {
       "id": "NextRound",
