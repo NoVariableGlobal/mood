@@ -164,20 +164,6 @@
         }
       ]
     },
-	  {
-      "id": "QuitButton",
-      "components": [
-		    {
-          "type": "QuitButtonComponent",
-          "attributes": {
-            "text": "Quit",
-            "position": [ 0.375, 0.938 ],
-            "size": [ 120.0, 40.0 ],
-            "name": "OptionsQuit"
-          }
-        }
-      ]
-    },
     {
       "id": "Camera",
       "persistent": false,
