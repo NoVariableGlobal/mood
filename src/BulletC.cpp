@@ -2,15 +2,11 @@
 #include "ComponentsManager.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
-#include "OgreRoot.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
 #include "TransformComponent.h"
-#include "TridimensionalObjectRC.h"
 
 #include <json.h>
-#include <time.h>
-#include <utility>
 #include <value.h>
 
 BulletC::BulletC() {}

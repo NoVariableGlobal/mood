@@ -6,9 +6,6 @@
 #include "ReadNameIC.h"
 #include "RoundManagerEC.h"
 #include "Scene.h"
-#include "SpawnerEnemiesEC.h"
-
-#include <time.h>
 #include <value.h>
 
 RankingManagerC::RankingManagerC() { readRanking(); }

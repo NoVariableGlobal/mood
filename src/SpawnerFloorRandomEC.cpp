@@ -9,7 +9,6 @@
 #include "RoundManagerEC.h"
 #include "Scene.h"
 #include "TransformComponent.h"
-
 #include <json.h>
 
 void SpawnerFloorRandomEC::setFloorDimensions(Ogre::Vector4f _floorDimensions) {

@@ -4,12 +4,10 @@
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "GuiImageC.h"
-#include "GuiLabelC.h"
 #include "GunModelManagerEC.h"
 #include "HandGunC.h"
 #include "ReloadEC.h"
 #include "Scene.h"
-
 #include <SDL.h>
 #include <SoundComponent.h>
 #include <iostream>

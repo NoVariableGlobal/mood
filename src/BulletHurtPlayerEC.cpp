@@ -11,7 +11,6 @@
 #include "PlayerShotIC.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
-#include "SleepEC.h"
 #include "SoundComponent.h"
 
 #include <json.h>

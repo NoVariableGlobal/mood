@@ -6,9 +6,9 @@
 #include "GuiLabelC.h"
 #include "Scene.h"
 
+#include <ctime>
 #include <iostream>
 #include <json.h>
-#include <time.h>
 
 ExitWithEscapeEC::ExitWithEscapeEC() {}
 

@@ -9,7 +9,7 @@
 
 void IncreaseSpeedEC::setEffect(bool value) {
     Entity* player = scene_->getEntityById("Player");
-    auto movement = reinterpret_cast<PlayerMovementIC*>(
+    auto* movement = reinterpret_cast<PlayerMovementIC*>(
         player->getComponent("PlayerMovementIC"));
 
     soundManager->playSound("Speed");

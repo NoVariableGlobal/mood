@@ -3,7 +3,6 @@
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "GuiImageC.h"
-#include "HandGunC.h"
 #include "Scene.h"
 #include "WeaponControllerIC.h"
 #include <iostream>

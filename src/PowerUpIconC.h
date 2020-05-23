@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Factory.h"
 #include "GuiImageC.h"
 

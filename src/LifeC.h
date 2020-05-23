@@ -14,9 +14,9 @@ namespace Ogre {
 
 class LifeC : public Component {
   private:
-    int totalLife;
-    float currentLife;
-    bool invulnerability;
+    int totalLife = 0;
+    float currentLife = 0.0f;
+    bool invulnerability = false;
 
   public:
     LifeC();

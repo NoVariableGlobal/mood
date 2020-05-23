@@ -1,7 +1,6 @@
 #pragma once
 #include "EventComponent.h"
 #include "Factory.h"
-
 #include <vector>
 
 DECLARE_FACTORY(RoundManagerEC);

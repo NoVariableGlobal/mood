@@ -3,12 +3,7 @@
 #include "BulletC.h"
 #include "ComponentsManager.h"
 #include "Entity.h"
-#include "FactoriesFactory.h"
-#include "Factory.h"
 #include "LifeC.h"
-#include "MeleeEnemyBehaviourEC.h"
-#include "OgreRoot.h"
-#include "RangedEnemyBehaviourEC.h"
 #include "RigidbodyPC.h"
 #include "RoundManagerEC.h"
 #include "Scene.h"
@@ -16,10 +11,8 @@
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
 
+#include <ctime>
 #include <json.h>
-#include <math.h>
-#include <time.h>
-#include <utility>
 #include <value.h>
 
 EnemyBehaviourEC::EnemyBehaviourEC()

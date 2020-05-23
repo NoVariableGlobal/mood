@@ -5,7 +5,6 @@
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "GunC.h"
-#include "OgreRoot.h"
 #include "ReloadEC.h"
 #include "Scene.h"
 #include "WeaponControllerIC.h"

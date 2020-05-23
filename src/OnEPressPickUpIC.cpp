@@ -6,7 +6,6 @@
 #include "PowerUpC.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
-#include "WeaponControllerIC.h"
 
 #include <iostream>
 #include <json.h>
