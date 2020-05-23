@@ -55,7 +55,7 @@
           "type": "ChangeSceneButtonComponent",
           "attributes": {
             "text": "Play",
-            "position": [ 0.46, 0.5 ],
+            "position": [ 0.46, 0.57 ],
             "size": [ 150.0, 50.0 ],
             "name": "MainMenuPlay",
             "scene": "captureName"
@@ -70,7 +70,7 @@
           "type": "ChangeSceneButtonComponent",
           "attributes": {
             "text": "Ranking",
-            "position": [ 0.385, 0.6 ],
+            "position": [ 0.385, 0.67 ],
             "size": [ 120.0, 40.0 ],
             "name": "MainMenuRanking",
             "scene": "ranking"
@@ -85,7 +85,7 @@
           "type": "ChangeSceneButtonComponent",
           "attributes": {
             "text": "Options",
-            "position": [ 0.55, 0.6 ],
+            "position": [ 0.55, 0.67 ],
             "size": [ 120.0, 40.0 ],
             "name": "MainMenuOptions",
             "scene": "options"

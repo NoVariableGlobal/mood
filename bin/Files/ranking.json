@@ -56,15 +56,6 @@
             "name": "RankingReturn",
             "scene": "mainmenu"
           }
-        },
-        {
-          "type": "QuitButtonComponent",
-          "attributes": {
-            "text": "Quit",
-            "position": [ 0.8, 0.9 ],
-            "size": [ 120.0, 40.0 ],
-            "name": "RankingQuit"
-          }
         }
       ]
     },
