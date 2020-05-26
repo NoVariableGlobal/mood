@@ -57,8 +57,8 @@
           "type": "ChangeSceneButtonComponent",
           "attributes": {
             "text": "Ranking",
-            "position": [ 0.385, 0.67 ],
-            "size": [ 120.0, 40.0 ],
+            "position": [ 0.46, 0.67 ],
+            "size": [ 150.0, 50.0 ],
             "name": "MainMenuRanking",
             "scene": "ranking"
           }
@@ -73,9 +73,24 @@
           "attributes": {
             "text": "Options",
             "position": [ 0.55, 0.67 ],
-            "size": [ 120.0, 40.0 ],
+            "size": [ 150.0, 50.0 ],
             "name": "MainMenuOptions",
             "scene": "options"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ControlsButton",
+      "components": [
+        {
+          "type": "ChangeSceneButtonComponent",
+          "attributes": {
+            "text": "Controls",
+            "position": [ 0.37, 0.67 ],
+            "size": [ 150.0, 50.0 ],
+            "name": "MainMenuControls",
+            "scene": "controls"
           }
         }
       ]
@@ -87,8 +102,8 @@
           "type": "QuitButtonComponent",
           "attributes": {
             "text": "Quit",
-            "position": [ 0.465, 0.8 ],
-            "size": [ 120.0, 40.0 ],
+            "position": [ 0.46, 0.8 ],
+            "size": [ 150.0, 50.0 ],
             "name": "MainMenuQuit"
           }
         }

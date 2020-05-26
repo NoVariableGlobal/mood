@@ -43,15 +43,15 @@
         }
       ]
     },
-	{
-      "id": "Title",
+    {
+      "id": "TitleImage",
       "components": [
         {
-          "type": "GuiLabelComponent",
+          "type": "GuiImageComponent",
           "attributes": {
-            "text": "Options",
-            "position": [ 0.48, 0.2 ],
-            "size": [ 100.0, 50.0 ],
+            "image": "TaharezLook/OptionsTitle",
+            "position": [ 0.4, 0.15 ],
+            "size": [ 385.0, 80.0 ],
             "name": "OptionsTitle"
           }
         }
@@ -79,7 +79,7 @@
           "type":"GuiLabelComponent",
           "attributes": {
             "text": "Brightness",
-            "position": [ 0.474, 0.29 ],
+            "position": [ 0.474, 0.35 ],
             "size": [ 110.0, 50.0 ],
             "name": "BrightnessName"
           }
@@ -93,7 +93,7 @@
           "type":"GuiLabelComponent",
           "attributes": {
             "text": "Volume",
-            "position": [ 0.48, 0.44 ],
+            "position": [ 0.48, 0.5 ],
             "size": [ 100.0, 50.0 ],
             "name": "VolumeName"
           }
@@ -111,7 +111,7 @@
           "type": "GuiLabelComponent",
           "attributes": {
             "text": "",
-            "position": [ 0.485, 0.35 ],
+            "position": [ 0.485, 0.4 ],
             "size": [ 100.0, 50.0 ],
             "name": "BrightnessMeter"
           }
@@ -119,7 +119,7 @@
 		    {
           "type": "GuiSliderComponent",
           "attributes": {
-            "position": [ 0.49, 0.25 ],
+            "position": [ 0.49, 0.35 ],
             "size": [ 20.0, 200.0 ],
             "name": "BrightnessSlider"
           }
@@ -143,7 +143,7 @@
           "type": "GuiLabelComponent",
           "attributes": {
             "text": "",
-            "position": [ 0.485, 0.50 ],
+            "position": [ 0.485, 0.55 ],
             "size": [ 100.0, 50.0 ],
             "name": "VolumeMeter"
           }
@@ -151,7 +151,7 @@
 		    {
           "type": "GuiSliderComponent",
           "attributes": {
-            "position": [ 0.49, 0.40 ],
+            "position": [ 0.49, 0.5 ],
             "size": [ 20.0, 200.0 ],
             "name": "VolumeSlider"
           }

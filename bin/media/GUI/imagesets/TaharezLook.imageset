@@ -1,4 +1,13 @@
 <Imageset autoScaled="vertical" imagefile="TaharezLook.png" name="TaharezLook" nativeHorzRes="1280" nativeVertRes="720" version="2">
+    <Image height="80" name="OptionsTitle" width="385" xPos="645" yPos="551" />
+    <Image height="80" name="ControlsTitle" width="440" xPos="645" yPos="471" />
+    <Image height="169" name="Shot" width="119" xPos="1085" yPos="682" />
+    <Image height="211" name="Point" width="179" xPos="1085" yPos="471" />
+    <Image height="196" name="WASD" width="300" xPos="936" yPos="274" />
+    <Image height="93" name="Space" width="290" xPos="936" yPos="181" />
+    <Image height="92" name="Esc" width="92" xPos="1028" yPos="89" />
+    <Image height="92" name="R" width="92" xPos="1120" yPos="89" />
+    <Image height="92" name="E" width="92" xPos="936" yPos="89" />
     <Image height="104" name="RifleIcon" width="86" xPos="658" yPos="159" />
     <Image height="104" name="SniperIcon" width="86" xPos="572" yPos="159" />
     <Image height="104" name="HandgunIcon" width="86" xPos="486" yPos="159" />
