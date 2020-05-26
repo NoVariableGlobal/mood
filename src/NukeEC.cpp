@@ -21,7 +21,7 @@ void NukeEC::onPick() {
             if (comp == nullptr)
                 comp = it->getComponent("RangedEnemyBehaviourEC");
         }
-        dynamic_cast<EnemyBehaviourEC*>(comp)->die();
+        dynamic_cast<EnemyBehaviourEC*>(comp)->die(false);
     }
 }
 

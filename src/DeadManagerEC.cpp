@@ -1,5 +1,6 @@
 #include "DeadManagerEC.h"
 #include "AnimationLC.h"
+#include "AutomaticEC.h"
 #include "ComponentsManager.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
@@ -21,9 +22,15 @@ DeadManagerEC::~DeadManagerEC() {}
 
 void DeadManagerEC::setActive(bool _active) {
     active_ = _active;
-    if (active_)
+    if (active_) {
+
         playerAnimations = reinterpret_cast<AnimationLC*>(
             scene_->getEntityById("Player")->getComponent("AnimationLC"));
+
+        (reinterpret_cast<AutomaticEC*>(
+             scene_->getEntityById("Player")->getComponent("AutomaticEC")))
+            ->setShoot(false);
+    }
 }
 
 void DeadManagerEC::checkEvent() {

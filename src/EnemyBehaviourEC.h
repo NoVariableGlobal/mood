@@ -82,7 +82,9 @@ class EnemyBehaviourEC : public EventComponent {
     virtual void checkEvent();
     bool timeToAttack();
     virtual void checkDamage();
-    virtual void die();
+
+    // by defect is true and allows to play sounds
+    virtual void die(bool withSound = true);
     virtual void moveTowardsPlayer();
     virtual void rotateToPlayer() = 0;
     void setIdle(bool active);

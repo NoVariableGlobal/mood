@@ -164,9 +164,8 @@ void EnemyBehaviourEC::checkDamage() {
     }
 }
 
-void EnemyBehaviourEC::die() {
+void EnemyBehaviourEC::die(bool withSound) {
     if (!dead) {
-
         dead = true;
 
         rigidbody->setLinearVelocity(Ogre::Vector3(0, 0, 0));
@@ -181,15 +180,17 @@ void EnemyBehaviourEC::die() {
             ->enemyDied();
 
         Component* comp = father_->findComponent("MeleeEnemyBehaviourEC");
-        if (comp != nullptr)
+        if (comp != nullptr && withSound)
             soundManager->playSound("MeleeDeath");
         else {
             comp = father_->findComponent("RangedEnemyBehaviourEC");
 
-            if (comp != nullptr)
-                soundManager->playSound("RangedDeath");
-            else
-                soundManager->playSound("BigMeleeDeath");
+            if (withSound) {
+                if (comp != nullptr)
+                    soundManager->playSound("RangedDeath");
+                else
+                    soundManager->playSound("BigMeleeDeath");
+            }
         }
     }
 }

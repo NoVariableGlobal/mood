@@ -31,7 +31,7 @@ void RoundManagerEC::checkEvent() {
         float seconds = clock() / static_cast<float>(CLOCKS_PER_SEC);
         if (seconds - timer >= timeBetweenRounds) {
 
-            if (roundNumber % 5 == 0)
+            if (roundNumber % 3 == 0)
                 changeMap();
 
             int randNum =
