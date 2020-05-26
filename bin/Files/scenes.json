@@ -42,6 +42,10 @@
 			"file": "options.json"
 		},
 		{
+			"name": "controls",
+			"file": "controls.json"
+		},
+		{
 			"name": "captureName",
 			"file": "capturePlayerName.json"
 		}

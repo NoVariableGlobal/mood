@@ -1,0 +1,296 @@
+{
+  "entities": [
+    {
+      "id": "GameManager",
+      "persistent": false,
+      "components": [
+        {
+          "type": "RankingManagerC",
+          "attributes": {}
+        },
+		{
+          "type": "SoundComponent",
+          "attributes": {
+            "sounds": [ "RankingBackgroundMusic" ]
+          }
+        },
+        {
+          "type": "GameMusicC",
+          "attributes": {
+            "sound": "RankingBackgroundMusic"
+          }
+        }
+      ]
+    },
+    {
+      "id": "Fondo",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, -10 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 1.25, 0.7, 0.5 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "cube.mesh",
+            "node": "nSuelo",
+            "material": "BackgroundOptionTexture"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TitleImage",
+      "components": [
+        {
+          "type": "GuiImageComponent",
+          "attributes": {
+            "image": "TaharezLook/ControlsTitle",
+            "position": [ 0.385, 0.15 ],
+            "size": [ 440.0, 80.0 ],
+            "name": "ControlsTitle"
+          }
+        }
+      ]
+    },
+	  {
+      "id": "ReturnButton",
+      "components": [
+		    {
+          "type": "ChangeSceneButtonComponent",
+          "attributes": {
+            "text": "Return",
+            "position": [ 0.575, 0.938 ],
+            "size": [ 120.0, 40.0 ],
+            "name": "OptionsReturn",
+			      "scene": "mainmenu"
+          }
+        }
+      ]
+    },
+    {
+      "id": "Move",
+      "components":[
+        {
+          "type":"GuiLabelComponent",
+          "attributes": {
+            "text": "Move",
+            "position": [ 0.38, 0.3 ],
+            "size": [ 200.0, 50.0 ],
+            "name": "Move"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MoveImage",
+      "components": [
+        {
+          "type": "GuiImageComponent",
+          "attributes": {
+            "image": "TaharezLook/WASD",
+            "position": [ 0.565, 0.3 ],
+            "size": [ 75.0, 49.0 ],
+            "name": "MoveImage"
+          }
+        }
+      ]
+    },
+    {
+      "id": "Shot",
+      "components":[
+        {
+          "type":"GuiLabelComponent",
+          "attributes": {
+            "text": "Shot",
+            "position": [ 0.38, 0.375 ],
+            "size": [ 200.0, 50.0 ],
+            "name": "Shot"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ShotImage",
+      "components": [
+        {
+          "type": "GuiImageComponent",
+          "attributes": {
+            "image": "TaharezLook/Shot",
+            "position": [ 0.575, 0.375 ],
+            "size": [ 29.75, 42.25 ],
+            "name": "ShotImage"
+          }
+        }
+      ]
+    },
+    {
+      "id": "Point",
+      "components":[
+        {
+          "type":"GuiLabelComponent",
+          "attributes": {
+            "text": "Point",
+            "position": [ 0.38, 0.45 ],
+            "size": [ 200.0, 50.0 ],
+            "name": "Point"
+          }
+        }
+      ]
+    },
+    {
+      "id": "PointImage",
+      "components": [
+        {
+          "type": "GuiImageComponent",
+          "attributes": {
+            "image": "TaharezLook/Point",
+            "position": [ 0.57, 0.45 ],
+            "size": [ 44.75, 52.75 ],
+            "name": "PointImage"
+          }
+        }
+      ]
+    },
+    {
+      "id": "PickGun",
+      "components":[
+        {
+          "type":"GuiLabelComponent",
+          "attributes": {
+            "text": "Pick Gun",
+            "position": [ 0.38, 0.525 ],
+            "size": [ 200.0, 50.0 ],
+            "name": "Pick Gun"
+          }
+        }
+      ]
+    },
+    {
+      "id": "PickGunImage",
+      "components": [
+        {
+          "type": "GuiImageComponent",
+          "attributes": {
+            "image": "TaharezLook/E",
+            "position": [ 0.57, 0.525 ],
+            "size": [ 46.0, 46.0 ],
+            "name": "PickGunImage"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ChangeGun",
+      "components":[
+        {
+          "type":"GuiLabelComponent",
+          "attributes": {
+            "text": "Change Gun",
+            "position": [ 0.38, 0.6 ],
+            "size": [ 200.0, 50.0 ],
+            "name": "Change Gun"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ChangeGunImage",
+      "components": [
+        {
+          "type": "GuiImageComponent",
+          "attributes": {
+            "image": "TaharezLook/Space",
+            "position": [ 0.545, 0.6 ],
+            "size": [ 145.0, 46.5 ],
+            "name": "ChangeGunImage"
+          }
+        }
+      ]
+    },
+    {
+      "id": "RechargeGun",
+      "components":[
+        {
+          "type":"GuiLabelComponent",
+          "attributes": {
+            "text": "Recharge",
+            "position": [ 0.38, 0.675 ],
+            "size": [ 200.0, 50.0 ],
+            "name": "Recharge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "RechargeGunImage",
+      "components": [
+        {
+          "type": "GuiImageComponent",
+          "attributes": {
+            "image": "TaharezLook/R",
+            "position": [ 0.57, 0.675 ],
+            "size": [ 46.0, 46.0 ],
+            "name": "RechargeGunImage"
+          }
+        }
+      ]
+    },
+    {
+      "id": "Exit",
+      "components":[
+        {
+          "type":"GuiLabelComponent",
+          "attributes": {
+            "text": "Go to the Main Menu",
+            "position": [ 0.38, 0.75 ],
+            "size": [ 200.0, 50.0 ],
+            "name": "Exit"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ExitImage",
+      "components": [
+        {
+          "type": "GuiImageComponent",
+          "attributes": {
+            "image": "TaharezLook/Esc",
+            "position": [ 0.57, 0.75 ],
+            "size": [ 46.0, 46.0 ],
+            "name": "ExitImage"
+          }
+        }
+      ]
+    },
+    {
+      "id": "Camera",
+      "persistent": false,
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, 0 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 3, 3, 3 ]
+          }
+        },
+        {
+          "type": "CameraRC",
+          "attributes": {
+            "node": "nCamera",
+            "viewportColour": [ 0, 0, 0 ],
+            "offset": [ 0, 0, 100 ],
+            "lookAt": [  0, 0, -1 ],
+            "targetId": "none"
+          }
+        }
+      ]
+    }
+  ]
+}
