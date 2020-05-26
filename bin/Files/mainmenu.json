@@ -1,15 +1,22 @@
 {
-  "entities": [
-    {
-      "id": "TitleImage",
+  "entities": [    
+	{
+      "id": "Fondo",
       "components": [
         {
-          "type": "GuiImageComponent",
+          "type": "TransformComponent",
           "attributes": {
-            "image": "TaharezLook/MOOD",
-            "position": [ 0.36, 0.1 ],
-            "size": [ 500.0, 200.0 ],
-            "name": "MainMenuTitle"
+            "position": [ 0, 0, -10 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 1.25, 0.7, 0.5 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "cube.mesh",
+            "node": "nSuelo",
+            "material": "BackgroundMenuTexture"
           }
         }
       ]
@@ -35,8 +42,8 @@
           "type": "ChangeSceneButtonComponent",
           "attributes": {
             "text": "Play",
-            "position": [ 0.465, 0.5 ],
-            "size": [ 120.0, 40.0 ],
+            "position": [ 0.46, 0.57 ],
+            "size": [ 150.0, 50.0 ],
             "name": "MainMenuPlay",
             "scene": "captureName"
           }
@@ -50,7 +57,7 @@
           "type": "ChangeSceneButtonComponent",
           "attributes": {
             "text": "Ranking",
-            "position": [ 0.465, 0.6 ],
+            "position": [ 0.385, 0.67 ],
             "size": [ 120.0, 40.0 ],
             "name": "MainMenuRanking",
             "scene": "ranking"
@@ -65,7 +72,7 @@
           "type": "ChangeSceneButtonComponent",
           "attributes": {
             "text": "Options",
-            "position": [ 0.465, 0.7 ],
+            "position": [ 0.55, 0.67 ],
             "size": [ 120.0, 40.0 ],
             "name": "MainMenuOptions",
             "scene": "options"
@@ -87,6 +94,25 @@
         }
       ]
     },
+	{
+      "id": "Light",
+      "components": [
+        {
+          "type": "AmbientLightC",
+          "attributes": {
+            "colour": [ 1, 1, 1 ]
+          }
+        },
+        {
+          "type": "SpotLightRC",
+          "attributes": {
+            "node": "nSpotLight",
+            "colour": [ 1, 1, 1 ],
+            "direction": [ 0, -1, -1 ]
+          }
+        }
+      ]
+    },
     {
       "id": "Camera",
       "persistent": false,
@@ -104,8 +130,8 @@
           "attributes": {
             "node": "nCamera",
             "viewportColour": [ 0, 0, 0 ],
-            "offset": [ 0, 300, 60 ],
-            "lookAt": [ 0, -1, -0.25 ],
+            "offset": [ 0, 0, 100 ],
+            "lookAt": [  0, 0, -1 ],
             "targetId": "none"
           }
         }

@@ -31,7 +31,6 @@ class GunC : public Component {
     std::string _shotSound =
         ""; // Name of the sound that will play while shooting
     TransformComponent* myTransform;
-    SoundComponent* _soundComponent = nullptr;
 
     bool timeCadence();
     virtual void onPreShoot();
@@ -52,6 +51,9 @@ class GunC : public Component {
 
     // Returns wheter or not there is ammunition left in the gun
     bool mmunitionleft();
+
+    // Returns wheter or not there is full ammo in the bulletChamber
+    bool fullAmmo();
 
     void reset();
     // Returns whether or not the gun can shoot

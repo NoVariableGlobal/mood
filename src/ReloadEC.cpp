@@ -39,7 +39,11 @@ void ReloadEC::starToReload() {
 
 void ReloadEC::setTime(float time) { timeToReload = time; }
 
-void ReloadEC::gunChanged() { reloading = false; }
+void ReloadEC::gunChanged() {
+    reloading = false;
+    (dynamic_cast<PlayerShotIC*>(father_->getComponent("PlayerShotIC")))
+        ->setReloading(false);
+}
 
 void ReloadEC::setSoundManager() {
     soundManager = dynamic_cast<SoundComponent*>(

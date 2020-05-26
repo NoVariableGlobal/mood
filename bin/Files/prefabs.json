@@ -717,7 +717,7 @@
           "attributes": {
             "mesh": "melee_zard.mesh",
             "node": "nMeleeEnemy",
-            "material": "PinkColourMaterial"
+            "material": "EnemigoMeleeMaterial"
           }
         },
         {
@@ -790,7 +790,7 @@
           "attributes": {
             "mesh": "Mesh.mesh",
             "node": "nTankEnemy",
-            "material": "PurpleColourMaterial"
+            "material": "EnemigoTankMaterial"
           }
         },
         {
@@ -863,7 +863,7 @@
           "attributes": {
             "mesh": "ranged_gimp.mesh",
             "node": "nRangedEnemy",
-            "material": "BlueColourMaterial"
+            "material": "EnemigoHandgunMaterial"
           }
         },
         {
@@ -955,7 +955,7 @@
           "attributes": {
             "mesh": "gazer_mesh.mesh",
             "node": "nRangedEnemy",
-            "material": "BlueColourMaterial"
+            "material": "EnemigoRifleMaterial"
           }
         },
         {
@@ -1047,7 +1047,7 @@
           "attributes": {
             "mesh": "ranged_gimp.mesh",
             "node": "nRangedEnemy",
-            "material": "BlueColourMaterial"
+            "material": "EnemigoShotgunMaterial"
           }
         },
         {
@@ -1141,7 +1141,7 @@
           "attributes": {
             "mesh": "gazer_mesh.mesh",
             "node": "nRangedEnemy",
-            "material": "BlueColourMaterial"
+            "material": "EnemigoSniperMaterial"
           }
         },
         {
