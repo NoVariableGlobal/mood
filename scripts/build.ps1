@@ -1,4 +1,4 @@
-# Version 5.1
+# Version 6
 
 param (
     [Alias("MsBuild")]

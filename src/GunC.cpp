@@ -91,11 +91,8 @@ Ogre::Quaternion GunC::getOrientation() const {
 }
 
 void GunC::onShoot(TransformComponent* transform, RigidbodyPC* rigidBody) {
-    if (_soundComponent == nullptr)
-        _soundComponent =
-            dynamic_cast<SoundComponent*>(scene_->getEntityById("GameManager")
-                                              ->getComponent("SoundComponent"));
-    _soundComponent->playSound(_shotSound);
+
+    soundManager->playSound(_shotSound);
 }
 
 bool GunC::timeCadence() {
@@ -179,6 +176,7 @@ bool GunC::mmunitionleft() {
         return true;
 }
 
+bool GunC::fullAmmo() { return _bulletchamber == _bulletchamberMax; }
 void GunC::reset() {
     _bulletchamber = _bulletchamberMax;
     _munition = _munitionMax;
