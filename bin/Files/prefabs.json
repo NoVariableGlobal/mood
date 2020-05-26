@@ -1,6 +1,5 @@
 {
   "prefabs": [
-
     {
       "id": "InvulnerabilityShield",
       "components": [
@@ -44,7 +43,7 @@
         {
           "type": "AnimationLC",
           "attributes": {
-            "animations":[
+            "animations": [
               {
                 "name": "Idle",
                 "loop": true
@@ -53,7 +52,7 @@
           }
         }
       ]
-    },
+    }, // Power Up Invulnerability Shield
     {
       "id": "Medkit",
       "components": [
@@ -97,7 +96,7 @@
         {
           "type": "AnimationLC",
           "attributes": {
-            "animations":[
+            "animations": [
               {
                 "name": "Idle",
                 "loop": true
@@ -106,7 +105,7 @@
           }
         }
       ]
-    },
+    }, // Power Up Medkit
     {
       "id": "Nuke",
       "components": [
@@ -151,7 +150,7 @@
         {
           "type": "AnimationLC",
           "attributes": {
-            "animations":[
+            "animations": [
               {
                 "name": "Idle",
                 "loop": true
@@ -160,7 +159,7 @@
           }
         }
       ]
-    },
+    }, // Power Up Nuke
     {
       "id": "InfiniteAmmo",
       "components": [
@@ -205,7 +204,7 @@
         {
           "type": "AnimationLC",
           "attributes": {
-            "animations":[
+            "animations": [
               {
                 "name": "Idle",
                 "loop": true
@@ -214,7 +213,7 @@
           }
         }
       ]
-    },
+    }, // Power Up Infinite Ammunition
     {
       "id": "Instakill",
       "components": [
@@ -259,7 +258,7 @@
         {
           "type": "AnimationLC",
           "attributes": {
-            "animations":[
+            "animations": [
               {
                 "name": "Idle",
                 "loop": true
@@ -268,7 +267,7 @@
           }
         }
       ]
-    },
+    }, // Power Up Instant Kill
     {
       "id": "IncreaseSpeed",
       "components": [
@@ -313,7 +312,7 @@
         {
           "type": "AnimationLC",
           "attributes": {
-            "animations":[
+            "animations": [
               {
                 "name": "Idle",
                 "loop": true
@@ -322,7 +321,7 @@
           }
         }
       ]
-    },
+    }, // Power Up Increase Speed
     {
       "id": "HandgunBullet",
       "components": [
@@ -432,7 +431,7 @@
           "type": "TransformComponent",
           "attributes": {
             "position": [ 0, 0, 0 ],
-            "orientation": [ 0, 0, 0 ],
+            "orientation": [ 0, 180, 0 ],
             "scale": [ 3, 3, 3 ]
           }
         },
@@ -575,7 +574,7 @@
         {
           "type": "AnimationLC",
           "attributes": {
-            "animations":[
+            "animations": [
               {
                 "name": "Idle",
                 "loop": true
@@ -584,7 +583,7 @@
           }
         }
       ]
-    },
+    }, // Shotgun
     {
       "id": "AutomaticRifle",
       "components": [
@@ -633,7 +632,7 @@
         {
           "type": "AnimationLC",
           "attributes": {
-            "animations":[
+            "animations": [
               {
                 "name": "Idle",
                 "loop": true
@@ -642,7 +641,7 @@
           }
         }
       ]
-    },
+    }, // Rifle
     {
       "id": "SniperGun",
       "components": [
@@ -691,7 +690,7 @@
         {
           "type": "AnimationLC",
           "attributes": {
-            "animations":[
+            "animations": [
               {
                 "name": "Idle",
                 "loop": true
@@ -700,7 +699,7 @@
           }
         }
       ]
-    },
+    }, // Sniper Rifle
     {
       "id": "MeleeEnemy",
       "components": [
@@ -743,7 +742,7 @@
         {
           "type": "AnimationLC",
           "attributes": {
-            "animations":[
+            "animations": [
               {
                 "name": "Walk",
                 "loop": true
@@ -773,7 +772,7 @@
           }
         }
       ]
-    },
+    }, // Melee Enemy
     {
       "id": "TankEnemy",
       "components": [
@@ -816,7 +815,7 @@
         {
           "type": "AnimationLC",
           "attributes": {
-            "animations":[
+            "animations": [
               {
                 "name": "Walk",
                 "loop": true
@@ -846,7 +845,7 @@
           }
         }
       ]
-    },
+    }, // Tank Enemy
     {
       "id": "RangedHandgunEnemy",
       "components": [
@@ -889,7 +888,7 @@
         {
           "type": "AnimationLC",
           "attributes": {
-            "animations":[
+            "animations": [
               {
                 "name": "Walk",
                 "loop": true
@@ -931,14 +930,14 @@
             "cadence": 0.1,
             "automatic": false,
             "instakill": false,
-            "infiniteAmmo":  true,
+            "infiniteAmmo": true,
             "bulletType": "EnemyBullet_handgun",
             "bulletComponent": "BulletC",
             "shotSound": "HandgunShot"
           }
         }
       ]
-    },
+    }, // Ranged Handgun Enemy
     {
       "id": "RangedRifleEnemy",
       "components": [
@@ -981,7 +980,7 @@
         {
           "type": "AnimationLC",
           "attributes": {
-            "animations":[
+            "animations": [
               {
                 "name": "Walk",
                 "loop": true
@@ -1005,8 +1004,8 @@
           "type": "RangedEnemyBehaviourEC",
           "attributes": {
             "speed": 50,
-            "attack": 8,
-            "attackCooldown": 0.2,
+            "attack": 6, // 8
+            "attackCooldown": 0.35, //0.2
             "weaponEquipped": "AutomaticRifleC",
             "aggroDistance": 9000.0,
             "separationRadius": 1000
@@ -1026,11 +1025,11 @@
             "infiniteAmmo": true,
             "bulletType": "EnemyBullet_rifle",
             "bulletComponent": "BulletC",
-            "shotSound": "HandgunShot"
+            "shotSound": "MachinegunShots"
           }
         }
       ]
-    },
+    }, // Ranged Rifle Enemy
     {
       "id": "RangedShotgunEnemy",
       "components": [
@@ -1073,7 +1072,7 @@
         {
           "type": "AnimationLC",
           "attributes": {
-            "animations":[
+            "animations": [
               {
                 "name": "Walk",
                 "loop": true
@@ -1097,10 +1096,10 @@
           "type": "RangedEnemyBehaviourEC",
           "attributes": {
             "speed": 50,
-            "attack": 15,
+            "attack": 12, //15
             "attackCooldown": 3,
             "weaponEquipped": "ShotgunC",
-            "aggroDistance": 1000.0,
+            "aggroDistance": 1200.0, //
             "separationRadius": 1000
           }
         },
@@ -1124,7 +1123,7 @@
           }
         }
       ]
-    },
+    }, // Ranged Shotgun Enemy
     {
       "id": "RangedSniperEnemy",
       "components": [
@@ -1167,7 +1166,7 @@
         {
           "type": "AnimationLC",
           "attributes": {
-            "animations":[
+            "animations": [
               {
                 "name": "Walk",
                 "loop": true
@@ -1204,18 +1203,18 @@
             "bulletTag": "EnemyBullet",
             "bulletchamberMax": 1,
             "munition": 5,
-            "bulletDamage": 100,
+            "bulletDamage": 50,
             "bulletSpeed": 100,
             "cadence": 1,
             "instakill": false,
             "infiniteAmmo": true,
             "bulletType": "EnemyBullet_sniper",
-            "bulletComponent": "SniperBulletC",
+            "bulletComponent": "BulletC",
             "shotSound": "SniperShot"
           }
         }
       ]
-    },
+    }, // Ranged Sniper Enemy
     {
       "id": "EnemyBullet_handgun",
       "components": [
@@ -1271,7 +1270,7 @@
           }
         }
       ]
-    }, // Enemy bullet handgun
+    }, // Enemy Bullet Handgun
     {
       "id": "EnemyBullet_rifle",
       "components": [
@@ -1327,7 +1326,7 @@
           }
         }
       ]
-    }, // Enemy bullet rifle
+    }, // Enemy Bullet Rifle
     {
       "id": "EnemyBullet_shotgun",
       "components": [
@@ -1383,7 +1382,7 @@
           }
         }
       ]
-    }, // Enemy bullet shotgun
+    }, // Enemy Bullet Shotgun
     {
       "id": "EnemyBullet_sniper",
       "components": [
@@ -1399,7 +1398,7 @@
           "type": "TridimensionalObjectRC",
           "attributes": {
             "mesh": "SniperRifleBullet.mesh",
-            "node": "nShotgunBullet",
+            "node": "nSniperBullet",
             "material": "EnemySniperRifleBulletMaterial"
           }
         },
@@ -1444,7 +1443,6 @@
           }
         }
       ]
-    }  // Enemy bullet sniper
+    }  // Enemy Bullet Sniper
   ]
-
 }
