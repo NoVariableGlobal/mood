@@ -7,6 +7,7 @@
 #include "OgreQuaternion.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
+#include "SoundComponent.h"
 #include "TransformComponent.h"
 
 #include <json.h>
@@ -23,7 +24,7 @@ void AutomaticRifleC::onShoot(TransformComponent* transform,
 
     rigidBody->setLinearVelocity((quat * Ogre::Vector3::UNIT_Z) * _bulletSpeed);
 
-    // GunC::onShoot(transform, rigidBody);
+    GunC::onShoot(transform, rigidBody);
 }
 
 // FACTORY INFRASTRUCTURE

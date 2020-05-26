@@ -360,7 +360,7 @@
           "attributes": {
             "mesh": "Mesh.002.mesh",
             "node": "nPlayer",
-            "material": "none"
+            "material": "PlayerMaterial"
           }
         },
         {

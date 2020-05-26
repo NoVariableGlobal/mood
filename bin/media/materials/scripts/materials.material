@@ -1,3 +1,188 @@
+material PlayerMaterial
+{
+    technique 
+    {
+        pass 
+        { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
+            diffuse 0.9 0.9 0.77 1.0
+        }
+    }
+}
+
+material EnemigoTankMaterial
+{
+    technique 
+    {
+        pass 
+        { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
+            diffuse 0.4 0.0 0.0 1.0
+        }
+    }
+}
+
+material EnemigoMeleeMaterial
+{
+    technique 
+    {
+        pass 
+        { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
+            diffuse 0.9 0.2 0.3 1.0
+        }
+    }
+}
+
+material EnemigoHandgunMaterial
+{
+    technique 
+    {
+        pass 
+        { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
+            diffuse 0.9 0.2 0.22 1.0
+        }
+    }
+}
+
+material EnemigoRifleMaterial
+{
+    technique 
+    {
+        pass 
+        { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
+            diffuse 0.9 0.0 0.0 1.0
+        }
+    }
+}
+
+material EnemigoShotgunMaterial
+{
+    technique 
+    {
+        pass 
+        { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
+            diffuse 0.7 0.2 0.0 1.0
+        }
+    }
+}
+
+material EnemigoSniperMaterial
+{
+    technique 
+    {
+        pass 
+        { // first pass                //OPCIONAL CON LAS TEXTURAS. SI LO QUITAS, DEBES QUITAR COLOUR_OP (EJ ABAJO DE ESTA TEXTURA). AUN ASI, LO UNICO IMPORTANTE ES DIFFUSE
+            diffuse 1 0.3 0.2 1.0
+        }
+    }
+}
+
+material BackgroundMenuTexture
+{
+    technique 
+    {
+        pass 
+        {
+			diffuse 0.8 0.8 0.8 1
+			ambient 0.1 0.1 0.1 0.1
+			texture_unit texture0 
+            { // * ‐> int 0
+                // archivo
+                texture Interferences.png 2d 
+                // sólo configuración
+                // wrap (repeat), clamp, mirror
+                tex_address_mode wrap 
+                // de acceso al texel
+                // nearest, linear, bilinear, none
+                filtering bilinear 
+				scroll_anim 0.0 5				
+                colour_op add
+            }
+            texture_unit texture 1
+            { // * ‐> int 0
+                // archivo
+                texture FondoMenu.png 2d 
+                // sólo configuración
+                // wrap (repeat), clamp, mirror
+                tex_address_mode wrap 
+                // de acceso al texel
+                // nearest, linear, bilinear, none
+                filtering bilinear 	
+            }            
+        } 
+    }
+}
+
+material BackgroundRankingTexture
+{
+    technique 
+    {
+        pass 
+        {
+			diffuse 0.11 0.31 0.11 1.00
+            texture_unit
+            { // * ‐> int 0
+                // archivo
+                texture Monitor.png
+                colour_op add
+                tex_address_mode wrap
+            }            
+        } 
+    }
+}
+
+material BackgroundOptionTexture
+{
+    technique 
+    {
+        pass 
+        {
+			diffuse 0.11 0.31 0.11 1.00
+            texture_unit
+            { // * ‐> int 0
+                // archivo
+                texture FondoOpciones.png
+                colour_op add
+                tex_address_mode wrap
+            }            
+        } 
+    }
+}
+
+material BackgroundPlayerNameTexture
+{
+    technique 
+    {
+        pass 
+        {
+			diffuse 0.11 0.31 0.11 1.00
+            texture_unit
+            { // * ‐> int 0
+                // archivo
+                texture PlayerName.png
+                colour_op add
+                tex_address_mode wrap
+            }            
+        } 
+    }
+}
+
+material BackgroundGameOverTexture
+{
+    technique 
+    {
+        pass 
+        {
+			diffuse 0.11 0.31 0.11 1.00
+            texture_unit
+            { // * ‐> int 0
+                // archivo
+                texture GameOverFondo.png
+                colour_op add
+                tex_address_mode wrap
+            }            
+        } 
+    }
+}
+
 material GrassMaterial
 {
     technique 
@@ -306,11 +491,7 @@ material HandgunBulletMaterial
 
         pass 
         {
-            diffuse 0.00 0.00 0.00 1.00
-            texture_unit 
-            {
-                texture HandgunBulletColor.png
-            }
+            diffuse 0.80 0.80 0.00 1.00
         }
     }
 }
@@ -322,11 +503,7 @@ material RifleBulletMaterial
 
         pass 
         {
-            diffuse 0.00 0.00 0.00 1.00
-            texture_unit 
-            {
-                texture RifleBulletColor.png
-            }
+            diffuse 0.50 0.50 0.00 1.00
         }
     }
 }
@@ -338,11 +515,7 @@ material SniperRifleBulletMaterial
 
         pass 
         {
-            diffuse 0.00 0.00 0.00 1.00
-            texture_unit 
-            {
-                texture SniperRifleBulletColor.png
-            }
+            diffuse 1.00 1.00 0.00 1.00
         }
     }
 }
@@ -354,11 +527,7 @@ material ShotgunBulletMaterial
 
         pass 
         {
-            diffuse 0.00 0.00 0.00 1.00
-            texture_unit 
-            {
-                texture ShotgunShot.png
-            }
+            diffuse 0.70 0.00 0.00 1.00
         }
     }
 }
@@ -370,11 +539,7 @@ material EnemyHandgunBulletMaterial
 
         pass 
         {
-            diffuse 0.00 0.00 0.00 1.00
-            texture_unit 
-            {
-                texture EnemyHandgunBulletColor.png
-            }
+            diffuse 0.60 0.00 0.00 1.00
         }
     }
 }
@@ -386,11 +551,7 @@ material EnemyRifleBulletMaterial
 
         pass 
         {
-            diffuse 0.00 0.00 0.00 1.00
-            texture_unit 
-            {
-                texture EnemyRifleBulletColor.png
-            }
+            diffuse 0.60 0.00 0.00 1.00
         }
     }
 }
@@ -402,11 +563,7 @@ material EnemySniperRifleBulletMaterial
 
         pass 
         {
-            diffuse 0.00 0.00 0.00 1.00
-            texture_unit 
-            {
-                texture EnemySniperRifleBulletColor.png
-            }
+            diffuse 0.60 0.00 0.00 1.00
         }
     }
 }
@@ -418,11 +575,7 @@ material EnemyShotgunBulletMaterial
 
         pass 
         {
-            diffuse 0.00 0.00 0.00 1.00
-            texture_unit 
-            {
-                texture EnemyShotgunShot.png
-            }
+            diffuse 0.60 0.00 0.00 1.00
         }
     }
 }

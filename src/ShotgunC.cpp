@@ -52,11 +52,7 @@ void ShotgunC::onPreShoot() {
     node->setOrientation(originalOrientation.w, originalOrientation.x,
                          originalOrientation.y, originalOrientation.z);
 
-    if (_soundComponent == nullptr)
-        _soundComponent =
-            dynamic_cast<SoundComponent*>(scene_->getEntityById("GameManager")
-                                              ->getComponent("SoundComponent"));
-    _soundComponent->playSound(_shotSound);
+    soundManager->playSound(_shotSound);
 }
 
 void ShotgunC::onShoot(TransformComponent* transform, RigidbodyPC* rigidBody) {

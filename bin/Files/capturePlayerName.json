@@ -8,7 +8,7 @@
           "type": "GuiLabelComponent",
           "attributes": {
             "text": "",
-            "position": [ 0.465, 0.5 ],
+            "position": [ 0.45, 0.47 ],
             "size": [ 300.0, 50.0 ],
             "name": "RankingTitle"
           }
@@ -21,6 +21,27 @@
             "size": [ 120.0, 40.0 ],
             "name": "MainMenuPlay",
             "scene": "MOOD"
+          }
+        }
+      ]
+    },
+	{
+      "id": "Fondo",
+      "components": [
+        {
+          "type": "TransformComponent",
+          "attributes": {
+            "position": [ 0, 0, -10 ],
+            "orientation": [ 0, 0, 0 ],
+            "scale": [ 1.25, 0.7, 0.5 ]
+          }
+        },
+        {
+          "type": "TridimensionalObjectRC",
+          "attributes": {
+            "mesh": "cube.mesh",
+            "node": "nSuelo",
+            "material": "BackgroundPlayerNameTexture"
           }
         }
       ]
@@ -68,8 +89,8 @@
           "attributes": {
             "node": "nCamera",
             "viewportColour": [ 0, 0, 0 ],
-            "offset": [ 0, 300, 60 ],
-            "lookAt": [ 0, -1, -0.25 ],
+            "offset": [ 0, 0, 100 ],
+            "lookAt": [  0, 0, -1 ],
             "targetId": "none"
           }
         }
