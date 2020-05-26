@@ -52,6 +52,9 @@ class GunC : public Component {
     // Returns wheter or not there is ammunition left in the gun
     bool mmunitionleft();
 
+    // Returns wheter or not there is full ammo in the bulletChamber
+    bool fullAmmo();
+
     void reset();
     // Returns whether or not the gun can shoot
     bool canShoot();

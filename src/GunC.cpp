@@ -176,6 +176,7 @@ bool GunC::mmunitionleft() {
         return true;
 }
 
+bool GunC::fullAmmo() { return _bulletchamber == _bulletchamberMax; }
 void GunC::reset() {
     _bulletchamber = _bulletchamberMax;
     _munition = _munitionMax;

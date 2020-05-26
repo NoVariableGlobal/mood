@@ -43,7 +43,6 @@ void ReloadEC::gunChanged() {
     reloading = false;
     (dynamic_cast<PlayerShotIC*>(father_->getComponent("PlayerShotIC")))
         ->setReloading(false);
-    soundManager->stopSound("Reload");
 }
 
 void ReloadEC::setSoundManager() {
