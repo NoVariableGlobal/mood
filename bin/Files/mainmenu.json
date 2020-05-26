@@ -1,19 +1,6 @@
 {
   "entities": [    
-	/*{
-      "id": "Background",
-      "components": [
-        {
-          "type": "SkyPlaneObjectC",
-          "attributes": {
-            "normal": "Z",
-            "distance": -100,
-            "bow": 0.0,
-            "material": "BackgroundMenuTexture"
-          }
-        }
-      ]
-    }*/{
+	{
       "id": "Fondo",
       "components": [
         {

@@ -7,8 +7,8 @@
 #include "OgreQuaternion.h"
 #include "RigidbodyPC.h"
 #include "Scene.h"
-#include "TransformComponent.h"
 #include "SoundComponent.h"
+#include "TransformComponent.h"
 
 #include <json.h>
 
