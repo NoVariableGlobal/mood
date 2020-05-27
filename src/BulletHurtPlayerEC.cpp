@@ -36,7 +36,7 @@ void BulletHurtPlayerEC::checkEvent() {
         // if player dies sleep method is called
         if (playerHealth->doDamage(damage)) {
 
-            soundManager->playSound("PlayerDeath");
+            soundManager_->playSound("PlayerDeath");
 
             Entity* player = scene_->getEntityById("Player");
             AnimationLC* animations = reinterpret_cast<AnimationLC*>(
@@ -63,7 +63,7 @@ void BulletHurtPlayerEC::checkEvent() {
                     ->getComponent("DeadManagerEC"))
                 ->setActive(true);
         } else {
-            soundManager->playSound("PlayerHurt");
+            soundManager_->playSound("PlayerHurt");
         }
 
         // destroy bullet
@@ -71,7 +71,7 @@ void BulletHurtPlayerEC::checkEvent() {
     }
 }
 void BulletHurtPlayerEC::setSoundManager() {
-    soundManager = dynamic_cast<SoundComponent*>(
+    soundManager_ = dynamic_cast<SoundComponent*>(
         scene_->getEntityById("GameManager")->getComponent("SoundComponent"));
 }
 // FACTORY INFRASTRUCTURE

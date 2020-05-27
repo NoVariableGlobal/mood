@@ -5,16 +5,13 @@
 #include <string>
 #include <vector>
 
-DECLARE_FACTORY(RankingManagerC);
-
-class SpawnerEnemiesEC;
-class SpawnerEC;
+DECLARE_FACTORY(RankingManagerC)
 
 struct RankingPosition {
     int round;
     std::string name;
 
-    bool operator<(RankingPosition const& b) { return round > b.round; }
+    bool operator<(RankingPosition const& b) const { return round > b.round; }
 
     friend std::ostream& operator<<(std::ostream& out,
                                     const RankingPosition& rank) {
@@ -28,16 +25,15 @@ struct RankingPosition {
     }
 };
 
-class RankingManagerC : public Component {
-  private:
-    std::vector<RankingPosition> ranking;
-    std::string playerName = "name";
+class RankingManagerC final : public Component {
+    std::vector<RankingPosition> ranking_;
+    std::string playerName_ = "name";
 
   public:
     RankingManagerC();
     ~RankingManagerC();
 
-    virtual void destroy();
+    void destroy() override;
 
     void readRanking();
     void updateRanking();

@@ -7,5 +7,5 @@ DECLARE_FACTORY(MedkitEC);
 
 class MedkitEC final : public ImmediatePowerUpEC {
   public:
-    void onPick();
+    void onPick() override;
 };

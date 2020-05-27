@@ -8,10 +8,9 @@ namespace CEGUI {
 }
 
 // FACTORY INFRASTRUCTURE DECLARATION
-DECLARE_FACTORY(GuiRankingLabelC);
+DECLARE_FACTORY(GuiRankingLabelC)
 
 class GuiRankingLabelC final : public GuiLabelComponent {
-  private:
   public:
     GuiRankingLabelC();
 

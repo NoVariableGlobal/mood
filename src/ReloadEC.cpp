@@ -10,10 +10,10 @@
 #include <json.h>
 
 void ReloadEC::checkEvent() {
-    if (reloading) {
+    if (reloading_) {
 
         float seconds = clock() / static_cast<float>(CLOCKS_PER_SEC);
-        if (seconds - timer >= timeToReload) {
+        if (seconds - timer_ >= timeToReload_) {
 
             (dynamic_cast<WeaponControllerIC*>(
                  father_->getComponent("WeaponControllerIC")))
@@ -23,30 +23,30 @@ void ReloadEC::checkEvent() {
             (dynamic_cast<PlayerShotIC*>(father_->getComponent("PlayerShotIC")))
                 ->setReloading(false);
 
-            reloading = false;
+            reloading_ = false;
         }
     }
 }
 
 void ReloadEC::starToReload() {
-    if (!reloading) {
+    if (!reloading_) {
 
-        timer = clock() / static_cast<float>(CLOCKS_PER_SEC);
-        reloading = true;
-        soundManager->playSound("Reload");
+        timer_ = clock() / static_cast<float>(CLOCKS_PER_SEC);
+        reloading_ = true;
+        soundManager_->playSound("Reload");
     }
 }
 
-void ReloadEC::setTime(float time) { timeToReload = time; }
+void ReloadEC::setTime(float time) { timeToReload_ = time; }
 
 void ReloadEC::gunChanged() {
-    reloading = false;
+    reloading_ = false;
     (dynamic_cast<PlayerShotIC*>(father_->getComponent("PlayerShotIC")))
         ->setReloading(false);
 }
 
 void ReloadEC::setSoundManager() {
-    soundManager = dynamic_cast<SoundComponent*>(
+    soundManager_ = dynamic_cast<SoundComponent*>(
         scene_->getEntityById("GameManager")->getComponent("SoundComponent"));
 }
 

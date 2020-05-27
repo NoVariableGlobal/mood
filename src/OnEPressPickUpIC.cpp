@@ -9,21 +9,24 @@
 
 #include <iostream>
 #include <json.h>
+#include <utility>
 
-void OnEPressPickUpIC::handleInput(const SDL_Event& _event) {
-    rb = dynamic_cast<RigidbodyPC*>(father_->getComponent("RigidbodyPC"));
-    if (rb->collidesWith("Player")) {
+void OnEPressPickUpIC::handleInput(const SDL_Event& event) {
+    rb_ = dynamic_cast<RigidbodyPC*>(father_->getComponent("RigidbodyPC"));
+    if (rb_->collidesWith("Player")) {
         // TODO: Mostrar un icono con la "E" cuando haya interfaz
 
-        if (_event.type == SDL_KEYDOWN && _event.key.keysym.sym == SDLK_e) {
-            dynamic_cast<PowerUpC*>(father_->getComponent(objectName))
+        if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_e) {
+            dynamic_cast<PowerUpC*>(father_->getComponent(objectName_))
                 ->onPickUp();
             scene_->deleteEntity(father_);
         }
     }
 }
 
-void OnEPressPickUpIC::setObjectName(std::string _name) { objectName = _name; }
+void OnEPressPickUpIC::setObjectName(std::string name) {
+    objectName_ = std::move(name);
+}
 
 // FACTORY INFRASTRUCTURE
 OnEPressPickUpICFactory::OnEPressPickUpICFactory() = default;

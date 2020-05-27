@@ -13,7 +13,7 @@
 
 void InfiniteAmmoEC::setEffect(bool value) {
 
-    soundManager->playSound("InfiniteAmmo");
+    soundManager_->playSound("InfiniteAmmo");
     Entity* player = scene_->getEntityById("Player");
     reinterpret_cast<AutomaticRifleC*>(player->getComponent("AutomaticRifleC"))
         ->setInfiniteAmmo(value);
@@ -48,7 +48,7 @@ Component* InfiniteAmmoECFactory::create(Entity* _father, Json::Value& _data,
         throw std::exception("Shield: timeEffect is not a double");
     infiniteAmmo->setDuration(_data["timeEffect"].asDouble());
 
-    infiniteAmmo->setHUDName("AmmoHUD");
+    infiniteAmmo->setHeadsUpDisplayName("AmmoHUD");
 
     infiniteAmmo->setActive(true);
 

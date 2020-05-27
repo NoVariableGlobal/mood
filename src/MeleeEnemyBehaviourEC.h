@@ -4,12 +4,8 @@
 
 // FACTORY INFRASTRUCTURE DECLARATION
 DECLARE_FACTORY(MeleeEnemyBehaviourEC);
-class MeleeEnemyBehaviourEC : public EnemyBehaviourEC {
-
+class MeleeEnemyBehaviourEC final : public EnemyBehaviourEC {
   public:
-    MeleeEnemyBehaviourEC();
-    ~MeleeEnemyBehaviourEC();
-
-    virtual void checkEvent();
-    virtual void rotateToPlayer();
+    void checkEvent() override;
+    void rotateToPlayer() override;
 };

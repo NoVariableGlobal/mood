@@ -16,16 +16,16 @@ void GunPowerUpC::destroy() {
 void GunPowerUpC::onPickUp() {
     dynamic_cast<WeaponControllerIC*>(
         scene_->getEntityById("Player")->getComponent("WeaponControllerIC"))
-        ->pickUpGun(_gunId);
+        ->pickUpGun(gunId_);
 
     std::string image;
-    if (_gunId == "HandGunC")
+    if (gunId_ == "HandGunC")
         image = "TaharezLook/HandgunIcon";
-    else if (_gunId == "ShotgunC")
+    else if (gunId_ == "ShotgunC")
         image = "TaharezLook/ShotgunIcon";
-    else if (_gunId == "AutomaticRifleC")
+    else if (gunId_ == "AutomaticRifleC")
         image = "TaharezLook/RifleIcon";
-    else if (_gunId == "SniperGunC")
+    else if (gunId_ == "SniperGunC")
         image = "TaharezLook/SniperIcon";
 
     reinterpret_cast<GuiImageComponent*>(
@@ -33,7 +33,7 @@ void GunPowerUpC::onPickUp() {
         ->changeImage(image);
 }
 
-void GunPowerUpC::setGunId(const std::string& gunId) { _gunId = gunId; }
+void GunPowerUpC::setGunId(const std::string& gunId) { gunId_ = gunId; }
 
 // FACTORY INFRASTRUCTURE
 GunPowerUpCFactory::GunPowerUpCFactory() = default;

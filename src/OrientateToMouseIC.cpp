@@ -9,7 +9,7 @@
 #include <SDL.h>
 #include <iostream>
 
-void OrientateToMouseIC::handleInput(const SDL_Event& _event) {
+void OrientateToMouseIC::handleInput(const SDL_Event& event) {
     // Get mouse position
     int xMouse, yMouse;
     SDL_GetGlobalMouseState(&xMouse, &yMouse);

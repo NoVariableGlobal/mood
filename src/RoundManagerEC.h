@@ -3,10 +3,7 @@
 #include "Factory.h"
 #include <vector>
 
-DECLARE_FACTORY(RoundManagerEC);
-
-class SpawnerEnemiesEC;
-class SpawnerFloorRandomEC;
+DECLARE_FACTORY(RoundManagerEC)
 
 namespace Ogre {
     typedef float Real;
@@ -15,34 +12,32 @@ namespace Ogre {
     typedef Vector<4, Real> Vector4f;
 } // namespace Ogre
 
-class RoundManagerEC : public EventComponent {
-  private:
-    int enemiesInRound = 0;
-    int enemiesDead = 0;
-    int minAddEnemies = 0;
-    int maxAddEnemies = 0;
-    int timeBetweenRounds = 10;
-    int roundNumber = 1;
-    float timer = 0;
-    bool roundEnd = false;
+class SpawnerEnemiesEC;
+class SpawnerFloorRandomEC;
+class RoundManagerEC final : public EventComponent {
+    int enemiesInRound_ = 0;
+    int enemiesDead_ = 0;
+    int minAddEnemies_ = 0;
+    int maxAddEnemies_ = 0;
+    int timeBetweenRounds_ = 10;
+    int roundNumber_ = 1;
+    float timer_ = 0;
+    bool roundEnd_ = false;
 
-    int lastMap = 1;
+    int lastMap_ = 1;
 
-    std::vector<SpawnerEnemiesEC*> enemiesSpawners;
-    std::vector<SpawnerFloorRandomEC*> otherSpawners;
+    std::vector<SpawnerEnemiesEC*> enemiesSpawners_;
+    std::vector<SpawnerFloorRandomEC*> otherSpawners_;
 
-    std::vector<Ogre::Vector3> map1Spawners;
-    std::vector<Ogre::Vector3> map2Spawners;
-    std::vector<Ogre::Vector3> map3Spawners;
-    std::vector<Ogre::Vector3> map4Spawners;
+    std::vector<Ogre::Vector3> map1Spawners_;
+    std::vector<Ogre::Vector3> map2Spawners_;
+    std::vector<Ogre::Vector3> map3Spawners_;
+    std::vector<Ogre::Vector3> map4Spawners_;
 
-    std::vector<Ogre::Vector4f> otherSpawnersPos;
+    std::vector<Ogre::Vector4f> otherSpawnersPos_;
 
   public:
-    RoundManagerEC() = default;
-    ~RoundManagerEC() = default;
-
-    virtual void checkEvent();
+    void checkEvent() override;
 
     void changeMap();
 

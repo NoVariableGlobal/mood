@@ -10,7 +10,7 @@
 void NukeEC::onPick() {
     std::vector<Entity*> enemies = scene_->getEntitiesByTag("Enemy");
 
-    soundManager->playSound("Nuke");
+    soundManager_->playSound("Nuke");
 
     for (auto it : enemies) {
 

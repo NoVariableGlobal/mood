@@ -17,7 +17,7 @@ void GunModelManagerEC::checkEvent() {
         reinterpret_cast<TransformComponent*>(
             father_->getComponent("TransformComponent"));
     TransformComponent* myTransform = reinterpret_cast<TransformComponent*>(
-        _currentGun->getComponent("TransformComponent"));
+        currentGun_->getComponent("TransformComponent"));
 
     Ogre::Quaternion quat = reinterpret_cast<TridimensionalObjectRC*>(
                                 father_->getComponent("TridimensionalObjectRC"))
@@ -25,22 +25,22 @@ void GunModelManagerEC::checkEvent() {
                                 ->getOrientation();
 
     myTransform->setOrientation(_playerTransform->getOrientation());
-    if (_currentGun == _handgun) {
+    if (currentGun_ == handgun_) {
         myTransform->setPosition(_playerTransform->getPosition() +
                                  (quat * Ogre::Vector3::UNIT_X) * -2 +
                                  (quat * Ogre::Vector3::UNIT_Y) * 25 +
                                  (quat * Ogre::Vector3::UNIT_Z) * 9);
-    } else if (_currentGun == _shotgun) {
+    } else if (currentGun_ == shotgun_) {
         myTransform->setPosition(_playerTransform->getPosition() +
                                  (quat * Ogre::Vector3::UNIT_X) * -0.5 +
                                  (quat * Ogre::Vector3::UNIT_Y) * 24.2 +
                                  (quat * Ogre::Vector3::UNIT_Z) * 10);
-    } else if (_currentGun == _rifle) {
+    } else if (currentGun_ == rifle_) {
         myTransform->setPosition(_playerTransform->getPosition() +
                                  (quat * Ogre::Vector3::UNIT_X) * -3 +
                                  (quat * Ogre::Vector3::UNIT_Y) * 25 +
                                  (quat * Ogre::Vector3::UNIT_Z) * 10);
-    } else if (_currentGun = _sniper) {
+    } else if (currentGun_ = sniper_) {
         myTransform->setPosition(_playerTransform->getPosition() +
                                  (quat * Ogre::Vector3::UNIT_X) * -1 +
                                  (quat * Ogre::Vector3::UNIT_Y) * 25 +
@@ -55,39 +55,39 @@ void GunModelManagerEC::destroy() {
 
 void GunModelManagerEC::init(Entity* handGun, Entity* shotgun, Entity* rifle,
                              Entity* sniper) {
-    _handgun = handGun;
-    _shotgun = shotgun;
-    _rifle = rifle;
-    _sniper = sniper;
+    handgun_ = handGun;
+    shotgun_ = shotgun;
+    rifle_ = rifle;
+    sniper_ = sniper;
 
     deactivateAll();
-    _handgun->setActive(true);
-    _currentGun = _handgun;
+    handgun_->setActive(true);
+    currentGun_ = handgun_;
 }
 
-void GunModelManagerEC::changeGunModel(std::string _gunId) {
+void GunModelManagerEC::changeGunModel(const std::string& gunId) {
     deactivateAll();
 
-    if (_gunId == "HandGunC") {
-        _handgun->setActive(true);
-        _currentGun = _handgun;
-    } else if (_gunId == "ShotgunC") {
-        _shotgun->setActive(true);
-        _currentGun = _shotgun;
-    } else if (_gunId == "AutomaticRifleC") {
-        _rifle->setActive(true);
-        _currentGun = _rifle;
-    } else if (_gunId == "SniperGunC") {
-        _sniper->setActive(true);
-        _currentGun = _sniper;
+    if (gunId == "HandGunC") {
+        handgun_->setActive(true);
+        currentGun_ = handgun_;
+    } else if (gunId == "ShotgunC") {
+        shotgun_->setActive(true);
+        currentGun_ = shotgun_;
+    } else if (gunId == "AutomaticRifleC") {
+        rifle_->setActive(true);
+        currentGun_ = rifle_;
+    } else if (gunId == "SniperGunC") {
+        sniper_->setActive(true);
+        currentGun_ = sniper_;
     }
 }
 
 void GunModelManagerEC::deactivateAll() {
-    _handgun->setActive(false);
-    _shotgun->setActive(false);
-    _rifle->setActive(false);
-    _sniper->setActive(false);
+    handgun_->setActive(false);
+    shotgun_->setActive(false);
+    rifle_->setActive(false);
+    sniper_->setActive(false);
 }
 
 // FACTORY INFRASTRUCTURE

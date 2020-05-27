@@ -32,7 +32,7 @@ void RankingManagerC::readRanking() {
 
             std::cin >> rank;
 
-            ranking.push_back(rank);
+            ranking_.push_back(rank);
         }
 
         std::cin.rdbuf(cinbuf);
@@ -42,7 +42,7 @@ void RankingManagerC::readRanking() {
 
             rank.name = "-";
             rank.round = 0;
-            ranking.push_back(rank);
+            ranking_.push_back(rank);
         }
     }
     myfile.close();
@@ -60,7 +60,7 @@ void RankingManagerC::updateRanking() {
 
         for (int i = 0; i < 5; i++) {
 
-            RankingPosition rank = ranking[i];
+            RankingPosition rank = ranking_[i];
 
             std::cout << i + 1 << " ";
             std::cout << rank;
@@ -75,16 +75,16 @@ void RankingManagerC::playerDied() {
 
     RankingPosition rank;
 
-    rank.name = playerName;
+    rank.name = playerName_;
     rank.round = reinterpret_cast<RoundManagerEC*>(
                      father_->getComponent("RoundManagerEC"))
                      ->getRoundNumber();
 
-    ranking.push_back(rank);
+    ranking_.push_back(rank);
 
-    std::sort(ranking.begin(), ranking.end());
+    std::sort(ranking_.begin(), ranking_.end());
 
-    ranking.pop_back();
+    ranking_.pop_back();
 
     reinterpret_cast<GameMusicC*>(
         scene_->getEntityById("GameManager")->getComponent("GameMusicC"))
@@ -94,7 +94,7 @@ void RankingManagerC::playerDied() {
 void RankingManagerC::setName() {
 
     Entity* nameCapturer = scene_->getEntityById("NameCapturer");
-    playerName =
+    playerName_ =
         reinterpret_cast<ReadNameIC*>(nameCapturer->getComponent("ReadNameIC"))
             ->gatName();
 
@@ -102,7 +102,7 @@ void RankingManagerC::setName() {
 }
 
 RankingPosition* RankingManagerC::getRankingPosition(int pos) {
-    return &ranking[pos - 1];
+    return &ranking_[pos - 1];
 }
 
 // FACTORY INFRASTRUCTURE

@@ -3,19 +3,17 @@
 #include "InputComponent.h"
 #include <string>
 
-DECLARE_FACTORY(OnEPressPickUpIC);
-class RigidbodyPC;
+DECLARE_FACTORY(OnEPressPickUpIC)
 
-class OnEPressPickUpIC : public InputComponent {
-  private:
-    RigidbodyPC* rb = nullptr;
-    std::string objectName;
+class RigidbodyPC;
+class OnEPressPickUpIC final : public InputComponent {
+    RigidbodyPC* rb_ = nullptr;
+    std::string objectName_;
 
   public:
     OnEPressPickUpIC() = default;
     ~OnEPressPickUpIC() = default;
 
-    void handleInput(const SDL_Event& _event);
-
-    void setObjectName(std::string _name);
+    void handleInput(const SDL_Event& event) override;
+    void setObjectName(std::string name);
 };

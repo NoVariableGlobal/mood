@@ -16,51 +16,51 @@
 #include <value.h>
 
 void RoundManagerEC::checkEvent() {
-    if (enemiesDead == enemiesInRound && !roundEnd) // Ronda Terminada
+    if (enemiesDead_ == enemiesInRound_ && !roundEnd_) // Ronda Terminada
     {
-        roundEnd = true;
+        roundEnd_ = true;
 
         deactivateSpawnerEnemies();
         deactivateOtherSpawners();
 
-        roundNumber++;
+        roundNumber_++;
 
-        timer = clock() / static_cast<float>(CLOCKS_PER_SEC);
+        timer_ = clock() / static_cast<float>(CLOCKS_PER_SEC);
 
-    } else if (roundEnd) {
+    } else if (roundEnd_) {
         float seconds = clock() / static_cast<float>(CLOCKS_PER_SEC);
-        if (seconds - timer >= timeBetweenRounds) {
+        if (seconds - timer_ >= timeBetweenRounds_) {
 
-            if (roundNumber % 3 == 0)
+            if (roundNumber_ % 3 == 0)
                 changeMap();
 
             int randNum =
-                rand() % (maxAddEnemies - minAddEnemies + 1) + minAddEnemies;
-            enemiesInRound += randNum;
+                rand() % (maxAddEnemies_ - minAddEnemies_ + 1) + minAddEnemies_;
+            enemiesInRound_ += randNum;
 
-            int i = 0, size = enemiesSpawners.size();
+            int i = 0, size = enemiesSpawners_.size();
 
             int toAdd;
-            if (enemiesInRound % 2 == 0)
-                toAdd = enemiesInRound / size;
+            if (enemiesInRound_ % 2 == 0)
+                toAdd = enemiesInRound_ / size;
             else
-                toAdd = (enemiesInRound / size) + 1;
+                toAdd = (enemiesInRound_ / size) + 1;
 
             while (i < size - 1) {
-                enemiesSpawners[i]->setActive(true);
-                enemiesSpawners[i]->setEnemies(toAdd);
+                enemiesSpawners_[i]->setActive(true);
+                enemiesSpawners_[i]->setEnemies(toAdd);
                 i++;
             }
-            enemiesSpawners[i]->setActive(true);
-            enemiesSpawners[i]->setEnemies(enemiesInRound - (toAdd * i));
+            enemiesSpawners_[i]->setActive(true);
+            enemiesSpawners_[i]->setEnemies(enemiesInRound_ - (toAdd * i));
 
-            for (auto it : otherSpawners)
+            for (auto it : otherSpawners_)
                 it->setActive(true);
 
             reinterpret_cast<GuiLabelComponent*>(
                 scene_->getEntityById("RoundHUD")
                     ->getComponent("GuiLabelComponent"))
-                ->changeText("Round " + std::to_string(roundNumber));
+                ->changeText("Round " + std::to_string(roundNumber_));
 
             dynamic_cast<SoundComponent*>(scene_->getEntityById("GameManager")
                                               ->getComponent("SoundComponent"))
@@ -70,8 +70,8 @@ void RoundManagerEC::checkEvent() {
                                               ->getComponent("GameMusicC"))
                 ->setMusic("RoundBackgroundMusic");
 
-            roundEnd = false;
-            enemiesDead = 0;
+            roundEnd_ = false;
+            enemiesDead_ = 0;
         }
     }
 }
@@ -83,98 +83,98 @@ void RoundManagerEC::changeMap() {
     reinterpret_cast<RigidbodyPC*>(
         scene_->getEntityById("Player")->getComponent("RigidbodyPC"))
         ->setPosition(Ogre::Vector3(0, 10, 0));
-    if (lastMap == randNum)
-        while (randNum == lastMap)
+    if (lastMap_ == randNum)
+        while (randNum == lastMap_)
             randNum = (rand() % 4) + 1;
 
     if (randNum == 1) {
 
         for (int i = 0; i < 4; i++) {
-            enemiesSpawners[i]->changePosition(map1Spawners[i]);
-            enemiesSpawners[i]->resetLastTimeSpawned();
+            enemiesSpawners_[i]->changePosition(map1Spawners_[i]);
+            enemiesSpawners_[i]->resetLastTimeSpawned();
         }
         for (int i = 0; i < 2; i++)
-            otherSpawners[i]->setFloorDimensions(otherSpawnersPos[0]);
+            otherSpawners_[i]->setFloorDimensions(otherSpawnersPos_[0]);
 
         scene_->changeScene("map1");
     } else if (randNum == 2) {
 
         for (int i = 0; i < 4; i++) {
-            enemiesSpawners[i]->changePosition(map2Spawners[i]);
-            enemiesSpawners[i]->resetLastTimeSpawned();
+            enemiesSpawners_[i]->changePosition(map2Spawners_[i]);
+            enemiesSpawners_[i]->resetLastTimeSpawned();
         }
         for (int i = 0; i < 2; i++)
-            otherSpawners[i]->setFloorDimensions(otherSpawnersPos[1]);
+            otherSpawners_[i]->setFloorDimensions(otherSpawnersPos_[1]);
 
         scene_->changeScene("map2");
     } else if (randNum == 3) {
 
         for (int i = 0; i < 4; i++) {
-            enemiesSpawners[i]->changePosition(map3Spawners[i]);
-            enemiesSpawners[i]->resetLastTimeSpawned();
+            enemiesSpawners_[i]->changePosition(map3Spawners_[i]);
+            enemiesSpawners_[i]->resetLastTimeSpawned();
         }
         for (int i = 0; i < 2; i++)
-            otherSpawners[i]->setFloorDimensions(otherSpawnersPos[2]);
+            otherSpawners_[i]->setFloorDimensions(otherSpawnersPos_[2]);
 
         scene_->changeScene("map3");
     } else if (randNum == 4) {
 
         for (int i = 0; i < 4; i++) {
-            enemiesSpawners[i]->changePosition(map4Spawners[i]);
-            enemiesSpawners[i]->resetLastTimeSpawned();
+            enemiesSpawners_[i]->changePosition(map4Spawners_[i]);
+            enemiesSpawners_[i]->resetLastTimeSpawned();
         }
         for (int i = 0; i < 2; i++)
-            otherSpawners[i]->setFloorDimensions(otherSpawnersPos[3]);
+            otherSpawners_[i]->setFloorDimensions(otherSpawnersPos_[3]);
 
         scene_->changeScene("map4");
     }
-    lastMap = randNum;
+    lastMap_ = randNum;
 }
 
 void RoundManagerEC::deactivateSpawnerEnemies() {
-    for (auto it : enemiesSpawners)
+    for (auto it : enemiesSpawners_)
         it->setActive(false);
 }
 
 void RoundManagerEC::deactivateOtherSpawners() {
-    for (auto it : otherSpawners)
+    for (auto it : otherSpawners_)
         it->setActive(false);
 }
 
-void RoundManagerEC::setMinAddEnemies(int n) { minAddEnemies = n; }
+void RoundManagerEC::setMinAddEnemies(int n) { minAddEnemies_ = n; }
 
-void RoundManagerEC::setMaxAddEnemies(int n) { maxAddEnemies = n; }
+void RoundManagerEC::setMaxAddEnemies(int n) { maxAddEnemies_ = n; }
 
-void RoundManagerEC::setEnemiesInRound(int n) { enemiesInRound = n; }
+void RoundManagerEC::setEnemiesInRound(int n) { enemiesInRound_ = n; }
 
-void RoundManagerEC::setTimeBetweenRounds(int n) { timeBetweenRounds = n; }
+void RoundManagerEC::setTimeBetweenRounds(int n) { timeBetweenRounds_ = n; }
 
 void RoundManagerEC::registerEnemySpawner(SpawnerEnemiesEC* spawn) {
-    enemiesSpawners.push_back(spawn);
+    enemiesSpawners_.push_back(spawn);
 }
 
 void RoundManagerEC::registerOtherSpawner(SpawnerFloorRandomEC* spawn) {
-    otherSpawners.push_back(spawn);
+    otherSpawners_.push_back(spawn);
 }
 
-int RoundManagerEC::getRoundNumber() { return roundNumber; }
+int RoundManagerEC::getRoundNumber() { return roundNumber_; }
 
-void RoundManagerEC::enemyDied() { enemiesDead++; }
+void RoundManagerEC::enemyDied() { enemiesDead_++; }
 
 void RoundManagerEC::setEnemySpawnersPositions(Ogre::Vector3 pos, int map) {
 
     if (map == 0)
-        map1Spawners.push_back(pos);
+        map1Spawners_.push_back(pos);
     else if (map == 1)
-        map2Spawners.push_back(pos);
+        map2Spawners_.push_back(pos);
     else if (map == 2)
-        map3Spawners.push_back(pos);
+        map3Spawners_.push_back(pos);
     else
-        map4Spawners.push_back(pos);
+        map4Spawners_.push_back(pos);
 }
 
 void RoundManagerEC::setOtherSpawnersPositions(Ogre::Vector4f pos) {
-    otherSpawnersPos.push_back(pos);
+    otherSpawnersPos_.push_back(pos);
 }
 
 // FACTORY INFRASTRUCTURE

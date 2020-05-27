@@ -12,7 +12,7 @@ void IncreaseSpeedEC::setEffect(bool value) {
     auto* movement = reinterpret_cast<PlayerMovementIC*>(
         player->getComponent("PlayerMovementIC"));
 
-    soundManager->playSound("Speed");
+    soundManager_->playSound("Speed");
 
     if (value) {
         originalSpeed_ = movement->getMovementSpeed();
@@ -50,7 +50,7 @@ Component* IncreaseSpeedECFactory::create(Entity* _father, Json::Value& _data,
         throw std::exception("IncreaseSpeed: speedIncrement is not a double");
     increaseSpeed->setSpeedIncrement(_data["speedIncrement"].asDouble());
 
-    increaseSpeed->setHUDName("SpeedHUD");
+    increaseSpeed->setHeadsUpDisplayName("SpeedHUD");
 
     increaseSpeed->setActive(true);
 

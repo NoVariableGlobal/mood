@@ -7,53 +7,57 @@
 #include <utility>
 #include <value.h>
 
-SpawnerEC::SpawnerEC() {}
+void SpawnerEC::setSpawnCooldown(const float spawnCooldown) {
+    spawnCooldown_ = spawnCooldown;
+}
 
 bool SpawnerEC::addSpawn(std::string id, float chance, std::string tag) {
     float totalChance = 0;
-    if (_spawns.size() != 0)
-        totalChance = _spawns.back()._additiveChance;
+    if (!spawns_.empty())
+        totalChance = spawns_.back().additiveChance;
     if (totalChance > 99.999)
         return false;
-    _spawns.push_back({id, tag, chance, totalChance + chance});
+    spawns_.push_back(
+        {std::move(id), std::move(tag), chance, totalChance + chance});
 
-    if (_spawns.back()._additiveChance > 99.999)
-        _spawns.back()._additiveChance = 100;
+    if (spawns_.back().additiveChance > 99.999)
+        spawns_.back().additiveChance = 100;
 
     return true;
 }
 
-void SpawnerEC::editChance(std::string id, float newChance, std::string tag) {
+void SpawnerEC::editChance(const std::string& id, float newChance,
+                           std::string tag) {
     size_t i = 0;
     bool found = false;
     float totalChance;
-    for (; i < _spawns.size(); ++i) {
+    for (; i < spawns_.size(); ++i) {
         if (!found)
-            found = (id == _spawns[i]._id);
+            found = (id == spawns_[i].id);
         else {
-            _spawns[i - 1]._id.swap(_spawns[i]._id);
-            std::swap(_spawns[i - 1], _spawns[i]);
-            totalChance = _spawns[i - 1]._additiveChance -= _spawns[i]._chance;
+            spawns_[i - 1].id.swap(spawns_[i].id);
+            std::swap(spawns_[i - 1], spawns_[i]);
+            totalChance = spawns_[i - 1].additiveChance -= spawns_[i].chance;
         }
     }
 
     if (!found) {
-        addSpawn(id, newChance, tag);
+        addSpawn(id, newChance, std::move(tag));
         return;
     }
 
-    _spawns.back()._chance = newChance;
+    spawns_.back().chance = newChance;
 
-    _spawns.back()._additiveChance = totalChance + newChance;
+    spawns_.back().additiveChance = totalChance + newChance;
 
-    if (_spawns.back()._additiveChance > 99.999)
-        _spawns.back()._additiveChance = 100;
+    if (spawns_.back().additiveChance > 99.999)
+        spawns_.back().additiveChance = 100;
 }
 
 void SpawnerEC::checkEvent() {
-    if (firstTime) {
-        firstTime = false;
-        _lastTimeSpawned = clock() / static_cast<float>(CLOCKS_PER_SEC);
+    if (firstTime_) {
+        firstTime_ = false;
+        lastTimeSpawned_ = clock() / static_cast<float>(CLOCKS_PER_SEC);
     }
 
     if (timeToSpawn()) {
@@ -64,8 +68,8 @@ void SpawnerEC::checkEvent() {
 bool SpawnerEC::timeToSpawn() {
     float seconds = clock() / static_cast<float>(CLOCKS_PER_SEC);
 
-    if (seconds - _lastTimeSpawned >= _spawnCooldown) {
-        _lastTimeSpawned = seconds;
+    if (seconds - lastTimeSpawned_ >= spawnCooldown_) {
+        lastTimeSpawned_ = seconds;
         return true;
     }
 
@@ -75,26 +79,26 @@ bool SpawnerEC::timeToSpawn() {
 Entity* SpawnerEC::spawnPrefab() {
     Spawn toInstantiate;
 
-    while (toInstantiate._id == "") {
+    while (toInstantiate.id == "") {
         float random =
             static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 100;
-        toInstantiate = binarySearch(0, _spawns.size() - 1, random);
+        toInstantiate = binarySearch(0, spawns_.size() - 1, random);
     }
-    return scene_->getInstanceOf(toInstantiate._id,
-                                 toInstantiate._id + std::to_string(_count++) +
+    return scene_->getInstanceOf(toInstantiate.id,
+                                 toInstantiate.id + std::to_string(count_++) +
                                      father_->getId(),
-                                 toInstantiate._tag);
+                                 toInstantiate.tag);
 }
 
 Spawn SpawnerEC::binarySearch(int first, int last, float value) {
     if (last >= first) {
         int center = first + (last - first) / 2;
 
-        if (_spawns[center]._additiveChance >= value &&
-            (center == 0 || _spawns[center - 1]._additiveChance < value))
-            return _spawns[center];
+        if (spawns_[center].additiveChance >= value &&
+            (center == 0 || spawns_[center - 1].additiveChance < value))
+            return spawns_[center];
 
-        if (_spawns[center]._additiveChance < value)
+        if (spawns_[center].additiveChance < value)
             return binarySearch(center + 1, last, value);
 
         return binarySearch(first, center - 1, value);
@@ -104,5 +108,5 @@ Spawn SpawnerEC::binarySearch(int first, int last, float value) {
 }
 
 void SpawnerEC::resetLastTimeSpawned() {
-    _lastTimeSpawned = clock() / static_cast<float>(CLOCKS_PER_SEC);
+    lastTimeSpawned_ = clock() / static_cast<float>(CLOCKS_PER_SEC);
 }

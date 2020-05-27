@@ -4,30 +4,26 @@
 #include <string>
 
 // FACTORY INFRASTRUCTURE DECLARATION
-DECLARE_FACTORY(WeaponControllerIC);
+DECLARE_FACTORY(WeaponControllerIC)
 
 class GunC;
 class SoundComponent;
 class AutomaticEC;
-class WeaponControllerIC : public InputComponent {
-  private:
-    GunC* currentGun = nullptr;
-    GunC* secondaryGun = nullptr;
-    SoundComponent* soundManager = nullptr;
-    AutomaticEC* _automaticEC = nullptr;
+class WeaponControllerIC final : public InputComponent {
+    GunC* currentGun_ = nullptr;
+    GunC* secondaryGun_ = nullptr;
+    SoundComponent* soundManager_ = nullptr;
+    AutomaticEC* automaticEc_ = nullptr;
 
   public:
-    WeaponControllerIC();
-    virtual ~WeaponControllerIC();
-
     void init();
     // Updates the entity's transform's
     // position upon pressing WASD keys
-    virtual void handleInput(const SDL_Event& _event);
+    void handleInput(const SDL_Event& event) override;
 
     GunC* getCurrentGun();
     GunC* getSecondaryGun();
-    void pickUpGun(std::string _gunName);
+    void pickUpGun(const std::string& gunName);
 
     void setSoundManager();
 };

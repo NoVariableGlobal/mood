@@ -14,23 +14,79 @@ namespace Ogre {
 
 class GunC : public Component {
   protected:
-    int _bulletchamber = 0;    // Ammunition in chamber
-    int _bulletchamberMax = 0; // Total ammunition in chamber
-    int _munition = 0;         // Total ammunition stored
-    int _munitionMax = 0;      // Total ammunition stored
-    int _bulletDamage = 0;     // Damage of a single bullet
-    int _bulletSpeed = 0;      // Speed of a single bullet
-    double cadence_ = 0.0;     // Gun cadence
+    /**
+     * \brief Ammunition in chamber.
+     */
+    int bulletChamber_ = 0;
+
+    /**
+     * \brief Total ammunition in chamber.
+     */
+    int bulletChamberMax_ = 0;
+
+    /**
+     * \brief Total ammunition stored.
+     */
+    int munition_ = 0;
+
+    /**
+     * \brief Total ammunition stored.
+     */
+    int munitionMax_ = 0;
+
+    /**
+     * \brief Damage of a single bullet.
+     */
+    int bulletDamage_ = 0;
+
+    /**
+     * \brief Speed of a single bullet.
+     */
+    int bulletSpeed_ = 0;
+
+    /**
+     * \brief Gun cadence.
+     */
+    double cadence_ = 0.0;
+
     double lastTimeCadence_ = 0.0;
-    bool _automatic = false;    // One shot or multiple shot gun
-    bool infiniteAmmo_ = false; // Whether or not this gun has infinite ammo
-    bool instakill_ = false; // Whether or not this gun will insta-kill enemies
-    std::string bulletComponentName_ = ""; // The component name of the bullet
-    std::string _myBulletTag = "";         // Tag of my bullets
-    std::string _myBulletType = "";        // Type of my bullets
-    std::string _shotSound =
-        ""; // Name of the sound that will play while shooting
-    TransformComponent* myTransform;
+    /**
+     * \brief One shot or multiple shot gun.
+     */
+    bool automatic_ = false;
+
+    /**
+     * \brief Whether or not this gun has infinite ammo.
+     */
+    bool infiniteAmmo_ = false;
+
+    /**
+     * \brief Whether or not this gun will instantly kill enemies.
+     */
+    bool instantKill_ = false;
+
+    /**
+     * \brief The component name of the bullet.
+     */
+    std::string bulletComponentName_ = "";
+
+    /**
+     * \brief Tag of my bullets.
+     */
+    std::string myBulletTag_ = "";
+
+    /**
+     * \brief Type of my bullets.
+     */
+    std::string myBulletType_ = "";
+
+    /**
+     * \brief Name of the sound that will play while shooting.
+     */
+    std::string shotSound_ = "";
+
+    TransformComponent* myTransform_ = nullptr;
+    SoundComponent* soundManager_ = nullptr;
 
     bool timeCadence();
     virtual void onPreShoot();
@@ -38,25 +94,40 @@ class GunC : public Component {
 
     Ogre::Quaternion getOrientation() const;
 
-    SoundComponent* soundManager = nullptr;
-
   public:
     void destroy() override;
 
-    // Tries to reload the gun, returns false if failed
+    /**
+     * \brief Tries to reload the gun.
+     * \return Whether or not the operation succeeded.
+     */
     bool reload();
 
-    // Tries to fire a shot, returns false if gun is empty
+    /**
+     * \brief Tries to fire a shot.
+     * \return Whether or not the gun was not empty.
+     */
     bool shoot();
 
-    // Returns wheter or not there is ammunition left in the gun
-    bool mmunitionleft();
+    /**
+     * \brief Retrieves the remaining ammo.
+     * \return Whether or not there is ammunition left in the gun.
+     */
+    bool getRemainingAmmo();
 
-    // Returns wheter or not there is full ammo in the bulletChamber
+    /**
+     * \brief Checks if the bullet chamber has as many bullets as a full clip.
+     * \return Whether or not the bullet chamber is full.
+     */
     bool fullAmmo();
 
     void reset();
-    // Returns whether or not the gun can shoot
+
+    /**
+     * \brief Checks if the gun can shoot taking into account its ammo and the
+     * player's power-ups.
+     * \return Whether or not the gun can shoot.
+     */
     bool canShoot();
 
     // Returns the calculated damage

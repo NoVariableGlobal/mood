@@ -4,25 +4,21 @@
 #include "Factory.h"
 
 // FACTORY INFRASTRUCTURE DECLARATION
-DECLARE_FACTORY(LifeC);
+DECLARE_FACTORY(LifeC)
 
 namespace Ogre {
     typedef float Real;
-    template <int dims, typename T> class Vector;
+    template <int Dims, typename T> class Vector;
     typedef Vector<3, Real> Vector3;
 } // namespace Ogre
 
-class LifeC : public Component {
-  private:
-    int totalLife = 0;
-    float currentLife = 0.0f;
-    bool invulnerability = false;
+class LifeC final : public Component {
+    int totalLife_ = 0;
+    float currentLife_ = 0.0f;
+    bool invulnerability_ = false;
 
   public:
-    LifeC();
-    virtual ~LifeC();
-
-    virtual void destroy();
+    void destroy() override;
 
     // get the current life
     float getLife();

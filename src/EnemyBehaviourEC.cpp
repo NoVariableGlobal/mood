@@ -16,15 +16,15 @@
 #include <value.h>
 
 EnemyBehaviourEC::EnemyBehaviourEC()
-    : speed(0.0f), attack(0), attackCooldown(0.0f), aggroDistance(0.0f),
-      withinRange(false) {
-    directionToPlayer = new Ogre::Vector3();
-    distanceToPlayer = new Ogre::Vector3();
+    : speed_(0.0f), attack_(0), attackCooldown_(0.0f), aggroDistance_(0.0f),
+      withinRange_(false) {
+    directionToPlayer_ = new Ogre::Vector3();
+    distanceToPlayer_ = new Ogre::Vector3();
 }
 
 EnemyBehaviourEC::~EnemyBehaviourEC() {
-    delete directionToPlayer;
-    delete distanceToPlayer;
+    delete directionToPlayer_;
+    delete distanceToPlayer_;
 }
 
 void EnemyBehaviourEC::destroy() {
@@ -48,22 +48,22 @@ void EnemyBehaviourEC::destroy() {
 }
 
 void EnemyBehaviourEC::registerComponents() {
-    transform = reinterpret_cast<TransformComponent*>(
+    transform_ = reinterpret_cast<TransformComponent*>(
         father_->getComponent("TransformComponent"));
-    playerTransform = reinterpret_cast<TransformComponent*>(
+    playerTransform_ = reinterpret_cast<TransformComponent*>(
         scene_->getEntityById("Player")->getComponent("TransformComponent"));
-    rigidbody =
+    rigidBody_ =
         reinterpret_cast<RigidbodyPC*>(father_->getComponent("RigidbodyPC"));
-    life = reinterpret_cast<LifeC*>(father_->getComponent("LifeC"));
-    animations =
+    life_ = reinterpret_cast<LifeC*>(father_->getComponent("LifeC"));
+    animations_ =
         reinterpret_cast<AnimationLC*>(father_->getComponent("AnimationLC"));
-    mesh = dynamic_cast<TridimensionalObjectRC*>(
+    mesh_ = dynamic_cast<TridimensionalObjectRC*>(
         father_->getComponent("TridimensionalObjectRC"));
 }
 
 void EnemyBehaviourEC::removeTransforms(EnemyBehaviourEC* behaviour) {
 
-    behaviour->unRegisterInOtherTransforms(transform);
+    behaviour->unRegisterInOtherTransforms(transform_);
 }
 
 void EnemyBehaviourEC::registerInOtherEnemies() {
@@ -87,22 +87,22 @@ void EnemyBehaviourEC::registerInOtherEnemies() {
 
 void EnemyBehaviourEC::addTransforms(EnemyBehaviourEC* behaviour,
                                      TransformComponent* other) {
-    behaviour->registerInOtherTransforms(transform);
+    behaviour->registerInOtherTransforms(transform_);
 
-    otherTransform.push_back(other);
+    otherTransform_.push_back(other);
 }
 
 void EnemyBehaviourEC::checkEvent() {
-    if (!dead) {
-        rigidbody->setLinearVelocity(Ogre::Vector3(0, 0, 0));
+    if (!dead_) {
+        rigidBody_->setLinearVelocity(Ogre::Vector3(0, 0, 0));
 
-        updatePosibilityToAttackPlayer();
+        updatePossibilityToAttackPlayer();
 
-        if (!attacking)
+        if (!attacking_)
             moveTowardsPlayer();
-        else if (animations->animationFinished("Attack") && !idle) {
-            attacking = false;
-            animations->startAnimation("Walk");
+        else if (animations_->animationFinished("Attack") && !idle_) {
+            attacking_ = false;
+            animations_->startAnimation("Walk");
         }
 
         checkDamage();
@@ -112,13 +112,13 @@ void EnemyBehaviourEC::checkEvent() {
         LifeC* playerHealth = dynamic_cast<LifeC*>(
             (scene_->getEntityById("Player")->getComponent("LifeC")));
         if (playerHealth->getLife() <= 0) {
-            rigidbody->setLinearVelocity(Ogre::Vector3(0, 0, 0));
-            if (!idle)
+            rigidBody_->setLinearVelocity(Ogre::Vector3(0, 0, 0));
+            if (!idle_)
                 setIdle(true);
         }
 
     } else {
-        if (animations->animationFinished("Dead"))
+        if (animations_->animationFinished("Dead"))
             scene_->deleteEntity(father_);
     }
 }
@@ -126,8 +126,8 @@ void EnemyBehaviourEC::checkEvent() {
 bool EnemyBehaviourEC::timeToAttack() {
     float seconds = clock() / static_cast<float>(CLOCKS_PER_SEC);
 
-    if (seconds - lastTimeAttacked >= attackCooldown) {
-        lastTimeAttacked = seconds;
+    if (seconds - lastTimeAttacked_ >= attackCooldown_) {
+        lastTimeAttacked_ = seconds;
         return true;
     }
 
@@ -135,7 +135,7 @@ bool EnemyBehaviourEC::timeToAttack() {
 }
 
 void EnemyBehaviourEC::checkDamage() {
-    Entity* playerBullet = rigidbody->collidesWithTag("PlayerBullet");
+    Entity* playerBullet = rigidBody_->collidesWithTag("PlayerBullet");
     if (playerBullet != nullptr) {
         BulletC* bullet =
             dynamic_cast<BulletC*>(playerBullet->findComponent("BulletC"));
@@ -146,18 +146,18 @@ void EnemyBehaviourEC::checkDamage() {
 
         Component* comp = father_->findComponent("MeleeEnemyBehaviourEC");
         if (comp != nullptr)
-            soundManager->playSound("MeleeHit");
+            soundManager_->playSound("MeleeHit");
         else {
             comp = father_->findComponent("RangedEnemyBehaviourEC");
 
             if (comp != nullptr)
-                soundManager->playSound("RangedHit");
+                soundManager_->playSound("RangedHit");
             else
-                soundManager->playSound("BigMeleeHit");
+                soundManager_->playSound("BigMeleeHit");
         }
 
         // enemy is destroyed if it dies
-        if (life->doDamage(bullet->getDamage()))
+        if (life_->doDamage(bullet->getDamage()))
             die();
 
         bullet->dealCollision();
@@ -165,15 +165,15 @@ void EnemyBehaviourEC::checkDamage() {
 }
 
 void EnemyBehaviourEC::die(bool withSound) {
-    if (!dead) {
-        dead = true;
+    if (!dead_) {
+        dead_ = true;
 
-        rigidbody->setLinearVelocity(Ogre::Vector3(0, 0, 0));
+        rigidBody_->setLinearVelocity(Ogre::Vector3(0, 0, 0));
 
-        animations->stopAnimations();
-        animations->startAnimation("Dead");
+        animations_->stopAnimations();
+        animations_->startAnimation("Dead");
 
-        rigidbody->setActive(false);
+        rigidBody_->setActive(false);
 
         dynamic_cast<RoundManagerEC*>(scene_->getEntityById("GameManager")
                                           ->getComponent("RoundManagerEC"))
@@ -181,56 +181,56 @@ void EnemyBehaviourEC::die(bool withSound) {
 
         Component* comp = father_->findComponent("MeleeEnemyBehaviourEC");
         if (comp != nullptr && withSound)
-            soundManager->playSound("MeleeDeath");
+            soundManager_->playSound("MeleeDeath");
         else {
             comp = father_->findComponent("RangedEnemyBehaviourEC");
 
             if (withSound) {
                 if (comp != nullptr)
-                    soundManager->playSound("RangedDeath");
+                    soundManager_->playSound("RangedDeath");
                 else
-                    soundManager->playSound("BigMeleeDeath");
+                    soundManager_->playSound("BigMeleeDeath");
             }
         }
     }
 }
 
 void EnemyBehaviourEC::moveTowardsPlayer() {
-    *directionToPlayer = distanceToPlayer->normalisedCopy();
+    *directionToPlayer_ = distanceToPlayer_->normalisedCopy();
 
     Ogre::Vector3 velocity;
-    if (!collisionWithPlayer && !withinRange) {
-        velocity = Ogre::Vector3(directionToPlayer->x * speed, 0.0f,
-                                 directionToPlayer->z * speed);
+    if (!collisionWithPlayer_ && !withinRange_) {
+        velocity = Ogre::Vector3(directionToPlayer_->x * speed_, 0.0f,
+                                 directionToPlayer_->z * speed_);
 
     } else {
         velocity = Ogre::Vector3(0.0f, 0.0f, 0.0f);
     }
 
-    rigidbody->setLinearVelocity(velocity * 0.2 + separate() * 0.8);
+    rigidBody_->setLinearVelocity(velocity * 0.2 + separate() * 0.8);
 }
 
 void EnemyBehaviourEC::setIdle(bool active) {
-    idle = active;
+    idle_ = active;
 
     if (active)
-        animations->startAnimation("Idle");
+        animations_->startAnimation("Idle");
 }
 
 Ogre::Vector3 EnemyBehaviourEC::separate() {
 
     Ogre::Vector3 result = Ogre::Vector3(0, 0, 0);
-    int numAgents = otherTransform.size();
+    int numAgents = otherTransform_.size();
     for (int i = 0; i < numAgents; i++) {
-        TransformComponent* objective = otherTransform[i];
+        TransformComponent* objective = otherTransform_[i];
 
-        Ogre::Vector3 myPos = transform->getPosition();
+        Ogre::Vector3 myPos = transform_->getPosition();
 
         Ogre::Vector3 direction = myPos - objective->getPosition();
 
         float distance = direction.squaredLength();
 
-        if (distance < separationRadius) {
+        if (distance < separationRadius_) {
             if (distance < 0.1f)
                 distance = 0.5f;
             float force = 1000 / distance;
@@ -243,97 +243,97 @@ Ogre::Vector3 EnemyBehaviourEC::separate() {
     return result;
 }
 
-void EnemyBehaviourEC::updatePosibilityToAttackPlayer() {
+void EnemyBehaviourEC::updatePossibilityToAttackPlayer() {
     // check collision with player
-    collisionWithPlayer = rigidbody->collidesWith("Player");
+    collisionWithPlayer_ = rigidBody_->collidesWith("Player");
 
     // check if player is within range
-    Ogre::Vector3 playerPosition = playerTransform->getPosition();
+    Ogre::Vector3 playerPosition = playerTransform_->getPosition();
 
-    *distanceToPlayer =
-        Ogre::Vector3(playerPosition.x - transform->getPosition().x,
-                      playerPosition.y - transform->getPosition().y,
-                      playerPosition.z - transform->getPosition().z);
+    *distanceToPlayer_ =
+        Ogre::Vector3(playerPosition.x - transform_->getPosition().x,
+                      playerPosition.y - transform_->getPosition().y,
+                      playerPosition.z - transform_->getPosition().z);
 
-    withinRange = (*distanceToPlayer).squaredLength() <= aggroDistance;
+    withinRange_ = (*distanceToPlayer_).squaredLength() <= aggroDistance_;
 }
 
-bool EnemyBehaviourEC::getCollisionWithPlayer() { return collisionWithPlayer; }
+bool EnemyBehaviourEC::getCollisionWithPlayer() { return collisionWithPlayer_; }
 
-void EnemyBehaviourEC::setCollisionWithPlayer(bool _collisionWithPlayer) {
-    collisionWithPlayer = _collisionWithPlayer;
+void EnemyBehaviourEC::setCollisionWithPlayer(bool collisionWithPlayer) {
+    collisionWithPlayer_ = collisionWithPlayer;
 }
 
-float EnemyBehaviourEC::getSpeed() { return speed; }
+float EnemyBehaviourEC::getSpeed() { return speed_; }
 
-int EnemyBehaviourEC::getAttack() { return attack; }
+int EnemyBehaviourEC::getAttack() { return attack_; }
 
-float EnemyBehaviourEC::getAttackCooldown() { return attackCooldown; }
+float EnemyBehaviourEC::getAttackCooldown() { return attackCooldown_; }
 
-float EnemyBehaviourEC::getLastTimeAttacked() { return lastTimeAttacked; }
+float EnemyBehaviourEC::getLastTimeAttacked() { return lastTimeAttacked_; }
 
 Ogre::Vector3 EnemyBehaviourEC::getDirectionToPlayer() {
-    return *directionToPlayer;
+    return *directionToPlayer_;
 }
 
 Ogre::Vector3 EnemyBehaviourEC::getDistanceToPlayer() {
-    return *distanceToPlayer;
+    return *distanceToPlayer_;
 }
 
-float EnemyBehaviourEC::getAggroDistance() { return aggroDistance; }
+float EnemyBehaviourEC::getAggroDistance() { return aggroDistance_; }
 
-bool EnemyBehaviourEC::getWithinRange() { return withinRange; }
+bool EnemyBehaviourEC::getWithinRange() { return withinRange_; }
 
-void EnemyBehaviourEC::setSpeed(float _speed) { speed = _speed; }
+void EnemyBehaviourEC::setSpeed(float speed) { speed_ = speed; }
 
-void EnemyBehaviourEC::setAttack(float _attack) { attack = _attack; }
+void EnemyBehaviourEC::setAttack(float attack) { attack_ = attack; }
 
-void EnemyBehaviourEC::setAttackCooldown(float _attackCooldown) {
-    attackCooldown = _attackCooldown;
+void EnemyBehaviourEC::setAttackCooldown(float attackCooldown) {
+    attackCooldown_ = attackCooldown;
 }
 
-void EnemyBehaviourEC::setLastTimeAttacked(float _lastTimeAttacked) {
-    lastTimeAttacked = _lastTimeAttacked;
+void EnemyBehaviourEC::setLastTimeAttacked(float lastTimeAttacked) {
+    lastTimeAttacked_ = lastTimeAttacked;
 }
 
-void EnemyBehaviourEC::setDirectionToPlayer(Ogre::Vector3 _directionToPlayer) {
-    *directionToPlayer = _directionToPlayer;
+void EnemyBehaviourEC::setDirectionToPlayer(Ogre::Vector3 directionToPlayer) {
+    *directionToPlayer_ = directionToPlayer;
 }
 
-void EnemyBehaviourEC::setDistanceToPlayer(Ogre::Vector3 _distanceToPlayer) {
-    *distanceToPlayer = _distanceToPlayer;
+void EnemyBehaviourEC::setDistanceToPlayer(Ogre::Vector3 distanceToPlayer) {
+    *distanceToPlayer_ = distanceToPlayer;
 }
 
-void EnemyBehaviourEC::setAggroDistance(float _aggroDistance) {
-    aggroDistance = _aggroDistance;
+void EnemyBehaviourEC::setAggroDistance(float aggroDistance) {
+    aggroDistance_ = aggroDistance;
 }
 
-void EnemyBehaviourEC::setWithinRange(bool _withinRange) {
-    withinRange = _withinRange;
+void EnemyBehaviourEC::setWithinRange(bool withinRange) {
+    withinRange_ = withinRange;
 }
 
 void EnemyBehaviourEC::setSeparationRadius(int radius) {
-    separationRadius = radius;
+    separationRadius_ = radius;
 }
 
 void EnemyBehaviourEC::registerInOtherTransforms(TransformComponent* trans) {
-    otherTransform.push_back(trans);
+    otherTransform_.push_back(trans);
 }
 
 void EnemyBehaviourEC::unRegisterInOtherTransforms(TransformComponent* trans) {
-    auto it = otherTransform.begin();
+    auto it = otherTransform_.begin();
     bool found = false;
-    while (it != otherTransform.end() && !found) {
+    while (it != otherTransform_.end() && !found) {
         if ((*it) == trans)
             found = true;
         else
             it++;
     }
     if (found)
-        otherTransform.erase(it);
+        otherTransform_.erase(it);
 }
 
 void EnemyBehaviourEC::setSoundManager() {
-    soundManager = dynamic_cast<SoundComponent*>(
+    soundManager_ = dynamic_cast<SoundComponent*>(
         scene_->getEntityById("GameManager")->getComponent("SoundComponent"));
 }

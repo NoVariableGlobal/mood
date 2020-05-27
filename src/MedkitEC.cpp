@@ -12,7 +12,7 @@ void MedkitEC::onPick() {
     auto playerHealth = reinterpret_cast<LifeC*>(player->getComponent("LifeC"));
     playerHealth->heal(playerHealth->getTotalLife());
 
-    soundManager->playSound("MedKit");
+    soundManager_->playSound("MedKit");
 }
 
 // FACTORY INFRASTRUCTURE DEFINE

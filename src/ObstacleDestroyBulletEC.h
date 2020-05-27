@@ -2,10 +2,11 @@
 #include "EventComponent.h"
 #include "Factory.h"
 
-DECLARE_FACTORY(ObstacleDestroyBulletEC);
-class ObstacleDestroyBulletEC : public EventComponent {
+DECLARE_FACTORY(ObstacleDestroyBulletEC)
+
+class ObstacleDestroyBulletEC final : public EventComponent {
   public:
     ObstacleDestroyBulletEC();
     ~ObstacleDestroyBulletEC();
-    virtual void checkEvent();
+    void checkEvent() override;
 };

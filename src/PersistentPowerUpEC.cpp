@@ -1,9 +1,11 @@
 #include "PersistentPowerUpEC.h"
+
 #include "Entity.h"
 #include "ParticleC.h"
 #include "PowerUpIconC.h"
 #include "PowerUpTrackerC.h"
 #include "Scene.h"
+#include <utility>
 
 void PersistentPowerUpEC::onDestroy() {
     PowerUpEC::onDestroy();
@@ -66,7 +68,7 @@ void PersistentPowerUpEC::checkEvent() {
                                         // has passed
         reinterpret_cast<PowerUpIconC*>(
             scene_->getEntityById(hudName_)->getComponent("PowerUpIconC"))
-            ->desactivePowerUpIcon();
+            ->deactivatePowerUpIcon();
 
         reinterpret_cast<ParticleC*>(
             scene_->getEntityById(hudName_)->getComponent("ParticleC"))
@@ -80,4 +82,6 @@ void PersistentPowerUpEC::checkEvent() {
     }
 }
 
-void PersistentPowerUpEC::setHUDName(std::string name) { hudName_ = name; }
+void PersistentPowerUpEC::setHeadsUpDisplayName(std::string name) {
+    hudName_ = std::move(name);
+}

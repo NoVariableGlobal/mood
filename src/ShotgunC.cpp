@@ -24,12 +24,12 @@ void ShotgunC::onPreShoot() {
     const Ogre::Quaternion originalOrientation = node->getOrientation();
 
     // Orientate for the first pellet
-    const Ogre::Real firstPelletAngle = -dispAngle * (nPellets / 2.0f);
+    const Ogre::Real firstPelletAngle = -dispersionAngle_ * (nPellets_ / 2.0f);
 
     node->yaw(Ogre::Radian(Ogre::Degree(firstPelletAngle).valueRadians()));
 
-    for (int i = 0; i < nPellets; i++) {
-        Entity* entity = spawner->getBullet(_myBulletType, _myBulletTag);
+    for (int i = 0; i < nPellets_; i++) {
+        Entity* entity = spawner->getBullet(myBulletType_, myBulletTag_);
 
         auto* bullet =
             dynamic_cast<BulletC*>(entity->getComponent(bulletComponentName_));
@@ -45,29 +45,29 @@ void ShotgunC::onPreShoot() {
 
         rigidBody->setPosition(transform->getPosition());
         // Rotate the node for the next bullet
-        node->yaw(Ogre::Radian(Ogre::Degree(dispAngle).valueRadians()));
+        node->yaw(Ogre::Radian(Ogre::Degree(dispersionAngle_).valueRadians()));
     }
 
     // Restore original rotation
     node->setOrientation(originalOrientation.w, originalOrientation.x,
                          originalOrientation.y, originalOrientation.z);
 
-    soundManager->playSound(_shotSound);
+    soundManager_->playSound(shotSound_);
 }
 
 void ShotgunC::onShoot(TransformComponent* transform, RigidbodyPC* rigidBody) {
     Ogre::Quaternion quat = getOrientation();
-    transform->setPosition(myTransform->getPosition() +
+    transform->setPosition(myTransform_->getPosition() +
                            (quat * Ogre::Vector3::UNIT_Y) * 25);
-    transform->setOrientation(myTransform->getOrientation());
+    transform->setOrientation(myTransform_->getOrientation());
 
     rigidBody->setLinearVelocity(-(quat * Ogre::Vector3::NEGATIVE_UNIT_Z) *
-                                 _bulletSpeed);
+                                 bulletSpeed_);
 }
 
-void ShotgunC::setNPellets(int n) { nPellets = n; }
+void ShotgunC::setNPellets(int n) { nPellets_ = n; }
 
-void ShotgunC::setDispersion(int n) { dispAngle = n; }
+void ShotgunC::setDispersion(int n) { dispersionAngle_ = n; }
 
 // FACTORY INFRASTRUCTURE
 ShotgunCFactory::ShotgunCFactory() = default;

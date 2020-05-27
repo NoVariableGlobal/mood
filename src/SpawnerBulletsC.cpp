@@ -5,17 +5,14 @@
 #include "Scene.h"
 #include <json.h>
 
-SpawnerBulletsC::SpawnerBulletsC() {}
-
-SpawnerBulletsC::~SpawnerBulletsC() {}
-
 void SpawnerBulletsC::destroy() {
     setActive(false);
     scene_->getComponentsManager()->eraseDC(this);
 }
 
-Entity* SpawnerBulletsC::getBullet(std::string _type, std::string _tag) {
-    return scene_->getInstanceOf(_type, _type + std::to_string(count++), _tag);
+Entity* SpawnerBulletsC::getBullet(const std::string& type,
+                                   const std::string& tag) {
+    return scene_->getInstanceOf(type, type + std::to_string(count_++), tag);
 }
 
 // FACTORY INFRASTRUCTURE

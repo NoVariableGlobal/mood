@@ -7,42 +7,38 @@
 #include <iostream>
 #include <json.h>
 
-ReadNameIC::ReadNameIC() {}
+void ReadNameIC::handleInput(const SDL_Event& event) {
 
-ReadNameIC::~ReadNameIC() {}
+    if (event.type == SDL_KEYDOWN) {
 
-void ReadNameIC::handleInput(const SDL_Event& _event) {
-
-    if (_event.type == SDL_KEYDOWN) {
-
-        if (_event.key.keysym.sym == SDLK_BACKSPACE)
+        if (event.key.keysym.sym == SDLK_BACKSPACE)
             removeLetter();
-        else if (_event.key.keysym.sym >= SDLK_a &&
-                 _event.key.keysym.sym <= SDLK_z)
-            addLetter(static_cast<char>(_event.key.keysym.sym));
+        else if (event.key.keysym.sym >= SDLK_a &&
+                 event.key.keysym.sym <= SDLK_z)
+            addLetter(static_cast<char>(event.key.keysym.sym));
     }
 }
 
 void ReadNameIC::addLetter(char letter) {
-    name += letter;
+    name_ += letter;
 
     reinterpret_cast<GuiLabelComponent*>(
         scene_->getEntityById("GUI")->getComponent("GuiLabelComponent"))
-        ->changeText(name);
+        ->changeText(name_);
 }
 
 void ReadNameIC::removeLetter() {
-    if (name.size() > 0) {
+    if (name_.size() > 0) {
 
-        name.pop_back();
+        name_.pop_back();
 
         reinterpret_cast<GuiLabelComponent*>(
             scene_->getEntityById("GUI")->getComponent("GuiLabelComponent"))
-            ->changeText(name);
+            ->changeText(name_);
     }
 }
 
-std::string ReadNameIC::gatName() { return name; }
+std::string ReadNameIC::gatName() { return name_; }
 
 // FACTORY INFRASTRUCTURE
 ReadNameICFactory::ReadNameICFactory() = default;

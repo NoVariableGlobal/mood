@@ -2,18 +2,15 @@
 #include "EventComponent.h"
 #include "Factory.h"
 
-DECLARE_FACTORY(BulletHurtPlayerEC);
+DECLARE_FACTORY(BulletHurtPlayerEC)
 
 class SoundComponent;
-class BulletHurtPlayerEC : public EventComponent {
-
-  private:
-    SoundComponent* soundManager = nullptr;
+class BulletHurtPlayerEC final : public EventComponent {
+    SoundComponent* soundManager_ = nullptr;
 
   public:
     BulletHurtPlayerEC();
     ~BulletHurtPlayerEC();
-    virtual void checkEvent();
-
+    void checkEvent() override;
     void setSoundManager();
 };

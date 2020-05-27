@@ -3,10 +3,9 @@
 #include "InputComponent.h"
 
 // FACTORY INFRASTRUCTURE DECLARATION
-DECLARE_FACTORY(OrientateToMouseIC);
-class OrientateToMouseIC : public InputComponent {
+DECLARE_FACTORY(OrientateToMouseIC)
+
+class OrientateToMouseIC final : public InputComponent {
   public:
-    OrientateToMouseIC() = default;
-    ~OrientateToMouseIC() = default;
-    void handleInput(const SDL_Event& _event);
+    void handleInput(const SDL_Event& event) override;
 };

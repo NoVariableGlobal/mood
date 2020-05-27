@@ -9,18 +9,18 @@
 #include <value.h>
 
 void DestroyAfterSecsEC::checkEvent() {
-    if (firstTime) {
-        firstTime = false;
-        creationTime = clock() / static_cast<float>(CLOCKS_PER_SEC);
+    if (firstTime_) {
+        firstTime_ = false;
+        creationTime_ = clock() / static_cast<float>(CLOCKS_PER_SEC);
     }
 
     float seconds = clock() / static_cast<float>(CLOCKS_PER_SEC);
-    if (seconds - creationTime >= lifeTime) {
+    if (seconds - creationTime_ >= lifeTime_) {
         scene_->deleteEntity(father_);
     }
 }
 
-void DestroyAfterSecsEC::setLifeTime(int n) { lifeTime = n; }
+void DestroyAfterSecsEC::setLifeTime(int n) { lifeTime_ = n; }
 
 // FACTORY INFRASTRUCTURE
 DestroyAfterSecsECFactory::DestroyAfterSecsECFactory() = default;

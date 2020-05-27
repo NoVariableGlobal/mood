@@ -7,10 +7,6 @@
 #include <CEGUI/Window.h>
 #include <json.h>
 
-LifeBarC::LifeBarC() {}
-
-LifeBarC::~LifeBarC() {}
-
 void LifeBarC::destroy() {
     CEGUI::WindowManager::getSingleton().destroyWindow(myself);
     setActive(false);

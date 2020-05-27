@@ -15,17 +15,17 @@ AutomaticEC::AutomaticEC() {}
 AutomaticEC::~AutomaticEC() {}
 
 void AutomaticEC::checkEvent() {
-    if (shoot)
-        weaponController->getCurrentGun()->shoot();
+    if (shoot_)
+        weaponController_->getCurrentGun()->shoot();
 }
 
-void AutomaticEC::setShoot(bool _shoot) { shoot = _shoot; }
+void AutomaticEC::setShoot(bool _shoot) { shoot_ = _shoot; }
 
 void AutomaticEC::setWeaponControllerAndSound() {
-    weaponController = dynamic_cast<WeaponControllerIC*>(
+    weaponController_ = dynamic_cast<WeaponControllerIC*>(
         father_->getComponent("WeaponControllerIC"));
 
-    _soundComponent = dynamic_cast<SoundComponent*>(
+    soundComponent_ = dynamic_cast<SoundComponent*>(
         scene_->getEntityById("GameManager")->getComponent("SoundComponent"));
 }
 

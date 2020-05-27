@@ -1,9 +1,11 @@
 #include "PowerUpTrackerC.h"
+
 #include "ComponentsManager.h"
 #include "Entity.h"
 #include "FactoriesFactory.h"
 #include "Scene.h"
 #include "Util.h"
+#include <utility>
 
 void PowerUpTrackerC::destroy() {
     setActive(false);
@@ -11,26 +13,26 @@ void PowerUpTrackerC::destroy() {
 }
 
 Component* PowerUpTrackerC::findComponent(std::string name) {
-    return try_find(powerUps, name);
+    return try_find(powerUps_, std::move(name));
 }
 
-void PowerUpTrackerC::addPowerUp(std::string name, Component* powerUp) {
-    powerUps.insert({name, powerUp});
+void PowerUpTrackerC::addPowerUp(const std::string& name, Component* powerUp) {
+    powerUps_.insert({name, powerUp});
 }
 
-void PowerUpTrackerC::removePowerUp(std::string name) {
-    auto it = powerUps.begin();
-    while (it != powerUps.end()) {
+void PowerUpTrackerC::removePowerUp(const std::string& name) {
+    auto it = powerUps_.begin();
+    while (it != powerUps_.end()) {
         if (it->first == name) {
-            powerUps.erase(it);
+            powerUps_.erase(it);
             break;
         }
         it++;
     }
 }
 
-void PowerUpTrackerC::setAllPowerUpsNotPersistant() {
-    for (auto p : powerUps)
+void PowerUpTrackerC::setAllPowerUpsAsNotPersistent() {
+    for (auto p : powerUps_)
         p.second->getFather()->setPersistent(false);
 }
 

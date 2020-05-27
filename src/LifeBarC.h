@@ -4,18 +4,14 @@
 #include "GuiImageC.h"
 
 // FACTORY INFRASTRUCTURE DECLARATION
-DECLARE_FACTORY(LifeBarC);
+DECLARE_FACTORY(LifeBarC)
 
-class LifeBarC : public GuiImageComponent {
-  private:
-    float x_ = 0.0f, y_ = 0.0f;
+class LifeBarC final : public GuiImageComponent {
+    float x_ = 0.0f;
+    float y_ = 0.0f;
 
   public:
-    LifeBarC();
-    virtual ~LifeBarC();
-
-    virtual void destroy();
-
+    void destroy() override;
     void setInitSize(float x, float y);
     void updateLifeBar(float life, float maxLife);
 };
