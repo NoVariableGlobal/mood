@@ -3,7 +3,6 @@
 #include <string>
 
 class PersistentPowerUpEC : public PowerUpEC {
-  private:
     bool activeEffect_ = false;
     std::string hudName_;
 
@@ -14,6 +13,5 @@ class PersistentPowerUpEC : public PowerUpEC {
 
   public:
     void checkEvent();
-
-    void setHUDName(std::string name);
+    void setHeadsUpDisplayName(std::string name);
 };

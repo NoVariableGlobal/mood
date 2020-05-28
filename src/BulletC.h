@@ -2,19 +2,18 @@
 #include "Component.h"
 #include "Factory.h"
 
-DECLARE_FACTORY(BulletC);
+DECLARE_FACTORY(BulletC)
 
 class BulletC : public Component {
-  private:
     // damage of the bullet
-    float damage;
+    float damage_;
 
   public:
     BulletC();
     ~BulletC();
     virtual void destroy();
 
-    void setDamage(float _d);
+    void setDamage(float d);
     float getDamage();
 
     // method that specify what the bullet will do if it collide with something

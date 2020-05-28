@@ -18,30 +18,26 @@
 
 #include <json.h>
 
-MeleeEnemyBehaviourEC::MeleeEnemyBehaviourEC() : EnemyBehaviourEC() {}
-
-MeleeEnemyBehaviourEC::~MeleeEnemyBehaviourEC() {}
-
 void MeleeEnemyBehaviourEC::checkEvent() {
     EnemyBehaviourEC::checkEvent();
 
     // attack every attackCooldown seconds
-    if (!dead) {
+    if (!dead_) {
         // if enemy is colliding with player
         if (getCollisionWithPlayer() && timeToAttack()) {
-            attacking = true;
+            attacking_ = true;
 
-            animations->stopAnimations();
-            animations->startAnimation("Attack");
+            animations_->stopAnimations();
+            animations_->startAnimation("Attack");
 
             // attack player
-            LifeC* playerHealth = dynamic_cast<LifeC*>(
+            LifeC* playerHealth = reinterpret_cast<LifeC*>(
                 scene_->getEntityById("Player")->getComponent("LifeC"));
 
             // if player dies sleep method is called
             if (playerHealth->doDamage(getAttack())) {
 
-                soundManager->playSound("PlayerDeath");
+                soundManager_->playSound("PlayerDeath");
 
                 Entity* player = scene_->getEntityById("Player");
                 AnimationLC* animations = reinterpret_cast<AnimationLC*>(
@@ -69,7 +65,7 @@ void MeleeEnemyBehaviourEC::checkEvent() {
                         ->getComponent("DeadManagerEC"))
                     ->setActive(true);
             } else {
-                soundManager->playSound("PlayerHurt");
+                soundManager_->playSound("PlayerHurt");
             }
         }
     }
@@ -78,12 +74,12 @@ void MeleeEnemyBehaviourEC::checkEvent() {
 void MeleeEnemyBehaviourEC::rotateToPlayer() {
     // set orientation towards player
     float angleInRad =
-        atan2(transform->getPosition().z - playerTransform->getPosition().z,
-              transform->getPosition().x - playerTransform->getPosition().x);
+        atan2(transform_->getPosition().z - playerTransform_->getPosition().z,
+              transform_->getPosition().x - playerTransform_->getPosition().x);
     float angleInDeg = -angleInRad * 180 / M_PI;
 
     // make the rotation
-    mesh->setRotation(Ogre::Vector3(0, 0, angleInDeg + 90));
+    mesh_->setRotation(Ogre::Vector3(0, 0, angleInDeg + 90));
 }
 
 // FACTORY INFRASTRUCTURE

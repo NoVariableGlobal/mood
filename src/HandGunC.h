@@ -4,7 +4,7 @@
 #include "GunC.h"
 
 // FACTORY INFRASTRUCTURE DECLARATION
-DECLARE_FACTORY(HandGunC);
+DECLARE_FACTORY(HandGunC)
 
 class HandGunC final : public GunC {
   protected:

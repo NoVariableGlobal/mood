@@ -2,7 +2,7 @@
 #include "Factory.h"
 #include "PersistentPowerUpEC.h"
 
-DECLARE_FACTORY(InstakillEC);
+DECLARE_FACTORY(InstakillEC)
 
 class InstakillEC final : public PersistentPowerUpEC {
   public:

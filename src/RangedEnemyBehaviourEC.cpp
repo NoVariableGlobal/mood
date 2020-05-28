@@ -11,39 +11,36 @@
 #include "TridimensionalObjectRC.h"
 #include <Entity.h>
 #include <json.h>
-
-RangedEnemyBehaviourEC::RangedEnemyBehaviourEC() : EnemyBehaviourEC() {}
-
-RangedEnemyBehaviourEC::~RangedEnemyBehaviourEC() {}
+#include <utility>
 
 void RangedEnemyBehaviourEC::checkEvent() {
     EnemyBehaviourEC::checkEvent();
 
-    if (!dead) {
+    if (!dead_) {
         // attack every attackCooldown seconds
         if (getWithinRange()) {
             if (timeToAttack()) {
                 setIdle(false);
-                attacking = true;
+                attacking_ = true;
 
-                animations->stopAnimations();
-                animations->startAnimation("Attack");
+                animations_->stopAnimations();
+                animations_->startAnimation("Attack");
 
                 shoot();
-            } else if (!idle && animations->animationFinished("Attack")) {
-                animations->stopAnimations();
+            } else if (!idle_ && animations_->animationFinished("Attack")) {
+                animations_->stopAnimations();
                 setIdle(true);
             }
         } else {
-            if (idle) {
-                animations->stopAnimations();
-                animations->startAnimation("Walk");
+            if (idle_) {
+                animations_->stopAnimations();
+                animations_->startAnimation("Walk");
                 setIdle(false);
             }
-            if (attacking && animations->animationFinished("Attack")) {
-                attacking = false;
-                animations->stopAnimations();
-                animations->startAnimation("Walk");
+            if (attacking_ && animations_->animationFinished("Attack")) {
+                attacking_ = false;
+                animations_->stopAnimations();
+                animations_->startAnimation("Walk");
             }
         }
     }
@@ -52,33 +49,33 @@ void RangedEnemyBehaviourEC::checkEvent() {
 void RangedEnemyBehaviourEC::rotateToPlayer() {
     // set orientation towards player
     float angleInRad =
-        atan2(transform->getPosition().z - playerTransform->getPosition().z,
-              transform->getPosition().x - playerTransform->getPosition().x);
+        atan2(transform_->getPosition().z - playerTransform_->getPosition().z,
+              transform_->getPosition().x - playerTransform_->getPosition().x);
     float angleInDeg = -angleInRad * 180 / M_PI;
 
     // make the rotation
-    mesh->setRotation(Ogre::Vector3(0, angleInDeg + 90, 0));
+    mesh_->setRotation(Ogre::Vector3(0, angleInDeg + 90, 0));
 }
 
 std::string RangedEnemyBehaviourEC::getWeaponEquipped() {
-    return weaponEquipped;
+    return weaponEquipped_;
 }
 
-void RangedEnemyBehaviourEC::setWeaponEquipped(std::string _weaponEquipped) {
-    weaponEquipped = _weaponEquipped;
+void RangedEnemyBehaviourEC::setWeaponEquipped(std::string weaponEquipped) {
+    weaponEquipped_ = std::move(weaponEquipped);
 }
 
 void RangedEnemyBehaviourEC::shoot() {
-    gun = dynamic_cast<GunC*>(father_->getComponent(weaponEquipped));
-    if (gun->getautomatic()) {
-        if (_soundComponent == nullptr)
-            _soundComponent = dynamic_cast<SoundComponent*>(
+    gun_ = dynamic_cast<GunC*>(father_->getComponent(weaponEquipped_));
+    if (gun_->getautomatic()) {
+        if (soundComponent_ == nullptr)
+            soundComponent_ = reinterpret_cast<SoundComponent*>(
                 scene_->getEntityById("GameManager")
                     ->getComponent("SoundComponent"));
-        _soundComponent->playSound(gun->getShotSound());
+        soundComponent_->playSound(gun_->getShotSound());
     }
 
-    gun->shoot();
+    gun_->shoot();
 }
 
 // FACTORY INFRASTRUCTURE

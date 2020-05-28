@@ -13,7 +13,7 @@
 
 void InstakillEC::setEffect(bool effect) {
 
-    soundManager->playSound("InstaKill");
+    soundManager_->playSound("InstaKill");
     Entity* player = scene_->getEntityById("Player");
     reinterpret_cast<AutomaticRifleC*>(player->getComponent("AutomaticRifleC"))
         ->setInstakill(effect);
@@ -47,7 +47,7 @@ Component* InstakillECFactory::create(Entity* _father, Json::Value& _data,
         throw std::exception("InstakillEC: timeEffect is not a double");
     instakill->setDuration(_data["timeEffect"].asDouble());
 
-    instakill->setHUDName("KillHUD");
+    instakill->setHeadsUpDisplayName("KillHUD");
 
     instakill->setActive(true);
 

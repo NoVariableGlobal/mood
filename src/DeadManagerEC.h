@@ -2,18 +2,16 @@
 #include "EventComponent.h"
 #include "Factory.h"
 
-DECLARE_FACTORY(DeadManagerEC);
+DECLARE_FACTORY(DeadManagerEC)
 
 class AnimationLC;
-
-class DeadManagerEC : public EventComponent {
-  private:
-    AnimationLC* playerAnimations = nullptr;
+class DeadManagerEC final : public EventComponent {
+    AnimationLC* playerAnimations_ = nullptr;
 
   public:
     DeadManagerEC();
     ~DeadManagerEC();
 
-    virtual void setActive(bool active);
-    virtual void checkEvent() override;
+    void setActive(bool active) override;
+    void checkEvent() override;
 };

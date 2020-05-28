@@ -4,7 +4,7 @@
 
 namespace Ogre {
     typedef float Real;
-    template <int dims, typename T> class Vector;
+    template <int Dims, typename T> class Vector;
     typedef Vector<3, Real> Vector3;
 } // namespace Ogre
 
@@ -16,57 +16,56 @@ class AnimationLC;
 class SoundComponent;
 
 class EnemyBehaviourEC : public EventComponent {
-  private:
     // speed at which enemy follows the player
-    float speed;
+    float speed_;
 
     // true if enemy is colliding with player
-    bool collisionWithPlayer = false;
+    bool collisionWithPlayer_ = false;
 
     // amount of damage the enemy deals to the player
-    int attack;
+    int attack_;
 
     // enemy deals damage every "attackCooldown" seconds
-    float attackCooldown;
-    float lastTimeAttacked = 0;
+    float attackCooldown_;
+    float lastTimeAttacked_ = 0;
 
     // direction vector from enemy to player
-    Ogre::Vector3* directionToPlayer;
+    Ogre::Vector3* directionToPlayer_;
 
     // distance to player
-    Ogre::Vector3* distanceToPlayer;
+    Ogre::Vector3* distanceToPlayer_;
 
     // maximum distance to aggro player
-    float aggroDistance;
+    float aggroDistance_;
 
     // player is within aggroDistance
-    bool withinRange;
+    bool withinRange_;
 
     // other enemies transforms
-    std::vector<TransformComponent*> otherTransform;
+    std::vector<TransformComponent*> otherTransform_;
 
     // Separation Radius
-    int separationRadius = 0;
+    int separationRadius_ = 0;
 
     // Pointers to components
-    RigidbodyPC* rigidbody = nullptr;
-    LifeC* life = nullptr;
+    RigidbodyPC* rigidBody_ = nullptr;
+    LifeC* life_ = nullptr;
 
   protected:
     // true if enemy is colliding with player
-    bool attacking = false;
+    bool attacking_ = false;
     // true if enemy is colliding with player
-    bool dead = false;
+    bool dead_ = false;
     // true if player is dead and enemy is in idle animation
-    bool idle = false;
+    bool idle_ = false;
 
-    SoundComponent* soundManager = nullptr;
+    SoundComponent* soundManager_ = nullptr;
 
     // Pointer to animation component
-    AnimationLC* animations = nullptr;
-    TridimensionalObjectRC* mesh = nullptr;
-    TransformComponent* transform = nullptr;
-    TransformComponent* playerTransform = nullptr;
+    AnimationLC* animations_ = nullptr;
+    TridimensionalObjectRC* mesh_ = nullptr;
+    TransformComponent* transform_ = nullptr;
+    TransformComponent* playerTransform_ = nullptr;
 
   public:
     EnemyBehaviourEC();
@@ -90,7 +89,7 @@ class EnemyBehaviourEC : public EventComponent {
     void setIdle(bool active);
     Ogre::Vector3 separate();
 
-    void updatePosibilityToAttackPlayer();
+    void updatePossibilityToAttackPlayer();
 
     // getters and setters
     float getSpeed();
@@ -103,15 +102,15 @@ class EnemyBehaviourEC : public EventComponent {
     float getAggroDistance();
     bool getWithinRange();
 
-    void setSpeed(float _speed);
-    void setCollisionWithPlayer(bool _collisionWithPlayer);
-    void setAttack(float _attack);
-    void setAttackCooldown(float _attackCooldown);
-    void setLastTimeAttacked(float _lastTimeAttacked);
-    void setDirectionToPlayer(Ogre::Vector3 _directionToPlayer);
-    void setDistanceToPlayer(Ogre::Vector3 _distanceToPlayer);
-    void setAggroDistance(float _aggroDistance);
-    void setWithinRange(bool _withinRange);
+    void setSpeed(float speed);
+    void setCollisionWithPlayer(bool collisionWithPlayer);
+    void setAttack(float attack);
+    void setAttackCooldown(float attackCooldown);
+    void setLastTimeAttacked(float lastTimeAttacked);
+    void setDirectionToPlayer(Ogre::Vector3 directionToPlayer);
+    void setDistanceToPlayer(Ogre::Vector3 distanceToPlayer);
+    void setAggroDistance(float aggroDistance);
+    void setWithinRange(bool withinRange);
     void setSeparationRadius(int radius);
 
     void registerInOtherTransforms(TransformComponent* trans);

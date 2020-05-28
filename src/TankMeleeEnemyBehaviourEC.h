@@ -3,13 +3,14 @@
 #include "Factory.h"
 
 // FACTORY INFRASTRUCTURE DECLARATION
-DECLARE_FACTORY(TankMeleeEnemyBehaviourEC);
-class TankMeleeEnemyBehaviourEC : public EnemyBehaviourEC {
+DECLARE_FACTORY(TankMeleeEnemyBehaviourEC)
+
+class TankMeleeEnemyBehaviourEC final : public EnemyBehaviourEC {
 
   public:
     TankMeleeEnemyBehaviourEC();
     ~TankMeleeEnemyBehaviourEC();
 
-    virtual void checkEvent();
-    virtual void rotateToPlayer();
+    void checkEvent() override;
+    void rotateToPlayer() override;
 };

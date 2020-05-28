@@ -2,13 +2,12 @@
 #include "Factory.h"
 #include "ImmediatePowerUpEC.h"
 
+DECLARE_FACTORY(NukeEC)
+
 class SoundComponent;
-
-DECLARE_FACTORY(NukeEC);
-
 class NukeEC final : public ImmediatePowerUpEC {
-    SoundComponent* _soundComponent = nullptr;
+    SoundComponent* soundComponent_ = nullptr;
 
   public:
-    void onPick();
+    void onPick() override;
 };

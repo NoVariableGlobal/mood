@@ -24,16 +24,16 @@ void TankMeleeEnemyBehaviourEC::checkEvent() {
     EnemyBehaviourEC::checkEvent();
 
     // attack every attackCooldown seconds
-    if (!dead) {
+    if (!dead_) {
         // if enemy is colliding with player
         if (getCollisionWithPlayer() && timeToAttack()) {
-            attacking = true;
+            attacking_ = true;
 
-            animations->stopAnimations();
-            animations->startAnimation("Attack");
+            animations_->stopAnimations();
+            animations_->startAnimation("Attack");
 
             // attack player
-            LifeC* playerHealth = dynamic_cast<LifeC*>(
+            LifeC* playerHealth = reinterpret_cast<LifeC*>(
                 scene_->getEntityById("Player")->getComponent("LifeC"));
 
             // if player dies sleep method is called
@@ -71,12 +71,12 @@ void TankMeleeEnemyBehaviourEC::checkEvent() {
 void TankMeleeEnemyBehaviourEC::rotateToPlayer() {
     // set orientation towards player
     float angleInRad =
-        atan2(transform->getPosition().z - playerTransform->getPosition().z,
-              transform->getPosition().x - playerTransform->getPosition().x);
+        atan2(transform_->getPosition().z - playerTransform_->getPosition().z,
+              transform_->getPosition().x - playerTransform_->getPosition().x);
     float angleInDeg = -angleInRad * 180 / M_PI;
 
     // make the rotation
-    mesh->setRotation(Ogre::Vector3(0, angleInDeg, 0));
+    mesh_->setRotation(Ogre::Vector3(0, angleInDeg, 0));
 }
 
 // FACTORY INFRASTRUCTURE

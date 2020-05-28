@@ -11,20 +11,20 @@
 #include "TransformComponent.h"
 #include <json.h>
 
-void SpawnerFloorRandomEC::setFloorDimensions(Ogre::Vector4f _floorDimensions) {
-    *floorDimensions = _floorDimensions;
+void SpawnerFloorRandomEC::setFloorDimensions(Ogre::Vector4f floorDimensions) {
+    *floorDimensions_ = floorDimensions;
 }
 
 SpawnerFloorRandomEC::SpawnerFloorRandomEC() {
-    floorDimensions = new Ogre::Vector4f();
+    floorDimensions_ = new Ogre::Vector4f();
 }
 
-SpawnerFloorRandomEC::~SpawnerFloorRandomEC() { delete floorDimensions; }
+SpawnerFloorRandomEC::~SpawnerFloorRandomEC() { delete floorDimensions_; }
 
 void SpawnerFloorRandomEC::checkEvent() {
-    if (firstTime) {
-        firstTime = false;
-        _lastTimeSpawned = clock() / static_cast<float>(CLOCKS_PER_SEC);
+    if (firstTime_) {
+        firstTime_ = false;
+        lastTimeSpawned_ = clock() / static_cast<float>(CLOCKS_PER_SEC);
     }
 
     // Spawnea un prefab en una posicion random del mapa cada cierto tiempo
@@ -36,23 +36,23 @@ void SpawnerFloorRandomEC::checkEvent() {
         RigidbodyPC* rigidbody =
             static_cast<RigidbodyPC*>(newEntity->getComponent("RigidbodyPC"));
 
-        float x = floorDimensions->x + static_cast<float>(rand()) /
-                                           static_cast<float>(RAND_MAX) *
-                                           floorDimensions->z;
-        float z = floorDimensions->y + static_cast<float>(rand()) /
-                                           static_cast<float>(RAND_MAX) *
-                                           floorDimensions->w;
+        float x = floorDimensions_->x + static_cast<float>(rand()) /
+                                            static_cast<float>(RAND_MAX) *
+                                            floorDimensions_->z;
+        float z = floorDimensions_->y + static_cast<float>(rand()) /
+                                            static_cast<float>(RAND_MAX) *
+                                            floorDimensions_->w;
         spawnTransform->setPosition(Ogre::Vector3(x, 10, z));
         rigidbody->setPosition(Ogre::Vector3(x, 10, z));
 
-        AnimationLC* animations =
-            dynamic_cast<AnimationLC*>(newEntity->getComponent("AnimationLC"));
+        AnimationLC* animations = reinterpret_cast<AnimationLC*>(
+            newEntity->getComponent("AnimationLC"));
         animations->startAnimation("Idle");
     }
 }
 
 void SpawnerFloorRandomEC::registerInRoundManager() {
-    dynamic_cast<RoundManagerEC*>(
+    reinterpret_cast<RoundManagerEC*>(
         scene_->getEntityById("GameManager")->getComponent("RoundManagerEC"))
         ->registerOtherSpawner(this);
 }

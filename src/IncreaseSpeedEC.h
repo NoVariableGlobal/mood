@@ -2,10 +2,9 @@
 #include "Factory.h"
 #include "PersistentPowerUpEC.h"
 
-DECLARE_FACTORY(IncreaseSpeedEC);
+DECLARE_FACTORY(IncreaseSpeedEC)
 
 class IncreaseSpeedEC final : public PersistentPowerUpEC {
-  private:
     double speedIncrement_ = 0.0;
     double originalSpeed_ = 0.0;
 

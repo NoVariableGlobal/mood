@@ -6,18 +6,14 @@
 // FACTORY INFRASTRUCTURE DECLARATION
 DECLARE_FACTORY(ReadNameIC);
 
-class ReadNameIC : public InputComponent {
-  private:
-    std::string name;
+class ReadNameIC final : public InputComponent {
+    std::string name_;
 
   public:
-    ReadNameIC();
-    virtual ~ReadNameIC();
-
     void addLetter(char letter);
     void removeLetter();
 
     std::string gatName();
     // On mouse button down, tells a gun component to fire a shot
-    virtual void handleInput(const SDL_Event& _event);
+    void handleInput(const SDL_Event& event) override;
 };

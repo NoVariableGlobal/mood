@@ -24,7 +24,7 @@ void DeadManagerEC::setActive(bool _active) {
     active_ = _active;
     if (active_) {
 
-        playerAnimations = reinterpret_cast<AnimationLC*>(
+        playerAnimations_ = reinterpret_cast<AnimationLC*>(
             scene_->getEntityById("Player")->getComponent("AnimationLC"));
 
         (reinterpret_cast<AutomaticEC*>(
@@ -34,7 +34,7 @@ void DeadManagerEC::setActive(bool _active) {
 }
 
 void DeadManagerEC::checkEvent() {
-    if (playerAnimations->animationFinished("Dead")) {
+    if (playerAnimations_->animationFinished("Dead")) {
         reinterpret_cast<RankingManagerC*>(
             father_->getComponent("RankingManagerC"))
             ->playerDied();
@@ -47,7 +47,7 @@ void DeadManagerEC::checkEvent() {
 
         reinterpret_cast<PowerUpTrackerC*>(
             scene_->getEntityById("Player")->getComponent("PowerUpTrackerC"))
-            ->setAllPowerUpsNotPersistant();
+            ->setAllPowerUpsAsNotPersistent();
 
         scene_->getEntityById("LifeHUD")->setPersistent(false);
         scene_->getEntityById("SpeedHUD")->setPersistent(false);

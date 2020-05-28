@@ -2,22 +2,17 @@
 
 #include "Component.h"
 #include "Factory.h"
-
 #include <string>
 
 // FACTORY INFRASTRUCTURE DECLARATION
-DECLARE_FACTORY(GameMusicC);
+DECLARE_FACTORY(GameMusicC)
 
-class GameMusicC : public Component {
-  private:
-    std::string music = "";
+class GameMusicC final : public Component {
+    std::string music_ = "";
 
   public:
-    GameMusicC() = default;
-    ~GameMusicC() = default;
+    void destroy() override;
 
-    virtual void destroy();
-
-    void setMusic(std::string music_);
-    void stopCurrentMusic(std::string music_);
+    void setMusic(const std::string& music);
+    void stopCurrentMusic(const std::string& music);
 };

@@ -2,19 +2,14 @@
 #include "EventComponent.h"
 #include "Factory.h"
 
-DECLARE_FACTORY(DestroyAfterSecsEC);
+DECLARE_FACTORY(DestroyAfterSecsEC)
 
-class DestroyAfterSecsEC : public EventComponent {
-  private:
-    int lifeTime = 0;
-    bool firstTime = true;
-    float creationTime = 0;
+class DestroyAfterSecsEC final : public EventComponent {
+    int lifeTime_ = 0;
+    bool firstTime_ = true;
+    float creationTime_ = 0;
 
   public:
-    DestroyAfterSecsEC() = default;
-    ~DestroyAfterSecsEC() = default;
-
-    virtual void checkEvent();
-
+    void checkEvent() override;
     void setLifeTime(int n);
 };

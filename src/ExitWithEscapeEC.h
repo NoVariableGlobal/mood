@@ -2,24 +2,18 @@
 #include "EventComponent.h"
 #include "Factory.h"
 
-DECLARE_FACTORY(ExitWithEscapeEC);
+DECLARE_FACTORY(ExitWithEscapeEC)
 
 class GuiLabelComponent;
-
-class ExitWithEscapeEC : public EventComponent {
-  private:
-    int timeToExit = 2;
-    float startTime = 0;
-    bool pressing = false;
-    bool out = false;
-
-    GuiLabelComponent* label = nullptr;
+class ExitWithEscapeEC final : public EventComponent {
+    int timeToExit_ = 2;
+    float startTime_ = 0;
+    bool pressing_ = false;
+    bool out_ = false;
+    GuiLabelComponent* label_ = nullptr;
 
   public:
-    ExitWithEscapeEC();
-    ~ExitWithEscapeEC();
-
     void setPress(bool press);
     void setAlpha();
-    virtual void checkEvent() override;
+    void checkEvent() override;
 };

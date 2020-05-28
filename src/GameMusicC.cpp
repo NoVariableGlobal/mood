@@ -9,24 +9,24 @@
 #include <json.h>
 
 void GameMusicC::destroy() {
-    stopCurrentMusic(music);
+    stopCurrentMusic(music_);
     setActive(false);
     scene_->getComponentsManager()->eraseDC(this);
 }
 
-void GameMusicC::setMusic(std::string music_) {
+void GameMusicC::setMusic(const std::string& music) {
     if (music != music_) {
-        dynamic_cast<SoundComponent*>(father_->getComponent("SoundComponent"))
-            ->stopSound(music);
-        music = music_;
-        dynamic_cast<SoundComponent*>(father_->getComponent("SoundComponent"))
-            ->playSound(music);
+        auto* sound = reinterpret_cast<SoundComponent*>(
+            father_->getComponent("SoundComponent"));
+        sound->stopSound(music_);
+        music_ = music;
+        sound->playSound(music_);
     }
 }
 
-void GameMusicC::stopCurrentMusic(std::string music_) {
-    dynamic_cast<SoundComponent*>(father_->getComponent("SoundComponent"))
-        ->stopSound(music_);
+void GameMusicC::stopCurrentMusic(const std::string& music) {
+    reinterpret_cast<SoundComponent*>(father_->getComponent("SoundComponent"))
+        ->stopSound(music);
 }
 
 // FACTORY INFRASTRUCTURE DEFINITION

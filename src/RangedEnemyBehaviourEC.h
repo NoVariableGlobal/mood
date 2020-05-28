@@ -3,31 +3,26 @@
 #include "Factory.h"
 #include <string>
 
-DECLARE_FACTORY(RangedEnemyBehaviourEC);
+DECLARE_FACTORY(RangedEnemyBehaviourEC)
+
 class GunC;
 class SoundComponent;
-
-class RangedEnemyBehaviourEC : public EnemyBehaviourEC {
-
-  private:
+class RangedEnemyBehaviourEC final : public EnemyBehaviourEC {
     // type of weapon equipped
-    std::string weaponEquipped;
+    std::string weaponEquipped_;
 
     // pointer to weapon equipped
-    GunC* gun = nullptr;
-    SoundComponent* _soundComponent = nullptr;
+    GunC* gun_ = nullptr;
+    SoundComponent* soundComponent_ = nullptr;
 
   public:
-    RangedEnemyBehaviourEC();
-    ~RangedEnemyBehaviourEC();
-
-    virtual void checkEvent();
-    virtual void rotateToPlayer();
+    void checkEvent() override;
+    void rotateToPlayer() override;
 
     // getters and setters
     std::string getWeaponEquipped();
 
-    void setWeaponEquipped(std::string _weaponEquipped);
+    void setWeaponEquipped(std::string weaponEquipped);
 
     // shoot bullets in different ways depending on weaponEquipped
     void shoot();

@@ -3,7 +3,7 @@
 #include "Factory.h"
 #include "GunC.h"
 
-DECLARE_FACTORY(AutomaticRifleC);
+DECLARE_FACTORY(AutomaticRifleC)
 
 class AutomaticRifleC final : public GunC {
   protected:

@@ -9,7 +9,7 @@
 #include <SDL.h>
 #include <iostream>
 
-void OrientateToMouseIC::handleInput(const SDL_Event& _event) {
+void OrientateToMouseIC::handleInput(const SDL_Event& event) {
     // Get mouse position
     int xMouse, yMouse;
     SDL_GetGlobalMouseState(&xMouse, &yMouse);
@@ -42,7 +42,7 @@ void OrientateToMouseIC::handleInput(const SDL_Event& _event) {
 
     // Make the rotation
     TridimensionalObjectRC* fatherRender =
-        dynamic_cast<TridimensionalObjectRC*>(
+        reinterpret_cast<TridimensionalObjectRC*>(
             father_->getComponent("TridimensionalObjectRC"));
     fatherRender->setRotation(Ogre::Vector3(0, angleInDeg - 90, 0));
 }

@@ -14,11 +14,11 @@ void SniperGunC::onShoot(TransformComponent* transform,
                          RigidbodyPC* rigidBody) {
     Ogre::Quaternion quat = getOrientation();
 
-    transform->setPosition(myTransform->getPosition() +
+    transform->setPosition(myTransform_->getPosition() +
                            (quat * Ogre::Vector3::UNIT_Y) * 25 +
                            (quat * Ogre::Vector3::UNIT_Z) * 10);
-    transform->setOrientation(myTransform->getOrientation());
-    rigidBody->setLinearVelocity((quat * Ogre::Vector3::UNIT_Z) * _bulletSpeed);
+    transform->setOrientation(myTransform_->getOrientation());
+    rigidBody->setLinearVelocity((quat * Ogre::Vector3::UNIT_Z) * bulletSpeed_);
     GunC::onShoot(transform, rigidBody);
 }
 

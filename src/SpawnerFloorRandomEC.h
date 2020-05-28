@@ -4,23 +4,22 @@
 
 namespace Ogre {
     typedef float Real;
-    template <int dims, typename T> class Vector;
+    template <int Dims, typename T> class Vector;
     typedef Vector<4, Real> Vector4f;
 } // namespace Ogre
 
 // FACTORY INFRASTRUCTURE DECLARATION
-DECLARE_FACTORY(SpawnerFloorRandomEC);
+DECLARE_FACTORY(SpawnerFloorRandomEC)
 
-class SpawnerFloorRandomEC : public SpawnerEC {
-  private:
-    Ogre::Vector4f* floorDimensions;
-    bool first = true;
+class SpawnerFloorRandomEC final : public SpawnerEC {
+    Ogre::Vector4f* floorDimensions_;
+    bool first_ = true;
 
   public:
     SpawnerFloorRandomEC();
-    virtual ~SpawnerFloorRandomEC();
-    virtual void checkEvent() override;
-    void setFloorDimensions(Ogre::Vector4f _floorDimensions);
+    ~SpawnerFloorRandomEC();
 
-    virtual void registerInRoundManager();
+    void checkEvent() override;
+    void setFloorDimensions(Ogre::Vector4f floorDimensions);
+    void registerInRoundManager() override;
 };

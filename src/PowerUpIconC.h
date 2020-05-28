@@ -5,13 +5,10 @@
 // FACTORY INFRASTRUCTURE DECLARATION
 DECLARE_FACTORY(PowerUpIconC);
 
-class PowerUpIconC : public GuiImageComponent {
+class PowerUpIconC final : public GuiImageComponent {
   public:
-    PowerUpIconC() = default;
-    virtual ~PowerUpIconC() = default;
-
-    virtual void destroy();
+    void destroy() override;
 
     void activePowerUpIcon();
-    void desactivePowerUpIcon();
+    void deactivatePowerUpIcon();
 };

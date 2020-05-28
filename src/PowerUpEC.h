@@ -3,7 +3,6 @@
 
 class SoundComponent;
 class PowerUpEC : public EventComponent {
-  private:
     float durationTotal_ = 0.0f;
     float time_ = 0.0f;
     bool collisionWithPlayer_ = false;
@@ -12,8 +11,7 @@ class PowerUpEC : public EventComponent {
 
   protected:
     virtual void onDestroy();
-
-    SoundComponent* soundManager = nullptr;
+    SoundComponent* soundManager_ = nullptr;
 
   public:
     PowerUpEC();

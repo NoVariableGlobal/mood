@@ -10,56 +10,52 @@
 #include <iostream>
 #include <json.h>
 
-PlayerMovementIC::PlayerMovementIC() {}
-
-PlayerMovementIC::~PlayerMovementIC() {}
-
-void PlayerMovementIC::handleInput(const SDL_Event& _event) {
+void PlayerMovementIC::handleInput(const SDL_Event& event) {
     RigidbodyPC* body =
-        dynamic_cast<RigidbodyPC*>(father_->getComponent("RigidbodyPC"));
+        reinterpret_cast<RigidbodyPC*>(father_->getComponent("RigidbodyPC"));
 
-    if (_event.type == SDL_KEYDOWN) {
-        switch (_event.key.keysym.sym) {
+    if (event.type == SDL_KEYDOWN) {
+        switch (event.key.keysym.sym) {
         case SDLK_w:
-            wDown = true;
+            wDown_ = true;
             break;
 
         case SDLK_s:
-            sDown = true;
+            sDown_ = true;
             break;
 
         case SDLK_a:
-            aDown = true;
+            aDown_ = true;
             break;
 
         case SDLK_d:
-            dDown = true;
+            dDown_ = true;
             break;
 
         default:
             break;
         }
-        if (!hit) {
-            animations->stopAnimations();
-            animations->startAnimation("Run Down");
-            hit = true;
+        if (!hit_) {
+            animations_->stopAnimations();
+            animations_->startAnimation("Run Down");
+            hit_ = true;
         }
-    } else if (_event.type == SDL_KEYUP) {
-        switch (_event.key.keysym.sym) {
+    } else if (event.type == SDL_KEYUP) {
+        switch (event.key.keysym.sym) {
         case SDLK_w:
-            wDown = false;
+            wDown_ = false;
             break;
 
         case SDLK_s:
-            sDown = false;
+            sDown_ = false;
             break;
 
         case SDLK_a:
-            aDown = false;
+            aDown_ = false;
             break;
 
         case SDLK_d:
-            dDown = false;
+            dDown_ = false;
             break;
 
         default:
@@ -69,33 +65,33 @@ void PlayerMovementIC::handleInput(const SDL_Event& _event) {
 
     Ogre::Vector3 velocity = Ogre::Vector3(0.0f, 0.0f, 0.0f);
 
-    if (wDown)
-        velocity += Ogre::Vector3(0.0f, 0.0f, -_speed);
-    if (sDown)
-        velocity += Ogre::Vector3(0.0f, 0.0f, _speed);
-    if (aDown)
-        velocity += Ogre::Vector3(-_speed, 0.0f, 0.0f);
-    if (dDown)
-        velocity += Ogre::Vector3(_speed, 0.0f, 0.0f);
+    if (wDown_)
+        velocity += Ogre::Vector3(0.0f, 0.0f, -speed_);
+    if (sDown_)
+        velocity += Ogre::Vector3(0.0f, 0.0f, speed_);
+    if (aDown_)
+        velocity += Ogre::Vector3(-speed_, 0.0f, 0.0f);
+    if (dDown_)
+        velocity += Ogre::Vector3(speed_, 0.0f, 0.0f);
 
     body->setLinearVelocity(velocity);
 
-    if (hit && velocity == Ogre::Vector3(0.0f, 0.0f, 0.0f)) {
-        animations->stopAnimations();
-        animations->startAnimation("Idle");
-        hit = false;
+    if (hit_ && velocity == Ogre::Vector3(0.0f, 0.0f, 0.0f)) {
+        animations_->stopAnimations();
+        animations_->startAnimation("Idle");
+        hit_ = false;
     }
 }
 
-float PlayerMovementIC::getMovementSpeed() { return _speed; }
+float PlayerMovementIC::getMovementSpeed() { return speed_; }
 
-void PlayerMovementIC::setMovementSpeed(float speed) { _speed = speed; }
+void PlayerMovementIC::setMovementSpeed(float speed) { speed_ = speed; }
 
 void PlayerMovementIC::setIdleAnimation() {
-    animations =
+    animations_ =
         reinterpret_cast<AnimationLC*>(father_->getComponent("AnimationLC"));
-    animations->stopAnimations();
-    animations->startAnimation("Idle");
+    animations_->stopAnimations();
+    animations_->startAnimation("Idle");
 }
 
 // FACTORY INFRASTRUCTURE

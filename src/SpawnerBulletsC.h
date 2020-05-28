@@ -4,17 +4,13 @@
 #include <string>
 
 // FACTORY INFRASTRUCTURE DECLARATION
-DECLARE_FACTORY(SpawnerBulletsC);
+DECLARE_FACTORY(SpawnerBulletsC)
 
 class Entity;
-
-class SpawnerBulletsC : public Component {
-  private:
-    int count = 0;
+class SpawnerBulletsC final : public Component {
+    int count_ = 0;
 
   public:
-    SpawnerBulletsC();
-    virtual ~SpawnerBulletsC();
-    virtual void destroy();
-    Entity* getBullet(std::string _type, std::string _tag);
+    void destroy() override;
+    Entity* getBullet(const std::string& type, const std::string& tag);
 };

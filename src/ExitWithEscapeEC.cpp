@@ -10,15 +10,11 @@
 #include <iostream>
 #include <json.h>
 
-ExitWithEscapeEC::ExitWithEscapeEC() {}
-
-ExitWithEscapeEC::~ExitWithEscapeEC() {}
-
 void ExitWithEscapeEC::setPress(bool press) {
-    std::cout << pressing;
-    pressing = press;
+    std::cout << pressing_;
+    pressing_ = press;
     if (press)
-        startTime = clock() / static_cast<float>(CLOCKS_PER_SEC);
+        startTime_ = clock() / static_cast<float>(CLOCKS_PER_SEC);
     else
         reinterpret_cast<GuiLabelComponent*>(
             father_->getComponent("GuiLabelComponent"))
@@ -26,21 +22,21 @@ void ExitWithEscapeEC::setPress(bool press) {
 }
 
 void ExitWithEscapeEC::setAlpha() {
-    label = reinterpret_cast<GuiLabelComponent*>(
+    label_ = reinterpret_cast<GuiLabelComponent*>(
         father_->getComponent("GuiLabelComponent"));
-    label->setAlpha(0);
+    label_->setAlpha(0);
 }
 
 void ExitWithEscapeEC::checkEvent() {
 
-    if (pressing && !out) {
+    if (pressing_ && !out_) {
 
         float seconds = clock() / static_cast<float>(CLOCKS_PER_SEC);
-        if (seconds - startTime >= timeToExit) {
+        if (seconds - startTime_ >= timeToExit_) {
             scene_->changeScene("mainmenu", true);
-            out = true;
+            out_ = true;
         } else
-            label->setAlpha((seconds - startTime) / 2);
+            label_->setAlpha((seconds - startTime_) / 2);
     }
 }
 

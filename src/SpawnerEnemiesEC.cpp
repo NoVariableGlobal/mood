@@ -10,49 +10,48 @@
 #include "TransformComponent.h"
 #include <json.h>
 
-SpawnerEnemiesEC::SpawnerEnemiesEC() {}
-
 void SpawnerEnemiesEC::checkEvent() {
 
-    if (firstTime) {
-        firstTime = false;
-        _lastTimeSpawned = clock() / static_cast<float>(CLOCKS_PER_SEC);
+    if (firstTime_) {
+        firstTime_ = false;
+        lastTimeSpawned_ = clock() / static_cast<float>(CLOCKS_PER_SEC);
     }
 
     // Spawnea un enemigo cada cierto tiempo en la posicion del spawn
-    if (enemies > 0 && timeToSpawn()) {
+    if (enemies_ > 0 && timeToSpawn()) {
         Entity* newEntity = spawnPrefab();
 
-        TransformComponent* spawnTransform = dynamic_cast<TransformComponent*>(
-            newEntity->getComponent("TransformComponent"));
+        TransformComponent* spawnTransform =
+            reinterpret_cast<TransformComponent*>(
+                newEntity->getComponent("TransformComponent"));
 
-        RigidbodyPC* rigid =
-            dynamic_cast<RigidbodyPC*>(newEntity->getComponent("RigidbodyPC"));
+        RigidbodyPC* rigid = reinterpret_cast<RigidbodyPC*>(
+            newEntity->getComponent("RigidbodyPC"));
 
-        AnimationLC* animations =
-            dynamic_cast<AnimationLC*>(newEntity->getComponent("AnimationLC"));
+        AnimationLC* animations = reinterpret_cast<AnimationLC*>(
+            newEntity->getComponent("AnimationLC"));
         animations->startAnimation("Walk");
 
-        rigid->setPosition(transform->getPosition());
-        spawnTransform->setPosition(transform->getPosition());
-        enemies--;
+        rigid->setPosition(transform_->getPosition());
+        spawnTransform->setPosition(transform_->getPosition());
+        enemies_--;
     }
 }
 
 void SpawnerEnemiesEC::setTransform(TransformComponent* trans) {
-    transform = trans;
+    transform_ = trans;
 }
 
-void SpawnerEnemiesEC::setEnemies(int _enemies) { enemies = _enemies; }
+void SpawnerEnemiesEC::setEnemies(int _enemies) { enemies_ = _enemies; }
 
 void SpawnerEnemiesEC::registerInRoundManager() {
-    dynamic_cast<RoundManagerEC*>(
+    reinterpret_cast<RoundManagerEC*>(
         scene_->getEntityById("GameManager")->getComponent("RoundManagerEC"))
         ->registerEnemySpawner(this);
 }
 
 void SpawnerEnemiesEC::changePosition(Ogre::Vector3 newPos) {
-    transform->setPosition(newPos);
+    transform_->setPosition(newPos);
 }
 
 // FACTORY INFRASTRUCTURE
@@ -66,7 +65,7 @@ Component* SpawnerEnemiesECFactory::create(Entity* _father, Json::Value& _data,
     spawnerEnemies->setScene(scene);
     spawnerEnemies->registerInRoundManager();
 
-    spawnerEnemies->setTransform(dynamic_cast<TransformComponent*>(
+    spawnerEnemies->setTransform(reinterpret_cast<TransformComponent*>(
         _father->getComponent("TransformComponent")));
     scene->getComponentsManager()->addEC(spawnerEnemies);
 
