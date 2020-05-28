@@ -122,6 +122,13 @@
     <ClInclude Include="..\src\SpawnerFloorRandomEC.h" />
     <ClInclude Include="..\src\TankMeleeEnemyBehaviourEC.h" />
     <ClInclude Include="..\src\WeaponControllerIC.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="mood.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\bin\media\MOOD_logo.ico" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

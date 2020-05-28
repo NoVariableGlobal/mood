@@ -8,6 +8,9 @@
     <ClCompile Include="..\src\DeadManagerEC.cpp" />
     <ClCompile Include="..\src\DestroyAfterSecsEC.cpp" />
     <ClCompile Include="..\src\EnemyBehaviourEC.cpp" />
+    <ClCompile Include="..\src\EscapePressIC.cpp" />
+    <ClCompile Include="..\src\ExitWithEscapeEC.cpp" />
+    <ClCompile Include="..\src\GameMusicC.cpp" />
     <ClCompile Include="..\src\GuiRoundLabelC.cpp" />
     <ClCompile Include="..\src\GuiRankingLabelC.cpp" />
     <ClCompile Include="..\src\GunC.cpp" />
@@ -49,10 +52,6 @@
     <ClCompile Include="..\src\SpawnerFloorRandomEC.cpp" />
     <ClCompile Include="..\src\TankMeleeEnemyBehaviourEC.cpp" />
     <ClCompile Include="..\src\WeaponControllerIC.cpp" />
-    <ClCompile Include="..\src\GunModelManagerEC.cpp" />
-    <ClCompile Include="..\src\ExitWithEscapeEC.cpp">
-    <ClCompile Include="..\src\EscapePressIC.cpp">
-    <ClCompile Include="..\src\GameMusicC.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\AutomaticEC.h" />
@@ -62,6 +61,9 @@
     <ClInclude Include="..\src\DeadManagerEC.h" />
     <ClInclude Include="..\src\DestroyAfterSecsEC.h" />
     <ClInclude Include="..\src\EnemyBehaviourEC.h" />
+    <ClInclude Include="..\src\EscapePressIC.h" />
+    <ClInclude Include="..\src\ExitWithEscapeEC.h" />
+    <ClInclude Include="..\src\GameMusicC.h" />
     <ClInclude Include="..\src\GuiRoundLabelC.h" />
     <ClInclude Include="..\src\GuiRankingLabelC.h" />
     <ClInclude Include="..\src\GunC.h" />
@@ -102,9 +104,12 @@
     <ClInclude Include="..\src\SpawnerFloorRandomEC.h" />
     <ClInclude Include="..\src\TankMeleeEnemyBehaviourEC.h" />
     <ClInclude Include="..\src\WeaponControllerIC.h" />
-    <ClInclude Include="..\src\GunModelManagerEC.h" />
-    <ClInclude Include="..\src\ExitWithEscapeEC.h">
-    <ClInclude Include="..\src\EscapePressIC.h">
-    <ClInclude Include="..\src\GameMusicC.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="mood.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\bin\media\MOOD_logo.ico" />
   </ItemGroup>
 </Project>
