@@ -45,14 +45,14 @@ void SpawnerFloorRandomEC::checkEvent() {
         spawnTransform->setPosition(Ogre::Vector3(x, 10, z));
         rigidbody->setPosition(Ogre::Vector3(x, 10, z));
 
-        AnimationLC* animations =
-            dynamic_cast<AnimationLC*>(newEntity->getComponent("AnimationLC"));
+        AnimationLC* animations = reinterpret_cast<AnimationLC*>(
+            newEntity->getComponent("AnimationLC"));
         animations->startAnimation("Idle");
     }
 }
 
 void SpawnerFloorRandomEC::registerInRoundManager() {
-    dynamic_cast<RoundManagerEC*>(
+    reinterpret_cast<RoundManagerEC*>(
         scene_->getEntityById("GameManager")->getComponent("RoundManagerEC"))
         ->registerOtherSpawner(this);
 }

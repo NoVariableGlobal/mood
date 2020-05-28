@@ -138,7 +138,7 @@ Component* ShotgunCFactory::create(Entity* _father, Json::Value& _data,
         throw std::exception("ShotgunC: shotSound is not a string");
     shotgun->setShotSound(_data["shotSound"].asString());
 
-    shotgun->setTransform(dynamic_cast<TransformComponent*>(
+    shotgun->setTransform(reinterpret_cast<TransformComponent*>(
         _father->getComponent("TransformComponent")));
 
     return shotgun;

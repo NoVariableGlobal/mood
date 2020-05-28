@@ -16,16 +16,16 @@ void GameMusicC::destroy() {
 
 void GameMusicC::setMusic(const std::string& music) {
     if (music != music_) {
-        dynamic_cast<SoundComponent*>(father_->getComponent("SoundComponent"))
-            ->stopSound(music_);
+        auto* sound = reinterpret_cast<SoundComponent*>(
+            father_->getComponent("SoundComponent"));
+        sound->stopSound(music_);
         music_ = music;
-        dynamic_cast<SoundComponent*>(father_->getComponent("SoundComponent"))
-            ->playSound(music_);
+        sound->playSound(music_);
     }
 }
 
 void GameMusicC::stopCurrentMusic(const std::string& music) {
-    dynamic_cast<SoundComponent*>(father_->getComponent("SoundComponent"))
+    reinterpret_cast<SoundComponent*>(father_->getComponent("SoundComponent"))
         ->stopSound(music);
 }
 

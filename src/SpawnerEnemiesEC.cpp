@@ -21,14 +21,15 @@ void SpawnerEnemiesEC::checkEvent() {
     if (enemies_ > 0 && timeToSpawn()) {
         Entity* newEntity = spawnPrefab();
 
-        TransformComponent* spawnTransform = dynamic_cast<TransformComponent*>(
-            newEntity->getComponent("TransformComponent"));
+        TransformComponent* spawnTransform =
+            reinterpret_cast<TransformComponent*>(
+                newEntity->getComponent("TransformComponent"));
 
-        RigidbodyPC* rigid =
-            dynamic_cast<RigidbodyPC*>(newEntity->getComponent("RigidbodyPC"));
+        RigidbodyPC* rigid = reinterpret_cast<RigidbodyPC*>(
+            newEntity->getComponent("RigidbodyPC"));
 
-        AnimationLC* animations =
-            dynamic_cast<AnimationLC*>(newEntity->getComponent("AnimationLC"));
+        AnimationLC* animations = reinterpret_cast<AnimationLC*>(
+            newEntity->getComponent("AnimationLC"));
         animations->startAnimation("Walk");
 
         rigid->setPosition(transform_->getPosition());
@@ -44,7 +45,7 @@ void SpawnerEnemiesEC::setTransform(TransformComponent* trans) {
 void SpawnerEnemiesEC::setEnemies(int _enemies) { enemies_ = _enemies; }
 
 void SpawnerEnemiesEC::registerInRoundManager() {
-    dynamic_cast<RoundManagerEC*>(
+    reinterpret_cast<RoundManagerEC*>(
         scene_->getEntityById("GameManager")->getComponent("RoundManagerEC"))
         ->registerEnemySpawner(this);
 }
@@ -64,7 +65,7 @@ Component* SpawnerEnemiesECFactory::create(Entity* _father, Json::Value& _data,
     spawnerEnemies->setScene(scene);
     spawnerEnemies->registerInRoundManager();
 
-    spawnerEnemies->setTransform(dynamic_cast<TransformComponent*>(
+    spawnerEnemies->setTransform(reinterpret_cast<TransformComponent*>(
         _father->getComponent("TransformComponent")));
     scene->getComponentsManager()->addEC(spawnerEnemies);
 

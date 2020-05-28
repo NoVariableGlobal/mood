@@ -12,7 +12,7 @@
 
 void PlayerMovementIC::handleInput(const SDL_Event& event) {
     RigidbodyPC* body =
-        dynamic_cast<RigidbodyPC*>(father_->getComponent("RigidbodyPC"));
+        reinterpret_cast<RigidbodyPC*>(father_->getComponent("RigidbodyPC"));
 
     if (event.type == SDL_KEYDOWN) {
         switch (event.key.keysym.sym) {

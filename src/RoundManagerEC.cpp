@@ -62,8 +62,9 @@ void RoundManagerEC::checkEvent() {
                     ->getComponent("GuiLabelComponent"))
                 ->changeText("Round " + std::to_string(roundNumber_));
 
-            dynamic_cast<SoundComponent*>(scene_->getEntityById("GameManager")
-                                              ->getComponent("SoundComponent"))
+            reinterpret_cast<SoundComponent*>(
+                scene_->getEntityById("GameManager")
+                    ->getComponent("SoundComponent"))
                 ->playSound("NextRound");
 
             reinterpret_cast<GameMusicC*>(scene_->getEntityById("GameManager")

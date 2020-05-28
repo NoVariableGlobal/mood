@@ -42,7 +42,7 @@ void OrientateToMouseIC::handleInput(const SDL_Event& event) {
 
     // Make the rotation
     TridimensionalObjectRC* fatherRender =
-        dynamic_cast<TridimensionalObjectRC*>(
+        reinterpret_cast<TridimensionalObjectRC*>(
             father_->getComponent("TridimensionalObjectRC"));
     fatherRender->setRotation(Ogre::Vector3(0, angleInDeg - 90, 0));
 }

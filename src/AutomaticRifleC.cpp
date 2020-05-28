@@ -88,7 +88,7 @@ Component* AutomaticRifleCFactory::create(Entity* _father, Json::Value& _data,
         throw std::exception("AutomaticRifleC: shotSound is not a string");
     machineGun->setShotSound(_data["shotSound"].asString());
 
-    machineGun->setTransform(dynamic_cast<TransformComponent*>(
+    machineGun->setTransform(reinterpret_cast<TransformComponent*>(
         _father->getComponent("TransformComponent")));
 
     return machineGun;

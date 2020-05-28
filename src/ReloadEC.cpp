@@ -15,12 +15,13 @@ void ReloadEC::checkEvent() {
         float seconds = clock() / static_cast<float>(CLOCKS_PER_SEC);
         if (seconds - timer_ >= timeToReload_) {
 
-            (dynamic_cast<WeaponControllerIC*>(
+            (reinterpret_cast<WeaponControllerIC*>(
                  father_->getComponent("WeaponControllerIC")))
                 ->getCurrentGun()
                 ->reload();
 
-            (dynamic_cast<PlayerShotIC*>(father_->getComponent("PlayerShotIC")))
+            (reinterpret_cast<PlayerShotIC*>(
+                 father_->getComponent("PlayerShotIC")))
                 ->setReloading(false);
 
             reloading_ = false;
@@ -41,12 +42,12 @@ void ReloadEC::setTime(float time) { timeToReload_ = time; }
 
 void ReloadEC::gunChanged() {
     reloading_ = false;
-    (dynamic_cast<PlayerShotIC*>(father_->getComponent("PlayerShotIC")))
+    (reinterpret_cast<PlayerShotIC*>(father_->getComponent("PlayerShotIC")))
         ->setReloading(false);
 }
 
 void ReloadEC::setSoundManager() {
-    soundManager_ = dynamic_cast<SoundComponent*>(
+    soundManager_ = reinterpret_cast<SoundComponent*>(
         scene_->getEntityById("GameManager")->getComponent("SoundComponent"));
 }
 

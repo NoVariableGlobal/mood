@@ -22,10 +22,10 @@ void AutomaticEC::checkEvent() {
 void AutomaticEC::setShoot(bool _shoot) { shoot_ = _shoot; }
 
 void AutomaticEC::setWeaponControllerAndSound() {
-    weaponController_ = dynamic_cast<WeaponControllerIC*>(
+    weaponController_ = reinterpret_cast<WeaponControllerIC*>(
         father_->getComponent("WeaponControllerIC"));
 
-    soundComponent_ = dynamic_cast<SoundComponent*>(
+    soundComponent_ = reinterpret_cast<SoundComponent*>(
         scene_->getEntityById("GameManager")->getComponent("SoundComponent"));
 }
 

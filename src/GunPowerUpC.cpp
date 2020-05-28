@@ -14,7 +14,7 @@ void GunPowerUpC::destroy() {
 }
 
 void GunPowerUpC::onPickUp() {
-    dynamic_cast<WeaponControllerIC*>(
+    reinterpret_cast<WeaponControllerIC*>(
         scene_->getEntityById("Player")->getComponent("WeaponControllerIC"))
         ->pickUpGun(gunId_);
 

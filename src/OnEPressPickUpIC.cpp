@@ -12,7 +12,7 @@
 #include <utility>
 
 void OnEPressPickUpIC::handleInput(const SDL_Event& event) {
-    rb_ = dynamic_cast<RigidbodyPC*>(father_->getComponent("RigidbodyPC"));
+    rb_ = reinterpret_cast<RigidbodyPC*>(father_->getComponent("RigidbodyPC"));
     if (rb_->collidesWith("Player")) {
         // TODO: Mostrar un icono con la "E" cuando haya interfaz
 

@@ -54,7 +54,7 @@ bool PowerUpEC::timeDisappearEffect() {
 }
 
 void PowerUpEC::setSoundManager() {
-    soundManager_ = dynamic_cast<SoundComponent*>(
+    soundManager_ = reinterpret_cast<SoundComponent*>(
         scene_->getEntityById("GameManager")->getComponent("SoundComponent"));
 }
 

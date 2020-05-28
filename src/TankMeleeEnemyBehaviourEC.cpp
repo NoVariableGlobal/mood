@@ -33,7 +33,7 @@ void TankMeleeEnemyBehaviourEC::checkEvent() {
             animations_->startAnimation("Attack");
 
             // attack player
-            LifeC* playerHealth = dynamic_cast<LifeC*>(
+            LifeC* playerHealth = reinterpret_cast<LifeC*>(
                 scene_->getEntityById("Player")->getComponent("LifeC"));
 
             // if player dies sleep method is called

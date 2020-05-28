@@ -7,6 +7,7 @@
 #include "RigidbodyPC.h"
 #include "RoundManagerEC.h"
 #include "Scene.h"
+#include "SniperBulletC.h"
 #include "SoundComponent.h"
 #include "TransformComponent.h"
 #include "TridimensionalObjectRC.h"
@@ -57,7 +58,7 @@ void EnemyBehaviourEC::registerComponents() {
     life_ = reinterpret_cast<LifeC*>(father_->getComponent("LifeC"));
     animations_ =
         reinterpret_cast<AnimationLC*>(father_->getComponent("AnimationLC"));
-    mesh_ = dynamic_cast<TridimensionalObjectRC*>(
+    mesh_ = reinterpret_cast<TridimensionalObjectRC*>(
         father_->getComponent("TridimensionalObjectRC"));
 }
 
@@ -109,7 +110,7 @@ void EnemyBehaviourEC::checkEvent() {
 
         rotateToPlayer();
 
-        LifeC* playerHealth = dynamic_cast<LifeC*>(
+        LifeC* playerHealth = reinterpret_cast<LifeC*>(
             (scene_->getEntityById("Player")->getComponent("LifeC")));
         if (playerHealth->getLife() <= 0) {
             rigidBody_->setLinearVelocity(Ogre::Vector3(0, 0, 0));
@@ -138,11 +139,11 @@ void EnemyBehaviourEC::checkDamage() {
     Entity* playerBullet = rigidBody_->collidesWithTag("PlayerBullet");
     if (playerBullet != nullptr) {
         BulletC* bullet =
-            dynamic_cast<BulletC*>(playerBullet->findComponent("BulletC"));
+            reinterpret_cast<BulletC*>(playerBullet->findComponent("BulletC"));
         if (bullet == nullptr)
-            bullet = dynamic_cast<BulletC*>(
+            bullet = reinterpret_cast<SniperBulletC*>(
                 playerBullet->findComponent("SniperBulletC"));
-        // sonido da�o enemigo
+        // sonido daño enemigo
 
         Component* comp = father_->findComponent("MeleeEnemyBehaviourEC");
         if (comp != nullptr)
@@ -334,6 +335,6 @@ void EnemyBehaviourEC::unRegisterInOtherTransforms(TransformComponent* trans) {
 }
 
 void EnemyBehaviourEC::setSoundManager() {
-    soundManager_ = dynamic_cast<SoundComponent*>(
+    soundManager_ = reinterpret_cast<SoundComponent*>(
         scene_->getEntityById("GameManager")->getComponent("SoundComponent"));
 }

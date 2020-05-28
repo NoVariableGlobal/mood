@@ -69,7 +69,7 @@ void RangedEnemyBehaviourEC::shoot() {
     gun_ = dynamic_cast<GunC*>(father_->getComponent(weaponEquipped_));
     if (gun_->getautomatic()) {
         if (soundComponent_ == nullptr)
-            soundComponent_ = dynamic_cast<SoundComponent*>(
+            soundComponent_ = reinterpret_cast<SoundComponent*>(
                 scene_->getEntityById("GameManager")
                     ->getComponent("SoundComponent"));
         soundComponent_->playSound(gun_->getShotSound());

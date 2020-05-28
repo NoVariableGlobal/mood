@@ -14,7 +14,8 @@
 #include <json.h>
 
 void WeaponControllerIC::init() {
-    currentGun_ = dynamic_cast<HandGunC*>(father_->getComponent("HandGunC"));
+    currentGun_ =
+        reinterpret_cast<HandGunC*>(father_->getComponent("HandGunC"));
 }
 
 void WeaponControllerIC::handleInput(const SDL_Event& event) {
@@ -74,29 +75,21 @@ GunC* WeaponControllerIC::getCurrentGun() { return currentGun_; }
 GunC* WeaponControllerIC::getSecondaryGun() { return secondaryGun_; }
 
 void WeaponControllerIC::pickUpGun(const std::string& gunName) {
-
     soundManager_->playSound("SwapGun");
     // Deactivate old gun
     if (secondaryGun_ != nullptr) {
         if (secondaryGun_ ==
-            dynamic_cast<HandGunC*>(father_->getComponent("HandGunC"))) {
+            reinterpret_cast<HandGunC*>(father_->getComponent("HandGunC"))) {
             currentGun_->setActive(false);
-
-            // Activate ned gun and equip it
-            currentGun_ = dynamic_cast<GunC*>(father_->getComponent(gunName));
-            currentGun_->setActive(true);
-            currentGun_->reset();
-        }
-
-        else {
+        } else {
             secondaryGun_->setActive(false);
             secondaryGun_ = currentGun_;
-            // Activate ned gun and equip it
-            currentGun_ = dynamic_cast<GunC*>(father_->getComponent(gunName));
-            currentGun_->setActive(true);
-
-            currentGun_->reset();
         }
+
+        // Activate ned gun and equip it
+        currentGun_ = dynamic_cast<GunC*>(father_->getComponent(gunName));
+        currentGun_->setActive(true);
+        currentGun_->reset();
     } else {
         secondaryGun_ = currentGun_;
         // Activate ned gun and equip it
@@ -116,7 +109,7 @@ void WeaponControllerIC::pickUpGun(const std::string& gunName) {
 }
 
 void WeaponControllerIC::setSoundManager() {
-    soundManager_ = dynamic_cast<SoundComponent*>(
+    soundManager_ = reinterpret_cast<SoundComponent*>(
         scene_->getEntityById("GameManager")->getComponent("SoundComponent"));
 }
 

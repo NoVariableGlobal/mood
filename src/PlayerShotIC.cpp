@@ -12,7 +12,7 @@
 #include <json.h>
 
 void PlayerShotIC::handleInput(const SDL_Event& event) {
-    bool automatic = (dynamic_cast<WeaponControllerIC*>(
+    bool automatic = (reinterpret_cast<WeaponControllerIC*>(
                           father_->getComponent("WeaponControllerIC")))
                          ->getCurrentGun()
                          ->getautomatic();
@@ -20,28 +20,29 @@ void PlayerShotIC::handleInput(const SDL_Event& event) {
         if (event.button.button == SDL_BUTTON_LEFT && !reloading_) {
             // TODO: Tell gun component to fire a shot
             if (!automatic)
-                (dynamic_cast<WeaponControllerIC*>(
+                (reinterpret_cast<WeaponControllerIC*>(
                      father_->getComponent("WeaponControllerIC")))
                     ->getCurrentGun()
                     ->shoot();
             else
-                (dynamic_cast<AutomaticEC*>(
+                (reinterpret_cast<AutomaticEC*>(
                      father_->getComponent("AutomaticEC")))
                     ->setShoot(true);
         }
     } else if (automatic && event.type == SDL_MOUSEBUTTONUP) {
         if (event.button.button == SDL_BUTTON_LEFT) {
-            (dynamic_cast<AutomaticEC*>(father_->getComponent("AutomaticEC")))
+            (reinterpret_cast<AutomaticEC*>(
+                 father_->getComponent("AutomaticEC")))
                 ->setShoot(false);
         }
     } else if (event.type == SDL_KEYDOWN) {
         if (event.key.keysym.sym == SDLK_r) {
-            if (!(dynamic_cast<WeaponControllerIC*>(
+            if (!(reinterpret_cast<WeaponControllerIC*>(
                       father_->getComponent("WeaponControllerIC")))
                      ->getCurrentGun()
                      ->fullAmmo()) {
                 reloading_ = true;
-                (dynamic_cast<ReloadEC*>(father_->getComponent("ReloadEC")))
+                (reinterpret_cast<ReloadEC*>(father_->getComponent("ReloadEC")))
                     ->starToReload();
             }
         }

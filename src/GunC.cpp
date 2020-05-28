@@ -173,7 +173,7 @@ void GunC::setInstakill(bool instakill) { instantKill_ = instakill; }
 void GunC::setTransform(TransformComponent* trans) { myTransform_ = trans; }
 
 void GunC::setSoundManager() {
-    soundManager_ = dynamic_cast<SoundComponent*>(
+    soundManager_ = reinterpret_cast<SoundComponent*>(
         scene_->getEntityById("GameManager")->getComponent("SoundComponent"));
 }
 
