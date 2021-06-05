@@ -12,7 +12,7 @@ jobs:
       - name: Checkout Project
         uses: actions/checkout@v2
         with:
-          submodules: "true"
+          submodules: "recursive"
       - name: Build Project
         run: pwsh -File ./scripts/build.ps1 -Configuration Release
         shell: pwsh
