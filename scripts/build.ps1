@@ -22,9 +22,7 @@ If ($Clean)
 
 if ($BuildDependencies)
 {
-	$local:RootDirectory = Split-Path $PSScriptRoot -Parent
-	$local:OutputDirectory = Join-Path -Path $RootDirectory -ChildPath "bin"
-	& "$RootDirectory/deps/one-thousand-years/scripts/build.ps1" -Configuration $Configuration -OutputDirectory $OutputDirectory
+	& "$PSScriptRoot/build-dependencies.ps1" -Configuration $Configuration
 }
 
 if ($BuildProject)
