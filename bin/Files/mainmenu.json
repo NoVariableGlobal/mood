@@ -41,7 +41,7 @@
         {
           "type": "ChangeSceneButtonComponent",
           "attributes": {
-            "text": "Play",
+            "text": "PLAY",
             "position": [ 0.46, 0.57 ],
             "size": [ 150.0, 50.0 ],
             "name": "MainMenuPlay",
@@ -56,7 +56,7 @@
         {
           "type": "ChangeSceneButtonComponent",
           "attributes": {
-            "text": "Ranking",
+            "text": "RANKING",
             "position": [ 0.46, 0.67 ],
             "size": [ 150.0, 50.0 ],
             "name": "MainMenuRanking",
@@ -71,7 +71,7 @@
         {
           "type": "ChangeSceneButtonComponent",
           "attributes": {
-            "text": "Options",
+            "text": "OPTIONS",
             "position": [ 0.55, 0.67 ],
             "size": [ 150.0, 50.0 ],
             "name": "MainMenuOptions",
@@ -86,7 +86,7 @@
         {
           "type": "ChangeSceneButtonComponent",
           "attributes": {
-            "text": "Controls",
+            "text": "CONTROLS",
             "position": [ 0.37, 0.67 ],
             "size": [ 150.0, 50.0 ],
             "name": "MainMenuControls",
@@ -101,7 +101,7 @@
         {
           "type": "QuitButtonComponent",
           "attributes": {
-            "text": "Quit",
+            "text": "QUIT",
             "position": [ 0.46, 0.8 ],
             "size": [ 150.0, 50.0 ],
             "name": "MainMenuQuit"

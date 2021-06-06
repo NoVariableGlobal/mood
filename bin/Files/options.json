@@ -63,7 +63,7 @@
 		    {
           "type": "ChangeSceneButtonComponent",
           "attributes": {
-            "text": "Return",
+            "text": "RETURN",
             "position": [ 0.575, 0.938 ],
             "size": [ 120.0, 40.0 ],
             "name": "OptionsReturn",
@@ -78,7 +78,7 @@
         {
           "type":"GuiLabelComponent",
           "attributes": {
-            "text": "Brightness",
+            "text": "BRIGHTNESS",
             "position": [ 0.474, 0.35 ],
             "size": [ 110.0, 50.0 ],
             "name": "BrightnessName"
@@ -92,7 +92,7 @@
         {
           "type":"GuiLabelComponent",
           "attributes": {
-            "text": "Volume",
+            "text": "VOLUME",
             "position": [ 0.48, 0.5 ],
             "size": [ 100.0, 50.0 ],
             "name": "VolumeName"
@@ -110,7 +110,7 @@
         {
           "type": "GuiLabelComponent",
           "attributes": {
-            "text": "",
+            "text": "BR_METER",
             "position": [ 0.485, 0.4 ],
             "size": [ 100.0, 50.0 ],
             "name": "BrightnessMeter"
@@ -142,7 +142,7 @@
         {
           "type": "GuiLabelComponent",
           "attributes": {
-            "text": "",
+            "text": "VL_METER",
             "position": [ 0.485, 0.55 ],
             "size": [ 100.0, 50.0 ],
             "name": "VolumeMeter"

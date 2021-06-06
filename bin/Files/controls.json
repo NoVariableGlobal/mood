@@ -63,7 +63,7 @@
 		    {
           "type": "ChangeSceneButtonComponent",
           "attributes": {
-            "text": "Return",
+            "text": "RETURN",
             "position": [ 0.575, 0.938 ],
             "size": [ 120.0, 40.0 ],
             "name": "OptionsReturn",
@@ -78,7 +78,7 @@
         {
           "type":"GuiLabelComponent",
           "attributes": {
-            "text": "Move",
+            "text": "MOVE",
             "position": [ 0.38, 0.3 ],
             "size": [ 200.0, 50.0 ],
             "name": "Move"
@@ -106,7 +106,7 @@
         {
           "type":"GuiLabelComponent",
           "attributes": {
-            "text": "Shot",
+            "text": "SHOOT",
             "position": [ 0.38, 0.375 ],
             "size": [ 200.0, 50.0 ],
             "name": "Shot"
@@ -162,7 +162,7 @@
         {
           "type":"GuiLabelComponent",
           "attributes": {
-            "text": "Pick Gun",
+            "text": "PICK_GUN",
             "position": [ 0.38, 0.525 ],
             "size": [ 200.0, 50.0 ],
             "name": "Pick Gun"
@@ -190,7 +190,7 @@
         {
           "type":"GuiLabelComponent",
           "attributes": {
-            "text": "Change Gun",
+            "text": "CHANGE_GUN",
             "position": [ 0.38, 0.6 ],
             "size": [ 200.0, 50.0 ],
             "name": "Change Gun"
@@ -218,7 +218,7 @@
         {
           "type":"GuiLabelComponent",
           "attributes": {
-            "text": "Recharge",
+            "text": "RECHARGE",
             "position": [ 0.38, 0.675 ],
             "size": [ 200.0, 50.0 ],
             "name": "Recharge"
@@ -246,7 +246,7 @@
         {
           "type":"GuiLabelComponent",
           "attributes": {
-            "text": "Go to the Main Menu",
+            "text": "EXIT",
             "position": [ 0.38, 0.75 ],
             "size": [ 200.0, 50.0 ],
             "name": "Exit"
