@@ -1,0 +1,34 @@
+# Generic
+EMPTY=""
+RANKING="Ranking"
+RETURN="Return"
+# Main Menu
+PLAY="Play"
+OPTIONS="Options"
+CONTROLS="Controls"
+QUIT="Quit"
+#Capture Player Name
+START="Start"
+TYPE_NAME="Type your name"
+# Controls
+MOVE="Move"
+SHOOT="Shoot"
+POINT="Point"
+PICK_GUN="Pick Gun"
+CHANGE_GUN="Change Gun"
+RECHARGE="Recharge"
+EXIT="Go to the Main Menu"
+# Dead Menu
+ROUNDS_SURVIVED="Rounds survived: "
+MAIN_MENU="Main Menu"
+# Mood
+LEAVING="Leaving..."
+#Initial Value: 1
+ROUND="Round 1"
+# Initial value: "20 / Unlimited"
+AMMO="20 / Unlimited"
+# Options
+BRIGHTNESS="Brightness"
+VOLUME="Volume"
+BR_METER=""
+VL_METER=""

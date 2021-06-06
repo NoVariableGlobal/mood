@@ -1,0 +1,2 @@
+NAME="Español"
+NUMERIC_SYSTEM="latn"

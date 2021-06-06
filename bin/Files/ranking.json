@@ -50,7 +50,7 @@
         {
           "type": "ChangeSceneButtonComponent",
           "attributes": {
-            "text": "Return",
+            "text": "RETURN",
             "position": [ 0.1, 0.9 ],
             "size": [ 120.0, 40.0 ],
             "name": "RankingReturn",

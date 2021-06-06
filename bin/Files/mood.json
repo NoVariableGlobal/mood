@@ -7,7 +7,7 @@
         {
           "type": "GuiLabelComponent",
           "attributes": {
-            "text": "Leaving...",
+            "text": "LEAVING",
             "position": [ 0.01, 0.95 ],
             "size": [ 200.0, 50.0 ],
             "name": "Leaving Game"
@@ -655,7 +655,7 @@
         {
           "type": "GuiLabelComponent",
           "attributes": {
-            "text": "Round 1",
+            "text": "ROUND",
             "position": [ 0.9, 0.003 ],
             "size": [ 200.0, 50.0 ],
             "name": "RoundText"
@@ -679,7 +679,7 @@
         {
           "type": "GuiLabelComponent",
           "attributes": {
-            "text": "20 / Unlimited",
+            "text": "AMMO",
             "position": [ 0.875, 0.96 ],
             "size": [ 200.0, 50.0 ],
             "name": "AmmoText"

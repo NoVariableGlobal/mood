@@ -184,6 +184,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <ExternalIncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)deps\one-thousand-years\deps\drakhtar-i18n\include;</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -193,9 +194,11 @@
     <TargetName>$(ProjectName)_d</TargetName>
     <IntDir>$(SolutionDir).temp\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <IncludePath>$(SolutionDir)src\$(ProjectName);$(IncludePath)</IncludePath>
+    <ExternalIncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)deps\one-thousand-years\deps\drakhtar-i18n\include;</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <ExternalIncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)deps\one-thousand-years\deps\drakhtar-i18n\include;</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -204,6 +207,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <IntDir>$(SolutionDir).temp\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <IncludePath>$(SolutionDir)src\$(ProjectName);$(IncludePath)</IncludePath>
+    <ExternalIncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)deps\one-thousand-years\deps\drakhtar-i18n\include;</ExternalIncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -211,8 +215,9 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -225,9 +230,10 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)deps\one-thousand-years\src;$(SolutionDir)deps\one-thousand-years\deps\jsoncpp\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\OgreMain\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\Build\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\Components\RTShaderSystem\include;$(SolutionDir)deps\one-thousand-years\deps\bullet\src;$(SolutionDir)deps\one-thousand-years\deps\ogre\PlugIns\ParticleFX\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\PlugIns\STBICodec\include;$(SolutionDir)deps\one-thousand-years\deps\fmod\include;$(SolutionDir)deps\one-thousand-years\deps\SDL2\include;$(SolutionDir)deps\one-thousand-years\deps\jsoncpp\include\json;$(SolutionDir)deps\one-thousand-years\deps\cegui-dependencies\build\dependencies\include;$(SolutionDir)deps\one-thousand-years\deps\cegui\cegui\include;$(SolutionDir)deps\one-thousand-years\deps\cegui\build\cegui\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -244,8 +250,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -262,9 +269,10 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)deps\one-thousand-years\src;$(SolutionDir)deps\one-thousand-years\deps\jsoncpp\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\OgreMain\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\Build\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\Components\RTShaderSystem\include;$(SolutionDir)deps\one-thousand-years\deps\bullet\src;$(SolutionDir)deps\one-thousand-years\deps\ogre\PlugIns\ParticleFX\include;$(SolutionDir)deps\one-thousand-years\deps\ogre\PlugIns\STBICodec\include;$(SolutionDir)deps\one-thousand-years\deps\fmod\include;$(SolutionDir)deps\one-thousand-years\deps\SDL2\include;$(SolutionDir)deps\one-thousand-years\deps\jsoncpp\include\json;$(SolutionDir)deps\one-thousand-years\deps\cegui-dependencies\build\dependencies\include;$(SolutionDir)deps\one-thousand-years\deps\cegui\cegui\include;$(SolutionDir)deps\one-thousand-years\deps\cegui\build\cegui\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

@@ -7,7 +7,7 @@
         {
           "type": "GuiLabelComponent",
           "attributes": {
-            "text": "",
+            "text": "EMPTY",
             "position": [ 0.45, 0.47 ],
             "size": [ 300.0, 50.0 ],
             "name": "RankingTitle"
@@ -16,7 +16,7 @@
         {
           "type": "ChangeSceneButtonComponent",
           "attributes": {
-            "text": "Start",
+            "text": "START",
             "position": [ 0.465, 0.8 ],
             "size": [ 120.0, 40.0 ],
             "name": "MainMenuPlay",
@@ -53,7 +53,7 @@
         {
           "type": "GuiLabelComponent",
           "attributes": {
-            "text": "Type your name",
+            "text": "TYPE_NAME",
             "position": [ 0.455, 0.3 ],
             "size": [ 300.0, 50.0 ],
             "name": "insetText"

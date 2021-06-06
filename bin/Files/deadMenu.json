@@ -27,7 +27,7 @@
         {
           "type": "GuiLabelComponent",
           "attributes": {
-            "text": "Rounds survived: ",
+            "text": "ROUNDS_SURVIVED",
             "position": [ 0.47, 0.48 ],
             "size": [ 200.0, 50.0 ],
             "name": "RoundsTitle"
@@ -54,7 +54,7 @@
         {
           "type": "ChangeAndClearSceneButtonComponent",
           "attributes": {
-            "text": "Ranking",
+            "text": "RANKING",
             "position": [ 0.37, 0.75 ],
             "size": [ 180.0, 40.0 ],
             "name": "DeadMenuRanking",
@@ -69,7 +69,7 @@
         {
           "type": "ChangeAndClearSceneButtonComponent",
           "attributes": {
-            "text": "Main Menu",
+            "text": "MAIN_MENU",
             "position": [ 0.60, 0.75 ],
             "size": [ 180.0, 40.0 ],
             "name": "ToMainMenu",
