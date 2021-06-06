@@ -24,11 +24,11 @@ MAIN_MENU="Main Menu"
 # Mood
 LEAVING="Leaving..."
 #Initial Value: 1
-ROUND="Round {0u8}"
+ROUND="Round 1"
 # Initial value: "20 / Unlimited"
-AMMO="{0u8} / {1}"
+AMMO="20 / Unlimited"
 # Options
 BRIGHTNESS="Brightness"
 VOLUME="Volume"
-BR_METER="{0u8}%"
-VL_METER"{0u8}%"
+BR_METER=""
+VL_METER=""
