@@ -9,22 +9,22 @@ jobs:
     name: artifact
     runs-on: windows-latest
     steps:
-    - name: Checkout Project
-      uses: actions/checkout@v2
-      with:
-        submodules: true
-    - name: Build Project
-      run: pwsh -File .\scripts\build.ps1 -NRelease
-      shell: pwsh
-    - name: Create Artifact
-      run: pwsh -File .\release.ps1
-      shell: pwsh
-      env:
-        RELEASE_OS: ${{ runner.os }}
-        RELEASE_NAME: ${{ github.event.release.name }}
-    - name: Upload Artifact
-      uses: icrawl/action-artifact@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        path: '.release/*.zip'
+      - name: Checkout Project
+        uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+      - name: Build Project
+        run: pwsh -File ./scripts/build.ps1 -Configuration Release
+        shell: pwsh
+      - name: Create Artifact
+        run: pwsh -File ./release.ps1
+        shell: pwsh
+        env:
+          RELEASE_OS: ${{ runner.os }}
+          RELEASE_NAME: ${{ github.event.release.name }}
+      - name: Upload Artifact
+        uses: icrawl/action-artifact@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          path: ".release/*.zip"
